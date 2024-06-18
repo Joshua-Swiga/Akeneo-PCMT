@@ -1,0 +1,22 @@
+[providers.docker]
+    endpoint = "unix:///var/run/docker.sock"
+    exposedByDefault = false
+
+[api]
+    dashboard = false
+    insecure = false
+
+[entryPoints]
+    [entryPoints.web]
+        address = ":80"
+    [entryPoints.websecure]
+        address = ":443"
+
+[certificatesResolvers.le.acme]
+    email = "pcmt2@villagereach.org"
+    storage = "/tmp/certs/acme.json"
+    [certificatesResolvers.le.acme.httpChallenge]
+        entryPoint = "web"
+
+[log]
+    level = "INFO"

@@ -1,0 +1,12 @@
+config:
+    paths:
+        pcmt/permissions/attribute_group/multi-select-async: pcmtpermissions/js/form/attribute_group/multi-select-async
+        pcmt/permissions/attribute_group/permissions: pcmtpermissions/js/form/attribute_group/permissions
+        pcmt/permissions/attribute_group/template: pcmtpermissions/templates/attribute_group/permissions.html
+
+        pcmt/permissions/permissions : pcmtpermissions/js/form/permissions # form
+        pcmt/permissions/template: pcmtpermissions/templates/multiselect.html #form template
+
+        oro/datagrid/delete-action: pcmtpermissions/js/datagrid/action/delete-action
+        oro/datagrid/action-cell: pcmtpermissions/js/datagrid/cell/action-cell
+

@@ -1,0 +1,8 @@
+parameters:
+    doctrine_migrations_dir: '%kernel.project_dir%/src/PcmtCoreBundle/upgrades/schema'
+
+doctrine_migrations:
+    dir_name: '%doctrine_migrations_dir%'
+    namespace: PcmtCoreBundle\Upgrade\Schema
+    name: PCMT Migrations
+    table_name: pcmt_migration_versions

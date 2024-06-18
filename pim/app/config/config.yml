@@ -1,0 +1,152 @@
+################################################################################
+# Copyright (c) 2013, Akeneo SAS
+# Copyright (c) 2019, VillageReach
+# Licensed under the Open Software License version 3.0 AND Non-Profit Open
+# Software License version 3.0.
+# SPDX-License-Identifier: NPOSL-3.0 AND OSL-3.0
+################################################################################
+
+imports:
+    - { resource: '../../vendor/akeneo/pim-community-dev/src/Akeneo/Platform/config/pim.yml' }
+    - { resource: pim_parameters.yml }
+    - { resource: parameters.yml }
+    - { resource: security.yml }
+    - { resource: migrations.yml }
+    - { resource: parameters.php }
+
+framework:
+    translator:      { fallback: en_US }
+    secret:          "%secret%"
+    router:
+        resource: "%kernel.root_dir%/config/routing.yml"
+        strict_requirements: "%kernel.debug%"
+    form:            true
+    csrf_protection: true
+    validation:
+        enable_annotations: true
+        enabled: true
+    templating:      { engines: ['twig', 'php'] } #assets_version: SomeVersionScheme
+    default_locale:  "%locale%"
+    session:
+        name:                 BAPID
+        handler_id:           session.handler.pdo
+        gc_maxlifetime:       3600
+    fragments:
+        enabled:              true
+        path:                 /_fragment # used for controller action in template
+    serializer:
+        enabled:              true
+    http_method_override: true
+    assets:
+        packages:
+            frontend:
+                version_strategy: pim_enrich.version_strategy
+
+# Twig Configuration
+twig:
+    debug:            "%kernel.debug%"
+    strict_variables: "%kernel.debug%"
+    globals:
+        uservoice_key: "%uservoice_key%"
+
+# Swiftmailer Configuration
+swiftmailer:
+    transport:                "%mailer_transport%"
+    host:                     "%mailer_host%"
+    port:                     "%mailer_port%"
+    encryption:               "%mailer_encryption%"
+    username:                 "%mailer_user%"
+    password:                 "%mailer_password%"
+    spool:                    { type: memory }
+
+akeneo_pim_structure:
+    reference_data:
+        AdditionalTradeItemClassificationCodeListCode:
+            class: PcmtCoreBundle\Entity\ReferenceData\AdditionalTradeItemClassificationCodeListCode
+            type: simple
+        AdditionalTradeItemIdentificationTypeCode:
+            class: PcmtCoreBundle\Entity\ReferenceData\AdditionalTradeItemIdentificationTypeCode
+            type: simple
+        ColourCodeListCode:
+            class: PcmtCoreBundle\Entity\ReferenceData\ColourCodeListCode
+            type: simple
+        CountryCode:
+            class: PcmtCoreBundle\Entity\ReferenceData\CountryCode
+            type: simple
+        DataCarrierTypeCode:
+            class: PcmtCoreBundle\Entity\ReferenceData\DataCarrierTypeCode
+            type: simple
+        RouteAdministration:
+            class: PcmtCoreBundle\Entity\ReferenceData\RouteAdministration
+            type: simple
+        GDSNMeasurementUnitCode:
+            class: PcmtCoreBundle\Entity\ReferenceData\GDSNMeasurementUnitCode
+            type: simple
+        Gs1TradeItemIdentificationKeyCode:
+            class: PcmtCoreBundle\Entity\ReferenceData\Gs1TradeItemIdentificationKeyCode
+            type: simple
+        ImportClassificationTypeCode:
+            class: PcmtCoreBundle\Entity\ReferenceData\ImportClassificationTypeCode
+            type: simple
+        LanguageCode:
+            class: PcmtCoreBundle\Entity\ReferenceData\LanguageCode
+            type: simple
+        NonfoodIngredientOfConcernCode:
+            class: PcmtCoreBundle\Entity\ReferenceData\NonfoodIngredientOfConcernCode
+            type: simple
+        PackageTypeCode:
+            class: PcmtCoreBundle\Entity\ReferenceData\PackageTypeCode
+            type: simple
+        PlatformTypeCode:
+            class: PcmtCoreBundle\Entity\ReferenceData\PlatformTypeCode
+            type: simple
+        ReferencedFileTypeCode:
+            class: PcmtCoreBundle\Entity\ReferenceData\ReferencedFileTypeCode
+            type: simple
+        RegulationTypeCode:
+            class: PcmtCoreBundle\Entity\ReferenceData\RegulationTypeCode
+            type: simple
+        ShippingContainerTypeCode:
+            class: PcmtCoreBundle\Entity\ReferenceData\ShippingContainerTypeCode
+            type: simple
+        SizeCodeListCode:
+            class: PcmtCoreBundle\Entity\ReferenceData\SizeCodeListCode
+            type: simple
+        TemperatureQualifierCode:
+            class: PcmtCoreBundle\Entity\ReferenceData\TemperatureQualifierCode
+            type: simple
+        TradeItemUnitDescriptorCode:
+            class: PcmtCoreBundle\Entity\ReferenceData\TradeItemUnitDescriptorCode
+            type: simple
+
+parameters:
+    pim_ce_dev_src_folder_location: '%kernel.project_dir%/vendor/akeneo/pim-community-dev'
+    # to switch to standard Akeneo demo data, use the following line:
+    # installer_data: 'PimInstallerBundle:icecat_demo_dev'
+    e2Open_import_files_directory: '%kernel.project_dir%/src/PcmtCoreBundle/Resources/E2OpenImport/'
+    cis_file_source: 'RHSC'
+    cis_file_path: '%kernel.project_dir%/src/PcmtCISBundle/Resources/E2OpenCIS/'
+
+doctrine:
+    orm:
+        auto_generate_proxy_classes:  true # <- change to true
+        proxy_dir:            '%kernel.cache_dir%/doctrine/orm/Proxies'
+        proxy_namespace:      Proxies
+
+akeneo_storage_utils:
+    mapping_overrides:
+        -
+            original: Akeneo\Pim\Structure\Component\Model\Attribute
+            override: PcmtCoreBundle\Entity\Attribute
+        -
+            original: Akeneo\Pim\Structure\Component\Model\AttributeTranslation
+            override: PcmtCoreBundle\Entity\AttributeTranslation
+        -
+            original: Akeneo\Pim\Structure\Component\Model\AttributeOption
+            override: Flagbit\Bundle\TableAttributeBundle\Entity\AttributeOption
+        -
+            original: Akeneo\Pim\Structure\Component\Model\AttributeGroup
+            override: PcmtPermissionsBundle\Entity\AttributeGroupWithAccess
+        -
+            original: Akeneo\Pim\Enrichment\Component\Category\Model\Category
+            override: PcmtPermissionsBundle\Entity\CategoryWithAccess

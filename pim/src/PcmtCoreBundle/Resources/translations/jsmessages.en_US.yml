@@ -1,0 +1,341 @@
+# Job labels
+batch_jobs:
+    pcmt_e2open_export:
+        validation.label: Validation
+        label: Pcmt e2open export
+        export.label: Pcmt e2open export
+
+    default_steps:
+        hash_first_cell: Hash first cell
+        process: Process
+        reference_data_xml_download: Reference data xml download
+        pcmt_e2open_import: PCMT E2Open/GDSN Import step
+
+    pcmt_mst_supplier_export:
+        validation.label: Validation
+        label: Pcmt mst supplier export
+        export.label: Pcmt mst supplier export
+
+    reference_data_import_xml:
+        validation.label: Validation
+        label: Pcmt Reference data xml import
+        import.label: Pcmt Reference data xml import
+
+    reference_data_download_xmls:
+        validation.label: Validation
+        label: Pcmt Reference data xml download
+        import.label: Pcmt Reference data xml download
+
+pim_enrich.entity.attribute:
+    property:
+        concat_attribute_member_select:
+            label: Attribute
+            choose: choose attribute
+        concat_attribute_separator_select:
+            label: Separator
+            choose: write separator
+        type:
+            pcmt_catalog_concatenated: Concatenated Attributes
+
+pim_measure:
+    families:
+        GDSN_Unit_Of_Measure: GDSN_Unit_Of_Measure
+    units:
+        KILOGRAM FORCE: Kilogram Force
+        KILONEWTON: Kilonewton
+        MILLIMETRE PER SECOND: Millimetre Per Second
+        HUNDREDTHS OF AN INCH: Hundredths of an Inch
+        COUNT: Count
+        GRAMS PER CUBIC CENTIMETRE: Grams Per Cubic Centimetre
+        KILOGRAM PER SQUARE METRE: Kilogram per square metre
+        CUBIC FOOT PER MINUTE: Cubic Foot Per Minute
+        CENTIMETRE PER SECOND: Centimetre Per Second
+        DECIBEL: Decibel
+        KILOBYTE: Kilobyte
+        KILO BECQUEREL: Kilo Becquerel
+        METRE PER MINUTE: Metre Per Minute
+        MICROLITRE: Microlitre
+        MICROMETRE: Micrometre
+        MEGABYTE: Megabyte
+        MEGABECQUEREL: Megabecquerel
+        NET KILOGRAM: Net kilogram
+        PART PER MILLION: Part per million
+        BATCH: Batch
+        POUND PER SQUARE INCH - GAUGE: Pound per square inch - Gauge
+        POUND PER SQUARE INCH - ABSOLUTE: Pound per square inch - Absolute
+        ANGSTROM: Angstrom
+        CANDELA PER SQUARE METRE: Candela per Square Metre
+        DEADWEIGHT TONNAGE: Deadweight Tonnage
+        FEMTOMETRE: Femtometre
+        GIGAHERTZ: Gigahertz
+        BYTE: Byte
+        AMPERE HOUR: Ampere Hour
+        AMPERE: Ampere
+        YEAR: Year
+        TROY OUNCE OR APOTHECARY OUNCE: Troy ounce or apothecary ounce
+        ASSORTMENT: Assortment
+        STANDARD ATMOSPHERE: Standard Atmosphere
+        TECHNICAL ATMOSPHERE: Technical Atmosphere
+        GAUGE: Gauge
+        ANTI XA UNIT: Anti XA Unit
+        BIT PER SECOND: Bit per second
+        LUMENS PER SQUARE METER: Lumens per Square Meter
+        LUMENS PER WATT: Lumens Per Watt
+        LUMEN SECONDS: Lumen Seconds
+        LUX SECONDS: Lux Seconds
+        BAR (UNIT OF PRESSURE): Bar (unit of pressure)
+        BASE BOX: Base box
+        BOARD FOOT: Board Foot
+        BARREL US: Barrel US
+        HUNDRED BOARD FOOT: Hundred board foot
+        BEATS PER MINUTE: Beats Per Minute
+        BECQUEREL: Becquerel
+        BRITISH THERMAL UNIT: British thermal unit
+        BUSHEL (US): Bushel (US)
+        BUSHEL (UK): Bushel (UK)
+        MILLIMOLE: Millimole
+        MILLISECOND: Millisecond
+        MOLE: Mole
+        NANOMETRE: Nanometre
+        PICOMETRE: Picometre
+        PICOWATT: Picowatt
+        DEGREE CELSIUS: Degree Celsius
+        COLONY FORMING UNITS: Colony Forming Units
+        CARD: Card
+        CENTIGRAM: Centigram
+        CENTILITRE: Centilitre
+        SQUARE CENTIMETRE: Square centimetre
+        CUBIC CENTIMETRE: Cubic centimetre
+        CENTIMETRE: Centimetre
+        METRIC CARAT: Metric Carat
+        HUNDRED POUND (CWT) / HUNDRED WEIGHT (US): Hundred pound (cwt) / hundred weight (US)
+        HUNDRED WEIGHT (UK): Hundred weight (UK)
+        KILOWATT / HOUR: Kilowatt / hour
+        SQUARE METRE KELVIN PER WATT: Square metre kelvin per watt
+        TERAHERTZ: Terahertz
+        TERAJOULE: Terajoule
+        TERAWATT HOUR: Terawatt hour
+        THOUSAND LITRE: Thousand Litre
+        ATOMIC MASS UNITS (AMU): Atomic Mass Units (AMU)
+        KILOGRAM PER SQUARE CENTIMETRE: Kilogram per square centimetre
+        HEAT TRANSFER COEFFICIENT: Heat Transfer Coefficient
+        BOOK: Book
+        CALORIE - INTERNATIONAL TABLE (IT): Calorie - International Table (IT)
+        CALORIE _ INTERNATIONAL TABLE (IT): Calorie - International Table (IT)
+        POUND PER SQUARE INCH _ GAUGE: Pound per square inch - Gauge
+        POUND PER SQUARE INCH _ ABSOLUTE: Pound per square inch - Absolute
+        DAYS: Days
+        DEGREE (UNIT OF ANGEL): Degree (Unit of Angel)
+        DECIGRAM: Decigram
+        DECILITRE: Decilitre
+        SQUARE DECIMETRE: Square decimetre
+        CUBIC DECIMETRE: Cubic decimetre
+        DECIMETRE: Decimetre
+        DRAM (US): Dram (US)
+        DRAM (UK): Dram (UK)
+        DOZEN: Dozen
+        MILLIAMPERE HOUR: Milliampere hour
+        KILOCALORIE (INTERNATIONAL TABLE): Kilocalorie (international table)
+        DOSE: Dose
+        LITRE PER HOUR: Litre Per Hour
+        GIGABYTE: Gigabyte
+        TERABYTE: Terabyte
+        PIXEL: Pixel
+        DOTS PER INCH: Dots per inch
+        GROSS KILOGRAM: Gross kilogram
+        USE: Use
+        EACH: Each
+        ELISA UNITS: ELISA Units
+        GRAM PER HOUR: Gram Per Hour
+        DEGREE FAHRENHEIT: Degree Fahrenheit
+        MICROMOLE: Micromole
+        SIZING FACTOR: Sizing Factor
+        FOOT: Foot
+        POUND PER SQUARE FOOT: Pound per square foot
+        FOOT PER MINUTE: Foot Per Minute
+        FOOT PER SECOND: Foot Per Second
+        SQUARE FOOT: Square foot
+        CUBIC FOOT: Cubic foot
+        US GALLON PER MINUTE: US Gallon Per Minute
+        CUP (US): Cup (US)
+        PECK: Peck
+        TABLESPOON: Tablespoon
+        TEASPOON: Teaspoon
+        STERE: Stere
+        GIGABECQUEREL: Gigabecquerel
+        GRAM OF FISSILE ISOTOPE: Gram of Fissile Isotope
+        GRAM PER LITRE: Gram Per Litre
+        GALLON (UK): Gallon (UK)
+        GALLON (US): Gallon (US)
+        GRAM PER SQUARE METRE: Gram per square metre
+        GRAM: Gram
+        GRAIN: Grain
+        GROSS: Gross
+        GIGAWATT HOUR: Gigawatt hour
+        CENTIMETRE PER HOUR: Centimetre Per Hour
+        MILLIMETRE PER HOUR: Millimetre Per Hour
+        FRENCH GAUGE: French gauge
+        MILLIMETRE PER MINUTE: Millimetre Per Minute
+        PIECE: Piece
+        HUNDRED COUNT: Hundred count
+        HALF DOZEN: Half dozen
+        HISTAMINE EQUIVALENT PRICK: Histamine Equivalent Prick
+        HECTOGRAM: Hectogram
+        HECTOLITRE: Hectolitre
+        MILE PER HOUR (STATUTE MILE): Mile Per Hour (statute mile)
+        HERTZ: Hertz
+        HOUR: Hour
+        INCHES: Inches
+        SQUARE INCH: Square inch
+        CUBIC INCH: Cubic inch
+        INCH PER SECOND: Inch Per Second
+        JOULE: Joule
+        FOOT PER HOUR: Foot Per Hour
+        GALLON (US LIQUID) PER SECOND: Gallon (US liquid) Per Second
+        HORSEPOWER: Horsepower
+        KILOLITRE: Kilolitre
+        KILOGRAM DRAINED NET WEIGHT: Kilogram drained net weight
+        KELVIN: Kelvin
+        KILOGRAM: Kilogram
+        KILOGRAM OF HYDROGEN PEROXIDE: Kilogram of hydrogen peroxide
+        KILOHERTZ: Kilohertz
+        KALLIKREIN INACTIVATOR UNIT.: Kallikrein inactivator unit.
+        KILOJOULE: Kilojoule
+        KILOGRAM OF METHYLAMINE: Kilogram of methylamine
+        KILOMETRE PER HOUR: Kilometre Per Hour
+        KILOMETRE: Kilometre
+        KILOGRAM OF NITROGEN: Kilogram of nitrogen
+        KILONEWTON PER SQUARE METRE: Kilonewton Per Square Metre
+        KNOT: Knot
+        THE MILLIEQUIVALENCE CAUSTIC POTASH PER GRAM OF PRODUCT: The milliequivalence caustic potash per gram of product
+        KILOPASCAL: Kilopascal
+        KILOGRAM OF POTASSIUM HYDROXIDE (CAUSTIC POTASH): Kilogram of potassium hydroxide (caustic potash)
+        KILOGRAM OF POTASSIUM OXIDE: Kilogram of potassium oxide
+        KILOGRAM OF PHOSPHORUS PENTOXIDE (PHOSPHORIC ANHYDRIDE): Kilogram of phosphorus pentoxide (phosphoric anhydride)
+        KILOGRAM OF SUBSTANCE 90% DRY: Kilogram of substance 90% dry
+        KILOGRAM OF SODIUM HYDROXIDE (CAUSTIC SODA): Kilogram of sodium hydroxide (caustic soda)
+        KIT: Kit
+        KILOGRAM OF URANIUM: Kilogram of Uranium
+        KILOWATT HOUR: Kilowatt hour
+        KILOWATT: Kilowatt
+        POUND: Pound
+        LITRE / DAY: Litre / Day
+        LINEAR FOOT: Linear foot
+        LINK: Link
+        LINEAR METRE: Linear metre
+        LITRE OF PURE ALCOHOL: Litre of pure alcohol
+        LAYER: Layer
+        TON (UK) OR LONG TON (US): Ton (UK) or long ton (US)
+        LITRE: Litre
+        LUMEN: Lumen
+        LUX: Lux
+        MILE PER MINUTE: Mile Per Minute
+        MILE PER SECOND: Mile Per Second
+        METRE PER HOUR: Metre Per Hour
+        KILOMETRE PER SECOND: Kilometre Per Second
+        INCH PER MINUTE: Inch Per Minute
+        YARD PER SECOND: Yard Per Second
+        YARD PER MINUTE: Yard Per Minute
+        YARD PER HOUR: Yard Per Hour
+        MEGAWATT: Megawatt
+        MILLIBAR: Millibar
+        MICROGRAM: Microgram
+        MILLIEQUIVALENTS: Milliequivalents
+        MILLIGRAM: Milligram
+        MEGAHERTZ: Megahertz
+        SQUARE MILE: Square mile
+        MINUTE (UNIT OF TIME): Minute (unit of time)
+        MILLION INTERNATIONAL UNIT (NIE): Million International Unit (NIE)
+        MILLILITRE: Millilitre
+        SQUARE MILLIMETRE: Square millimetre
+        CUBIC MILLIMETRE: Cubic millimetre
+        MILLIMETRE: Millimetre
+        MONTH: Month
+        MOST PROBABLE NUMBER: Most Probable Number
+        CUBIC METRE PER HOUR: Cubic Metre Per Hour
+        SQUARE METRE: Square metre
+        CUBIC METRE: Cubic metre
+        METRE: Metre
+        METRE PER SECOND: Metre Per Second
+        MEGAWATT HOUR (1000 KW.H): Megawatt hour (1000 kW.h)
+        MILLIGRAM PER KILOGRAM (MG/KG): Milligram per Kilogram (mg/kg)
+        NUMBER OF CELLS: Number of cells
+        NEWTON: Newton
+        NUMBER OF INTERNATIONAL UNITS: Number of International Units
+        NUMBER OF PAIRS: Number of pairs
+        NEWTON METRE: Newton Metre
+        OHM: Ohm
+        OUNCES PER SQUARE YARD: Ounces per square yard
+        OUNCE: Ounce
+        OSCILLATIONS PER MINUTE: Oscillations Per Minute
+        FLUID OUNCE (US): Fluid ounce (US)
+        FLUID OUNCE (UK): Fluid ounce (UK)
+        PERCENT: Percent
+        PASCAL: Pascal
+        PAD: Pad
+        PLAQUE FORMING UNIT(S): Plaque Forming unit(s)
+        POINT: Point
+        PAIR: Pair
+        POTENTIAL RENAL SOLUTE LOAD: Potential Renal Solute Load
+        POUND-FORCE PER SQUARE INCH: Pound-force per square inch
+        DRY PINT (US): Dry Pint (US)
+        PINT (UK): Pint (UK)
+        LIQUID PINT (US): Liquid pint (US)
+        PORTION: Portion
+        PH (POTENTIAL OF HYDROGEN): pH (potential of Hydrogen)
+        FEMTOLITRE: Femtolitre
+        PICOLITRE:  Picolitre
+        NANOLITRE: Nanolitre
+        PAGE - HARDCOPY: Page - hardcopy
+        QUART (US DRY): Quart (US dry)
+        LIQUID QUART (US): Liquid quart (US)
+        THOUSAND CUBIC METRE: Thousand cubic metre
+        REVOLUTIONS PER MINUTE: Revolutions Per Minute
+        SQUARE METRE / SECOND: Square Metre / Second
+        SECOND (UNIT OF TIME): Second (unit of time)
+        SET: Set
+        MILE (STATUTE MILE): Mile (statute mile)
+        SQ-E: SQ-E
+        TON (US) OR SHORT TON (UK): Ton (US) or short ton (UK)
+        SHIPMENT: Shipment
+        THOUSAND PIECE: Thousand piece
+        TONNE: Tonne
+        TEETH PER INCH: Teeth Per Inch
+        TABLET: Tablet
+        TORR: Torr
+        VOLT: Volt
+        WEEK: Week
+        WATT HOUR: Watt hour
+        WATT: Watt
+        COLD CRAMP AMP: Cold Cramp Amp
+        COLONY FORMING UNITS PER GRAM (CFU/G): Colony Forming Units per gram (CFU/g)\n
+        COLONY FORMING UNITS PER POUND (CFU/LB): Colony Forming Units per Pound (CFU/lb)
+        CENTISIMAL HAHNEMANNIAN DILUTION (CH): Centisimal Hahnemannian Dilution (CH)
+        DECIBAR: Decibar
+        PENNY WEIGHT: Penny Weight
+        INTERNATIONAL UNITS PER KILOGRAM (IU/KG): International Units per Kilogram (IU/kg)
+        KORSAKOVIAN (K): Korsakovian (K)
+        MILLESIMAI (LM): Millesimai (LM)
+        MILES PER GALLON: Miles Per Gallon
+        MOTHER TINCTURE (DRY MATERIAL): Mother tincture (Dry material)
+        NANOGRAM: Nanogram
+        PIXEL PER CENTIMETRE: Pixel per centimetre
+        PIXEL PER INCH: Pixel per inch
+        RETINOL ACTIVITY EQUIVALENTS: Retinol Activity Equivalents
+        THIRTY SECONDS OF AN INCH: Thirty Seconds of an Inch
+        SAMPLE PER SECOND: Sample per second
+        TEN THOUSANDTHS OF AN INCH: Ten Thousandths of an Inch
+        RETINOL EQUIVALENT (RE): Retinol Equivalent (RE)
+        ROLL: Roll
+        SHEET: Sheet
+        SQUARE YARD: Square Yard
+        YARD: Yard
+
+
+pcmt_simple_job:
+    form:
+        job_instance:
+            button:
+                job.switcher: Simple launch
+                job.launch: Launch now
+

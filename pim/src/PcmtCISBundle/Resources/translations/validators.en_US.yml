@@ -1,0 +1,5 @@
+pcmt:
+  cis:
+    create:
+      error:
+        not_valid_integer: "The value {{ value }} is not a valid {{ type }}."

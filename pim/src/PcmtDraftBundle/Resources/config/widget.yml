@@ -1,0 +1,14 @@
+######################################################################
+# Copyright (c) 2019, VillageReach
+# Licensed under the Non-Profit Open Software License version 3.0.
+# SPDX-License-Identifier: NPOSL-3.0
+######################################################################
+
+services:
+    pim_dashboard.widget.product_drafts_overview:
+        class: PcmtDraftBundle\Widget\DraftsWidget
+        arguments:
+            - '@pcmt_catalog.repository.draft'
+            - '@pim_internal_api_serializer'
+        tags:
+          - { name: pim_dashboard.widget, position: 40 }

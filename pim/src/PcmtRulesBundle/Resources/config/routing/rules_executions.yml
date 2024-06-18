@@ -1,0 +1,12 @@
+pcmt_rules_execution_index:
+  path: /
+
+pcmt_rules_execution_show:
+  path: /{id}
+  requirements:
+    id: \d+
+
+pim_importexport_rules_execution_show:
+  path: /{id}
+  requirements:
+    id: \d+

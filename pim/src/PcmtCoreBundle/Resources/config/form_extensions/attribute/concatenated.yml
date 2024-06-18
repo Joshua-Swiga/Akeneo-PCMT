@@ -1,0 +1,79 @@
+######################################################################
+# Copyright (c) 2019, VillageReach
+# Licensed under the Non-Profit Open Software License version 3.0.
+# SPDX-License-Identifier: NPOSL-3.0
+######################################################################
+
+extensions:
+    pcmt-attribute-form-concatenated:
+        module: pim/common/simple-view
+        config:
+            template: pim/template/common/drop-zone
+
+    pim-attribute-concatenated-form-properties-common-usable-as-grid-filter:
+        module: pim/form/common/fields/boolean
+        parent: pim-attribute-form-concatenated
+        targetZone: content
+        position: 70
+        config:
+            fieldName: useable_as_grid_filter
+            label: pim_enrich.entity.attribute.property.useable_as_grid_filter
+
+    pim-attribute-edit-form-concatenated-is-locale-specific:
+        module: pim/attribute-edit-form/properties/is-locale-specific
+        parent: pim-attribute-form-concatenated
+        targetZone: content
+        position: 80
+        config:
+            fieldName: is_locale_specific
+            label: pim_enrich.entity.attribute.property.is_locale_specific
+
+    pim-attribute-edit-form-concatenated-available-locales:
+        module: pim/attribute-edit-form/properties/available-locales
+        parent: pim-attribute-form-concatenated
+        targetZone: content
+        position: 90
+        config:
+            fieldName: available_locales
+            label: pim_enrich.entity.attribute.property.available_locales
+            isMultiple: true
+
+    ### new simple view, insert section header:
+    pim-attribute-form-concatenated-create-type-specific-params:
+        module: pim/common/simple-view
+        parent: pcmt-attribute-form-concatenated
+        targetZone: content
+        position: 100
+        config:
+            template: pim/template/form/tab/section
+            templateParams:
+                sectionTitle: pim_enrich.entity.attribute.module.edit.type_specific
+                dropZone: content
+
+    ### here I create simple view as another subform - container for selects and text fields
+    pcmt-attribute-form-concatenated-form-concatenated-attribute-container:
+        module: pim/common/simple-view
+        parent: pim-attribute-form-concatenated-create-type-specific-params  #to be changed if not works or renders in wrong place
+        targetZone: self
+        position: 110
+        config:
+            template: pim/template/common/form-container
+
+    ##the form content
+    pcmt-attribute-form-concatenated-form-concatenated-attribute:
+        module: pim/attribute-form-properties/concat-attribute-create
+        parent: pcmt-attribute-form-concatenated-form-concatenated-attribute-container
+        targetZone: form-container
+        position: 110
+        config:
+            fieldName: concatenated
+            labelAttribute: pim_enrich.entity.attribute.property.concat_attribute_member_select.label
+            labelSeparator: pim_enrich.entity.attribute.property.concat_attribute_separator_select.label
+
+
+attribute_fields:
+    pcmt_concatenated_attribute_text_field: pcmt/concatenated
+
+
+
+

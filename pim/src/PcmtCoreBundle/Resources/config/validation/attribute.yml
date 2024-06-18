@@ -1,0 +1,3 @@
+PcmtCoreBundle\Entity\Attribute:
+    constraints:
+        - Callback: [PcmtCoreBundle\Validator\AttributeValidator, validateConcatenated]

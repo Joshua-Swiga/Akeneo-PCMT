@@ -1,0 +1,303 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<codeList xsi:noNamespaceSchemaLocation="http://apps.gs1.org/GDD/Documents/GDDCodeListSchema.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <urn>urn:gs1:gdd:cl:MeasurementUnitCode_GDSN</urn>
+  <name></name>
+  <version>7</version>
+  <domain>gdsn</domain>
+  <code><value>B37</value><name>Kilogram Force</name><description>The gravitational force of a kilogram weight or a one-kilogram mass multiplied by the acceleration of standard Earth gravity, equal to 9.8 newtons.</description></code>
+  <code><value>B47</value><name>Kilonewton</name><description>1000 Newtons or amount needed to accelerate 1 kilogram of mass at the rate of 1 metre per second squared multiplied by 1000 (Used to measure force of an object where the value exceeds 1000 newtons).</description></code>
+  <code><value>C16</value><name>Millimetre Per Second</name><description>The number of millimetre per second the trade item or part of the trade item moves.</description></code>
+  <code><value>X_HIN</value><name>Hundredths of an Inch</name><description>One Hundredth of an inch or 0.01. (Usage- Measurements of Papers, Films, Circuit boards and the like)</description></code>
+  <code><value>1N</value><name>Count</name><description>Count</description></code>
+  <code><value>23</value><name>Grams Per Cubic Centimetre</name><description>Grams Per Cubic Centimetre</description></code>
+  <code><value>28</value><name>Kilogram per square metre</name><description>A unit of pressure equal to 9.80665*10-05 Bar</description></code>
+  <code><value>2L</value><name>Cubic Foot Per Minute</name><description>Cubic foot per minute</description></code>
+  <code><value>2M</value><name>Centimetre Per Second</name><description>The number of centimetre per second the trade item or part of the trade item moves.</description></code>
+  <code><value>2N</value><name>Decibel</name><description>A measurement for sound in air and other gases, relative to 20 micropascals (μPa) = 2×10−5 Pa, the quietest sound a human can hear. This is roughly the sound of a mosquito flying 3 metres away. This is often abbreviated to just "dB"; however the correct abbreviation is dB(SPL), indicating decibel for Sound Pressure Level.</description></code>
+  <code><value>2P</value><name>Kilobyte</name><description>A unit of information equal to 103 (1000) bytes.</description></code>
+  <code><value>2Q</value><name>Kilo Becquerel</name><description>kBq is 103 Bq</description></code>
+  <code><value>2X</value><name>Metre Per Minute</name><description>Metre Per Minute</description></code>
+  <code><value>4G</value><name>Microlitre</name><description>A microlitre is one millionth of a litre</description></code>
+  <code><value>4H</value><name>Micrometre</name><description>A micrometre is one millionth of a metre, also termed Micron.</description></code>
+  <code><value>4L</value><name>Megabyte</name><description>A unit of information equal to 10 (1000000) bytes.</description></code>
+  <code><value>4N</value><name>Megabecquerel</name><description>Megabecquerel: 106 Bq1 Bq is defined as the activity of a quantity of radioactive material in which one nucleus decays per second.</description></code>
+  <code><value>58</value><name>Net kilogram</name><description>A unit of mass defining the total number of kilograms after deductions.</description></code>
+  <code><value>59</value><name>Part per million</name><description>A unit of proportion equal to 10-6 (ppm).</description></code>
+  <code><value>5B</value><name>Batch</name><description>A unit of count defining the number of batches (batch: quantity of material produced in one operation or number of animals or persons coming at once).</description></code>
+  <code><value>64</value><name>Pound per square inch - Gauge</name><description>Psig (pound-force per square inch gauge) is a unit of pressure relative to the surrounding atmosphere. At sea level, Earth's atmosphere actually exerts a pressure of 14.7 psi. Humans do not feel this pressure because internal pressure of liquid in their bodies matches the external pressure. If a pressure gauge is calibrated to read zero in space, then at sea level on Earth it would read 14.7 psi. Thus a reading of 30 psig, on Earth, on a tire gauge represents an absolute pressure of 44.7 psi (lb/in2).</description></code>
+  <code><value>80</value><name>Pound per square inch - Absolute</name><description>Psia (pound-force per square inch absolute)is a unit of pressure pressure relative to a vacuum (such as that in space).At sea level, Earth's atmosphere actually exerts a pressure of 14.7 psi. Humans do not feel this pressure because internal pressure of liquid in their bodies matches the external pressure. If a pressure gauge is calibrated to read zero in space, then at sea level on Earth it would read 14.7 psi. Thus a reading of 30 psig, on Earth, on a tire gauge represents an absolute pressure of 44.7 psi (lb/in2).</description></code>
+  <code><value>A11</value><name>Angstrom</name><description>A unit of length equal to one hundred-millionth of a centimetre, 10–10 metre, used mainly to express wavelengths and interatomic distances.</description></code>
+  <code><value>A24</value><name>Candela per Square Metre</name><description>Candela per Square Metre</description></code>
+  <code><value>A43</value><name>Deadweight Tonnage</name><description>A unit of mass defining the difference between the weight of a ship when completely empty and its weight when completely loaded, expressed as the number of tons.</description></code>
+  <code><value>A71</value><name>Femtometre</name><description>Femtometre- a quadrillionth of a metre (10 to the negative 15th power)  </description></code>
+  <code><value>A86</value><name>Gigahertz</name><description>A unit of frenquecy equal to 109 Hertz</description></code>
+  <code><value>AD</value><name>Byte</name><description>A unit of information equal to 8 bits.</description></code>
+  <code><value>AMH</value><name>Ampere Hour</name><description>A unit of electric charge defining the amount of charge accumulated by a steady flow of one ampere for one hour.</description></code>
+  <code><value>AMP</value><name>Ampere</name><description>Ampere</description></code>
+  <code><value>ANN</value><name>Year</name><description>Unit of time equal to 365,25 days.</description></code>
+  <code><value>APZ</value><name>Troy ounce or apothecary ounce</name><description>The troy ounce is a unit of imperial measure. In the present day it is most commonly used to gauge the weight and therefore the price of precious metals. One troy ounce equals 480 grains or 31.1035 grams.</description></code>
+  <code><value>AS</value><name>Assortment</name><description>A unit of count defining the number of assortments (assortment: set of items grouped in a mixed collection).</description></code>
+  <code><value>ATM</value><name>Standard Atmosphere</name><description>Standard Atmosphere</description></code>
+  <code><value>ATT</value><name>Technical Atmosphere</name><description>Technical Atmosphere</description></code>
+  <code><value>AWG</value><name>Gauge</name><description>Gauge- A number referring to the outer diameter of hypodermic or suture needles. Smaller gauge numbers indicate larger outer diameters. Inner diameter depends on both gauge and wall thickness. An increasing needle-gauge size corresponds to a smaller diameter needle. This is contrary to French Gauge where an increasing gauge size corresponds to a larger external diameter.</description></code>
+  <code><value>AXU</value><name>Anti XA Unit</name><description>A unit of measure for blood potency. Units for the anti XA activity which is a measure to the anti coagulating effect at low molecular heparins.</description></code>
+  <code><value>B10</value><name>Bit per second</name><description>In telecommunications and computing, bitrate (sometimes written bit rate, data rate or as a variable R or fb) is the number of bits that are conveyed or processed per unit of time.The bit rate is quantified using the bits per second (bit/s or bps) unit.</description></code>
+  <code><value>B60</value><name>Lumens per Square Meter</name><description>Lumens per Square Meter</description></code>
+  <code><value>B61</value><name>Lumens Per Watt</name><description>The number of Lumens expressed per watt.</description></code>
+  <code><value>B62</value><name>Lumen Seconds</name><description>Lumen seconds is the SI derived unit of luminous energy. It is based on the lumen, the SI unit of luminous flux, and the second, the SI base unit of time.
+The lumen second is sometimes called the Talbot (symbol T). </description></code>
+  <code><value>B64</value><name>Lux Seconds</name><description>Exposure is measured in lux seconds, and can be computed from exposure value (EV) and scene luminance in a specified region.</description></code>
+  <code><value>BAR</value><name>Bar (unit of pressure)</name><description>The bar is widely used in descriptions of pressure; 1 bar = 100 kilopascals 0.987 atmospheres.</description></code>
+  <code><value>BB</value><name>Base box</name><description>A unit of area of 112 sheets of tin mil products (tin plate, tin free steel or black plate) 14 by 20 inches, or 31,360 square inches.</description></code>
+  <code><value>BFT</value><name>Board Foot</name><description>A specialized unit of measure for the volume of rough lumber (before drying and planing with no adjustments) or planed/surfaced lumber. It is the volume of a one-foot length of a board one foot wide and one inch thick. Some countries utilize the synonym super foot or superficial foot.</description></code>
+  <code><value>BLL</value><name>Barrel US</name><description>There are varying standards for barrel for some specific commodities, including 31 gal for beer, 40 gal for whiskey or kerosene, and 42 gal for petroleum. The general standard for liquids is 31.5 gal or half a hogshead; the general standard for dry contents is 7,056 Cubic Inches.</description></code>
+  <code><value>BP</value><name>Hundred board foot</name><description>A unit of volume equal to one hundred board foot.</description></code>
+  <code><value>BPM</value><name>Beats Per Minute</name><description>Beats Per Minute</description></code>
+  <code><value>BQL</value><name>Becquerel</name><description>The becquerel (symbol Bq) is the SI derived unit of radioactivity. One Bq is defined as the activity of a quantity of radioactive material in which one nucleus decays per second. SI uses the becquerel rather than the second for the unit of activity measure to avoid dangerous mistakes: a measurement in becquerels is proportional to activity, and thus a more dangerous source of radiation gives a higher reading. A measurement in seconds is inversely proportional.</description></code>
+  <code><value>BTU</value><name>British thermal unit</name><description>The British thermal unit (BTU or Btu) is a traditional unit of energy. It is approximately the amount of energy needed to heat one pound of water one degree Fahrenheit. One Btu is equal to about 1.06 kilojoules. It is used in the power, steam generation, heating and air conditioning industries.</description></code>
+  <code><value>BUA</value><name>Bushel (US)</name><description>A bushel is an imperial and U.S. customary unit of dry volume, equivalent in each of these systems to 4 pecks or 8 gallons. It is used for volumes of dry commodities (not liquids), most often in agriculture</description></code>
+  <code><value>BUI</value><name>Bushel (UK)</name><description>A bushel is an imperial and U.S. customary unit of dry volume, equivalent in each of these systems to 4 pecks or 8 gallons. It is used for volumes of dry commodities (not liquids), most often in agriculture</description></code>
+  <code><value>C18</value><name>Millimole</name><description>a millimole is one thousandth of a mole.</description></code>
+  <code><value>C26</value><name>Millisecond</name><description>A millisecond (from milli- and second; abbreviation: ms) is a thousandth (1/1000) of a second.</description></code>
+  <code><value>C34</value><name>Mole</name><description>The mole (symbol mol) is the SI base unit of amount of substance; one of a few units used to measure this physical quantity.A mole will possess mass exactly equal to the substance's molecular or atomic weight in grams. That is to say, a substance's atomic or molecular mass in atomic mass units is the same as its molar mass in grams. Because of this, one can measure the number of moles in a pure substance by weighing it and comparing the result to its molecular or atomic weight</description></code>
+  <code><value>C45</value><name>Nanometre</name><description>Nanometre- a billionth of a metre (10 to the negative 9th power) </description></code>
+  <code><value>C52</value><name>Picometre</name><description>Picometre- a trillionth of a metre (10 to the negative 12th power) </description></code>
+  <code><value>C75</value><name>Picowatt</name><description>Picowatt is a derived metric SI (System International) measurement unit of power.  The picowatt is equal to one trillionth of a watt (10-12W).
+</description></code>
+  <code><value>CEL</value><name>Degree Celsius</name><description>Celsius (also historically known as centigrade) is a temperature scale, the freezing point of water is 0 degrees Celsius (°C) and the boiling point 100 °C (at standard atmospheric pressure), placing the boiling and freezing points of water exactly 100 degrees apart.</description></code>
+  <code><value>CFU</value><name>Colony Forming Units </name><description>Colony Forming Units: is a rough estimate of the number of viable bacteria or fungal cells in a sample.</description></code>
+  <code><value>CG</value><name>Card</name><description>A unit of count defining the number of units of card (card: thick stiff paper or cardboard).</description></code>
+  <code><value>CGM</value><name>Centigram</name><description>A centigram is one hundredth (1/100) of a gram</description></code>
+  <code><value>CLT</value><name>Centilitre</name><description>A centilitre is one hundredth (1/100) of a litre</description></code>
+  <code><value>CMK</value><name>Square centimetre</name><description>A square centimetre is an area of a square whose sides are exactly 1 centimetre in length.</description></code>
+  <code><value>CMQ</value><name>Cubic centimetre</name><description>A cubic centimetre is the volume of a cube of side length one centimetre (0.01 m) equal to a millilitre.</description></code>
+  <code><value>CMT</value><name>Centimetre</name><description>A centimetre is equal to one hundredth of a metre.</description></code>
+  <code><value>CTM</value><name>Metric Carat</name><description>Metric Carat</description></code>
+  <code><value>CWA</value><name>Hundred pound (cwt) / hundred weight (US)</name><description>A unit of weight in the U.S. Customary System equal to 100 pounds (45.36 kilograms); also called cental.</description></code>
+  <code><value>CWI</value><name>Hundred weight (UK)</name><description>A unit of weight in the British Imperial System equal to 112 pounds (50.80 kilograms); also called quintal.</description></code>
+  <code><value>D03</value><name>Kilowatt / hour</name><description>A unit of accumulated energy of a thousand watts over a period of one hour.</description></code>
+  <code><value>D19</value><name>Square metre kelvin per watt</name><description>Square metre kelvin per watt .The definition is the thermal resistance (or Rd value) of the material, which is measured by the thickness of the material layer divided by the thermal conductivity of the material. and is expressed in m²K/W. </description></code>
+  <code><value>D29</value><name>Terahertz</name><description>A unit of frenquecy equal to 1012 Hertz</description></code>
+  <code><value>D30</value><name>Terajoule</name><description>A terajoule is 1012 joules</description></code>
+  <code><value>D32</value><name>Terawatt hour</name><description>A terawatt hour is 109 * kilowat hour or 3.6 petajoules.</description></code>
+  <code><value>D40</value><name>Thousand Litre</name><description>References SI system of units of measure</description></code>
+  <code><value>D43</value><name>Atomic Mass Units (AMU)</name><description>Atomic Mass Units</description></code>
+  <code><value>D5</value><name>Kilogram per square centimetre</name><description>A kilogram-force per square centimeter (kgf/cm2), often just kilogram per square centimeter (kg/cm2), or kilopond per square centimeter is a unit of pressure using metric units. Its use is now deprecated; it is not a part of the International System of Units (SI), the modern metric system. The unit is similar to the English unit psi (lbf/in2).</description></code>
+  <code><value>D55</value><name>Heat Transfer Coefficient </name><description>Heat Transfer Coefficient </description></code>
+  <code><value>D63</value><name>Book</name><description>A unit of count defining the number of books (book: set of items bound together or written document of a material whole).</description></code>
+  <code><value>D70</value><name>Calorie - International Table (IT)</name><description>A calorie is 1/100 of the amount of energy required to warm one gram of air-free water from 0 °C to 100 °C at standard atmospheric pressure; this is about 4.190 J. Its use is archaic, having been replaced by the SI unit of energy, the joule. However, in many countries it remains in common use as a unit of food energy. In the context of nutrition, and especially food labelling, the calorie is approximately equal to 4.1868 joules (J), and energy values are normally quoted in kilojoules (kJ) and kilocalories (kcal). This code is being deprecated. Use code E14 Kilocalorie to express food calories.</description></code>
+  <code><value>DAY</value><name>Days</name><description>A day is one three hundreds and sixty fifth (1/365) of a year</description></code>
+  <code><value>DD</value><name>Degree (Unit of Angel)</name><description>A measurement of plane angle, representing 1⁄360 of a full rotation; one degree is equivalent to π/180 radians.</description></code>
+  <code><value>DG</value><name>Decigram</name><description>A decigram is one tenth (1/10) of a gram.</description></code>
+  <code><value>DLT</value><name>Decilitre</name><description>A decilitre is one tenth (1/10) of a litre.</description></code>
+  <code><value>DMK</value><name>Square decimetre</name><description>A square deciimetre is an area of a square whose sides are exactly 1 deciimetre in length.</description></code>
+  <code><value>DMQ</value><name>Cubic decimetre</name><description>A cubic decimetre is the volume of a cube of side length one decimetre (0.1 m)</description></code>
+  <code><value>DMT</value><name>Decimetre</name><description>A decimetre is equal to one tenth of a metre.</description></code>
+  <code><value>DRA</value><name>Dram (US)</name><description>The dram (archaic spelling drachm) was historically both a coin and a weight. Currently it is both a small mass in the Apothecaries' system of weights and a small unit of volume. This unit is called more correctly fluid dram or in contraction also fluidram. The term also refers to the fluid dram, a measure of capacity equal 1⁄8 of a fluid ounce, which means it is exactly equal to 3.696 691 195 312 5 mL in the United States.</description></code>
+  <code><value>DRI</value><name>Dram (UK)</name><description>The dram (archaic spelling drachm) was historically both a coin and a weight. Currently it is both a small mass in the Apothecaries' system of weights and a small unit of volume. This unit is called more correctly fluid dram or in contraction also fluidram. The fluid dram is defined as 1⁄8 of a fluid ounce, which means it is exactly equal to 3.551 632 812 500 0 mL in the Commonwealth and Ireland. In England dram came to mean a small draught of cordial or alcohol; hence the term dram-house for the taverns where one could purchase a dram.</description></code>
+  <code><value>DZN</value><name>Dozen</name><description>A unit of count defining the number of units in multiples of 12.</description></code>
+  <code><value>E09</value><name>Milliampere hour</name><description>Milliampere hour</description></code>
+  <code><value>E14</value><name>Kilocalorie (international table)</name><description>A unit of energy equal to 1000 calories.</description></code>
+  <code><value>E27</value><name>Dose</name><description>A unit of count defining the number of doses (dose: a definite quantity of a medicine or drug).</description></code>
+  <code><value>E32</value><name>Litre Per Hour</name><description>Litre Per Hour</description></code>
+  <code><value>E34</value><name>Gigabyte</name><description>A unit of information equal to 109 bytes.</description></code>
+  <code><value>E35</value><name>Terabyte</name><description>A unit of information equal to 1012 bytes.</description></code>
+  <code><value>E37</value><name>Pixel</name><description>A unit of count defining the number of pixels (pixel: picture element).</description></code>
+  <code><value>E39</value><name>Dots per inch</name><description>A unit of count defining the number of dots per linear inch as a measure of the resolution or sharpness of a graphic image.</description></code>
+  <code><value>E4</value><name>Gross kilogram</name><description>A unit of mass defining the total number of kilograms before deductions.</description></code>
+  <code><value>E55</value><name>Use</name><description>A unit of count defining the number of times an object is used.</description></code>
+  <code><value>EA</value><name>Each</name><description>A unit of count defining the number of items regarded as separate units.</description></code>
+  <code><value>ELU</value><name>ELISA Units</name><description>Enzyme-linked immunosorbent assay unit, is always associated with a product and a method.</description></code>
+  <code><value>F27</value><name>Gram Per Hour</name><description>Gram Per Hour</description></code>
+  <code><value>FAH</value><name>Degree Fahrenheit</name><description>The Fahrenheit temperature scale, the freezing point of water is 32 degrees Fahrenheit (°F) and the boiling point 212 °F (at standard atmospheric pressure), placing the boiling and freezing points of water exactly 180 degrees apart.</description></code>
+  <code><value>FH</value><name>Micromole</name><description>One millionth (10 -6 ) of a mole.</description></code>
+  <code><value>FJ</value><name>Sizing Factor</name><description>Sizing Factor</description></code>
+  <code><value>FOT</value><name>Foot</name><description>The international foot is defined to be equal to 0.3048 meters.</description></code>
+  <code><value>FP</value><name>Pound per square foot</name><description>A non SI unit of Pressure approximately equal to 47.88025 PASCAL's.</description></code>
+  <code><value>FR</value><name>Foot Per Minute</name><description>The number of foot per minute the trade item or part of the trade item moves.</description></code>
+  <code><value>FS</value><name>Foot Per Second</name><description>The number of foot per second the trade item or part of the trade item moves.</description></code>
+  <code><value>FTK</value><name>Square foot</name><description>A square foot is an area of a square whose sides are exactly 1 foot in length.</description></code>
+  <code><value>FTQ</value><name>Cubic foot</name><description>A cubic foot is the volume of a cube of side length one foot (0.3048 m) .</description></code>
+  <code><value>G2</value><name>US Gallon Per Minute</name><description>US gallon per minute</description></code>
+  <code><value>G21</value><name>Cup (US)</name><description>Cup (US)</description></code>
+  <code><value>G23</value><name>Peck</name><description>A peck is an imperial and U.S. customary unit of dry volume, equivalent in each of these systems to 2 gallons, 8 dry quarts, or 16 dry pints.</description></code>
+  <code><value>G24</value><name>Tablespoon</name><description>Tablespoon. 1/2 fluid ounces, 3 teaspoons, 15 millilitres</description></code>
+  <code><value>G25</value><name>Teaspoon</name><description>Teaspoon. 1/6 fluid ounces or 5 millilitres</description></code>
+  <code><value>G26</value><name>Stere</name><description>The stere or stère is a unit of volume in the original metric system equal to one cubic metre. The stère is typically used for measuring large quantities of firewood or other cut wood,</description></code>
+  <code><value>GBQ</value><name>Gigabecquerel</name><description>A unit of activity equal to 109 becquerels.</description></code>
+  <code><value>GFI</value><name>Gram of Fissile Isotope</name><description>A unit of mass defining the number of grams of a fissile isotope (fissile isotope: an isotope whose nucleus is able to be split when irradiated with low energy neutrons).</description></code>
+  <code><value>GL</value><name>Gram Per Litre</name><description>Gram Per Litre:A unit of measurement of mass concentration that shows how many grams of a certain substance are present in one litre.</description></code>
+  <code><value>GLI</value><name>Gallon (UK)</name><description>The imperial (UK) gallon was legally defined as 4.54609 litres.</description></code>
+  <code><value>GLL</value><name>Gallon (US)</name><description>The U.S. liquid gallon is legally defined as 231 cubic inches, and is equal to exactly 3.785411784 litres or about 0.133680555 cubic feet.</description></code>
+  <code><value>GM</value><name>Gram per square metre</name><description>In the metric system, the density of all types of paper, paperboard, and fabric, is expressed in terms of grams per square meter (g/m2).This quantity is commonly called grammage both in English and French (ISO 536), though many English- speaking countries still refer to the "weight". The term density here is used somewhat incorrectly, as density is mass by volume. More precisely, it is a measure of the area density, areal density, or surface density.</description></code>
+  <code><value>GRM</value><name>Gram</name><description>A gram is defined as one one-thousandth of the kilogram (1×10-3 kg).</description></code>
+  <code><value>GRN</value><name>Grain</name><description>A grain or troy grain is precisely 64.79891 milligrams. Exactly 7,000 grains per avoirdupois pound.</description></code>
+  <code><value>GRO</value><name>Gross</name><description>A unit of count defining the number of units in multiples of 144 (12 x 12).</description></code>
+  <code><value>GWH</value><name>Gigawatt hour</name><description>A gigaawatt hour is 109 kilowat hour or 3.6 terajoules.</description></code>
+  <code><value>H49</value><name>Centimetre Per Hour</name><description>The number of centimetre per hour the trade item or part of the trade item moves.</description></code>
+  <code><value>H67</value><name>Millimetre Per Hour</name><description>The number of millimetre per hour the trade item or part of the trade item moves.</description></code>
+  <code><value>H79</value><name>French gauge</name><description>The French scale (most correctly abbreviated as Fr, but also often abbreviated as FR or F) is commonly used to measure the catheter size (Circumference is in millimeters), in which 1 Fr = 0.33 mm in diameter. In the French Gauge system as it is also known, the diameter in millimeters of the catheter can be determined by dividing the French size by 3, thus an increasing French size corresponds with a larger diameter catheter. The following equations summarize the relationships: D(mm) = Fr/3 or Fr = D(mm)*3</description></code>
+  <code><value>H81</value><name>Millimetre Per Minute</name><description>The number of millimetre per minute the trade item or part of the trade item moves.</description></code>
+  <code><value>H87</value><name>Piece</name><description>A unit of count defining the number of pieces (piece: a single item, article or exemplar).</description></code>
+  <code><value>HC</value><name>Hundred count</name><description>A unit of count defining the number of units counted in multiples of 100.</description></code>
+  <code><value>HD</value><name>Half dozen</name><description>A unit of count defining the number of units in multiplt of six (6).</description></code>
+  <code><value>HEP</value><name>Histamine Equivalent Prick</name><description>Histamine equivalent prick testing for allergen.</description></code>
+  <code><value>HGM</value><name>Hectogram</name><description>A hectogram is one hundred (100) grams</description></code>
+  <code><value>HLT</value><name>Hectolitre</name><description>A hectolitre is one hundred (100) litres.</description></code>
+  <code><value>HM</value><name>Mile Per Hour (statute mile)</name><description>The number of mile per hour the trade item or part of the trade item moves.</description></code>
+  <code><value>HTZ</value><name>Hertz</name><description>A unit of frequency defined as the number of complete cycles per second; it is the basic unit of frequency in the International System of Units (SI).</description></code>
+  <code><value>HUR</value><name>Hour</name><description>An hour is a unit of measurement of time of the duration of 60 minutes, or 3600 seconds. It is 1/24 of a median Earth day.</description></code>
+  <code><value>INH</value><name>Inches</name><description>An international inch is defined to be equal to 25.4 millimeters.</description></code>
+  <code><value>INK</value><name>Square inch</name><description>A square inch is an area of a square whose sides are exactly 1 inch in length.</description></code>
+  <code><value>INQ</value><name>Cubic inch</name><description>A cubic inch is the volume of a cube of side length one inch (0.254 m).</description></code>
+  <code><value>IU</value><name>Inch Per Second</name><description>The number of inch per second the trade item or part of the trade item moves.</description></code>
+  <code><value>JOU</value><name>Joule</name><description>A joule is the energy exerted by a force of one newton acting to move an object through a distance of one metre.</description></code>
+  <code><value>K14</value><name>Foot Per Hour</name><description>The number of foot per hour the trade item or part of the trade item moves.</description></code>
+  <code><value>K30</value><name>Gallon (US liquid) Per Second</name><description>Gallon (US liquid) per second</description></code>
+  <code><value>K43</value><name>Horsepower</name><description>Horsepower (electric) -  Automotive horsepower is defined as "a unit of power equal to 550 foot-pounds per second (745.7 watts)".
+</description></code>
+  <code><value>K6</value><name>Kilolitre</name><description>A kilolitre is one thousand (1000) litres.</description></code>
+  <code><value>KDW</value><name>Kilogram drained net weight</name><description>Kilogram drained net weight</description></code>
+  <code><value>KEL</value><name>Kelvin</name><description>Kelvin: a unit of absolute temperature equal to 1/273.16 of the absolute temperature of the triple point of water. One kelvin degree is equal to one Celsius degree.</description></code>
+  <code><value>KGM</value><name>Kilogram</name><description>A unit of mass equal to one thousand grams.</description></code>
+  <code><value>KHY</value><name>Kilogram of hydrogen peroxide</name><description>Kilogram of hydrogen peroxide</description></code>
+  <code><value>KHZ</value><name>Kilohertz</name><description>A unit of frenquecy equal to 1000 Hertz</description></code>
+  <code><value>KIU</value><name>Kallikrein inactivator unit.</name><description>Kallikrein Inactivator Unit per Milliliter definition: An arbitrary unit of a kallikrein inactivator concentration equal to the concentration at which one milliliter of the mixture contains one unit of the kallikrein inactivator</description></code>
+  <code><value>KJO</value><name>Kilojoule</name><description>A kilojoule is 1000 joules</description></code>
+  <code><value>KMA</value><name>Kilogram of methylamine</name><description>Kilogram of methylamine</description></code>
+  <code><value>KMH</value><name>Kilometre Per Hour</name><description>The number of kilometre per hour the trade item or part of the trade item moves.</description></code>
+  <code><value>KMT</value><name>Kilometre</name><description>A kilometre is one thousand (1000) metres</description></code>
+  <code><value>KNI</value><name>Kilogram of nitrogen</name><description>Kilogram of nitrogen</description></code>
+  <code><value>KNM</value><name>Kilonewton Per Square Metre</name><description>Kilonewton Per Square Metre</description></code>
+  <code><value>KNT</value><name>Knot</name><description>The number of knots the trade item or part of the trade item moves. A Knot is a unit of speed equal to one nautical mile (1.852 km) per hour, approximately 1.151 mph.</description></code>
+  <code><value>KO</value><name>The milliequivalence caustic potash per gram of product</name><description>The milliequivalence caustic potash per gram of product. A unit of count defining the number of milligrams of potassium hydroxide per gram of product as a measure of the concentration of potassium hydroxide in the product.</description></code>
+  <code><value>KPA</value><name>Kilopascal</name><description>Kilopascal- a thousand pascals (10 to the 3rd power)</description></code>
+  <code><value>KPH</value><name>Kilogram of potassium hydroxide (caustic potash)</name><description>Kilogram of potassium hydroxide (caustic potash)</description></code>
+  <code><value>KPO</value><name>Kilogram of potassium oxide</name><description>Kilogram of potassium oxide</description></code>
+  <code><value>KPP</value><name>Kilogram of phosphorus pentoxide (phosphoric anhydride)</name><description>Kilogram of phosphorus pentoxide (phosphoric anhydride)</description></code>
+  <code><value>KSD</value><name>Kilogram of substance 90% dry</name><description>Kilogram of substance 90% dry</description></code>
+  <code><value>KSH</value><name>Kilogram of sodium hydroxide (caustic soda)</name><description>Kilogram of sodium hydroxide (caustic soda)</description></code>
+  <code><value>KT</value><name>Kit</name><description>A unit of count defining the number of kits (kit: tub, barrel or pail).</description></code>
+  <code><value>KUR</value><name>Kilogram of Uranium</name><description>A unit of mass equal to one thousand grams of uranium.</description></code>
+  <code><value>KWH</value><name>Kilowatt hour</name><description>A kilowatt hour is a unit of energy equal to 3.6 megajoules.It is also a common commercial unit of electric energy representing the amount of energy delivered at a rate of 1,000 watts over a period of one hour.</description></code>
+  <code><value>KWT</value><name>Kilowatt</name><description>A kilowatt is one thousand (1000) watts</description></code>
+  <code><value>LBR</value><name>Pound</name><description>The international avoirdupois pound of exactly 0.45359237 kilogram.</description></code>
+  <code><value>LD</value><name>Litre / Day</name><description>Litre per day.</description></code>
+  <code><value>LF</value><name>Linear foot</name><description>A unit of count defining the number of feet (12-inch) in length of a uniform width object.</description></code>
+  <code><value>LK</value><name>Link</name><description>A unit of distance equal to 0.01 chain.</description></code>
+  <code><value>LM</value><name>Linear metre</name><description>A unit of count defining the number of metres in length of a uniform width object.</description></code>
+  <code><value>LPA</value><name>Litre of pure alcohol</name><description>Litre of pure alcohol</description></code>
+  <code><value>LR</value><name>Layer</name><description>A unit of count defining the number of layers.</description></code>
+  <code><value>LTN</value><name>Ton (UK) or long ton (US)</name><description>Ton (UK) = 1016 Kg or 2240 Lb.</description></code>
+  <code><value>LTR</value><name>Litre</name><description>A litre is defined as a special name for a cubic decimetre (1 L = 1 dm3 = 1000 cm3).</description></code>
+  <code><value>LUM</value><name>Lumen</name><description>Lumen is a measure of the total quantity of visible light emitted by a light source.</description></code>
+  <code><value>LUX</value><name>Lux</name><description>The International System unit of illumination, equal to one lumen per square meter.</description></code>
+  <code><value>M57</value><name>Mile Per Minute </name><description>The number of mile per minute the trade item or part of the trade item moves.</description></code>
+  <code><value>M58</value><name>Mile Per Second </name><description>The number of mile per second the trade item or part of the trade item moves.</description></code>
+  <code><value>M60</value><name>Metre Per Hour</name><description>The number of meter per hour the trade item or part of the trade item moves.</description></code>
+  <code><value>M62</value><name>Kilometre Per Second </name><description>The number of kilometre per second the trade item or part of the trade item moves.</description></code>
+  <code><value>M63</value><name>Inch Per Minute</name><description>The number of inch per minute the trade item or part of the trade item moves.</description></code>
+  <code><value>M64</value><name>Yard Per Second</name><description>The number of yard per second the trade item or part of the trade item moves.</description></code>
+  <code><value>M65</value><name>Yard Per Minute</name><description>The number of yard per minute the trade item or part of the trade item moves.</description></code>
+  <code><value>M66</value><name>Yard Per Hour</name><description>The number of yard per hour the trade item or part of the trade item moves.</description></code>
+  <code><value>MAW</value><name>Megawatt</name><description>A unit of power defining the rate of energy transferred or consumed when a current of 1000 amperes flows due to a potential of 1000 volts at unity power factor.</description></code>
+  <code><value>MBR</value><name>Millibar</name><description>Millibar- a hundred pascals (10 to the 2nd power)</description></code>
+  <code><value>MC</value><name>Microgram</name><description>A microgram is one millionth of a gram (0.000001)</description></code>
+  <code><value>MEQ</value><name>Milliequivalents</name><description>mEq or milliequivalents, the measure is used in terms of milliequivalents of solute per liter of solvent (or milliNormal where mEq/L = mN). This is especially common for measurement of compounds in biological fluids; for instance, the healthy level of potassium in the blood of a human is defined between 3.5 and 5.0 mEq/L. To better be able to denote the units of measure for nutrients as used in business today.</description></code>
+  <code><value>MGM</value><name>Milligram</name><description>A milligram is one thousandth of a gram (0.001)</description></code>
+  <code><value>MHZ</value><name>Megahertz</name><description>A unit of frenquecy equal to 106 Hertz</description></code>
+  <code><value>MIK</value><name>Square mile</name><description>A square mile is an area of a square whose sides are exactly 1 mile in length.</description></code>
+  <code><value>MIN</value><name>Minute (unit of time)</name><description>A minute is a unit of time equal to 1/60th of an hour or 60 seconds</description></code>
+  <code><value>MIU</value><name>Million International Unit (NIE)</name><description>A unit of count defining the number of international units in multiples of 106.</description></code>
+  <code><value>MLT</value><name>Millilitre</name><description>A millilitre is one thousandth of a litre (0.001)</description></code>
+  <code><value>MMK</value><name>Square millimetre</name><description>A square millimetre is an area of a square whose sides are exactly 1 millimetre in</description></code>
+  <code><value>MMQ</value><name>Cubic millimetre</name><description>A cubic millimetre is the volume of a cube of side length one milliimetre (0.001 m)</description></code>
+  <code><value>MMT</value><name>Millimetre</name><description>A millimetre is one thousandth of a metre (0.001)</description></code>
+  <code><value>MON</value><name>Month</name><description>Unit of time equal to 1/12 of a year of 365,25 days</description></code>
+  <code><value>MPN</value><name>Most Probable Number </name><description>Most Probable Number: is a method of getting quantitative data on concentrations of discrete items from positive/negative (incidence) data.. </description></code>
+  <code><value>MQH</value><name>Cubic Metre Per Hour</name><description>Cubic Metre Per Hour</description></code>
+  <code><value>MTK</value><name>Square metre</name><description>A square metre is an area of a square whose sides are exactly 1 metre in length.</description></code>
+  <code><value>MTQ</value><name>Cubic metre</name><description>A cubic metre is the volume of a cube of side length one metre.</description></code>
+  <code><value>MTR</value><name>Metre</name><description>The metre is the basic unit of length in the International System of Units (SI).</description></code>
+  <code><value>MTS</value><name>Metre Per Second</name><description>Defines the speed defined by distance in metres divided by time in seconds.</description></code>
+  <code><value>MWH</value><name>Megawatt hour (1000 kW.h)</name><description>A unit of energy defining the total amount of bulk energy transferred or consumed.</description></code>
+  <code><value>NA</value><name>Milligram per Kilogram (mg/kg)</name><description>Milligram per Kilogram (mg/kg)</description></code>
+  <code><value>NCL</value><name>Number of cells</name><description>Number of cells</description></code>
+  <code><value>NEW</value><name>Newton</name><description>Newton</description></code>
+  <code><value>NIU</value><name>Number of International Units</name><description>A unit of count defining the number of international units. The International Unit is a unit of measurement for the amount of a substance, based on measured biological activity or effect.The unit is used for vitamins, hormones, some medications, vaccines, blood products, and similar biologically active substances</description></code>
+  <code><value>NPR</value><name>Number of pairs</name><description>Number of pairs</description></code>
+  <code><value>NU</value><name>Newton Metre</name><description>Newton Metre</description></code>
+  <code><value>OHM</value><name>Ohm</name><description>A unit for electrical impedance, the ratio of the voltage phasor to the electric current phasor.</description></code>
+  <code><value>ON</value><name>Ounces per square yard</name><description>The weight of one square yard of the material expressed in ounces. Commonly used to express the density or weight of all types of paper, paperboard, and fabric, e.g. 20 OZ or 20 Weight denim has an area density of 20 oz/yd2.The term density here is used somewhat incorrectly, as density is mass by volume. More precisely, it is a measure of the area density, areal density, or surface density.</description></code>
+  <code><value>ONZ</value><name>Ounce</name><description>A unit of mass with several definitions, the most commonly used of which are equal to approximately 30 grams</description></code>
+  <code><value>OPM</value><name>Oscillations Per Minute </name><description>Oscillations Per Minute </description></code>
+  <code><value>OZA</value><name>Fluid ounce (US)</name><description>A fluid ounce (US) is equal to one sixteenth (1/16) of a US pint or 29.5735295625 millilitres .</description></code>
+  <code><value>OZI</value><name>Fluid ounce (UK)</name><description>A fluid ounce (UK) is equal to one thirtieth (1/30) of a UK pint or 28.4130625 millilitres.</description></code>
+  <code><value>P1</value><name>Percent</name><description>A unit of proportion equal to 0.01.</description></code>
+  <code><value>PAL</value><name>Pascal</name><description>The pascal (symbol: Pa) is the SI derived unit of pressure, stress, Young's modulus and tensile strength. It is a measure of force per unit area, defined as one newton per square metre.</description></code>
+  <code><value>PD</value><name>Pad</name><description>A unit of count defining the number of pads (pad: block of paper sheets fastened together at one end).</description></code>
+  <code><value>PFU</value><name>Plaque Forming unit(s)</name><description>Plaque Forming unit(s)</description></code>
+  <code><value>PNT</value><name>Point</name><description>A single unit on a scale of measurement as part of an incentive program or pricing structure used as a means of making a quantitative evaluation.</description></code>
+  <code><value>PR</value><name>Pair</name><description>A unit of count defining the number of pairs (pair: item described by two's).</description></code>
+  <code><value>PRS</value><name>Potential Renal Solute Load</name><description>Potential Renal Solute Load</description></code>
+  <code><value>PS</value><name>Pound-force per square inch</name><description>The pound-force per square inch (symbol: psi or lbf/in2 or lbf/in2) is a unit of pressure or of stress based on avoirdupois units. It is the pressure resulting from a force of one pound-force applied to an area of one square inch. Other abbreviations are used that append a modifier to "psi". However, the US National Institute of Standards and Technology recommends that, to avoid confusion, any modifiers be instead applied to the quantity being measured rather than the unit of measure[1] For example, "Pg = 100 psi" rather than "P = 100 psig".</description></code>
+  <code><value>PTD</value><name>Dry Pint (US)</name><description>The United States dry pint is equal one eighth of a US dry gallon or one half US dry quarts. It is used in the United States but is not as common as the liquid pint.</description></code>
+  <code><value>PTI</value><name>Pint (UK)</name><description>A pint (UK) is equal to 1/8 Gallon (UK); used primarly as a measure for beer and cider when sold by the glass.</description></code>
+  <code><value>PTL</value><name>Liquid pint (US)</name><description>The US liquid pint is equal one eighth of a United States liquid gallon.</description></code>
+  <code><value>PTN</value><name>Portion</name><description>Portion</description></code>
+  <code><value>Q30</value><name>pH (potential of Hydrogen)</name><description> The activity of the (solvated) hydrogen ion (a logarithmic measure used to state the acidity or alkalinity of a chemical solution).</description></code>
+  <code><value>Q32</value><name>Femtolitre</name><description>Femtolitre- Femtolitre is the metric unit of volume equal to one thousand trillionth (European) or one quadrillionth (American) litre. One femtolitre is the same as one cubic micrometre (μm3), which can be represented numerically as 0.00000000000001/liter. </description></code>
+  <code><value>Q33</value><name> Picolitre</name><description> Picolitre- Picoliter is the metric unit of volume equal to a trillionth (one millionth of a millionth) of a liter, which can be represented numerically as 0.000000000001/liter. just as the prefix nano denotes a billionth part. </description></code>
+  <code><value>Q34</value><name>Nanolitre</name><description>Nanolitre- Nanolitre is the metric unit of volume equal to one billionth of a litre, which can be represented numerically as 0.000000001/liter. </description></code>
+  <code><value>QB</value><name>Page - hardcopy</name><description>A unit of count defining the number of hardcopy pages (hardcopy page: a page rendered as printed or written output on paper, film, or other permanent medium).</description></code>
+  <code><value>QTD</value><name>Quart (US dry)</name><description>A US dry quart is equal to 1/32 of a US bushel, exactly 1.101220942715 litres.</description></code>
+  <code><value>QTL</value><name>Liquid quart (US)</name><description>A US liquid quart exactly equals 57.75 cubic inches, which is exactly equal to 0.946352946 litres.</description></code>
+  <code><value>R9</value><name>Thousand cubic metre</name><description>Thousand cubic metre</description></code>
+  <code><value>RPM</value><name>Revolutions Per Minute</name><description>Revolutions Per Minute</description></code>
+  <code><value>S4</value><name>Square Metre / Second</name><description>Metre squared per second.</description></code>
+  <code><value>SEC</value><name>Second (unit of time)</name><description>A second is a unit of time equal to 1/60th of an minute.</description></code>
+  <code><value>SET</value><name>Set</name><description>A unit of count defining the number of sets (set: a number of objects grouped together).</description></code>
+  <code><value>SMI</value><name>Mile (statute mile)</name><description>A statute mile of 5,280 feet (exactly 1,609.344 meters).</description></code>
+  <code><value>SQE</value><name>SQ-E</name><description>Number of allergens based on the SQ-E unit</description></code>
+  <code><value>STN</value><name>Ton (US) or short ton (UK)</name><description>Ton (US) = 2000 Lb or 907 Kg</description></code>
+  <code><value>SX</value><name>Shipment</name><description>A unit of count defining the number of shipments (shipment: an amount of goods shipped or transported).</description></code>
+  <code><value>T3</value><name>Thousand piece</name><description>Thousand piece</description></code>
+  <code><value>TNE</value><name>Tonne</name><description>Metric ton = 1000 Kg</description></code>
+  <code><value>TPI</value><name>Teeth Per Inch</name><description>Teeth Per Inch</description></code>
+  <code><value>U2</value><name>Tablet</name><description>A unit of count defining the number of tablets (tablet: a small flat or compressed solid object).</description></code>
+  <code><value>UA</value><name>Torr</name><description>Torr</description></code>
+  <code><value>VLT</value><name>Volt</name><description>Volt</description></code>
+  <code><value>WEE</value><name>Week</name><description>A week is a time unit equal to seven days.</description></code>
+  <code><value>WHR</value><name>Watt hour</name><description>The watt-hour is a unit of energy equivalent to one watt of power expended for one hour of time; it is equal to 3.6 kilojoules. The watt-hour is rarely used to express energy in any form other than electrical.</description></code>
+  <code><value>WTT</value><name>Watt</name><description>A watt is a derived unit of power; one watt is equivalent to 1 joule (J) of energy per second.</description></code>
+  <code><value>X_CCA</value><name>Cold Cramp Amp</name><description>A measurement of the number of amps a battery can deliver at 0 ° F for 30 seconds and not drop below 7.2 volts.</description></code>
+  <code><value>X_CFG</value><name>Colony Forming Units per gram (CFU/g)
+</name><description>Colony Forming Units per gram (CFU/g). See CFU for definition of Colony Forming Unit</description></code>
+  <code><value>X_CFP</value><name>Colony Forming Units per Pound (CFU/lb)</name><description>Colony Forming Units per Pound (CFU/lb) See CFU for definition of Colony Forming Unit</description></code>
+  <code><value>X_CHD</value><name>Centisimal Hahnemannian Dilution (CH)</name><description>A count of attenuation steps or dilution levels representing the homeopathic potency of a substance using the Hahnemannian (CH) method of attenuation; commonly denoted as CH1, CH2, CH3, etc. Each centesimal attenuation step represents one part source material combined with 99 parts dilution medium; commonly denoted as C1, C2, C3, etc.</description></code>
+  <code><value>X_DBA</value><name>Decibar</name><description>Decibar</description></code>
+  <code><value>X_DWT</value><name>Penny Weight</name><description>A pennyweight (abbreviated dwt or denarius weight) is a unit of mass that is equal to 24 grains, 1⁄20 of a troy ounce, 1⁄240 of a troy pound, and exactly 1.55517384 grams. (Usage- The pennyweight is the common weight used in the valuation and measurement of precious metals. Jewellers use the pennyweight in calculating the amount and cost of precious metals used in fabricating or casting jewellery. Similarly, dentists and dental labs still use the pennyweight as the measure of precious metals in dental crowns and inlays.)</description></code>
+  <code><value>X_IUK</value><name>International Units per Kilogram (IU/kg)</name><description>International Units per Kilogram (IU/kg) a unit of activity or potency for vitamins, hormones, or other substances, defined individually for each substance in terms of the activity of a standard quantity or preparation.</description></code>
+  <code><value>X_KVN</value><name>Korsakovian (K)</name><description>A count of attenuation steps or dilution levels representing the homeopathic potency of a substance using the Korsakovian (K) method of attenuation; commonly denoted as CK1, CK2, CK3, etc.Each centesimal attenuation step represents one part source material combined with 99 parts dilution medium; commonly denoted as C1, C2, C3, etc.</description></code>
+  <code><value>X_MLM</value><name>Millesimai (LM)</name><description>A count of attenuation steps or dilution levels representing the homeopathic potency of a substance where each attenuation step represents one part source material combined with 49,999 parts dilution medium; commonly denoted as LM1, LM2, LM3, etc.</description></code>
+  <code><value>X_MPG</value><name>Miles Per Gallon</name><description>Fuel usage by the number of miles the trade item can go on 1 US gallon of fuel.</description></code>
+  <code><value>X_MTC</value><name>Mother tincture (Dry material)</name><description>A count of a dry crud medical substance Mother tincture, when used for homeopathic preparations, are liquid preparations obtained by the solvent action of a suitable vehicle upon raw materials. The raw materials (medical substance) are usually in the fresh form but may be dried. Mother tinctures for homeopathic preparations may also be obtained from plant juices, with, or without the addition of a vehicle.</description></code>
+  <code><value>X_NGM</value><name>Nanogram</name><description>A nano gram is 10-9 gram or a billionth of a gram..</description></code>
+  <code><value>X_PPC</value><name>Pixel per centimetre</name><description>A unit of count defining the number of pixels per linear centimetre as a measurement of the resolution of devices in various contexts; typically computer displays, image scanners or digital camera image sensors.</description></code>
+  <code><value>X_PPI</value><name>Pixel per inch</name><description>A unit of count defining the number of pixels per linear inch (PPI) as a measurement of the resolution of devices in various contexts; typically computer displays, image scanners or digital camera image sensors.</description></code>
+  <code><value>X_RAE</value><name>Retinol Activity Equivalents</name><description>A measure of vitamin A activity based on the capacity of the body to convert provitamin carotenoids containing at least one unsubstituted ionone ring to retinaldehyde. 
+1 microgram RAE = 1 mg retinol = 12 mg β-carotene = 24 mg other vitamin A precursor carotenoids.
+
+</description></code>
+  <code><value>X_SIN</value><name>Thirty Seconds of an Inch</name><description>Thirty Seconds of an inch (1/32 or 0.3125). (Usage when measuring using some measuring tapes. Commonly used in model making and some hobbies for scaling to full size.  Also used in railway applications.)
+</description></code>
+  <code><value>X_SPS</value><name>Sample per second</name><description>A unit of count defining the number of samplings takes during a period of time</description></code>
+  <code><value>X_UIN</value><name>Ten Thousandths of an Inch</name><description>One Ten Thousandths of an inch or 0.0001 often called a "tenth" in machinery. (Usage- Measurements of some machine parts, gaps in spark plugs).</description></code>
+  <code><value>XRE</value><name>Retinol Equivalent (RE)</name><description>A unit used for quantifying the vitamin A value of sources of vitamin A, including both preformed retinoids and precursor carotenoids.  Examples include:
+. One RE is equivalent to 1 mcg of retinol, 6 mcg of Beta-carotene, or 12 mcg of other pro-vitamin A carotenoids.
+. One RE is equivalent to  0.3 International Units of retinol or 0.1 International Units of Beta-carotene.</description></code>
+  <code><value>XRO</value><name>Roll</name><description>A unit of count defining the number of rolls” where “Roll” is the name of the code value in UN/ECE Recommendation 21, pluralized as appropriate. </description></code>
+  <code><value>XST</value><name>Sheet</name><description>A unit of count defining the number of “Sheets” where “Sheet” is the name of the code value in UN/ECE Recommendation 21, pluralized as appropriate.</description></code>
+  <code><value>YDK</value><name>Square Yard</name><description>A square yard is the area of a square with sides of one yard (three feet, thirty-six inches, 0.9144 metres) in length</description></code>
+  <code><value>YRD</value><name>Yard</name><description>A yard is equal to 3 feet or 36 inches or 0.9144 meter.</description></code>
+</codeList>

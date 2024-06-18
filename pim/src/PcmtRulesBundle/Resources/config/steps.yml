@@ -1,0 +1,54 @@
+services:
+
+    pcmt.connector.job.step.copy_products_rule:
+        class: PcmtRulesBundle\Connector\Job\Step\CopyProductsRuleStep
+        arguments:
+            - 'copy_products_rule_step'
+            - '@event_dispatcher'
+            - '@akeneo_batch.job_repository'
+        calls:
+            - [setFamilyRepository, ['@pim_catalog.repository.family']]
+            - [setPqbFactory, ['@pim_enrich.query.product_and_product_model_query_builder_from_size_factory']]
+            - [setProductProcessor, ['@pcmt_rules.service.copy_products_rule.copy_products_rule_processor']]
+            - [setJobParametersTextCreator, ['@pcmt.rules.service.job_parameters_text_creator']]
+
+    pcmt.connector.job.step.family_to_family:
+        class: PcmtRulesBundle\Connector\Job\Step\FamilyToFamilyStep
+        arguments:
+            - 'family_to_family_step'
+            - '@event_dispatcher'
+            - '@akeneo_batch.job_repository'
+        calls:
+            - [setAttributeProvider, ['@pcmt.service.rule_attribute_provider']]
+            - [setRuleProductProcessor, ['@pcmt.service.rule_product_processor']]
+            - [setPqbFactory, ['@pim_enrich.query.product_and_product_model_query_builder_from_size_factory']]
+            - [setFamilyRepository, ['@pim_catalog.repository.family']]
+            - [setJobParametersTextCreator, ['@pcmt.rules.service.job_parameters_text_creator']]
+
+    pcmt.connector.job.step.select_options_rule:
+        class: PcmtRulesBundle\Connector\Job\Step\SelectOptionsRuleStep
+        arguments:
+            - 'select_options_rule_step'
+            - '@event_dispatcher'
+            - '@akeneo_batch.job_repository'
+        calls:
+            - [ setAttributeRepository, [ '@pim_catalog.repository.attribute' ] ]
+            - [ setSelectOptionsRemover, [ '@pcmt_rules.service.select_options_remover' ] ]
+            - [ setSelectOptionsCreator, [ '@pcmt_rules.service.select_options_creator' ] ]
+
+    pcmt.connector.job.step.pull_images_rule:
+        class: PcmtRulesBundle\Connector\Job\Step\PullImagesRuleStep
+        arguments:
+            - 'pull_images_rule_step'
+            - '@event_dispatcher'
+            - '@akeneo_batch.job_repository'
+        calls:
+            - [ setPullImageService, [ '@pcmt_rules.service.pull_image_service' ] ]
+            - [ setProductUpdateImageService, [ '@pcmt_rules.service.update_image_service.product' ] ]
+            - [ setProductModelUpdateImageService, [ '@pcmt_rules.service.update_image_service.product_model' ] ]
+            - [ setPqbFactory, [ '@pim_enrich.query.product_and_product_model_query_builder_from_size_factory' ] ]
+            - [ setAttributesLevelValidator, [ '@pcmt_rules.service.attributes_level_validator'] ]
+
+
+
+

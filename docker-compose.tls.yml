@@ -1,0 +1,29 @@
+######################################################################
+# Copyright (c) 2019, VillageReach
+# Licensed under the Non-Profit Open Software License version 3.0.
+# SPDX-License-Identifier: NPOSL-3.0
+######################################################################
+
+version: '3.5'
+services:
+
+  httpd:
+    labels:
+      - "traefik.http.middlewares.redirect-https.redirectscheme.scheme=https"
+      - "traefik.http.middlewares.redirect-https.redirectscheme.permanent=true"
+      - "traefik.http.routers.http.middlewares=redirect-https@docker"
+      - "traefik.http.routers.https.rule=Host(`${PCMT_HOSTNAME:-localhost}`) && PathPrefix(`/`)"
+      - "traefik.http.routers.https.tls=true"
+      - "traefik.http.routers.https.tls.certresolver=le"
+
+  reverse-proxy:
+    ports:
+      - "${DOCKER_PORT_HTTPS:-443}:443"
+    volumes:
+      - type: volume
+        source: traefikdata
+        target: "/tmp/certs"
+  
+volumes:
+  traefikdata:
+    driver: local

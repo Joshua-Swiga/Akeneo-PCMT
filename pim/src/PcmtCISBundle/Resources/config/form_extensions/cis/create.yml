@@ -1,0 +1,58 @@
+extensions:
+  pcmt-cis-create-modal:
+    module: pcmt/cis/form/common/creation/modal
+    config:
+      labels:
+        title: pim_common.create
+        subTitle: pim_menu.item.cis
+      picture: illustrations/Family.svg
+      successMessage: pcmt.entity.subscription.flash.create.success
+      editRoute: pcmt_cis_index
+      postUrl: pcmt_cis_subscription_rest_create
+
+  pcmt-cis-create-data-recipients-gln:
+    module: pim/form/common/fields/text
+    parent: pcmt-cis-create-modal
+    targetZone: fields
+    position: 20
+    config:
+      fieldName: data_recipients_g_l_n
+      label: pcmt.cis.create.data_recipients_gln
+      required: true
+
+  pcmt-cis-create-data-sources-gln:
+    module: pim/form/common/fields/text
+    parent: pcmt-cis-create-modal
+    targetZone: fields
+    position: 22
+    config:
+      fieldName: data_sources_g_l_n
+      label: pcmt.cis.create.data_sources_gln
+      required: true
+
+  pcmt-cis-create-gtin:
+    module: pim/form/common/fields/text
+    parent: pcmt-cis-create-modal
+    targetZone: fields
+    position: 24
+    config:
+      fieldName: g_t_i_n
+      label: pcmt.cis.create.gtin
+
+  pcmt-cis-create-gpc-category-code:
+    module: pim/form/common/fields/text
+    parent: pcmt-cis-create-modal
+    targetZone: fields
+    position: 26
+    config:
+      fieldName: g_p_c_category_code
+      label: pcmt.cis.create.gpc_category_code
+
+  pcmt-cis-create-target-market-country-code:
+    module: pcmt/cis/form/properties/country_codes
+    parent: pcmt-cis-create-modal
+    targetZone: fields
+    position: 28
+    config:
+      fieldName: target_market_country_code
+      label: pcmt.cis.create.target_market_country_code

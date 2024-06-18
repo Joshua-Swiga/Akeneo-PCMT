@@ -1,0 +1,32 @@
+---
+- name: Look for public ssh key
+  stat:
+    path: '/app/conf/ssh_authorized_key'
+  register: ssh_authorized_key
+
+- name: Create user for mysql ssh
+  user: 
+    name: mysql_ssh
+  when: ssh_authorized_key.stat.isreg is defined and ssh_authorized_key.stat.isreg 
+
+- name: Read authorized key into variable
+  slurp:
+    src: "{{ ssh_authorized_key.stat.path }}"
+  register: ssh_auth_key_slurp
+  when: ssh_authorized_key.stat.isreg is defined and ssh_authorized_key.stat.isreg 
+
+- name: Add authorized ssh key to mysql ssh user
+  authorized_key:
+    user: mysql_ssh
+    state: present
+    exclusive: true
+    key: "{{ ssh_auth_key_slurp.content | b64decode }}"
+  when: ssh_authorized_key.stat.isreg is defined and ssh_authorized_key.stat.isreg 
+
+- name: Add crontab to copy exported files
+  cron:
+    name: "cp exported files"
+    user: "root"
+    minute: "*/2"
+    job: "docker cp app_fpm_1:/tmp/ /home/mysql_ssh/ && chown -R mysql_ssh:mysql_ssh /home/mysql_ssh/tmp"
+  when: ssh_authorized_key.stat.isreg is defined and ssh_authorized_key.stat.isreg 

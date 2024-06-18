@@ -1,0 +1,17 @@
+######################################################################
+# Copyright (c) 2019, VillageReach
+# Licensed under the Non-Profit Open Software License version 3.0.
+# SPDX-License-Identifier: NPOSL-3.0
+######################################################################
+
+services:
+
+    pcmt_connector.processor.reference_data:
+        class: PcmtCoreBundle\Connector\Job\Processor\PcmtReferenceDataProcessor
+        arguments:
+            - '@pim_custom_entity.configuration.registry'
+            - '@doctrine.orm.entity_manager'
+            - '@pim_custom_entity.updater.custom_entity'
+            - '@validator'
+            - '@akeneo_storage_utils.doctrine.object_detacher'
+            - '@pcmt_connector.factory.reference_data'

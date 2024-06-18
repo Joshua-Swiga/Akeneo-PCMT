@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<codeList xsi:noNamespaceSchemaLocation="http://apps.gs1.org/GDD/Documents/GDDCodeListSchema.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <urn>urn:gs1:gdd:cl:ImportClassificationTypeCode</urn>
+  <name></name>
+  <version>2</version>
+  <domain>gdsn</domain>
+  <code><value>CTCURBK</value><name></name><description>Customs Tariff Of The Customs Union Between Russia Belarus And Kazakhstan</description></code>
+  <code><value>CUSTOMS_TARIFF_NUMBER</value><name></name><description>NOT AVAILABLE</description></code>
+  <code><value>EU_EXCISE_PRODUCT_CODE</value><name></name><description>EU classification of the products that are subjected to excise duties : http://goo.gl/Q671jF</description></code>
+  <code><value>FEACNRF</value><name></name><description>Foreign Economic Activity Commodity Nomenclature of Russian Federation</description></code>
+  <code><value>HARMONIZED_COMMODITY_DESCRIPTION_AND_CODING_SYSTEM</value><name></name><description>An internationally standardized system of names and numbers for classifying traded products developed and maintained by the World Customs Organization (WCO)</description></code>
+  <code><value>HARMONIZED_TARIFF_SCHEDULE_OF_THE_US</value><name></name><description>Tariff classifications for goods imported into the United States</description></code>
+  <code><value>INTRASTAT</value><name></name><description>A system for collecting information and producing statistics on the trade in goods between countries of the European Union (EU).</description></code>
+  <code><value>INTRASTAT_COMBINED_NOMENCLATURE</value><name></name><description>Collection of commodity codes used with the European Union.</description></code>
+  <code><value>MERCOSUR</value><name></name><description>A regional trade agreement created in 1991, and it is integrated by Brazil, Argentina, Uruguay, Paraguay and Venezuela.</description></code>
+  <code><value>NETHERLANDS</value><name></name><description>Netherlands</description></code>
+  <code><value>NOMENCLATURE_GENERALE_DES_PRODUITS</value><name></name><description>This import classification type is a French supplement to the European combined nomenclature.</description></code>
+  <code><value>TARIF_INTEGRE_DE_LA_COMMUNAUTE</value><name></name><description>Integrated Tariff of the European Community</description></code>
+  <code><value>TN_VED</value><name></name><description>A commodity nomenclature of foreign-economic activity in Commonwealth of Independent States.</description></code>
+</codeList>

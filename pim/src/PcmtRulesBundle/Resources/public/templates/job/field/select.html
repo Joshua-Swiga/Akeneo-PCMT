@@ -1,0 +1,19 @@
+<select
+    class="select2"
+    id="jobInstance_<%- config.fieldCode.replace('.', '_') %>"
+    title="<%- __(config.label) %>"
+    name=""
+    data-placeholder="<%- placeholder %>"
+    <%- true === config.readOnly ? 'readonly disabled' : '' %>
+>
+
+    <option value=""<% if (!value) { %> selected<% } %>></option>
+    <% _.each(options, function (option) { %>
+        <option
+            value="<%- option.code %>"
+            <% if (option.code === value) { %> selected<% } %>
+        >
+            <%- i18n.getLabel(option.labels, locale, option.code) %>
+        </option>
+    <% }); %>
+</select>

@@ -1,0 +1,26 @@
+PcmtPermissionsBundle\Entity\CategoryWithAccess:
+    constraints:
+        - PcmtPermissionsBundle\Validator\Constraints\UniqueEntity:
+            fields: code
+            entityClass: Akeneo\Pim\Enrichment\Component\Category\Model\CategoryInterface
+        - Akeneo\Tool\Component\StorageUtils\Validator\Constraints\Immutable:
+            properties:
+                - code
+        - PcmtPermissionsBundle\Validator\Constraints\AllGroupAccess:
+              fields:
+                  - viewAccess
+                  - editAccess
+                  - ownAccess
+              groups:
+                  - uiForm
+
+    properties:
+        code:
+            - NotBlank: ~
+            - Regex:
+                pattern: /^[a-zA-Z0-9_]+$/
+                message: Category code may contain only letters, numbers and underscores
+            - Length:
+                max: 100
+        translations:
+            - Valid: ~

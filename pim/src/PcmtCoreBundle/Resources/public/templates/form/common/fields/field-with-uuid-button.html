@@ -1,0 +1,31 @@
+<% if (fieldLabel !== '') { %><div class="AknFieldContainer-header">
+    <label class="AknFieldContainer-label control-label" for="pim_enrich_form_<%- fieldId %>">
+        <%- fieldLabel %><% if (required) { %> <em><%- requiredLabel %></em><% } %>
+    </label>
+</div><% } %>
+<div class="AknFieldContainer-inputContainer">
+    <div class="field-input"></div>
+</div>
+<div class="AknFieldContainer-footer">
+    <% errors.forEach(function(error) { %>
+        <span class="AknFieldContainer-validationError">
+            <span class="error-message"><%- error.message %></span>
+        </span>
+    <% }) %>
+    <% warnings.forEach(function(warning) { %>
+        <div>
+            <i class="icon-warning-sign"></i>
+            <%- warning.message %>
+        </div>
+    <% }) %>
+
+
+    <div>
+        <br>
+        <button  class="AknButton AknButton--micro AknButton--apply generate-unique-id">
+            <%- __('pcmt.form.button.create_unique_id') %>
+        </button>
+    </div>
+
+</div>
+

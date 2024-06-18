@@ -1,0 +1,123 @@
+######################################################################
+# Copyright (c) 2019, VillageReach
+# Licensed under the Non-Profit Open Software License version 3.0.
+# SPDX-License-Identifier: NPOSL-3.0
+######################################################################
+parameters:
+    pim_catalog.normalizer.standard.product.associations.class: PcmtDraftBundle\Normalizer\AssociationsNormalizer
+
+services:
+
+    pcmt_core.draft.status.normalizer:
+        class: PcmtDraftBundle\Normalizer\DraftStatusNormalizer
+        autowire: true
+        tags:
+            - { name: pim_internal_api_serializer.normalizer, priority: 80 }
+
+    pcmt_core.draft.attribute_change.normalizer:
+        class: PcmtDraftBundle\Normalizer\AttributeChangeNormalizer
+        autowire: true
+        tags:
+            - { name: pim_internal_api_serializer.normalizer, priority: 120 }
+
+    pcmt_draft.draft.general_normalizer:
+        class: PcmtDraftBundle\Normalizer\GeneralDraftNormalizer
+        arguments:
+            - '@pcmt_core.draft.status.normalizer'
+            - '@pim_catalog.localization.presenter.datetime'
+            - '@pim_user.context.user'
+            - '@translator'
+
+    pcmt_draft.draft.product_normalizer:
+        class: PcmtDraftBundle\Normalizer\ProductDraftNormalizer
+        arguments:
+            - '@pcmt.service.attribute_change'
+            - '@pcmt_core.draft.attribute_change.normalizer'
+            - '@pcmt.provider.form.draft'
+            - '@pcmt_core.normalizer.product'
+            - '@pcmt_draft.draft.general_normalizer'
+            - '@pcmt.service.general_object_from_draft_creator'
+            - '@pim_catalog.normalizer.standard.product.product_value'
+            - '@pcmt_draft.normalizer.permissions_helper'
+            - '@pim_user.context.user'
+        tags:
+            - { name: pim_internal_api_serializer.normalizer, priority: 110 }
+
+    pcmt_core.draft.product_model_normalizer:
+        class: PcmtDraftBundle\Normalizer\ProductModelDraftNormalizer
+        arguments:
+            - '@pcmt.service.attribute_change'
+            - '@pcmt_core.draft.attribute_change.normalizer'
+            - '@pcmt.provider.form.product-model-draft'
+            - '@pcmt_core.normalizer.product_model'
+            - '@pcmt_draft.draft.general_normalizer'
+            - '@pcmt.service.general_object_from_draft_creator'
+            - '@pim_catalog.normalizer.standard.product.product_value'
+            - '@pcmt_draft.normalizer.permissions_helper'
+            - '@pim_user.context.user'
+        tags:
+            - { name: pim_internal_api_serializer.normalizer, priority: 110 }
+
+    pcmt_core.normalizer.product:
+        class: PcmtDraftBundle\Normalizer\PcmtProductNormalizer
+        arguments:
+            - '@pim_enrich.normalizer.product'
+            - '@doctrine.orm.entity_manager'
+            - '@pcmt.service.helper.unexpected_attributes_filter'
+            - '@pcmt.service.category_permissions_checker'
+        tags:
+            - { name: pim_internal_api_serializer.normalizer, priority: 200 }
+
+    pcmt_core.normalizer.standard.product:
+        class: PcmtDraftBundle\Normalizer\PcmtProductNormalizer
+        arguments:
+            - '@pim_catalog.normalizer.standard.product'
+            - '@doctrine.orm.entity_manager'
+            - '@pcmt.service.helper.unexpected_attributes_filter'
+            - '@pcmt.service.category_permissions_checker'
+        tags:
+            - { name: pim_internal_api_serializer.normalizer, priority: 200 }
+
+    pcmt_core.normalizer.product_model:
+        class: PcmtDraftBundle\Normalizer\PcmtProductModelNormalizer
+        arguments:
+            - '@pim_enrich.normalizer.product_model'
+            - '@doctrine.orm.entity_manager'
+            - '@pcmt.service.helper.unexpected_attributes_filter'
+            - '@pcmt.service.category_permissions_checker'
+        tags:
+            - { name: pim_internal_api_serializer.normalizer, priority: 200 }
+
+    pcmt_core.normalizer.standard.product_model:
+        class: PcmtDraftBundle\Normalizer\PcmtProductModelNormalizer
+        arguments:
+            - '@pim_catalog.normalizer.standard.product_model'
+            - '@doctrine.orm.entity_manager'
+            - '@pcmt.service.helper.unexpected_attributes_filter'
+            - '@pcmt.service.category_permissions_checker'
+        tags:
+            - { name: pim_internal_api_serializer.normalizer, priority: 200 }
+
+    pcmt_core.normalizer.product_violation:
+        class: PcmtDraftBundle\Normalizer\ProductViolationNormalizer
+        arguments:
+            - '@pim_catalog.repository.attribute'
+
+    pcmt_draft.normalizer.product_violation_with_label:
+        class: PcmtDraftBundle\Normalizer\ProductViolationWithLabelNormalizer
+        parent: pim_enrich.normalizer.product_violation
+
+    pim_catalog.normalizer.standard.product.associations:
+        class: '%pim_catalog.normalizer.standard.product.associations.class%'
+        tags:
+            - { name: pim_standard_format_serializer.normalizer, priority: 40 }
+
+    pcmt_draft.normalizer.draft_violation:
+        class: PcmtDraftBundle\Normalizer\DraftViolationNormalizer
+        arguments:
+            $constraintViolationNormalizer: '@pcmt_draft.normalizer.product_violation_with_label'
+
+    pcmt_draft.normalizer.permissions_helper:
+        class: PcmtDraftBundle\Normalizer\PermissionsHelper
+        arguments:
+            - '@pcmt.service.category_permissions_checker'

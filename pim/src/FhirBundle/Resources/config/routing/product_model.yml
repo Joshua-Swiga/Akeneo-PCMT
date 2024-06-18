@@ -1,0 +1,11 @@
+pim_fhir_api_product_model_list:
+  path: /products
+  defaults: { _controller: pim_fhir_api.controller.product_model:listAction, _format: json }
+  methods: [GET]
+
+pim_fhir_api_product_model_get:
+  path: /products/{code}
+  defaults: { _controller: pim_fhir_api.controller.product_model:getAction, _format: json }
+  methods: [GET]
+  requirements:
+    code: (.+$)(?<!/draft|/proposal)

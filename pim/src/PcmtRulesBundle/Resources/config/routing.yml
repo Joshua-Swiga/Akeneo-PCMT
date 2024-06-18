@@ -1,0 +1,26 @@
+pcmt_rules_attributes_for_families:
+    path: /rest/attributes-for-families/
+    defaults: { _controller: pcmt.controller.rest.attributes:getForFamiliesAction }
+    methods: [GET]
+
+pcmt_rules_attributes_for_options:
+    path: /rest/attributes-for-family/
+    defaults: { _controller: pcmt.controller.rest.attributes:getForOptionsAction }
+    methods: [GET]
+
+pcmt_rules_attributes_for_f2f_mapping:
+    path: /rest/attributes-for-f2f-mapping/
+    defaults: { _controller: pcmt.controller.rest.attributes:getForF2FMappingAction }
+    methods: [GET]
+
+pcmt_rules_index_new:
+    resource: '@PcmtRulesBundle/Resources/config/routing/rules_profile.yml'
+    prefix: /rules
+
+pcmt_rules_job_instance:
+    resource: '@PcmtRulesBundle/Resources/config/routing/job_instance.yml'
+    prefix: /job-instance/rest/rules
+
+pcmt_rules_report:
+    resource: '@PcmtRulesBundle/Resources/config/routing/rules_executions.yml'
+    prefix: /rest/rules/execution

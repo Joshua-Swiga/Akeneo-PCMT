@@ -1,0 +1,133 @@
+######################################################################
+# Copyright (c) 2019, VillageReach
+# Licensed under the Non-Profit Open Software License version 3.0.
+# SPDX-License-Identifier: NPOSL-3.0
+######################################################################
+
+parameters:
+
+    pcmt_catalog.tasklet.compute_family_products_concatenated_attributes_values.class: PcmtCoreBundle\Connector\Job\ComputeConcatenatedAttributeValuesOfProductsTasklet
+
+    pcmt_catalog.compute_family_products_concatenated_attributes_values.tasklet_name: 'compute_concatenated_attributes_values'
+    pcmt_catalog.compute_family_products_concatenated_attributes_values.job_name: 'compute_concatenated_attributes_values'
+    pcmt_catalog.compute_family_products_concatenated_attributes_values.job_type: 'compute_concatenated_attributes_values'
+    pcmt_catalog.compute_family_products_concatenated_attributes_values.connector_name: 'compute_concatenated_attributes_values'
+
+    pcmt_connector.name: 'Pcmt Connector'
+
+services:
+
+    pcmt_connector.job.pcmt_e2open_export:
+        class: '%pim_connector.job.simple_job.class%'
+        arguments:
+            - 'pcmt_e2open_export'
+            - '@event_dispatcher'
+            - '@akeneo_batch.job_repository'
+            -
+                - '@pcmt_connector.step.pcmt_e2open.export'
+        tags:
+            - { name: akeneo_batch.job, connector: 'Pcmt Connector', type: '%pim_connector.job.export_type%' }
+
+    pcmt_connector.job.pcmt_e2open_import:
+        class: '%pim_connector.job.simple_job.class%'
+        arguments:
+            - 'pcmt_e2open_import'
+            - '@event_dispatcher'
+            - '@akeneo_batch.job_repository'
+            -
+                - '@pcmt_connector.step.pcmt_e2open.import'
+        tags:
+            - { name: akeneo_batch.job, connector: 'Pcmt Connector', type: 'import_hidden' }
+
+    pcmt_connector.tasklet.pcmt_e2open_import:
+        class: PcmtCoreBundle\Connector\Job\E2OpenFromXmlTasklet
+        arguments:
+            - '@pcmt.saver.product_through_draft'
+            - '@pim_catalog.builder.product'
+            - '@pcmt_core.service.e2Open.trade_item_xml_processor'
+            - '@pim_catalog.query.product_query_builder_factory'
+            - '@logger'
+            - '@pim_catalog.repository.category'
+            - '@pim_catalog.repository.product'
+            - '@pim_catalog.repository.family'
+            - '@pcmt_core.service.e2Open.packaging_hierarchy_processor'
+            - '@pcmt_core.service.e2Open.trade_item_product_updater'
+            - '@pcmt_core.service.e2Open.trade_item_dynamic_mapping'
+        public: false
+
+    pcmt_connector.job.pcmt_mst_supplier_export:
+        class: '%pim_connector.job.simple_job.class%'
+        arguments:
+            - 'pcmt_mst_supplier_export'
+            - '@event_dispatcher'
+            - '@akeneo_batch.job_repository'
+            -
+                - '@pcmt_connector.step.pcmt_mst_supplier.export'
+        tags:
+            - { name: akeneo_batch.job, connector: 'Pcmt Connector', type: '%pim_connector.job.export_type%' }
+
+    pcmt_catalog.tasklet.compute_family_products_concatenated_attributes_values:
+        class: '%pcmt_catalog.tasklet.compute_family_products_concatenated_attributes_values.class%'
+        arguments:
+            - '@pim_catalog.repository.attribute'
+            - '@pcmt_catalog.product.updater.concatenated_attributes_for_product_and_model'
+            - '@pim_catalog.saver.product'
+            - '@pim_catalog.saver.product_model'
+            - '@pim_catalog.repository.product'
+            - '@pim_catalog.repository.family'
+            - '@pim_catalog.repository.family_variant'
+            - '@pim_catalog.repository.product_model'
+            - '@pim_connector.doctrine.cache_clearer'
+            - '%pcmt_catalog.compute_family_products_concatenated_attributes_values.job_name%'
+            - '@event_dispatcher'
+            - '@akeneo_batch.job_repository'
+        public: false
+
+    pcmt_catalog.step.compute_family_products_concatenated_attributes_values:
+        class: '%pim_connector.step.tasklet.class%'
+        arguments:
+            - '%pcmt_catalog.compute_family_products_concatenated_attributes_values.tasklet_name%'
+            - '@event_dispatcher'
+            - '@akeneo_batch.job_repository'
+            - '@pcmt_catalog.tasklet.compute_family_products_concatenated_attributes_values'
+        public: false
+
+    pcmt_catalog.job.compute_family_products_concatenated_attributes_values:
+        class: '%pim_connector.job.simple_job.class%'
+        arguments:
+            - '%pcmt_catalog.compute_family_products_concatenated_attributes_values.job_name%'
+            - '@event_dispatcher'
+            - '@akeneo_batch.job_repository'
+            -
+                - '@pcmt_catalog.step.compute_family_products_concatenated_attributes_values'
+        public: false
+        tags:
+            -   name: akeneo_batch.job
+                connector: '%pcmt_catalog.compute_family_products_concatenated_attributes_values.connector_name%'
+                type: '%pcmt_catalog.compute_family_products_concatenated_attributes_values.job_type%'
+            -   name: akeneo_batch.job.not_visible
+
+    pcmt_connector.job.reference_data_download_xmls:
+        class: '%pim_connector.job.simple_job.class%'
+        arguments:
+            - 'reference_data_download_xmls'
+            - '@event_dispatcher'
+            - '@akeneo_batch.job_repository'
+            -
+                - '@pcmt_xml_connector.step.reference_data_xml_download'
+        tags:
+            - { name: akeneo_batch.job, connector: 'Pcmt Connector', type: '%pim_connector.job.import_type%' }
+
+
+    pcmt_connector.job.reference_data_import_xmls:
+        class: '%pim_connector.job.simple_job.class%'
+        arguments:
+            - 'reference_data_import_xml'
+            - '@event_dispatcher'
+            - '@akeneo_batch.job_repository'
+            -
+                - '@pcmt_xml_connector.step.xml_reference_data_import'
+
+        tags:
+            - { name: akeneo_batch.job, connector: 'Pcmt Connector', type: '%pim_connector.job.import_type%' }
+

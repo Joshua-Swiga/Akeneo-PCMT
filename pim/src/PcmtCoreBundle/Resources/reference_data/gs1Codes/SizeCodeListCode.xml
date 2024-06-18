@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<codeList xsi:noNamespaceSchemaLocation="http://apps.gs1.org/GDD/Documents/GDDCodeListSchema.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <urn>urn:gs1:gdd:cl:SizeCodeListCode</urn>
+  <name></name>
+  <version>2</version>
+  <domain>gdsn</domain>
+  <code><value>1</value><name>NRF</name><description>National Retail Federation – Standard Colour &amp; Size Codes This handbook provides guidelines for use in retailers' and vendors' merchandising and communications systems.</description></code>
+  <code><value>2</value><name>Assigned by Buyer</name><description>Assigned by Buyer</description></code>
+  <code><value>3</value><name>Assigned by Seller</name><description>Assigned by Seller</description></code>
+  <code><value>4</value><name>EU Nappy/Diaper Size</name><description>EU Nappy/Diaper Size</description></code>
+  <code><value>5</value><name>North American Diaper Size</name><description>Provides the diaper size as identified by the manufacturer for the North American market</description></code>
+</codeList>

@@ -1,0 +1,41 @@
+extensions:
+  pim-rules-profile-create-modal:
+    module: pim/form/common/creation/modal
+    config:
+      labels:
+        title: pim_common.create
+        subTitle: pim_menu.item.rules_profile
+      picture: illustrations/Import.svg
+      successMessage: pim_import_export.entity.rules_profile.flash.create.success
+      editRoute: pcmt_rules_profile_edit
+      postUrl: pcmt_rules_job_instance_rest_rules_create
+      routerKey: code
+
+  pim-rules-profile-create-code:
+    module: pim/form/common/creation/field
+    parent: pim-rules-profile-create-modal
+    targetZone: fields
+    position: 10
+    config:
+      identifier: code
+      label: pim_common.code
+
+  pim-rules-profile-create-label:
+    module: pim/form/common/creation/field
+    parent: pim-rules-profile-create-modal
+    targetZone: fields
+    position: 20
+    config:
+      identifier: label
+      label: pim_common.label
+
+  pim-rules-profile-create-job:
+    module: pim/form/common/creation/job
+    parent: pim-rules-profile-create-modal
+    targetZone: fields
+    position: 30
+    config:
+      type: rules
+      identifier: job_name
+      label: pim_import_export.form.job_instance.meta.job
+      url: pim_enrich_job_instance_rest_jobs_get

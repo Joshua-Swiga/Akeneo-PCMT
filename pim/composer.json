@@ -1,0 +1,128 @@
+{
+    "name": "akeneo/pim-community-standard",
+    "description": "The \"Akeneo Community Standard Edition\" distribution",
+    "license": "OSL-3.0",
+    "type": "project",
+    "authors": [
+        {
+            "name": "Akeneo",
+            "homepage": "http://www.akeneo.com"
+        }
+    ],
+    "autoload": {
+        "psr-0": {
+            "Pcmt\\": "src/Pcmt/",
+            "": "src/"
+        },
+        "psr-4": {
+            "Pcmt\\": "src/Pcmt/",
+            "Pim\\Upgrade\\": "upgrades/"
+        },
+        "classmap": [ "app/AppKernel.php", "app/AppCache.php" ],
+        "exclude-from-classmap": [
+            "vendor/akeneo/pim-community-dev/app/AppKernel.php",
+            "vendor/akeneo/pim-community-dev/app/AppCache.php"
+        ]
+    },
+    "repositories": [
+        {
+            "type": "package",
+            "package": {
+                "version": "dev-pcmt",
+                "name": "damiankryger/akeneo-table-attribute-bundle",
+                "source": {
+                    "url": "https://github.com/damiankryger/akeneo-table-attribute-bundle.git",
+                    "type": "git",
+                    "reference": "pcmt",
+                    "no-api": true
+                },
+                "autoload": {
+                    "psr-4": {
+                        "Flagbit\\Bundle\\TableAttributeBundle\\": "src/"
+                    }
+                }
+            }
+        }
+    ],
+    "require": {
+        "php": ">=7.2.0",
+        "akeneo-labs/custom-entity-bundle": "3.0.*",
+        "akeneo/pim-community-dev": "^3.2.82",
+        "php-http/guzzle6-adapter": "^2.0",
+        "sabre/xml": "^2.1",
+        "phpoffice/phpspreadsheet": "1.9.0",
+        "nesbot/carbon": "^2.25",
+        "behat/mink-extension": "^2.3",
+        "behat/mink-goutte-driver": "^1.2",
+        "behat/mink-selenium2-driver": "^1.4",
+        "symfony/yaml": "^3.0",
+        "symfony/finder": "^3.0",
+        "damiankryger/akeneo-table-attribute-bundle": "dev-pcmt",
+        "cweagans/composer-patches": "~1.0"
+    },
+    "require-dev": {
+        "doctrine/migrations": "1.5.0",
+        "doctrine/doctrine-migrations-bundle": "1.2.1",
+        "symfony/profiler-pack": "^1.0",
+        "symfony/maker-bundle": "^1.12",
+        "symfony/phpunit-bridge": "^4.3",
+        "phpunit/phpunit": "^8",
+        "symplify/easy-coding-standard": "^6.1",
+        "infection/infection": "^0.13",
+        "behat/mink": "^1.7",
+        "behat/symfony2-extension": "^2.1",
+        "behatch/contexts": "^3.3",
+        "coduo/php-matcher": "^4.0",
+        "behat/mink-browserkit-driver": "^1.3",
+        "doctrine/doctrine-fixtures-bundle": "^2.3.0"
+    },
+    "scripts": {
+        "symfony-scripts": [
+            "Incenteev\\ParameterHandler\\ScriptHandler::buildParameters",
+            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::buildBootstrap",
+            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::clearCache",
+            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installAssets",
+            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installRequirementsFile",
+            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::removeSymfonyStandardFiles",
+            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::prepareDeploymentTarget",
+            "php bin/console --ansi fos:js-routing:dump --target=web/js/routes.js",
+            "php bin/console --ansi pim:installer:assets"
+        ],
+        "post-install-cmd": [
+            "@symfony-scripts"
+        ],
+        "post-update-cmd": [
+            "@symfony-scripts",
+            "Akeneo\\Platform\\Bundle\\InstallerBundle\\ComposerScripts::copyUpgradesFiles"
+        ]
+    },
+    "minimum-stability": "stable",
+    "extra": {
+        "symfony-app-dir": "app",
+        "symfony-bin-dir": "bin",
+        "symfony-var-dir": "var",
+        "symfony-web-dir": "web",
+        "symfony-assets-install": "relative",
+        "incenteev-parameters": {
+            "keep-outdated": true,
+            "file": "app/config/parameters.yml",
+            "env-map": {
+                "database_host": "PIM_DATABASE_HOST",
+                "database_port": "PIM_DATABASE_PORT",
+                "database_name": "PIM_DATABASE_NAME",
+                "database_user": "PIM_DATABASE_USER",
+                "database_password": "PIM_DATABASE_PASSWORD",
+                "index_hosts": "PIM_INDEX_HOSTS"
+            }
+        },
+        "branch-alias": {
+            "dev-master": "3.2.x-dev"
+        },
+        "composer-exit-on-patch-failure": true,
+        "patches": {
+            "akeneo/pim-community-dev": {
+                "Fix: https://github.com/akeneo/pim-community-dev/issues/15644": "patches/filters-column.ts.patch"
+            }
+        }
+    }
+}

@@ -1,0 +1,44 @@
+######################################################################
+# Copyright (c) 2019, VillageReach
+# Licensed under the Non-Profit Open Software License version 3.0.
+# SPDX-License-Identifier: NPOSL-3.0
+######################################################################
+
+PcmtCISBundle\Entity\Subscription:
+    type: entity
+    table: pcmt_cis_subscription
+    repositoryClass: PcmtCISBundle\Repository\SubscriptionRepository
+    fields:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+        dataRecipientsGLN:
+            type: string
+            column: data_recipients_gln
+        dataSourcesGLN:
+            type: string
+            column: data_sources_gln
+        GTIN:
+            type: string
+            column: gtin
+        GPCCategoryCode:
+            type: string
+            column: gpc_category_code
+        created:
+            type: datetime
+        updated:
+            type: datetime
+            nullable: true
+    lifecycleCallbacks:
+        prePersist: [ updateTimestamps ]
+        preUpdate: [ updateTimestamps ]
+    manyToOne:
+        targetMarketCountryCode:
+            targetEntity: PcmtCoreBundle\Entity\ReferenceData\CountryCode
+            joinColumns:
+                target_market_country_code_id:
+                    nullable: true
+                    referencedColumnName: id
+                    onDelete: 'SET NULL'

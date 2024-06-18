@@ -1,0 +1,10 @@
+imports:
+  - { resource: config.yml }
+  - { resource: security_test.yml }
+
+framework:
+  test: ~
+
+parameters:
+  database_name: akeneo_pim
+  installer_data: PcmtCustomDatasetBundle:pcmt_global

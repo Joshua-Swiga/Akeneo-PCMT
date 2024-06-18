@@ -1,0 +1,15 @@
+######################################################################
+# Copyright (c) 2019, VillageReach
+# Licensed under the Non-Profit Open Software License version 3.0.
+# SPDX-License-Identifier: NPOSL-3.0
+######################################################################
+
+parameters:
+    pcmt_connector.updater.datagrid_view.class: PcmtCustomDatasetBundle\Updater\DatagridViewUpdater
+
+services:
+    pcmt_connector.updater.datagrid_view:
+        class: '%pcmt_connector.updater.datagrid_view.class%'
+        arguments:
+            - '@pim_user.repository.user'
+            - '@pim_datagrid.updater.datagrid_view'

@@ -1,0 +1,9 @@
+services:
+
+    pcmt_rules.event_listener.logger_subscriber:
+        class: PcmtRulesBundle\Listener\LoggerSubscriber
+        arguments:
+            - '@logger'
+        tags:
+            - { name: kernel.event_subscriber }
+            - { name: monolog.logger, channel: batch }

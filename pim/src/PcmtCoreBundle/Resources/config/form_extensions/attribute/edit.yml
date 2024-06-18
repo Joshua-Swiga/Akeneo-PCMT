@@ -1,0 +1,29 @@
+######################################################################
+# Copyright (c) 2019, VillageReach
+# Licensed under the Non-Profit Open Software License version 3.0.
+# SPDX-License-Identifier: NPOSL-3.0
+######################################################################
+
+extensions:
+#   Tab in edit Attribute
+    pim-attribute-edit-form-description-tab:
+        module: pim/common/tab
+        parent: pim-attribute-edit-form-form-tabs
+        targetZone: container
+        position: 120
+        config:
+            label: pim_enrich.form.attribute.tab.descriptions.title
+#   Connection between tab and content
+    pim-attribute-edit-form-description-container:
+        module: pim/common/simple-view
+        parent: pim-attribute-edit-form-description-tab
+        targetZone: self
+        position: 110
+        config:
+            template: pim/template/common/form-container
+#   Content of the tab
+    pim-attribute-edit-edit-form-description-translation:
+        module: dnd/attribute-edit-form/descriptions/translation
+        parent: pim-attribute-edit-form-description-container
+        targetZone: form-container
+        position: 110

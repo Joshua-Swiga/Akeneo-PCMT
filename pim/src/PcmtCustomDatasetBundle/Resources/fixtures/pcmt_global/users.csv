@@ -1,0 +1,4 @@
+username;first_name;last_name;email;password;catalog_default_locale;user_default_locale;catalog_default_scope;default_category_tree;roles;groups;enabled
+admin;John;Doe;admin@example.com;Admin123;en_US;en_US;PRODUCT_CATALOG;master;ROLE_ADMINISTRATOR;IT support;1
+gs1-catalog-manager;GS1 Catalog;Manager;gs1.catalog.manager@example.com;manager;en_US;en_US;PRODUCT_CATALOG;master;ROLE_CATALOG_MANAGER;GS1 manager;1
+APIuser;API;user;APIuser@example.com;Admin123;en_US;en_US;PRODUCT_CATALOG;master;ROLE_API;IT support;1

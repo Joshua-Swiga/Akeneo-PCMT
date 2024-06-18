@@ -1,0 +1,87 @@
+######################################################################
+# Copyright (c) 2019, VillageReach
+# Licensed under the Non-Profit Open Software License version 3.0.
+# SPDX-License-Identifier: NPOSL-3.0
+######################################################################
+
+PcmtDraftBundle\Entity\AbstractDraft:
+    type: entity
+    table: pcmt_catalog_product_draft
+    inheritanceType: SINGLE_TABLE
+    discriminatorColumn:
+        name: type
+        type: string
+    changeTrackingPolicy: DEFERRED_EXPLICIT
+    repositoryClass: PcmtDraftBundle\Repository\DraftRepository
+    fields:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+        created:
+            type: datetime
+        updated:
+            type: datetime
+            nullable: true
+        approved:
+            type: datetime
+            nullable: true
+        version:
+            type: integer
+            nullable: false
+        status:
+            type: integer
+            nullable: false
+        productData:
+            type: native_json
+            nullable: true
+    lifecycleCallbacks:
+        prePersist: [ updateTimestamps ]
+        preUpdate: [ updateTimestamps ]
+    manyToOne:
+        product:
+            targetEntity: Akeneo\Pim\Enrichment\Component\Product\Model\ProductInterface
+            joinColumns:
+                product_id:
+                    nullable: true
+                    referencedColumnName: id
+                    onDelete: 'SET NULL'
+        productModel:
+            targetEntity: Akeneo\Pim\Enrichment\Component\Product\Model\ProductModelInterface
+            joinColumns:
+                product_model_id:
+                    nullable: true
+                    referencedColumnName: id
+                    onDelete: 'SET NULL'
+        author:
+            targetEntity: Akeneo\UserManagement\Component\Model\UserInterface
+            joinColumns:
+                author:
+                    referencedColumnName: id
+                    onDelete: 'SET NULL'
+        updatedBy:
+            targetEntity: Akeneo\UserManagement\Component\Model\UserInterface
+            joinColumns:
+                updatedBy:
+                    referencedColumnName: id
+                    onDelete: 'SET NULL'
+        approvedBy:
+            targetEntity: Akeneo\UserManagement\Component\Model\UserInterface
+            joinColumns:
+                updatedBy:
+                    referencedColumnName: id
+                    onDelete: 'SET NULL'
+    manyToMany:
+        categories:
+            targetEntity: Akeneo\Pim\Enrichment\Component\Category\Model\CategoryInterface
+            joinTable:
+                name: pcmt_catalog_product_draft_category
+                joinColumns:
+                    draft_id:
+                        referencedColumnName: id
+                        onDelete: CASCADE
+                inverseJoinColumns:
+                    category_id:
+                        referencedColumnName: id
+                        onDelete: CASCADE

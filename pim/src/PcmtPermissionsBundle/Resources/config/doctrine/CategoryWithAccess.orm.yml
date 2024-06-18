@@ -1,0 +1,13 @@
+PcmtPermissionsBundle\Entity\CategoryWithAccess:
+    type: entity
+    table: pim_catalog_category
+    changeTrackingPolicy: DEFERRED_EXPLICIT
+    repositoryClass: Akeneo\Tool\Bundle\ClassificationBundle\Doctrine\ORM\Repository\CategoryRepository
+    oneToMany:
+        accesses:
+            targetEntity: PcmtPermissionsBundle\Entity\CategoryAccess
+            mappedBy: category
+            orphanRemoval: true
+            cascade:
+                - persist
+                - detach

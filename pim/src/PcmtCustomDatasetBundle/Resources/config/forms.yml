@@ -1,0 +1,17 @@
+######################################################################
+# Copyright (c) 2019, VillageReach
+# Licensed under the Non-Profit Open Software License version 3.0.
+# SPDX-License-Identifier: NPOSL-3.0
+######################################################################
+
+services:
+
+  pcmt_enrichment.provider.form.job_instance:
+    class: 'Akeneo\Platform\Bundle\ImportExportBundle\Provider\Form\JobInstanceFormProvider'
+    arguments:
+      -
+          pcmt_xlsx_product_import: pim-job-instance-xlsx-product-import
+          pcmt_xlsx_datagrid_view_export: pim-job-instance-xlsx-base-export
+          pcmt_xlsx_datagrid_view_import: pim-job-instance-xlsx-base-import
+    tags:
+      - { name: pim_enrich.provider.form, priority: 100 }

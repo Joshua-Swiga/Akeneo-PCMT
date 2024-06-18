@@ -1,0 +1,60 @@
+
+{% set category = form.vars.value.category ? form.vars.value.category : form.vars.value  %}
+
+{% block content %}
+    <div id="category-form" style="flex-grow:1" class="AknDefault-mainContent">
+        {% include 'PcmtPermissionsBundle:CategoryTree:form.html.twig' with {'form': form} %}
+    </div>
+
+    {% include "PcmtPermissionsBundle:CategoryTree:_scripts.html.twig" %}
+{% endblock %}
+
+<script type="text/javascript">
+    window.flashMessages = JSON.parse('{{ app.session.flashbag.all|json_encode()|raw }}');
+</script>
+
+<script>
+    require(
+        [
+            'pim/common/breadcrumbs',
+            'pim/fetcher-registry',
+            'pim/form-builder',
+            'pim/page-title'
+        ],
+        function(
+            Breadcrumbs,
+            FetcherRegistry,
+            FormBuilder,
+            PageTitle
+        ) {
+            $(function() {
+                var breadcrumbs = new Breadcrumbs({
+                    config: {
+                        tab: 'pim-menu-settings',
+                        item: 'pim-menu-settings-product-category'
+                    }
+                });
+                breadcrumbs.configure().then(function () {
+                    breadcrumbs.render();
+                    $('*[data-drop-zone="breadcrumbs"]').append(breadcrumbs.$el);
+                });
+
+                PageTitle.set({ 'category.label': '{{ category.label }}' });
+
+                // On the initial page load the routing is completed before we set the PageTitle params so we need to trigger it manually (see PIM-8655).
+                {% if category.code is empty %}
+                PageTitle.render('pim_enrich_categorytree_create', { 'category.label': '{{ category.label }}' });
+                {% else %}
+                PageTitle.render('pim_enrich_categorytree_edit', { 'category.label': '{{ category.label }}' });
+                {% endif %}
+
+                FetcherRegistry.initialize().done(function () {
+                    FormBuilder.build('pim-menu-user-navigation').then(function (form) {
+                        $('.user-menu').append(form.el);
+                        form.render();
+                    }.bind(this));
+                });
+            });
+        }
+    );
+</script>

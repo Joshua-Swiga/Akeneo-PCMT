@@ -1,0 +1,19 @@
+pim_enrich:
+    #Category
+    category:
+        tab:
+            permissions.title: Permissions
+
+pcmt_permissions:
+    form:
+        apply_changes_on_children: Apply these permissions on sub-categories (performs a one-time clone that overwrites permissions on sub-categories)
+        allowed_to_view_products: Allowed to view products
+        allowed_to_edit_products: Allowed to edit products
+        allowed_to_own_products: Allowed to own products
+
+pane.accordion:
+    permissions: Permissions
+
+job_execution:
+    summary:
+        products_and_product_models_without_access: Products and product models skipped in case of no access

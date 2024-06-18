@@ -1,0 +1,15 @@
+######################################################################
+# Copyright (c) 2019, VillageReach
+# Licensed under the Non-Profit Open Software License version 3.0.
+# SPDX-License-Identifier: NPOSL-3.0
+######################################################################
+
+extensions:
+    logger_form_extension:
+        module: logger_test_view  #RequireJS module name
+        parent: pim/product-edit-form/meta/family # The parent of your module (the meta section of the product edit form in this case)
+        targetZone: header
+        position: 90
+        aclResourceId: pim_catalog_product_edit
+        config: #arbitrary config - it can be done in initialize function in module code
+            title: pcmt.menu.item.reference_data.supplier

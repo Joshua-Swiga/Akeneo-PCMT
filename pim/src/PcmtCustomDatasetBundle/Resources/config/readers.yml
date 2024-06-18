@@ -1,0 +1,17 @@
+######################################################################
+# Copyright (c) 2019, VillageReach
+# Licensed under the Non-Profit Open Software License version 3.0.
+# SPDX-License-Identifier: NPOSL-3.0
+######################################################################
+
+services:
+  pcmt_connector.reader.database.datagrid_view:
+    class: 'PcmtCustomDatasetBundle\Reader\Database\PcmtDatagridViewReader'
+    arguments:
+        - '@pim_datagrid.repository.datagrid_view'
+
+  pcmt_connector.reader.file.datagrid_view:
+    class: 'Akeneo\Tool\Component\Connector\Reader\File\Xlsx\Reader'
+    arguments:
+      - '@pim_connector.reader.file.xlsx_iterator_factory'
+      - '@pcmt_connector.array_converter.flat_to_standard.datagrid_view'

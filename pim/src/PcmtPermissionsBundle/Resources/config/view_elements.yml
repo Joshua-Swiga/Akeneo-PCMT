@@ -1,0 +1,11 @@
+parameters:
+    pim_enrich.view_element.category.tab.permissions.template: PcmtPermissionsBundle:CategoryTree:Tab/permissions.html.twig
+
+services:
+    pim_enrich.view_element.category.tab.permissions:
+        parent: pim_enrich.view_element.base
+        arguments:
+            - 'pim_enrich.category.tab.permissions'
+            - '%pim_enrich.view_element.category.tab.permissions.template%'
+        tags:
+            - { name: pim_enrich.view_element, type: pim_category.form_tab, position: 130 }

@@ -1,0 +1,12 @@
+services:
+    pim_enrich.job.delete_products_and_product_models:
+        class: '%pim_connector.job.simple_job.class%'
+        arguments:
+            - '%pim_enrich.job.name.delete_products_and_product_models%'
+            - '@event_dispatcher'
+            - '@akeneo_batch.job_repository'
+            -
+                - '@pcmt_permissions.step.check_user_access_to_the_category'
+                - '@pim_enrich.step.delete_products_and_product_models.mass_edit'
+        tags:
+            - { name: akeneo_batch.job, connector: '%pim_enrich.connector_name.mass_edit%', type: '%pim_enrich.job.mass_edit_type%' }

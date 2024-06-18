@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<codeList xsi:noNamespaceSchemaLocation="http://apps.gs1.org/GDD/Documents/GDDCodeListSchema.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <urn>urn:gs1:gdd:cl:TradeItemUnitDescriptorCode</urn>
+  <name></name>
+  <version>1</version>
+  <domain>gdsn</domain>
+  <code><value>BASE_UNIT_OR_EACH</value><name>Base Unit or Each</name><description>The lowest level of the item hierarchy intended or labeled for individual resale.</description></code>
+  <code><value>CASE</value><name>Case</name><description>A standard trade item shipping unit that contains a single or multiple GTINs. Includes an ½ or ¼ pallet and an ½ or ¼ box pallet.</description></code>
+  <code><value>DISPLAY_SHIPPER</value><name>Display Shipper</name><description>A display, a shipper. May have a “PL” parent. May have (CA or EA) children in multiple instances. It may be Orderable and can be a Consumer Unit.</description></code>
+  <code><value>MIXED_MODULE</value><name>Mixed Module</name><description>A unit load that is a “display ready pallet” that may contain a single GTIN or several unique GTINs that is intended to go directly to the selling floor</description></code>
+  <code><value>PACK_OR_INNER_PACK</value><name>Pack or Inner Pack</name><description>A logistical unit between case and each. This may be a consumable innerpack (i.e. Carton of Cigarettes) or it may be simply a logistical pack (i.e. Dozes of toothbrushes).</description></code>
+  <code><value>PALLET</value><name>Pallet</name><description>A unit load that contains a single or multiple GTINs Includes box pallet</description></code>
+  <code><value>TRANSPORT_LOAD</value><name>Transport Load</name><description>Trade item above the pallet level used for transporting trade items. For example truck load, container, rail car, ship, etc.</description></code>
+</codeList>

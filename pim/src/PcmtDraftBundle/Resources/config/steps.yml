@@ -1,0 +1,55 @@
+services:
+    pcmt_connector.step.xlsx_product_draft.import:
+        class: 'PcmtDraftBundle\Connector\Job\Step\PcmtImportViaDraftStep'
+        arguments:
+            - 'import'
+            - '@event_dispatcher'
+            - '@akeneo_batch.job_repository'
+            - '@pim_connector.reader.file.xlsx_product'
+            - '@pim_connector.processor.denormalization.product'
+            - '@pcmt_connector.job.writer.database.draft.product'
+            - '%pim_job_product_batch_size%'
+        calls:
+            - [setUserRepository, ['@pim_user.repository.user']]
+
+    pcmt_connector.step.xlsx_root_product_model.import:
+        class: 'PcmtDraftBundle\Connector\Job\Step\PcmtImportViaDraftStep'
+        arguments:
+            - 'import_root_product_model'
+            - '@event_dispatcher'
+            - '@akeneo_batch.job_repository'
+            - '@pim_connector.reader.file.xlsx_product_model'
+            - '@pim_connector.processor.denormalization.root_product_model'
+            - '@pcmt_connector.job.writer.database.draft.product_model'
+            - '%pim_job_product_batch_size%'
+        calls:
+            - [setUserRepository, ['@pim_user.repository.user']]
+
+    pcmt_connector.step.xlsx_sub_product_model.import:
+        class: 'PcmtDraftBundle\Connector\Job\Step\PcmtImportViaDraftStep'
+        arguments:
+            - 'import_sub_product_model'
+            - '@event_dispatcher'
+            - '@akeneo_batch.job_repository'
+            - '@pim_connector.reader.file.xlsx_product_model'
+            - '@pim_connector.processor.denormalization.sub_product_model'
+            - '@pcmt_connector.job.writer.database.draft.product_model'
+            - '%pim_job_product_batch_size%'
+        calls:
+            - [setUserRepository, ['@pim_user.repository.user']]
+
+    pcmt.step.drafts_bulk_approve:
+        class: '%pim_connector.step.tasklet.class%'
+        arguments:
+            - 'drafts_bulk_approve'
+            - '@event_dispatcher'
+            - '@akeneo_batch.job_repository'
+            - '@pcmt.connector.job.tasklet.drafts_bulk_approve'
+
+    pcmt.step.drafts_bulk_reject:
+        class: '%pim_connector.step.tasklet.class%'
+        arguments:
+            - 'drafts_bulk_reject'
+            - '@event_dispatcher'
+            - '@akeneo_batch.job_repository'
+            - '@pcmt.connector.job.tasklet.drafts_bulk_reject'

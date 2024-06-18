@@ -1,0 +1,65 @@
+######################################################################
+# Copyright (c) 2019, VillageReach
+# Licensed under the Non-Profit Open Software License version 3.0.
+# SPDX-License-Identifier: NPOSL-3.0
+######################################################################
+
+services:
+    pcmt_connector.job.job_parameters.default_values_provider.pcmt_xlsx_product_export:
+        class: 'PcmtCoreBundle\Connector\Job\JobParameters\DefaultValueProvider\ProductE2openExport'
+        arguments:
+            - '@pim_connector.job.job_parameters.default_values_provider.product_xlsx_export'
+            -
+                - 'pcmt_e2open_export'
+                - 'pcmt_mst_supplier_export'
+        tags:
+            - { name: akeneo_batch.job.job_parameters.default_values_provider }
+
+
+    pcmt_connector.job.job_parameters.constraint_collection_provider.pcmt_xlsx_product_export:
+        class: 'Akeneo\Pim\Enrichment\Component\Product\Connector\Job\JobParameters\ConstraintCollectionProvider\ProductXlsxExport'
+        arguments:
+            - '@akeneo_pim_enrichment.job.job_parameters.constraint_collection_provider.simple_xlsx_export'
+            -
+                - 'pcmt_e2open_export'
+                - 'pcmt_mst_supplier_export'
+        tags:
+            - { name: akeneo_batch.job.job_parameters.constraint_collection_provider }
+
+    pim_enrich.provider.field.concatenated:
+        class: 'PcmtCoreBundle\Provider\Field\ConcatenatedAttributeFieldProvider'
+        tags:
+            - { name: pim_enrich.provider.field, priority: 100 }
+
+    pcmt_catalog.job.job_parameters.default_values_provider.compute_family_products_concatenated_attributes_values:
+        class: '%akeneo_batch.job.job_parameters.empty_values_provider.class%'
+        arguments:
+            - [ '%pcmt_catalog.compute_family_products_concatenated_attributes_values.job_name%' ]
+        tags:
+            - { name: akeneo_batch.job.job_parameters.default_values_provider }
+
+    pcmt_connector.job.job_parameters.default_values_provider.reference_data_download_xmls:
+        class: PcmtCoreBundle\Connector\Job\JobParameters\DefaultValueProvider\ReferenceDataXmlDownloadProvider
+        arguments:
+            -
+                - 'reference_data_download_xmls'
+            - 'gs1Codes'
+        tags:
+            - { name: akeneo_batch.job.job_parameters.default_values_provider }
+
+
+    pcmt_connector.job.job_parameters.default_values_provider.reference_data_import_xmls:
+        class: PcmtCoreBundle\Connector\Job\JobParameters\DefaultValueProvider\ReferenceDataXmlImportProvider
+        arguments:
+            -
+                - 'reference_data_import_xml'
+        tags:
+            - { name: akeneo_batch.job.job_parameters.default_values_provider }
+
+    pcmt_connector.job.job_parameters.default_values_provider.pcmt_e2open_import:
+        class: PcmtCoreBundle\Connector\Job\JobParameters\DefaultValueProvider\E2OpenImport
+        arguments:
+            -
+                - 'pcmt_e2open_import'
+        tags:
+            - { name: akeneo_batch.job.job_parameters.default_values_provider }

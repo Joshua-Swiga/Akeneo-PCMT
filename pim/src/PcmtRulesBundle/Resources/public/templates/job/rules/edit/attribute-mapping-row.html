@@ -1,0 +1,52 @@
+<!--
+  ~ Copyright (c) 2021, VillageReach
+  ~ Licensed under the Non-Profit Open Software License version 3.0.
+  ~ SPDX-License-Identifier: NPOSL-3.0
+  -->
+
+<tr class="AknGrid-bodyRow">
+
+    <td class="AknGrid-bodyCell">
+
+        <select class="select2" title="Source attribute" name="sourceValue" data-index="<%- element.index %>">
+
+            <option value="" <% if (_.isEmpty(element.sourceValue)) { %> selected<% } %> ></option>
+            <% _.each(sourceAttributeList, function (option) { %>
+            <option value="<%- option.code %>"
+                <% if (option.code === element.sourceValue) { %> selected<% } %>
+            >
+            <%- i18n.getLabel(option.labels, locale, option.code) %>
+            </option>
+            <% }); %>
+        </select>
+
+    </td>
+
+    <td class="AknGrid-bodyCell">
+        =>
+    </td>
+
+    <td class="AknGrid-bodyCell">
+
+        <select class="select2" title="Destination attribute" name="destinationValue" data-index="<%- element.index %>">
+
+            <option value="" <% if (_.isEmpty(element.destinationValue)) { %> selected<% } %> ></option>
+            <% _.each(destinationAttributeList, function (option) { %>
+            <option value="<%- option.code %>"
+            <% if (option.code === element.destinationValue) { %> selected<% } %>
+            >
+            <%- i18n.getLabel(option.labels, locale, option.code) %>
+            </option>
+            <% }); %>
+        </select>
+
+    </td>
+
+    <td class="AknGrid-bodyCell AknGrid-bodyCell--actions">
+        <a href="javascript:void(0);" data-index="<%- element.index %>" class="remove-row AknIconButton AknIconButton--small AknIconButton--trash AknButtonList-item" title="Remove row">
+            Remove row
+        </a>
+    </td>
+
+</tr>
+

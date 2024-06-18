@@ -1,0 +1,11 @@
+extensions:
+    pim-product-create-family:
+        module: pim/form/common/fields/simple-select-async
+        parent: pim-product-create-modal
+        targetZone: fields
+        position: 20
+        config:
+            fieldName: family
+            label: pim_enrich.entity.family.uppercase_label
+            choiceRoute: pim_enrich_family_rest_index
+            required: true

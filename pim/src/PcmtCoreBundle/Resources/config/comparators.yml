@@ -1,0 +1,26 @@
+######################################################################
+# Copyright (c) 2019, VillageReach
+# Licensed under the Non-Profit Open Software License version 3.0.
+# SPDX-License-Identifier: NPOSL-3.0
+######################################################################
+
+parameters:
+
+    pcmt_catalog.comparator.attribute.concatenated.class: PcmtCoreBundle\Extension\ConcatenatedAttribute\Structure\Component\Comparator\ConcatenatedComparator
+
+services:
+
+    pcmt_catalog.comparator.attribute.concatenated:
+        class: '%pcmt_catalog.comparator.attribute.concatenated.class%'
+        arguments:
+            -
+                - 'pcmt_catalog_concatenated'
+        tags:
+            - { name: pim_catalog.attribute.comparator }
+
+    pim_catalog.comparator.attribute.boolean:
+        class: PcmtCoreBundle\Service\Comparator\PcmtBooleanComparator
+        arguments:
+            - ['pim_catalog_boolean']
+        tags:
+            - { name: pim_catalog.attribute.comparator, priority: -100 }

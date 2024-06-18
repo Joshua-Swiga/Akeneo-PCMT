@@ -1,0 +1,37 @@
+######################################################################
+# Copyright (c) 2019, VillageReach
+# Licensed under the Non-Profit Open Software License version 3.0.
+# SPDX-License-Identifier: NPOSL-3.0
+######################################################################
+
+services:
+
+
+    ### Concatenated fields for attribute
+    pcmt_core.normalizer.standard.concatenated_attribute:
+        class: 'PcmtCoreBundle\Normalizer\Standard\ConcatenatedTypeNormalizer'
+
+    ### Description field for attribute
+    pcmt_core.normalizer.standard.attribute_description:
+        class: 'PcmtCoreBundle\Normalizer\Standard\DescriptionNormalizer'
+
+    pcmt_core.normalizer.standard.country_code:
+        class: 'PcmtCoreBundle\Normalizer\Standard\CountryCodeNormalizer'
+        tags:
+            - { name: pim_standard_format_serializer.normalizer, priority: 80 }
+
+    ### Attribute
+    pim_catalog.normalizer.standard.attribute:
+        class: 'PcmtCoreBundle\Normalizer\Standard\AttributeNormalizer'
+        arguments:
+            - '@pim_catalog.normalizer.standard.translation'
+            - '@pim_catalog.normalizer.standard.datetime'
+            - ['auto_option_sorting']
+        calls:
+            - ['setConcatenatedNormalizer', ['@pcmt_core.normalizer.standard.concatenated_attribute']]
+            - ['setDescriptionNormalizer', ['@pcmt_core.normalizer.standard.attribute_description']]
+        tags:
+            - { name: pim_standard_format_serializer.normalizer, priority: 90 }
+
+
+

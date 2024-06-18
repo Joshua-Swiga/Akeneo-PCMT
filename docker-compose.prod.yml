@@ -1,0 +1,134 @@
+######################################################################
+# Copyright (c) 2020, VillageReach
+# Licensed under the Non-Profit Open Software License version 3.0.
+# SPDX-License-Identifier: NPOSL-3.0
+######################################################################
+
+version: "3.5"
+services:
+  fpm:
+    volumes:
+      - 'ftp-get:/srv/pim/src/PcmtCoreBundle/Resources/E2OpenImport/work/'
+      - 'ftp-put:/srv/pim/src/PcmtCISBundle/Resources/E2OpenCIS/'
+
+  mysql:
+    ports:
+      - '3306:3306'
+
+  mysql-backup:
+    image: pcmt/mysql-backup
+    restart: unless-stopped
+    environment:
+      CRON_SCHEDULE: '0 3 * * *'
+      BACKUP_DIR: '/backup'
+    secrets:
+      - mysql-creds
+    volumes:
+      - backup:/backup
+
+  asset-backup:
+    image: pcmt/asset-backup
+    restart: unless-stopped
+    environment:
+      CRON_SCHEDULE: '0 3 * * *'
+    volumes:
+      - backup:/backup
+      - uploads:/pim-assets/uploads
+      - file_storage:/pim-assets/file_storage
+
+  s3-sync:
+    image: pcmt/s3
+    restart: unless-stopped
+    environment:
+      CRON_SCHEDULE: '15 3 * * *'
+      LOCAL_DIR_TO_SYNC_OUT: '/backup'
+      S3_BUCKET: "${PCMT_S3_BUCKET}"
+    volumes:
+      - backup:/backup
+    secrets:
+      - s3-creds
+
+  ftp-get:
+    image: pcmt/ftp-get
+    restart: unless-stopped
+    environment:
+      CRON_SCHEDULE: '*/10 * * * *'
+      SFTP_PRIVKEY_FILENAME: '/run/secrets/sftp-privkey'
+      SFTP_LOCAL_DIR: '/srv/pim/src/PcmtCoreBundle/Resources/E2OpenImport/work/'
+    volumes:
+      - 'ftp-get:/srv/pim/src/PcmtCoreBundle/Resources/E2OpenImport/work/'
+    secrets:
+      - ftp-get-creds
+      - sftp-privkey
+
+  ftp-put:
+    image: pcmt/ftp-put
+    restart: unless-stopped
+    environment:
+      CRON_SCHEDULE: '*/10 * * * *'
+      SFTP_PRIVKEY_FILENAME: '/run/secrets/sftp-privkey'
+      SFTP_LOCAL_DIR: '/uploads/work/'
+      SFTP_LOCAL_ARCHIVE_DIR: '/uploads/done/'
+    volumes:
+      - 'ftp-put:/uploads'
+    secrets:
+      - ftp-put-creds
+      - sftp-privkey
+
+  grafana-agent:
+    image: grafana/agent:v0.40.3
+    restart: unless-stopped
+    volumes:
+      - type: bind
+        source: ${PCMT_GRAFANA_AGENT_CONF:-./conf/grafana-agent.river.dist}
+        target: "/etc/agent/config.river"
+        read_only: true
+      - type: bind
+        source: /var/run/docker.sock
+        target: /var/run/docker.sock
+        read_only: true
+      - type: volume
+        source: grafana-agent
+        target: /data-agent
+      - '/:/host:ro,rslave'
+      - '/sys:/host/sys:ro,rslave'
+      - '/proc:/host/proc:ro,rslave'
+      - '/run/udev/data:/host/run/udev/data:ro,rslave'
+    security_opt:
+      - seccomp:unconfined
+    environment:
+      AGENT_MODE: flow
+      PCMT_HOSTNAME:
+    secrets:
+      - grafana-creds
+    command:
+      - "run"
+      - "--server.http.listen-addr=0.0.0.0:12345"
+      - "/etc/agent/config.river"
+    ports:
+      - "12345:12345"
+          
+volumes:
+  backup:
+    driver: local
+  ftp-get:
+    driver: local
+  ftp-put:
+    driver: local
+  grafana-agent:
+    driver: local
+
+secrets:
+  mysql-creds:
+    file: "${PCMT_MYSQL_CREDS_CONF:-./conf/mysql-creds.env}"
+  s3-creds:
+    file: "${PCMT_S3_CREDS_CONF:-./conf/aws-s3-creds.env}"
+  ftp-get-creds:
+    file: "${PCMT_FTP_GET_CREDS_CONF:-./conf/ftp-get-creds.env}"
+  ftp-put-creds:
+    file: "${PCMT_FTP_PUT_CREDS_CONF:-./conf/ftp-put-creds.env}"
+  sftp-privkey:
+    file: "${PCMT_SFTP_PRIVKEY_FILENAME:-./conf/sftp-privkey}"
+  grafana-creds:
+    file: "${PCMT_GRAFANA_CREDS_CONF:-./conf/grafana-creds.json.dist}"
+      

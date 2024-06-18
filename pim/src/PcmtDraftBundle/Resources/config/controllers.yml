@@ -1,0 +1,102 @@
+######################################################################
+# Copyright (c) 2019, VillageReach
+# Licensed under the Non-Profit Open Software License version 3.0.
+# SPDX-License-Identifier: NPOSL-3.0
+######################################################################
+
+services:
+    pcmt_core.controller.rest.draft:
+        class: PcmtDraftBundle\Controller\DraftController
+        autowire: true
+        arguments:
+            $draftViolationNormalizer: '@pcmt_draft.normalizer.draft_violation'
+            $categoryPermissionsChecker: '@pcmt.service.category_permissions_checker'
+
+    pcmt_core.controller.product:
+        class: 'PcmtDraftBundle\Controller\PcmtUiProductController'
+        parent: pim_enrich.controller.product
+
+    ### overrides product controller
+    pim_enrich.controller.rest.product:
+        class: PcmtDraftBundle\Controller\PcmtProductController
+        arguments:
+            - '@pim_catalog.repository.product'
+            - '@pim_catalog.repository.product'
+            - '@pim_catalog.repository.attribute'
+            - '@pim_catalog.updater.product'
+            - '@pim_catalog.saver.product'
+            - '@pim_internal_api_serializer'
+            - '@pim_catalog.validator.product'
+            - '@pim_user.context.user'
+            - '@pim_catalog.filter.chained'
+            - '@pim_enrich.filter.product_edit_data'
+            - '@pim_catalog.remover.product'
+            - '@pim_catalog.builder.product'
+            - '@pim_catalog.localization.localizer.converter'
+            - '@pim_catalog.comparator.filter.product'
+            - '@pim_enrich.converter.enrich_to_standard.product_value'
+            - '@pcmt_core.normalizer.product_violation'
+            - '@pim_catalog.builder.product'
+            - '@pim_enrich.filter.product_attribute_filter'
+            - '@akeneo_elasticsearch.client.product'
+            - '@akeneo_elasticsearch.client.product_and_product_model'
+        calls:
+            - [setEventDispatcher, ['@event_dispatcher']]
+            - [setDraftSaver, ['@pcmt.saver.draft']]
+            - [setResponseBuilder, ['@pcmt.service.builder.response_builder']]
+            - [setCategoryPermissionsChecker, ['@pcmt.service.category_permissions_checker']]
+            - [setDraftCreator, ['@pcmt.service.creator.product']]
+            - [setSpecialCategoryUpdater, ['@pcmt.service.helper.special_category_updater.product']]
+
+    ### overrides product model controller
+    pim_enrich.controller.rest.product_model:
+        class: PcmtDraftBundle\Controller\PcmtProductModelController
+        arguments:
+            - '@pim_catalog.repository.product_model'
+            - '@pim_internal_api_serializer'
+            - '@pim_user.context.user'
+            - '@pim_catalog.filter.chained'
+            - '@pim_catalog.localization.localizer.converter'
+            - '@pim_catalog.comparator.filter.product_model'
+            - '@pim_enrich.converter.enrich_to_standard.product_value'
+            - '@pim_catalog.updater.product_model'
+            - '@pim_catalog.remover.product_model'
+            - '@pim_catalog.validator.product'
+            - '@pim_catalog.saver.product_model'
+            - '@pim_enrich.normalizer.product_violation'
+            - '@pim_enrich.normalizer.entity_with_family_variant'
+            - '@pim_catalog.factory.product_model'
+            - '@pim_enrich.normalizer.violation'
+            - '@pim_catalog.repository.family_variant'
+            - '@pim_enrich.filter.product_model_attribute_filter'
+            - '@akeneo_elasticsearch.client.product_model'
+            - '@akeneo_elasticsearch.client.product_and_product_model'
+        calls:
+            - [setDraftSaver, ['@pcmt.saver.draft']]
+            - [setResponseBuilder, ['@pcmt.service.builder.response_builder']]
+            - [setCategoryPermissionsChecker, ['@pcmt.service.category_permissions_checker']]
+            - [setDraftCreator, ['@pcmt.service.creator.product_model']]
+            - [setSpecialCategoryUpdater, ['@pcmt.service.helper.special_category_updater.product_model']]
+
+    pcmt.draft.controller.product_category:
+        class: 'PcmtDraftBundle\Controller\PcmtProductCategoryController'
+        parent: pim_enrich.controller.rest.product_category
+        calls:
+            - [setEntityManager, ['@doctrine.orm.entity_manager']]
+            - [setCreator, ['@pcmt.service.general_object_from_draft_creator']]
+
+    pcmt.draft.controller.product_model_category:
+        class: 'PcmtDraftBundle\Controller\PcmtProductModelCategoryController'
+        parent: pim_enrich.controller.rest.product_model_category
+        calls:
+            - [setEntityManager, ['@doctrine.orm.entity_manager']]
+            - [setCreator, ['@pcmt.service.general_object_from_draft_creator']]
+
+    pim_enrich.controller.rest.mass_edit:
+        class: PcmtDraftBundle\Controller\MassEditController
+        arguments:
+            - '@oro_datagrid.mass_action.parameters_parser'
+            - '@pim_datagrid.adapter.oro_to_pim_grid_filter'
+            - '@pim_enrich.mass_edit_action.operation_authenticated_job_launcher'
+            - '@pim_enrich.converter.mass_operation'
+            - '@pim_datagrid.adapter.items_counter'

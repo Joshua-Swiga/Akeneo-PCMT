@@ -1,0 +1,443 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<codeList xsi:noNamespaceSchemaLocation="http://apps.gs1.org/GDD/Documents/GDDCodeListSchema.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <urn>urn:gs1:gdd:cl:PackageTypeCode</urn>
+  <name></name>
+  <version>2</version>
+  <domain>edi</domain>
+  <code><value>1A</value><name>Drum, steel</name><description></description></code>
+  <code><value>1B</value><name>Drum, aluminium</name><description></description></code>
+  <code><value>1D</value><name>Drum, plywood</name><description></description></code>
+  <code><value>1F</value><name>Container, flexible</name><description>A packaging container of flexible construction.</description></code>
+  <code><value>1G</value><name>Drum, fibre</name><description></description></code>
+  <code><value>1W</value><name>Drum, wooden</name><description></description></code>
+  <code><value>200</value><name>Pallet ISO 0 - 1/2 EURO Pallet (GS1 Code)</name><description>Standard pallet with dimensions 80 X 60 cm.</description></code>
+  <code><value>201</value><name>Pallet ISO 1 - 1/1 EURO Pallet (GS1 Code)</name><description>Standard pallet with dimensions 80 X 120 cm.</description></code>
+  <code><value>202</value><name>Pallet ISO 2 – 2/1 EURO Pallet (GS1 Code)</name><description>Standard pallet with dimensions 100 X 120 cm.</description></code>
+  <code><value>203</value><name>1/4 EURO Pallet (GS1 Code) </name><description>Standard pallet with dimensions 60 X 40 cm.</description></code>
+  <code><value>204</value><name>1/8 EURO Pallet (GS1 Code)</name><description>Standard pallet with dimensions 40 X 30 cm.</description></code>
+  <code><value>205</value><name>Synthetic pallet ISO 1 (GS1 Code)</name><description>A standard pallet with standard dimensions 80*120cm made of a synthetic material for hygienic reasons.</description></code>
+  <code><value>206</value><name>Synthetic pallet ISO 2 (GS1 Code)</name><description>A standard pallet with standard dimensions 100*120cm made of a synthetic material for hygienic reasons.</description></code>
+  <code><value>210</value><name>Wholesaler pallet (GS1 Code)</name><description>Pallet provided by the wholesaler.</description></code>
+  <code><value>211</value><name>Pallet 80 X 100 cm (GS1 Code)</name><description>Pallet with dimensions 80 X 100 cm.</description></code>
+  <code><value>212</value><name>Pallet 60 X 100 cm (GS1 Code)</name><description>Pallet with dimensions 60 X 100 cm.</description></code>
+  <code><value>2C</value><name>Barrel, wooden</name><description></description></code>
+  <code><value>3A</value><name>Jerrican, steel</name><description></description></code>
+  <code><value>3H</value><name>Jerrican, plastic</name><description></description></code>
+  <code><value>43</value><name>Bag, super bulk</name><description>A cloth plastic or paper based bag having the dimensions of the pallet on which it is constructed.</description></code>
+  <code><value>44</value><name>Bag, polybag</name><description>A type of plastic bag, typically used to wrap promotional pieces, publications, product samples, and/or catalogues. </description></code>
+  <code><value>4A</value><name>Box, steel</name><description></description></code>
+  <code><value>4B</value><name>Box, aluminium</name><description></description></code>
+  <code><value>4C</value><name>Box, natural wood</name><description></description></code>
+  <code><value>4D</value><name>Box, plywood</name><description></description></code>
+  <code><value>4F</value><name>Box, reconstituted wood</name><description></description></code>
+  <code><value>4G</value><name>Box, fibreboard</name><description></description></code>
+  <code><value>4H</value><name>Box, plastic</name><description></description></code>
+  <code><value>5H</value><name>Bag, woven plastic</name><description></description></code>
+  <code><value>5L</value><name>Bag, textile</name><description></description></code>
+  <code><value>5M</value><name>Bag, paper</name><description></description></code>
+  <code><value>6H</value><name>Composite packaging, plastic receptacle</name><description></description></code>
+  <code><value>6P</value><name>Composite packaging, glass receptacle</name><description></description></code>
+  <code><value>7A</value><name>Case, car</name><description>A type of portable container designed to store equipment for carriage in an automobile.</description></code>
+  <code><value>7B</value><name>Case, wooden</name><description>A case made of wood for retaining substances or articles.</description></code>
+  <code><value>8</value><name>Oneway pallet (GS1 Code)  </name><description>Pallet need not be returned to the point of expedition</description></code>
+  <code><value>8A</value><name>Pallet, wooden</name><description>A platform or open-ended box, made of wood, on which goods are retained for ease of mechanical handling during transport and storage.</description></code>
+  <code><value>8B</value><name>Crate, wooden</name><description>A receptacle, made of wood, on which goods are retained for ease of mechanical handling during transport and storage.</description></code>
+  <code><value>8C</value><name>Bundle, wooden</name><description>Loose or unpacked pieces of wood tied or wrapped together. </description></code>
+  <code><value>9</value><name>Returnable pallet (GS1 Code)  </name><description>Pallet must be returned to the point of expedition.</description></code>
+  <code><value>AA</value><name>Intermediate bulk container, rigid plastic</name><description></description></code>
+  <code><value>AB</value><name>Receptacle, fibre </name><description>Containment vessel made of fibre used for retaining substances or articles.</description></code>
+  <code><value>AC</value><name>Receptacle, paper </name><description>Containment vessel made of paper for retaining substances or articles.</description></code>
+  <code><value>AD</value><name>Receptacle, wooden </name><description>Containment vessel made of wood for retaining substances or articles.</description></code>
+  <code><value>AF</value><name>Pallet, modular, collars 80cms * 60cms </name><description>Standard sized pallet of dimensions 80 centimeters by 60 centimeters (cms).</description></code>
+  <code><value>AG</value><name>Pallet, shrinkwrapped </name><description>Pallet load secured with transparent plastic film that has been wrapped around and then shrunk tightly.</description></code>
+  <code><value>AH</value><name>Pallet, 100cms * 110cms </name><description>Standard sized pallet of dimensions 100centimeters by 110 centimeters (cms).</description></code>
+  <code><value>AI</value><name>Clamshell</name><description>GS1 Description:
+A package with a base and top that are hinged together. E.g. video cassette case.</description></code>
+  <code><value>AJ</value><name>Cone</name><description>Container used in the transport of linear material such as yarn.</description></code>
+  <code><value>AL</value><name>Ball</name><description>A spherical containment vessel for retaining substances or articles.</description></code>
+  <code><value>AM</value><name>Ampoule, non-protected </name><description></description></code>
+  <code><value>AP</value><name>Ampoule, protected </name><description></description></code>
+  <code><value>APE</value><name>Aluminium packed (GS1 Code)</name><description>Packaging using thin sheets of aluminium.</description></code>
+  <code><value>AT</value><name>Atomizer</name><description></description></code>
+  <code><value>AV</value><name>Capsule</name><description></description></code>
+  <code><value>B4</value><name>Belt</name><description>A band use to retain multiple articles together.</description></code>
+  <code><value>BB</value><name>Bobbin </name><description></description></code>
+  <code><value>BC</value><name>Bottlecrate / bottlerack</name><description></description></code>
+  <code><value>BD</value><name>Board</name><description></description></code>
+  <code><value>BE</value><name>Bundle</name><description></description></code>
+  <code><value>BF</value><name>Balloon, non-protected </name><description></description></code>
+  <code><value>BG</value><name>Bag</name><description>A receptacle made of flexible material with an open or closed top.</description></code>
+  <code><value>BGE</value><name>Large bag, pallet sized (GS1 Code)</name><description>A non-rigid container made of fabric, paper, plastic, etc, with an opening at the top which can be closed and which is suitable for use on pallets.</description></code>
+  <code><value>BH</value><name>Bunch</name><description></description></code>
+  <code><value>BI</value><name>Bin</name><description></description></code>
+  <code><value>BJ</value><name>Bucket </name><description></description></code>
+  <code><value>BK</value><name>Basket </name><description></description></code>
+  <code><value>BL</value><name>Bale, compressed </name><description></description></code>
+  <code><value>BM</value><name>Basin</name><description></description></code>
+  <code><value>BME</value><name>Blister pack (GS1 Code)</name><description>A transparent strip package of pressable plastic which allows the product to be displayed while remaining protected.</description></code>
+  <code><value>BN</value><name>Bale, non-compressed </name><description></description></code>
+  <code><value>BO</value><name>Bottle, non-protected, cylindrical </name><description>A narrow-necked cylindrical shaped vessel without external protective packing material.</description></code>
+  <code><value>BP</value><name>Balloon, protected </name><description></description></code>
+  <code><value>BQ</value><name>Bottle, protected cylindrical</name><description>A narrow-necked cylindrical shaped vessel with external protective packing material.</description></code>
+  <code><value>BR</value><name>Bar</name><description></description></code>
+  <code><value>BRI</value><name>Brick (GS1 Code)</name><description>A box made of a cardboard, plastic or metal, used for liquids.</description></code>
+  <code><value>BS</value><name>Bottle, non-protected, bulbous </name><description>A narrow-necked bulb shaped vessel without external protective packing material.</description></code>
+  <code><value>BT</value><name>Bolt </name><description></description></code>
+  <code><value>BU</value><name>Butt </name><description></description></code>
+  <code><value>BV</value><name>Bottle, protected bulbous</name><description>A narrow-necked bulb shaped vessel with external protective packing material.</description></code>
+  <code><value>BW</value><name>Box, for liquids</name><description></description></code>
+  <code><value>BX</value><name>Box</name><description></description></code>
+  <code><value>BY</value><name>Board, in bundle/bunch/truss </name><description></description></code>
+  <code><value>BZ</value><name>Bars, in bundle/bunch/truss</name><description></description></code>
+  <code><value>CA</value><name>Can, rectangular </name><description></description></code>
+  <code><value>CB</value><name>Crate, beer</name><description></description></code>
+  <code><value>CBL</value><name>Container bottle like (GS1 Code)</name><description>A non-protected, non-cylindrical, container with a narrow neck made usually of glass or plastic which is especially used for liquids, e.g. perfume bottle.</description></code>
+  <code><value>CC</value><name>Churn</name><description></description></code>
+  <code><value>CCE</value><name>Cardboard carrier (GS1 Code)</name><description>A package made of cardboard.</description></code>
+  <code><value>CD</value><name>Can, with handle and spout </name><description>GS1 Description:
+A can with a handle and spout which allows the lifting and pouring of liquids contained within the can</description></code>
+  <code><value>CE</value><name>Creel</name><description></description></code>
+  <code><value>CF</value><name>Coffer </name><description></description></code>
+  <code><value>CG</value><name>Cage </name><description></description></code>
+  <code><value>CH</value><name>Chest</name><description></description></code>
+  <code><value>CI</value><name>Canister </name><description></description></code>
+  <code><value>CJ</value><name>Coffin </name><description></description></code>
+  <code><value>CK</value><name>Cask </name><description></description></code>
+  <code><value>CL</value><name>Coil </name><description></description></code>
+  <code><value>CM</value><name>Card</name><description>A flat package usually made of fibreboard from/to which product is often hung or attached.</description></code>
+  <code><value>CN</value><name>Container, not otherwise specified as transport equipment</name><description>GS1 Description:
+A receptacle in which something is kept and/or transported.</description></code>
+  <code><value>CO</value><name>Carboy, non-protected</name><description></description></code>
+  <code><value>CP</value><name>Carboy, protected</name><description></description></code>
+  <code><value>CQ</value><name>Cartridge</name><description>Package containing a charge such as propelling explosive for firearms or ink toner for a printer.</description></code>
+  <code><value>CR</value><name>Crate</name><description></description></code>
+  <code><value>CS</value><name>Case </name><description></description></code>
+  <code><value>CT</value><name>Carton </name><description></description></code>
+  <code><value>CU</value><name>Cup</name><description></description></code>
+  <code><value>CV</value><name>Cover</name><description></description></code>
+  <code><value>CW</value><name>Cage, roll </name><description></description></code>
+  <code><value>CX</value><name>Can, cylindrical </name><description></description></code>
+  <code><value>CY</value><name>Cylinder </name><description></description></code>
+  <code><value>CZ</value><name>Canvas </name><description></description></code>
+  <code><value>DA</value><name>Crate, multiple layer, plastic </name><description>GS1 Description:
+Plastic crate which contains multiple layers.</description></code>
+  <code><value>DB</value><name>Crate, multiple layer, wooden</name><description>GS1 Description:
+Wooden crate which contains multiple layers.</description></code>
+  <code><value>DC</value><name>Crate, multiple layer, cardboard </name><description></description></code>
+  <code><value>DG</value><name>Cage, Commonwealth Handling Equipment Pool  (CHEP)</name><description></description></code>
+  <code><value>DH</value><name>Box, Commonwealth Handling Equipment Pool (CHEP), Eurobox</name><description>A box mounted on a pallet base under the control of CHEP.</description></code>
+  <code><value>DI</value><name>Drum, iron </name><description></description></code>
+  <code><value>DJ</value><name>Demijohn, non-protected</name><description></description></code>
+  <code><value>DK</value><name>Crate, bulk, cardboard </name><description></description></code>
+  <code><value>DL</value><name>Crate, bulk, plastic </name><description></description></code>
+  <code><value>DM</value><name>Crate, bulk, wooden</name><description></description></code>
+  <code><value>DN</value><name>Dispenser</name><description></description></code>
+  <code><value>DP</value><name>Demijohn, protected</name><description></description></code>
+  <code><value>DPE</value><name>Display package (GS1 Code)</name><description>A package used for the display of goods, usually during a promotion.</description></code>
+  <code><value>DR</value><name>Drum </name><description></description></code>
+  <code><value>DS</value><name>Tray, one layer no cover, plastic</name><description></description></code>
+  <code><value>DT</value><name>Tray, one layer no cover, wooden </name><description></description></code>
+  <code><value>DU</value><name>Tray, one layer no cover, polystyrene</name><description></description></code>
+  <code><value>DV</value><name>Tray, one layer no cover, cardboard</name><description></description></code>
+  <code><value>DW</value><name>Tray, two layers no cover, plastic tray</name><description></description></code>
+  <code><value>DX</value><name>Tray, two layers no cover, wooden</name><description></description></code>
+  <code><value>DY</value><name>Tray, two layers no cover, cardboard </name><description></description></code>
+  <code><value>EC</value><name>Bag, plastic </name><description></description></code>
+  <code><value>ED</value><name>Case, with pallet base </name><description></description></code>
+  <code><value>EE</value><name>Case, with pallet base, wooden </name><description></description></code>
+  <code><value>EF</value><name>Case, with pallet base, cardboard</name><description></description></code>
+  <code><value>EG</value><name>Case, with pallet base, plastic</name><description></description></code>
+  <code><value>EH</value><name>Case, with pallet base, metal</name><description></description></code>
+  <code><value>EI</value><name>Case, isothermic </name><description></description></code>
+  <code><value>EN</value><name>Envelope </name><description></description></code>
+  <code><value>FB</value><name>Flexibag</name><description>A flexible containment bag made of plastic, typically for the transportation bulk non-hazardous cargoes using standard size shipping containers.</description></code>
+  <code><value>FC</value><name>Crate, fruit </name><description></description></code>
+  <code><value>FD</value><name>Crate, framed</name><description></description></code>
+  <code><value>FE</value><name>Flexitank</name><description>A flexible containment tank made of plastic, typically for the transportation bulk non-hazardous cargoes using standard size shipping containers.</description></code>
+  <code><value>FI</value><name>Firkin </name><description></description></code>
+  <code><value>FL</value><name>Flask</name><description></description></code>
+  <code><value>FO</value><name>Footlocker </name><description></description></code>
+  <code><value>FOB</value><name>Folding box (GS1 Code)</name><description>Folded cardboard box e.g. for products like frozen vegetables, paper clips.</description></code>
+  <code><value>FP</value><name>Filmpack </name><description></description></code>
+  <code><value>FPE</value><name>Foil packed (GS1 Code)</name><description>Packaging using a metallic foil.</description></code>
+  <code><value>FR</value><name>Frame</name><description></description></code>
+  <code><value>FT</value><name>Foodtainer</name><description></description></code>
+  <code><value>FW</value><name>Cart, flatbed</name><description>Wheeled flat bedded device on which trays or other regular shaped items are packed for transportation purposes.</description></code>
+  <code><value>FX</value><name>Bag, flexible container</name><description></description></code>
+  <code><value>GB</value><name>Bottle, gas</name><description>A narrow-necked metal cylinder for retention of liquefied or compressed gas.</description></code>
+  <code><value>GI</value><name>Girder </name><description></description></code>
+  <code><value>GL</value><name>Container, gallon</name><description>A container with a capacity of one gallon.</description></code>
+  <code><value>GR</value><name>Receptacle, glass </name><description>Containment vessel made of glass for retaining substances or articles.</description></code>
+  <code><value>GU</value><name>Tray, containing horizontally stacked flat items</name><description>Tray containing flat items stacked on top of one another.</description></code>
+  <code><value>GY</value><name>Bag, gunny</name><description>A sack made of gunny or burlap, used for transporting coarse commodities, such as grains, potatoes, and other agricultural products. </description></code>
+  <code><value>GZ</value><name>Girders, in bundle/bunch/truss </name><description></description></code>
+  <code><value>HA</value><name>Basket, with handle, plastic </name><description></description></code>
+  <code><value>HB</value><name>Basket, with handle, wooden</name><description></description></code>
+  <code><value>HC</value><name>Basket, with handle, cardboard </name><description></description></code>
+  <code><value>HG</value><name>Hogshead </name><description></description></code>
+  <code><value>HN</value><name>Hanger</name><description>A purpose shaped device with a hook at the top for hanging items from a rail.</description></code>
+  <code><value>HR</value><name>Hamper </name><description></description></code>
+  <code><value>IA</value><name>Package, display, wooden </name><description></description></code>
+  <code><value>IB</value><name>Package, display, cardboard</name><description></description></code>
+  <code><value>IC</value><name>Package, display, plastic</name><description></description></code>
+  <code><value>ID</value><name>Package, display, metal</name><description></description></code>
+  <code><value>IE</value><name>Package, show</name><description></description></code>
+  <code><value>IF</value><name>Package, flow </name><description>A flexible tubular package or skin, possibly transparent, often used for containment of foodstuffs (e.g. salami sausage).</description></code>
+  <code><value>IG</value><name>Package, paper wrapped</name><description></description></code>
+  <code><value>IH</value><name>Drum, plastic</name><description></description></code>
+  <code><value>IK</value><name>Package, cardboard, with bottle grip-holes </name><description>Packaging material made out of cardboard that facilitates the separation of individual glass or plastic bottles.    </description></code>
+  <code><value>IL</value><name>Tray, rigid, lidded stackable (CEN TS 14482:2002)</name><description>Lidded stackable rigid tray compliant with CEN TS 14482:2002.</description></code>
+  <code><value>IN</value><name>Ingot</name><description></description></code>
+  <code><value>IZ</value><name>Ingots, in bundle/bunch/truss</name><description></description></code>
+  <code><value>JB</value><name>Bag, jumbo</name><description>A flexible containment bag, widely used for storage, transportation and handling of powder, flake or granular materials. Typically constructed from woven polypropylene (PP) fabric in the form of cubic bags. </description></code>
+  <code><value>JC</value><name>Jerrican, rectangular</name><description></description></code>
+  <code><value>JG</value><name>Jug</name><description></description></code>
+  <code><value>JR</value><name>Jar</name><description></description></code>
+  <code><value>JT</value><name>Jutebag</name><description></description></code>
+  <code><value>JY</value><name>Jerrican, cylindrical</name><description></description></code>
+  <code><value>KG</value><name>Keg</name><description></description></code>
+  <code><value>KI</value><name>Kit</name><description>A set of articles or implements used for a specific purpose.</description></code>
+  <code><value>LAB</value><name>Labeled package (GS1 Code)</name><description>The package is labeled. Usually the label identifies the name, brand or description of the product within the package.</description></code>
+  <code><value>LE</value><name>Luggage</name><description>A collection of bags, cases and/or containers which hold personal belongings for a journey.</description></code>
+  <code><value>LG</value><name>Log</name><description></description></code>
+  <code><value>LT</value><name>Lot</name><description></description></code>
+  <code><value>LU</value><name>Lug</name><description>A wooden box for the transportation and storage of fruit or vegetables.</description></code>
+  <code><value>LV</value><name>Liftvan</name><description>A wooden or metal container used for packing household goods and personal effects.</description></code>
+  <code><value>LZ</value><name>Logs, in bundle/bunch/truss</name><description></description></code>
+  <code><value>MA</value><name>Crate, metal</name><description>Containment box made of metal for retaining substances or articles.</description></code>
+  <code><value>MB</value><name>Bag, multiply</name><description></description></code>
+  <code><value>MC</value><name>Crate, milk</name><description></description></code>
+  <code><value>ME</value><name>Container, metal</name><description>A type of containment box made of metal for retaining substances or articles, not otherwise specified as transport equipment.</description></code>
+  <code><value>MPE</value><name>Multipack (GS1 Code)</name><description>A container for the merchandising of multiple units of the same product.</description></code>
+  <code><value>MR</value><name>Receptacle, metal </name><description>Containment vessel made of metal for retaining substances or articles.</description></code>
+  <code><value>MS</value><name>Sack, multi-wall </name><description></description></code>
+  <code><value>MT</value><name>Mat</name><description></description></code>
+  <code><value>MW</value><name>Receptacle, plastic wrapped </name><description>Containment vessel wrapped with plastic for retaining substances or articles.</description></code>
+  <code><value>MX</value><name>Matchbox </name><description></description></code>
+  <code><value>NA</value><name>Not available</name><description></description></code>
+  <code><value>NE</value><name>Unpacked or unpackaged </name><description></description></code>
+  <code><value>NF</value><name>Unpacked or unpackaged, single unit</name><description></description></code>
+  <code><value>NG</value><name>Unpacked or unpackaged, multiple units</name><description></description></code>
+  <code><value>NS</value><name>Nest </name><description></description></code>
+  <code><value>NT</value><name>Net</name><description></description></code>
+  <code><value>NU</value><name>Net, tube, plastic </name><description></description></code>
+  <code><value>NV</value><name>Net, tube, textile </name><description></description></code>
+  <code><value>OA</value><name>Pallet, CHEP 40 cm x 60 cm</name><description>Commonwealth Handling Equipment Pool (CHEP) standard pallet of dimensions 40 centimeters x 60 centimeters.</description></code>
+  <code><value>OB</value><name>Pallet, CHEP 80 cm x 120 cm</name><description>Commonwealth Handling Equipment Pool (CHEP) standard pallet of dimensions 80 centimeters x 120 centimeters.</description></code>
+  <code><value>OC</value><name>Pallet, CHEP 100 cm x 120 cm</name><description>Commonwealth Handling Equipment Pool (CHEP) standard pallet of dimensions 100 centimeters x 120 centimeters.</description></code>
+  <code><value>OD</value><name>Pallet, AS 4068-1993</name><description>Australian standard pallet of dimensions 115.5 centimeters x 116.5 centimeters.</description></code>
+  <code><value>OE</value><name>Pallet, ISO T11</name><description>ISO standard pallet of dimensions 110 centimeters x 110 centimeters, prevalent in Asia - Pacific region.</description></code>
+  <code><value>OF</value><name>Platform, unspecified weight or dimension</name><description>A pallet equivalent shipping platform of unknown dimensions or unknown weight. </description></code>
+  <code><value>OK</value><name>Block</name><description>A solid piece of a hard substance, such as granite, having one or more flat sides.</description></code>
+  <code><value>OPE</value><name>Oxygen packed (GS1 Code)</name><description>A package with oxygen added for storage purposes.</description></code>
+  <code><value>OT</value><name>Octabin</name><description>A standard cardboard container of large dimensions for storing for example vegetables, granules of plastics or other dry products.</description></code>
+  <code><value>OU</value><name>Container, outer</name><description>A type of containment box that serves as the outer shipping container, not otherwise specified as transport equipment.</description></code>
+  <code><value>P2</value><name>Pan</name><description>A shallow, wide, open container, usually of metal.</description></code>
+  <code><value>PA</value><name>Packet </name><description>Small package.</description></code>
+  <code><value>PAE</value><name>Paper (GS1 Code)</name><description>An indication that the item(s) is packed in paper.</description></code>
+  <code><value>PB</value><name>Pallet, box Combined open-ended box and pallet</name><description></description></code>
+  <code><value>PC</value><name>Parcel </name><description></description></code>
+  <code><value>PD</value><name>Pallet, modular, collars 80cms * 100cms </name><description>Standard sized pallet of dimensions 80 centimeters by 100 centimeters (cms).</description></code>
+  <code><value>PE</value><name>Pallet, modular, collars 80cms * 120cms </name><description>Standard sized pallet of dimensions 80 centimeters by 120 centimeters (cms).</description></code>
+  <code><value>PF</value><name>Pen </name><description>A small open top enclosure for retaining animals.</description></code>
+  <code><value>PG</value><name>Plate</name><description></description></code>
+  <code><value>PH</value><name>Pitcher</name><description></description></code>
+  <code><value>PI</value><name>Pipe </name><description></description></code>
+  <code><value>PJ</value><name>Punnet</name><description>GS1 Description:
+A small shallow basket usually made of plastic.</description></code>
+  <code><value>PK</value><name>Package</name><description>Standard packaging unit.</description></code>
+  <code><value>PL</value><name>Pail </name><description></description></code>
+  <code><value>PLP</value><name>Peel pack (GS1 Code)</name><description>A package used for sterile products which may be torn open without touching the product inside.</description></code>
+  <code><value>PN</value><name>Plank</name><description></description></code>
+  <code><value>PO</value><name>Pouch</name><description></description></code>
+  <code><value>POP</value><name>Cone shaped paper wrapper (GS1 Code)</name><description>Cone shaped paper wrapping e.g. for an individually packed ice cream cone.</description></code>
+  <code><value>PP</value><name>Piece</name><description>A loose or unpacked article. </description></code>
+  <code><value>PPE</value><name>Polypropylene bag (GS1 Code)</name><description>A bag made from polypropylene.</description></code>
+  <code><value>PR</value><name>Receptacle, plastic </name><description>Containment vessel made of plastic for retaining substances or articles.</description></code>
+  <code><value>PT</value><name>Pot</name><description></description></code>
+  <code><value>PU</value><name>Tray </name><description></description></code>
+  <code><value>PUE</value><name>Tray packed in plastic (GS1 Code)</name><description>A board with a ring packed in plastic carrying for small articles.</description></code>
+  <code><value>PV</value><name>Pipes, in bundle/bunch/truss </name><description></description></code>
+  <code><value>PX</value><name>Pallet </name><description>Platform or open-ended box, usually made of wood, on which goods are retained for ease of mechanical handling during transport and storage.</description></code>
+  <code><value>PY</value><name>Plates, in bundle/bunch/truss</name><description></description></code>
+  <code><value>PZ</value><name>Planks, in bundle/bunch/truss</name><description></description></code>
+  <code><value>QA</value><name>Drum, steel, non-removable head</name><description></description></code>
+  <code><value>QB</value><name>Drum, steel, removable head</name><description></description></code>
+  <code><value>QC</value><name>Drum, aluminium, non-removable head</name><description></description></code>
+  <code><value>QD</value><name>Drum, aluminium, removable head</name><description></description></code>
+  <code><value>QF</value><name>Drum, plastic, non-removable head</name><description></description></code>
+  <code><value>QG</value><name>Drum, plastic, removable head</name><description></description></code>
+  <code><value>QH</value><name>Barrel, wooden, bung type</name><description></description></code>
+  <code><value>QJ</value><name>Barrel, wooden, removable head </name><description></description></code>
+  <code><value>QK</value><name>Jerrican, steel, non-removable head</name><description></description></code>
+  <code><value>QL</value><name>Jerrican, steel, removable head</name><description></description></code>
+  <code><value>QM</value><name>Jerrican, plastic, non-removable head</name><description></description></code>
+  <code><value>QN</value><name>Jerrican, plastic, removable head</name><description></description></code>
+  <code><value>QP</value><name>Box, wooden, natural wood, ordinary</name><description></description></code>
+  <code><value>QQ</value><name>Box, wooden, natural wood, with sift proof walls</name><description></description></code>
+  <code><value>QR</value><name>Box, plastic, expanded </name><description></description></code>
+  <code><value>QS</value><name>Box, plastic, solid</name><description></description></code>
+  <code><value>RB1</value><name>A wheeled pallet with raised rim (GS1 Code). 81 x 67 x 135 cm (length x width x height).</name><description>A wheeled pallet with raised rim for the storing and transporting of loads.Dimensions: 81 x 67 x 135 cm (length x width x height).</description></code>
+  <code><value>RB2</value><name>A Wheeled pallet with raised rim (GS1 Code). 81 x 72 x 135 cm (length x width x height).</name><description>A wheeled pallet with raised rim for the storing and transporting of loads.Dimensions: 81 x 72 x 135 cm (length x width x height).</description></code>
+  <code><value>RB3</value><name>Wheeled pallet with raised rim. 81 x 60 x 16 cm (length x width x height). (GS1 Code)</name><description>A wheeled pallet with raised rim for the storing and transporting of loads. Dimensions: 81 x 60 x 16 cm (length x width x height).</description></code>
+  <code><value>RCB</value><name>Two sided cage on wheels with fixing strap (GS1 Code) 900 x 770 x 1513 cm (length x width x height)</name><description>A two sided cage mounted on wheels with fixing strap.Dimensions: 900 x 770 x 1513 cm (length x width x height).</description></code>
+  <code><value>RD</value><name>Rod</name><description></description></code>
+  <code><value>RG</value><name>Ring </name><description></description></code>
+  <code><value>RJ</value><name>Rack, clothing hanger</name><description></description></code>
+  <code><value>RK</value><name>Rack </name><description></description></code>
+  <code><value>RL</value><name>Reel </name><description>Cylindrical rotatory device with a rim at each end on which materials are wound.</description></code>
+  <code><value>RO</value><name>Roll </name><description></description></code>
+  <code><value>RT</value><name>Rednet </name><description>Containment material made of red mesh netting for retaining articles (e.g. trees).</description></code>
+  <code><value>RZ</value><name>Rods, in bundle/bunch/truss</name><description></description></code>
+  <code><value>SA</value><name>Sack </name><description></description></code>
+  <code><value>SB</value><name>Slab</name><description></description></code>
+  <code><value>SC</value><name>Crate, shallow </name><description></description></code>
+  <code><value>SD</value><name>Spindle</name><description></description></code>
+  <code><value>SE</value><name>Sea-chest</name><description></description></code>
+  <code><value>SEC</value><name>Article Surveillance (GS1 Code)</name><description>Equipped with article surveillance.</description></code>
+  <code><value>SH</value><name>Sachet </name><description></description></code>
+  <code><value>SI</value><name>Skid </name><description>A low movable platform or pallet to facilitate the handling and transport of goods.</description></code>
+  <code><value>SK</value><name>Case, skeleton </name><description></description></code>
+  <code><value>SL</value><name>Slipsheet </name><description>Hard plastic sheeting primarily used as the base on which to stack goods to optimise the space within a container. May be used as an alternative to a palletized packaging.</description></code>
+  <code><value>SM</value><name>Sheetmetal </name><description></description></code>
+  <code><value>SO</value><name>Spool </name><description>A packaging container used in the transport of such items as wire, cable, tape and yarn.</description></code>
+  <code><value>SP</value><name>Sheet, plastic wrapping</name><description></description></code>
+  <code><value>SS</value><name>Case, steel</name><description></description></code>
+  <code><value>ST</value><name>Sheet</name><description></description></code>
+  <code><value>STL</value><name>Stick (GS1 Code)</name><description>A container for dispensing solid substances, e.g. glue, deodorant.</description></code>
+  <code><value>SU</value><name>Suitcase </name><description></description></code>
+  <code><value>SV</value><name>Envelope, steel</name><description></description></code>
+  <code><value>SW</value><name>Shrinkwrapped  </name><description>Goods retained in a transparent plastic film that has been wrapped around and then shrunk tightly on to the goods.</description></code>
+  <code><value>SX</value><name>Set</name><description></description></code>
+  <code><value>SY</value><name>Sleeve</name><description>GS1 Description:
+A non-rigid container made of paper, cardboard or plastic that is open-ended and is slid over the contents for protection or presentation.</description></code>
+  <code><value>SZ</value><name>Sheets, in bundle/bunch/truss</name><description></description></code>
+  <code><value>T1</value><name>Tablet</name><description>A loose or unpacked article in the form of a bar, block or piece.
+GS1 Description:
+A small rectangular package of aluminium foil or paper, e.g. a tablet of chocolate.</description></code>
+  <code><value>TB</value><name>Tub</name><description></description></code>
+  <code><value>TC</value><name>Tea-chest</name><description></description></code>
+  <code><value>TD</value><name>Tube, collapsible</name><description></description></code>
+  <code><value>TE</value><name>Tyre</name><description>A ring made of rubber and/or metal surrounding a wheel.</description></code>
+  <code><value>TEV</value><name>Tamper evident package (GS1 Code)</name><description>A type of package giving easy or immediate recognition that the package has been tampered with after it has been sealed.</description></code>
+  <code><value>TG</value><name>Tank container, generic</name><description>A specially constructed container for transporting liquids and gases in bulk.</description></code>
+  <code><value>THE</value><name>Three pack (GS1 Code)</name><description>A package containing three products.  </description></code>
+  <code><value>TI</value><name>Tierce</name><description></description></code>
+  <code><value>TK</value><name>Tank, rectangular</name><description></description></code>
+  <code><value>TL</value><name>Tub, with lid</name><description></description></code>
+  <code><value>TN</value><name>Tin</name><description></description></code>
+  <code><value>TO</value><name>Tun</name><description></description></code>
+  <code><value>TR</value><name>Trunk</name><description></description></code>
+  <code><value>TRE</value><name>Trolley (GS1 Code)</name><description>A low cart for the transportation and storage of groceries, milk, etc.</description></code>
+  <code><value>TS</value><name>Truss</name><description></description></code>
+  <code><value>TT</value><name>Bag, tote</name><description>A capacious bag or basket.</description></code>
+  <code><value>TTE</value><name>Tube, standing (GS1 Code)</name><description>A screw-topped pliable cylinder capable of standing and suitable for holding pastes or semi-liquids, e.g. a tube of toothpaste.</description></code>
+  <code><value>TU</value><name>Tube </name><description></description></code>
+  <code><value>TV</value><name>Tube, with nozzle </name><description>A tube made of plastic, metal or cardboard fitted with a nozzle, containing a liquid or semi-liquid product, e.g. silicon.</description></code>
+  <code><value>TW</value><name>Pallet, triwall</name><description>A lightweight pallet made from heavy duty corrugated board.  </description></code>
+  <code><value>TWE</value><name>Two pack (GS1 Code)</name><description>A package containing two products</description></code>
+  <code><value>TY</value><name>Tank, cylindrical</name><description></description></code>
+  <code><value>TZ</value><name>Tubes, in bundle/bunch/truss </name><description></description></code>
+  <code><value>UC</value><name>Uncaged </name><description></description></code>
+  <code><value>UN</value><name>Unit</name><description>A type of package composed of a single item or object, not otherwise specified as a unit of transport equipment.</description></code>
+  <code><value>UUE</value><name>Tube net (GS1 Code)</name><description>A plastic or textile tube suitable for carrying loose products, e.g. fruit.</description></code>
+  <code><value>VA</value><name>Vat</name><description></description></code>
+  <code><value>VG</value><name>Bulk, gas (at 1031 mbar and 15°C)</name><description></description></code>
+  <code><value>VI</value><name>Vial </name><description></description></code>
+  <code><value>VK</value><name>Vanpack </name><description>A type of wooden crate. </description></code>
+  <code><value>VL</value><name>Bulk, liquid </name><description></description></code>
+  <code><value>VN</value><name>Vehicle</name><description>A self-propelled means of conveyance.</description></code>
+  <code><value>VO</value><name>Bulk, solid, large particles (“nodules”) </name><description></description></code>
+  <code><value>VP</value><name>Vacuum-packed</name><description></description></code>
+  <code><value>VQ</value><name>Bulk, liquefied gas (at abnormal temperature/pressure) </name><description></description></code>
+  <code><value>VR</value><name>Bulk, solid, granular particles (“grains”) </name><description></description></code>
+  <code><value>VS</value><name>Bulk, scrap metal</name><description>Loose or unpacked scrap metal transported in bulk form. </description></code>
+  <code><value>VY</value><name>Bulk, solid, fine particles (“powders”)</name><description></description></code>
+  <code><value>WA</value><name>Intermediate bulk container</name><description>A reusable container made of metal, plastic, textile, wood or composite materials used to facilitate transportation of bulk solids and liquids in manageable volumes.</description></code>
+  <code><value>WB</value><name>Wickerbottle </name><description></description></code>
+  <code><value>WC</value><name>Intermediate bulk container, steel </name><description></description></code>
+  <code><value>WD</value><name>Intermediate bulk container, aluminium </name><description></description></code>
+  <code><value>WF</value><name>Intermediate bulk container, metal </name><description></description></code>
+  <code><value>WG</value><name>Intermediate bulk container, steel, pressurised &gt; 10 kpa</name><description></description></code>
+  <code><value>WH</value><name>Intermediate bulk container, aluminium, pressurised &gt; 10 kpa</name><description></description></code>
+  <code><value>WJ</value><name>Intermediate bulk container, metal, pressure 10 kpa </name><description></description></code>
+  <code><value>WK</value><name>Intermediate bulk container, steel, liquid </name><description></description></code>
+  <code><value>WL</value><name>Intermediate bulk container, aluminium, liquid </name><description></description></code>
+  <code><value>WM</value><name>Intermediate bulk container, metal, liquid </name><description></description></code>
+  <code><value>WN</value><name>Intermediate bulk container, woven plastic, without coat/liner </name><description></description></code>
+  <code><value>WP</value><name>Intermediate bulk container, woven plastic, coated </name><description></description></code>
+  <code><value>WQ</value><name>Intermediate bulk container, woven plastic, with liner </name><description></description></code>
+  <code><value>WR</value><name>Intermediate bulk container, woven plastic, coated and liner </name><description></description></code>
+  <code><value>WRP</value><name>Wrapper (GS1 Code)</name><description>Wrapping e.g. for an individually packed ice cream.</description></code>
+  <code><value>WS</value><name>Intermediate bulk container, plastic film</name><description></description></code>
+  <code><value>WT</value><name>Intermediate bulk container, textile without coat/liner </name><description></description></code>
+  <code><value>WU</value><name>Intermediate bulk container, natural wood, with inner liner</name><description></description></code>
+  <code><value>WV</value><name>Intermediate bulk container, textile, coated </name><description></description></code>
+  <code><value>WW</value><name>Intermediate bulk container, textile, with liner </name><description></description></code>
+  <code><value>WX</value><name>Intermediate bulk container, textile, coated and liner </name><description></description></code>
+  <code><value>WY</value><name>Intermediate bulk container, plywood, with inner liner </name><description></description></code>
+  <code><value>WZ</value><name>Intermediate bulk container, reconstituted wood, with inner liner</name><description></description></code>
+  <code><value>X11</value><name>Banded package (GS1 Code)</name><description>A package with bands, usually metal or nylon, round it to hold the products together.</description></code>
+  <code><value>X12</value><name>Cardboard package with grip holes for bottles (GS1 Code)</name><description>Cardboard package with a number of holes. Each hole is to be gripped tightly around the neck of a bottle.</description></code>
+  <code><value>X15</value><name>Oneway pallet ISO 0 - 1/2 EURO Pallet (GS1 temporary Code)</name><description>Oneway pallet with dimensions 80 X 60 cm.</description></code>
+  <code><value>X16</value><name>Oneway pallet ISO 1 - 1/1 EURO Pallet (GS1 temporary Code)</name><description>Oneway pallet with dimensions 80 X 120 cm.</description></code>
+  <code><value>X17</value><name>Oneway pallet ISO 2 - 2/1 EURO Pallet (GS1 temporary Code)</name><description>Oneway pallet with dimensions 100 X 120 cm.</description></code>
+  <code><value>X18</value><name>Pallet with exceptional dimensions (GS1 temporary Code)</name><description>Pallet with non-standard dimensions</description></code>
+  <code><value>X19</value><name>Parcel with exceptional dimensions (GS1 temporary Code)</name><description>Parcel with non-standard dimensions</description></code>
+  <code><value>X3</value><name>Standard stack of stones (GS1 Code)</name><description>Standard stack of stones.</description></code>
+  <code><value>XA</value><name>Bag, woven plastic, without inner coat/liner </name><description></description></code>
+  <code><value>XB</value><name>Bag, woven plastic, sift proof </name><description></description></code>
+  <code><value>XC</value><name>Bag, woven plastic, water resistant</name><description></description></code>
+  <code><value>XD</value><name>Bag, plastics film </name><description></description></code>
+  <code><value>XF</value><name>Bag, textile, without inner coat/liner </name><description></description></code>
+  <code><value>XG</value><name>Bag, textile, sift proof </name><description></description></code>
+  <code><value>XH</value><name>Bag, textile, water resistant</name><description></description></code>
+  <code><value>XJ</value><name>Bag, paper, multi-wall </name><description></description></code>
+  <code><value>XK</value><name>Bag, paper, multi-wall, water resistant</name><description></description></code>
+  <code><value>YA</value><name>Composite packaging, plastic receptacle in steel drum</name><description></description></code>
+  <code><value>YB</value><name>Composite packaging, plastic receptacle in steel crate box</name><description></description></code>
+  <code><value>YC</value><name>Composite packaging, plastic receptacle in aluminium drum</name><description></description></code>
+  <code><value>YD</value><name>Composite packaging, plastic receptacle in aluminium crate</name><description></description></code>
+  <code><value>YF</value><name>Composite packaging, plastic receptacle in wooden box</name><description></description></code>
+  <code><value>YG</value><name>Composite packaging, plastic receptacle in plywood drum</name><description></description></code>
+  <code><value>YH</value><name>Composite packaging, plastic receptacle in plywood box </name><description></description></code>
+  <code><value>YJ</value><name>Composite packaging, plastic receptacle in fibre drum</name><description></description></code>
+  <code><value>YK</value><name>Composite packaging, plastic receptacle in fibreboard box</name><description></description></code>
+  <code><value>YL</value><name>Composite packaging, plastic receptacle in plastic drum</name><description></description></code>
+  <code><value>YM</value><name>Composite packaging, plastic receptacle in solid plastic box</name><description></description></code>
+  <code><value>YN</value><name>Composite packaging, glass receptacle in steel drum</name><description></description></code>
+  <code><value>YP</value><name>Composite packaging, glass receptacle in steel crate box</name><description></description></code>
+  <code><value>YQ</value><name>Composite packaging, glass receptacle in aluminium drum</name><description></description></code>
+  <code><value>YR</value><name>Composite packaging, glass receptacle in aluminium crate</name><description></description></code>
+  <code><value>YS</value><name>Composite packaging, glass receptacle in wooden box</name><description></description></code>
+  <code><value>YT</value><name>Composite packaging, glass receptacle in plywood drum</name><description></description></code>
+  <code><value>YV</value><name>Composite packaging, glass receptacle in wickerwork hamper</name><description></description></code>
+  <code><value>YW</value><name>Composite packaging, glass receptacle in fibre drum</name><description></description></code>
+  <code><value>YX</value><name>Composite packaging, glass receptacle in fibreboard box </name><description></description></code>
+  <code><value>YY</value><name>Composite packaging, glass receptacle in expandable plastic pack</name><description></description></code>
+  <code><value>YZ</value><name>Composite packaging, glass receptacle in solid plastic pack</name><description></description></code>
+  <code><value>ZA</value><name>Intermediate bulk container, paper, multi-wall </name><description></description></code>
+  <code><value>ZB</value><name>Bag, large </name><description>GS1 Description:
+A non-rigid container made of fabric, paper, plastic, etc, with an opening at the top which can be closed and which is suitable for use on pallets.</description></code>
+  <code><value>ZC</value><name>Intermediate bulk container, paper, multi-wall, water resistant</name><description></description></code>
+  <code><value>ZD</value><name>Intermediate bulk container, rigid plastic, with structural equipment, solids</name><description></description></code>
+  <code><value>ZF</value><name>Intermediate bulk container, rigid plastic, freestanding, solids</name><description></description></code>
+  <code><value>ZG</value><name>Intermediate bulk container, rigid plastic, with structural equipment, pressurised</name><description></description></code>
+  <code><value>ZH</value><name>Intermediate bulk container, rigid plastic, freestanding, pressurised</name><description></description></code>
+  <code><value>ZJ</value><name>Intermediate bulk container, rigid plastic, with structural equipment, liquids </name><description></description></code>
+  <code><value>ZK</value><name>Intermediate bulk container, rigid plastic, freestanding, liquids</name><description></description></code>
+  <code><value>ZL</value><name>Intermediate bulk container, composite, rigid plastic, solids</name><description></description></code>
+  <code><value>ZM</value><name>Intermediate bulk container, composite, flexible plastic, solids</name><description></description></code>
+  <code><value>ZN</value><name>Intermediate bulk container, composite, rigid plastic, pressurised </name><description></description></code>
+  <code><value>ZP</value><name>Intermediate bulk container, composite, flexible plastic, pressurised</name><description></description></code>
+  <code><value>ZQ</value><name>Intermediate bulk container, composite, rigid plastic, liquids</name><description></description></code>
+  <code><value>ZR</value><name>Intermediate bulk container, composite, flexible plastic, liquids </name><description></description></code>
+  <code><value>ZS</value><name>Intermediate bulk container, composite</name><description></description></code>
+  <code><value>ZT</value><name>Intermediate bulk container, fibreboard</name><description></description></code>
+  <code><value>ZU</value><name>Intermediate bulk container, flexible</name><description></description></code>
+  <code><value>ZV</value><name>Intermediate bulk container, metal, other than steel</name><description></description></code>
+  <code><value>ZW</value><name>Intermediate bulk container, natural wood</name><description></description></code>
+  <code><value>ZX</value><name>Intermediate bulk container, plywood</name><description></description></code>
+  <code><value>ZY</value><name>Intermediate bulk container, reconstituted wood</name><description></description></code>
+  <code><value>ZZ</value><name>Mutually defined </name><description></description></code>
+</codeList>

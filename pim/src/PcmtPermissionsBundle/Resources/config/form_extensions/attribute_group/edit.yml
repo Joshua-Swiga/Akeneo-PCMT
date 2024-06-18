@@ -1,0 +1,38 @@
+# It's commented in release purpose. Uncomment it after Release 2.0.0
+
+#extensions:
+#    pcmt-attribute-group-edit-form-properties-permissions:
+#        module: pcmt/permissions/attribute_group/permissions
+#        parent: pim-attribute-group-edit-form-properties
+#        targetZone: accordion
+#        position: 120
+#
+#    pcmt-attribute-group-edit-form-properties-permissions-allowed-to-own:
+#        module: pcmt/permissions/attribute_group/multi-select-async
+#        parent: pcmt-attribute-group-edit-form-properties-permissions
+#        targetZone: fields
+#        position: 100
+#        config:
+#            fieldName: permission[allowed_to_own]
+#            label: pim_enrich.attribute_group.tab.allowed_to.own.label
+#            choiceRoute: pim_user_user_group_rest_index
+#
+#    pcmt-attribute-group-edit-form-properties-permissions-allowed-to-edit:
+#        module: pcmt/permissions/attribute_group/multi-select-async
+#        parent: pcmt-attribute-group-edit-form-properties-permissions
+#        targetZone: fields
+#        position: 100
+#        config:
+#            fieldName: permission[allowed_to_edit]
+#            label: pim_enrich.attribute_group.tab.allowed_to.edit.label
+#            choiceRoute: pim_user_user_group_rest_index
+#
+#    pcmt-attribute-group-edit-form-properties-permissions-allowed-to-view:
+#        module: pcmt/permissions/attribute_group/multi-select-async
+#        parent: pcmt-attribute-group-edit-form-properties-permissions
+#        targetZone: fields
+#        position: 100
+#        config:
+#            fieldName: permission[allowed_to_view]
+#            label: pim_enrich.attribute_group.tab.allowed_to.view.label
+#            choiceRoute: pim_user_user_group_rest_index

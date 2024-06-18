@@ -1,0 +1,4 @@
+code;label-en_US;label-fr_FR;locales;currencies;tree
+GS1_GDSN;GS1 GDSN;FR GS1 GDSN;en_US;USD;GS1_GDSN
+PRODUCT_CATALOG;PRODUCT CATALOG;CATALOGUE DE PRODUITS;en_US,fr_FR;USD;master
+LMIS;LMIS;FR LMIS;en_US,fr_FR;USD;master

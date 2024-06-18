@@ -1,0 +1,18 @@
+######################################################################
+# Copyright (c) 2019, VillageReach
+# Licensed under the Non-Profit Open Software License version 3.0.
+# SPDX-License-Identifier: NPOSL-3.0
+######################################################################
+
+datagrid:
+    gs1codes:
+        options:
+            entityHint: gs1code
+            manageFilters: false
+        source:
+            type: pim_datasource_default
+            entity: PcmtCoreBundle\Entity\ReferenceData\GS1Codes\GS1Code
+            repository_method: createDataGridQueryBuilder
+        columns:
+            name:
+                label: pcmt.gs1code.field.listName

@@ -1,0 +1,54 @@
+######################################################################
+# Copyright (c) 2019, VillageReach
+# Licensed under the Non-Profit Open Software License version 3.0.
+# SPDX-License-Identifier: NPOSL-3.0
+######################################################################
+
+PcmtCoreBundle\Entity\ReferenceData\GS1Code:
+    type: entity
+    inheritanceType: SINGLE_TABLE
+    discriminatorColumn:
+        name: type
+        type: string
+    table: pcmt_reference_data_gs1_codes
+    changeTrackingPolicy: DEFERRED_EXPLICIT
+    repositoryClass: PcmtCoreBundle\Repository\GS1CodesRepository
+    id:
+        id:
+            type: integer
+            generator:
+                strategy: AUTO
+    fields:
+        sortOrder:
+            type: integer
+        listName:
+            type: string
+            nullable: false
+            unique: false
+        code:
+            type: string
+            unique: false
+            nullable: false
+        name:
+            type: string
+            nullable: true
+        definition:
+            type: text
+            length: 65535
+            nullable: true
+        changeDate:
+            type: datetime
+            nullable: true
+        version:
+            type:integer
+            nullable: true
+        status:
+            type: integer
+            default: 1
+            nullable: false
+    uniqueConstraints:
+        listname_code_idx:
+            columns:
+                - listName
+                - code
+    lifecycleCallbacks: { }

@@ -1,0 +1,88 @@
+extensions:
+    pcmt-rules-pull-images-job-show:
+        module: pim/form/common/edit-form
+
+    pcmt-rules-pull-images-job-show-main-image:
+        module: pim/form/common/main-image
+        parent: pcmt-rules-pull-images-job-show
+        targetZone: main-image
+        config:
+            path: bundles/pimui/images/illustrations/ImportXLSX.svg
+
+    pcmt-rules-pull-images-job-show-user-navigation:
+        module: pim/menu/user-navigation
+        parent: pcmt-rules-pull-images-job-show
+        targetZone: user-menu
+        config:
+            userAccount: pim_menu.user.user_account
+            logout: pim_menu.user.logout
+
+    pcmt-rules-pull-images-job-show-breadcrumbs:
+        module: pim/common/breadcrumbs
+        parent: pcmt-rules-pull-images-job-show
+        targetZone: breadcrumbs
+        config:
+            tab: pim-menu-rules
+
+    pcmt-rules-pull-images-job-show-switcher:
+        module: pim/job-instance/import/switcher
+        parent: pcmt-rules-pull-images-job-show
+        position: 0
+        targetZone: meta
+
+    pcmt-rules-pull-images-job-show-launch-switcher-item:
+        module: pim/job-instance/import/switcher-item
+        parent: pcmt-rules-pull-images-job-show
+        targetZone: content
+        aclResourceId: pcmt_permission_rules_run
+        position: 40
+        config:
+            label: pcmt_simple_job.form.job_instance.button.job.switcher
+            hideForCloudEdition: true
+
+    pcmt-rules-pull-images-job-show-import-button:
+        module: pim/job/common/edit/launch
+        parent: pcmt-rules-pull-images-job-show-launch-switcher-item
+        config:
+            label: pcmt_simple_job.form.job_instance.button.job.launch
+            route: pcmt_rules_job_instance_rest_rules_launch
+            identifier:
+                path: code
+                name: code
+
+    pcmt-rules-pull-images-job-show-subsection:
+        module: pim/form/common/subsection
+        parent: pcmt-rules-pull-images-job-show
+        targetZone: content
+        config:
+            title: pim_import_export.form.job_instance.subsection.last_executions
+
+    pcmt-rules-pull-images-job-show-grid:
+        module: pim/job/common/grid
+        parent: pcmt-rules-pull-images-job-show-subsection
+        position: 1000
+        targetZone: content
+        config:
+            alias: last-rules-executions-grid
+            metadata:
+                jobType: rules
+
+    pcmt-rules-pull-images-job-show-label:
+        module: pim/job/common/edit/label
+        parent: pcmt-rules-pull-images-job-show
+        targetZone: title
+        position: 100
+
+    pcmt-rules-pull-images-job-show-edit:
+        module: pim/common/redirect
+        parent: pcmt-rules-pull-images-job-show
+        targetZone: buttons
+        position: 100
+        aclResourceId: pcmt_permission_rules_edit
+        config:
+            label: pim_common.edit
+            route: pcmt_rules_profile_edit
+            buttonClass: AknButton AknButton--action
+            identifier:
+                path: code
+                name: code

@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<codeList xsi:noNamespaceSchemaLocation="http://apps.gs1.org/GDD/Documents/GDDCodeListSchema.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <urn>urn:gs1:gdd:cl:PlatformTypeCode</urn>
+  <name></name>
+  <version>1</version>
+  <domain>gdsn</domain>
+  <code><value>10</value><name>Pallet 800 X 600 mm</name><description>Half size flat pallet with dimensions of 800 x 600 mm. also known as ISO 0 Pallet, 1/2 EUR Pallet, EUR 6 Pallet</description></code>
+  <code><value>11</value><name>Pallet 800 X 1200 mm</name><description>Flat pallet with dimensions of 800 x 1200 mm  ISO 6780 ISO 1 Pallet, EUR Pallet</description></code>
+  <code><value>12</value><name>Pallet 1200 X 1000 mm</name><description>Flat pallet with dimensions of 1200 x 1000 mm  ISO 6780 ISO 2 Pallet, EUR 2 Pallet</description></code>
+  <code><value>13</value><name>Pallet 600 X 400 mm</name><description>Quarter size of the standard EuroPallet with dimensions of 600 x 400 mm, Quarter size of the standard EuroPallet (EUR).</description></code>
+  <code><value>14</value><name>Pallet 400 X 300 mm</name><description>Eighth size of the standard EuroPallet (EUR) with dimensions of 400 x 300 mm. 1/8 EUR Pallet.</description></code>
+  <code><value>25</value><name>Australian Pallet</name><description>Standardised square pallet with dimensions of 1165 x 1165 mm, which perfectly fits in the RACE container of the Australian Railway.</description></code>
+  <code><value>27</value><name>Unspecified</name><description>Platform of Unspecified Weight or Dimension: Pallet level hierarchy is being shipped on a shipping platform of unknown dimensions or unknown weight. The platform weight or dimension may differ within the same shipment. All other values including null would indicate that the weight and dimensions include the shipping platform.</description></code>
+  <code><value>31</value><name>Pallet 1000 X 600 mm</name><description>Half size flat pallet with dimensions of 1000 x 600 mm. 1/2 ISO 2 Pallet.</description></code>
+  <code><value>32</value><name>Block Pallet</name><description>A pallet constructed with blocks at the corners and middle to which three stringers boards are attached with top deck boards attached perpendicular to the stringers. Block pallets can have a variety of bottom deck configurations; no bottom boards, boards parallel to the top deck boards or a full parameter base similar to a picture frame.</description></code>
+  <code><value>33</value><name>Dolly</name><description>A portable, horizontal, rigid platform on wheels or rollers, used as a base for assembling, storing, stacking, handling and transporting goods as a unit, suitable for manually positioning.</description></code>
+  <code><value>35</value><name>Pallet 1000 X 1200 mm</name><description>Standard EuroPallet (EUR3) size with dimensions of 1000 x 1200 mm. EUR 3 Pallet</description></code>
+  <code><value>38</value><name>Horizontal Drum Pallet</name><description>A rigid platform with integrated restraints to prevent horizontally orientated cylindrical containers from slipping.
+Horizontal Drum Pallets are used for assembling, storing, stacking, handling and transporting cylindrical containers, e.g. drums, barrels, or kegs, as a unit load, suitable for lifting by a forklift, pallet jack, or other jacking device.</description></code>
+  <code><value>39</value><name>IBC Pallet</name><description>An IBC Pallet is a Rigid Intermediate Bulk Container (RIBC) that is attached to a pallet or has the pallet integrated into the RIBC. The container is used for the transport and storage of fluids and other bulk materials. The construction of the IBC container and the materials used are chosen depending on the application. There are various types available in the market place. Foldable (collapsible) IBC Container,
+Plastic composite IBC Container, Wire Cage IBC Container,
+Steel IBC Container, and Stainless steel IBC Container</description></code>
+  <code><value>40</value><name>Pallet 1219 X 1016 mm</name><description>ISO 3 Pallet Flat pallet with dimensions of 1219 x 1016 mm (48 x 40 In)  primarily used in the Americas region. ISO 3 Pallet</description></code>
+  <code><value>41</value><name>Pallet 1067 X 1067 mm</name><description>Flat pallet with dimensions of 1067 x 1067 mm (42 x 42 in) primarily used in the Americas region. ISO 4 Pallet.</description></code>
+  <code><value>42</value><name>Pallet 1100 X 1100 mm</name><description>Flat pallet with dimensions of 1100 x 1100 mm primarily used in the Asia Pacific region.  Also referred to as the "T11" pallet. ISO 5 Pallet</description></code>
+  <code><value>43</value><name>Pallet 1140 X 1140 mm</name><description>Flat pallet with dimensions of 1140 x 1140 mm primarily used in the European region. ISO 6 Pallet.</description></code>
+  <code><value>44</value><name>Skid</name><description>A group of parallel wooden runners attached to the undersides of boxes, crates, and machines to allow entry of platform trucks or fork lift tines.</description></code>
+  <code><value>45</value><name>Stringer Pallet</name><description>A pallet constructed with boards (stringers) on edge to which the top deck and bottom deck boards are attached. The stringers may be notched to facilitate four way entry and lifting by a fork lift or other pallet jacking device.</description></code>
+  <code><value>46</value><name>Vertical Drum Pallet</name><description>A rigid platform with integrated restraints to prevent vertically orientated cylindrical containers from slipping. Vertical Drum Pallets are used for assembling, storing, stacking, handling and transporting cylindrical containers, e.g. drums, barrels, or kegs, as a unit load, suitable for lifting by a forklift, pallet jack, or other jacking device.</description></code>
+  <code><value>47</value><name>Pallet 800 X 400 mm</name><description>One third size of the standard Euro Pallet size with dimensions of 800 x 400 mm. 1/3 European Pallet.</description></code>
+  <code><value>48</value><name>1/2 ISO 3 Pallet</name><description>Half size flat pallet with dimensions of 610 x 1016 mm (24 x 40 In); primarily used in the Americas region.</description></code>
+  <code><value>49</value><name>1/4 ISO 3 Pallet</name><description>Quarter size flat pallet with dimensions of 610 x 508 mm (24 x 20 In); primarily used in the Americas region.</description></code>
+  <code><value>50</value><name>Custom Platform</name><description>A portable, horizontal, rigid platform used as a base for assembling, storing, stacking, handling and transporting goods as a unit load, suitable for lifting by a forklift, pallet jack, or other jacking device.</description></code>
+  <code><value>9</value><name>Slip sheet</name><description>A firm sheet of plastic, cardboard or other material which may be hooked or attached to a forklift or other transportation equipment. The slip sheet is used to pull products stacked on top of it. Use packaging dimension attributes to specify the size of the slip sheet.</description></code>
+</codeList>

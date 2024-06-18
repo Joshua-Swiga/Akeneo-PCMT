@@ -1,0 +1,25 @@
+FhirBundle\Entity\FhirMapping:
+  type: entity
+  table: pcmt_fhir_attribute_mapping
+  changeTrackingPolicy: DEFERRED_EXPLICIT
+  repositoryClass: FhirBundle\Repository\FhirMappingRepository
+  uniqueConstraints:
+    searchunique_idx:
+      columns:
+        - code
+  id:
+    id:
+      type: integer
+      generator:
+        strategy: AUTO
+  fields:
+    code:
+      type: string
+      length: 100
+    type:
+      type: string
+      length: 255
+      column: attribute_type
+    mapping:
+      type: string
+      length: 255

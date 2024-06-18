@@ -1,0 +1,4 @@
+CREATE DATABASE IF NOT EXISTS akeneo_pim;
+GRANT ALL PRIVILEGES ON akeneo_pim.* TO 'akeneo_pim'@'%' identified by 'akeneo_pim';;
+CREATE USER 'akeneo_ro'@'%' IDENTIFIED BY 'password';
+GRANT SELECT ON akeneo_pim.* TO 'akeneo_ro'@'%';

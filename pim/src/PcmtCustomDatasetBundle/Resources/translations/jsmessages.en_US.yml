@@ -1,0 +1,22 @@
+######################################################################
+# Copyright (c) 2019, VillageReach
+# Licensed under the Non-Profit Open Software License version 3.0.
+# SPDX-License-Identifier: NPOSL-3.0
+######################################################################
+
+# Job labels
+batch_jobs:
+    pcmt_xlsx_product_import:
+        validation.label: Validation
+        label: Pcmt Product import in XLSX
+        import.label: Pcmt Product import
+
+    pcmt_xlsx_datagrid_view_export:
+        validation.label: Validation
+        label: Pcmt Datagrid View export in XLSX
+        import.label: Pcmt Datagrid View export
+
+    pcmt_xlsx_datagrid_view_import:
+        validation.label: Validation
+        label: Pcmt Datagrid View import in XLSX
+        import.label: Pcmt Datagrid View import

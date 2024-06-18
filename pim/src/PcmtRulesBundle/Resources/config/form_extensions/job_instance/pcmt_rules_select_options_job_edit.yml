@@ -1,0 +1,185 @@
+extensions:
+    pcmt-rules-select-options-job-edit:
+        module: pim/form/common/edit-form
+
+    pcmt-rules-select-options-job-edit-main-image:
+        module: pim/form/common/main-image
+        parent: pcmt-rules-select-options-job-edit
+        targetZone: main-image
+        config:
+            path: bundles/pimui/images/illustrations/ImportXLSX.svg
+
+    pcmt-rules-select-options-job-edit-user-navigation:
+        module: pim/menu/user-navigation
+        parent: pcmt-rules-select-options-job-edit
+        targetZone: user-menu
+        config:
+            userAccount: pim_menu.user.user_account
+            logout: pim_menu.user.logout
+
+    pcmt-rules-select-options-job-edit-breadcrumbs:
+        module: pim/common/breadcrumbs
+        parent: pcmt-rules-select-options-job-edit
+        targetZone: breadcrumbs
+        config:
+            tab: pim-menu-rules
+
+    pcmt-rules-select-options-job-edit-cache-invalidator:
+        module: pim/cache-invalidator
+        parent: pcmt-rules-select-options-job-edit
+        position: 1000
+
+    pcmt-rules-select-options-job-edit-tabs:
+        module: pim/form/common/form-tabs
+        parent: pcmt-rules-select-options-job-edit
+        targetZone: content
+        position: 100
+
+    pcmt-rules-select-options-job-edit-properties:
+        module: pim/job/common/edit/properties
+        parent: pcmt-rules-select-options-job-edit-tabs
+        aclResourceId: pcmt_permission_rules_edit
+        targetZone: container
+        position: 100
+        config:
+            tabTitle: pim_common.properties
+            tabCode: pim-job-instance-properties
+
+    pcmt-rules-select-options-job-edit-history:
+        module: pim/common/tab/history
+        parent: pcmt-rules-select-options-job-edit-tabs
+        targetZone: container
+        aclResourceId: pcmt_permission_rules_view
+        position: 130
+        config:
+            class: Akeneo\Tool\Component\Batch\Model\JobInstance
+            title: pim_common.history
+            tabCode: pim-job-instance-history
+
+    pcmt-rules-select-options-job-edit-properties-code:
+        module: pim/job/common/edit/field/text
+        parent: pcmt-rules-select-options-job-edit-properties
+        position: 100
+        targetZone: properties
+        config:
+            fieldCode: code
+            label: pim_common.code
+            readOnly: true
+
+    pcmt-rules-select-options-job-edit-properties-label:
+        module: pim/job/common/edit/field/text
+        parent: pcmt-rules-select-options-job-edit-properties
+        position: 110
+        targetZone: properties
+        config:
+            fieldCode: label
+            label: pim_common.label
+            readOnly: false
+
+    pcmt-rules-select-options-job-edit-properties-destination-attribute:
+        module: pcmt/rules/job/field/destination-attribute-select
+        parent: pcmt-rules-select-options-job-edit-properties
+        position: 150
+        targetZone: properties
+        config:
+            fetcher: 'attribute'
+            fieldCode: configuration.destinationAttribute
+            readOnly: false
+            label: pcmt.rules.select_options_job.properties.destination_attribute.title
+            tooltip: pcmt.rules.select_options_job.properties.destination_attribute.help
+
+    pcmt-rules-select-options-job-edit-properties-source-family:
+        module: pcmt/rules/job/field/select
+        parent: pcmt-rules-select-options-job-edit-properties
+        position: 155
+        targetZone: properties
+        config:
+            fetcher: 'family'
+            fieldCode: configuration.sourceFamily
+            readOnly: false
+            label: pcmt.rules.select_options_job.properties.source_family.title
+            tooltip: pcmt.rules.select_options_job.properties.source_family.help
+
+    pcmt-rules-select-options-job-edit-properties-attribute-code:
+        module: pcmt/rules/job/field/attribute-select
+        parent: pcmt-rules-select-options-job-edit-properties
+        position: 160
+        targetZone: properties
+        config:
+            fetcher: attributes-for-rules-job
+            sourceFamily: 'configuration.sourceFamily'
+            fieldCode: configuration.attributeCode
+            readOnly: false
+            label: pcmt.rules.select_options_job.properties.attribute_code.title
+            tooltip: pcmt.rules.select_options_job.properties.attribute_code.help
+
+    pcmt-rules-select-options-job-edit-properties-attribute-value:
+        module: pcmt/rules/job/field/attribute-select
+        parent: pcmt-rules-select-options-job-edit-properties
+        position: 165
+        targetZone: properties
+        config:
+            fetcher: attributes-for-rules-job
+            sourceFamily: 'configuration.sourceFamily'
+            fieldCode: configuration.attributeValue
+            readOnly: false
+            label: pcmt.rules.select_options_job.properties.attribute_value.title
+            tooltip: pcmt.rules.select_options_job.properties.attribute_value.help
+
+    pcmt-rules-select-options-job-edit-label:
+        module: pim/job/common/edit/label
+        parent: pcmt-rules-select-options-job-edit
+        targetZone: title
+        position: 100
+
+    pcmt-rules-select-options-job-edit-meta:
+        module: pim/job/common/edit/meta
+        parent: pcmt-rules-select-options-job-edit
+        targetZone: meta
+        position: 100
+
+    pcmt-rules-select-options-job-edit-secondary-actions:
+        module: pim/form/common/secondary-actions
+        parent: pcmt-rules-select-options-job-edit
+        targetZone: buttons
+        position: 50
+
+    pcmt-rules-select-options-job-edit-delete:
+        module: pim/job/import/edit/delete
+        parent: pcmt-rules-select-options-job-edit-secondary-actions
+        targetZone: secondary-actions
+        aclResourceId: pcmt_permission_rules_delete
+        position: 100
+        config:
+            trans:
+                title: confirmation.remove.import_profile
+                content: pim_common.confirm_deletion
+                success: pim_import_export.entity.job_instance.flash.delete.success
+                failed: error.removing.job_instance
+            redirect: pcmt_rules_profile_index
+
+    pcmt-rules-select-options-job-edit-save-buttons:
+        module: pim/form/common/save-buttons
+        parent: pcmt-rules-select-options-job-edit
+        targetZone: buttons
+        position: 120
+
+    pcmt-rules-select-options-job-edit-save:
+        module: pcmt/rules/job/rules/edit/save
+        parent: pcmt-rules-select-options-job-edit
+        targetZone: buttons
+        position: 0
+        config:
+            redirectPath: pcmt_rules_profile_show
+
+    pcmt-rules-select-options-job-edit-state:
+        module: pim/form/common/state
+        parent: pcmt-rules-select-options-job-edit
+        targetZone: state
+        position: 900
+        config:
+            entity: pim_import_export.entity.job_instance.label
+
+    pcmt-rules-select-options-job-edit-validation:
+        module: pim/job/common/edit/validation
+        parent: pcmt-rules-select-options-job-edit

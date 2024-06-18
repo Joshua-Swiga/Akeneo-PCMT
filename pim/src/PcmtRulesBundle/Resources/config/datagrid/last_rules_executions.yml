@@ -1,0 +1,10 @@
+datagrid:
+  last-rules-executions-grid:
+    extend: last-executions-grid
+    source:
+      acl_resource: pcmt_permission_rules_view
+    options:
+      entityHint: rules report
+    properties:
+      show_link:
+        route: pcmt_rules_execution_show

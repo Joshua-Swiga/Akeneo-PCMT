@@ -1,0 +1,339 @@
+# Job labels
+batch_jobs:
+    pcmt_e2open_export:
+        validation.label: FR Validation
+        label: FR Pcmt e2open export
+        export.label: FR cmt e2open export
+
+    default_steps:
+        hash_first_cell: FR Hash first cell
+        process: FR Process
+        reference_data_xml_download: FR Reference data xml download
+        pcmt_e2open_import: FR PCMT E2Open/GDSN Import step
+
+    pcmt_mst_supplier_export:
+        validation.label: FR Validation
+        label: FR Pcmt mst supplier export
+        export.label: FR Pcmt mst supplier export
+
+    reference_data_import_xml:
+        validation.label: FR Validation
+        label: FR Pcmt Reference data xml import
+        import.label: FR Pcmt Reference data xml import
+
+    reference_data_download_xmls:
+        validation.label: FR Validation
+        label: FR Pcmt Reference data xml download
+        import.label: FR Pcmt Reference data xml download
+
+pim_enrich.entity.attribute:
+    property:
+        concat_attribute_member_select:
+            label: FR Attribute
+            choose: FR choose attribute
+        concat_attribute_separator_select:
+            label: FR Separator
+            choose: FR write separator
+        type:
+            pcmt_catalog_concatenated: FR Concatenated Attributes
+
+pim_measure:
+    families:
+        GDSN_Unit_Of_Measure: FR GDSN_Unit_Of_Measure
+    units:
+        KILOGRAM FORCE: FR Kilogram Force
+        KILONEWTON: FR Kilonewton
+        MILLIMETRE PER SECOND: FR Millimetre Per Second
+        HUNDREDTHS OF AN INCH: FR Hundredths of an Inch
+        COUNT: FR Count
+        GRAMS PER CUBIC CENTIMETRE: FR Grams Per Cubic Centimetre
+        KILOGRAM PER SQUARE METRE: FR Kilogram per square metre
+        CUBIC FOOT PER MINUTE: FR Cubic Foot Per Minute
+        CENTIMETRE PER SECOND: FR Centimetre Per Second
+        DECIBEL: FR Decibel
+        KILOBYTE: FR Kilobyte
+        KILO BECQUEREL: FR Kilo Becquerel
+        METRE PER MINUTE: FR Metre Per Minute
+        MICROLITRE: FR Microlitre
+        MICROMETRE: FR Micrometre
+        MEGABYTE: FR Megabyte
+        MEGABECQUEREL: FR Megabecquerel
+        NET KILOGRAM: FR Net kilogram
+        PART PER MILLION: FR Part per million
+        BATCH: FR Batch
+        POUND PER SQUARE INCH - GAUGE: FR Pound per square inch - Gauge
+        POUND PER SQUARE INCH - ABSOLUTE: FR Pound per square inch - Absolute
+        ANGSTROM: FR Angstrom
+        CANDELA PER SQUARE METRE: FR Candela per Square Metre
+        DEADWEIGHT TONNAGE: FR Deadweight Tonnage
+        FEMTOMETRE: FR Femtometre
+        GIGAHERTZ: FR Gigahertz
+        BYTE: FR Byte
+        AMPERE HOUR: FR Ampere Hour
+        AMPERE: FR Ampere
+        YEAR: FR Year
+        TROY OUNCE OR APOTHECARY OUNCE: FR Troy ounce or apothecary ounce
+        ASSORTMENT: FR Assortment
+        STANDARD ATMOSPHERE: FR Standard Atmosphere
+        TECHNICAL ATMOSPHERE: FR Technical Atmosphere
+        GAUGE: FR Gauge
+        ANTI XA UNIT: FR Anti XA Unit
+        BIT PER SECOND: FR Bit per second
+        LUMENS PER SQUARE METER: FR Lumens per Square Meter
+        LUMENS PER WATT: FR Lumens Per Watt
+        LUMEN SECONDS: FR Lumen Seconds
+        LUX SECONDS: FR Lux Seconds
+        BAR (UNIT OF PRESSURE): FR Bar (unit of pressure)
+        BASE BOX: FR Base box
+        BOARD FOOT: FR Board Foot
+        BARREL US: FR Barrel US
+        HUNDRED BOARD FOOT: FR Hundred board foot
+        BEATS PER MINUTE: FR Beats Per Minute
+        BECQUEREL: FR Becquerel
+        BRITISH THERMAL UNIT: FR British thermal unit
+        BUSHEL (US): FR Bushel (US)
+        BUSHEL (UK): FR Bushel (UK)
+        MILLIMOLE: FR Millimole
+        MILLISECOND: FR Millisecond
+        MOLE: FR Mole
+        NANOMETRE: FR Nanometre
+        PICOMETRE: FR Picometre
+        PICOWATT: FR Picowatt
+        DEGREE CELSIUS: FR Degree Celsius
+        COLONY FORMING UNITS: FR Colony Forming Units
+        CARD: FR Card
+        CENTIGRAM: FR Centigram
+        CENTILITRE: FR Centilitre
+        SQUARE CENTIMETRE: FR Square centimetre
+        CUBIC CENTIMETRE: FR Cubic centimetre
+        CENTIMETRE: FR Centimetre
+        METRIC CARAT: FR Metric Carat
+        HUNDRED POUND (CWT) / HUNDRED WEIGHT (US): FR Hundred pound (cwt) / hundred weight (US)
+        HUNDRED WEIGHT (UK): FR Hundred weight (UK)
+        KILOWATT / HOUR: FR Kilowatt / hour
+        SQUARE METRE KELVIN PER WATT: FR Square metre kelvin per watt
+        TERAHERTZ: FR Terahertz
+        TERAJOULE: FR Terajoule
+        TERAWATT HOUR: FR Terawatt hour
+        THOUSAND LITRE: FR Thousand Litre
+        ATOMIC MASS UNITS (AMU): FR Atomic Mass Units (AMU)
+        KILOGRAM PER SQUARE CENTIMETRE: FR Kilogram per square centimetre
+        HEAT TRANSFER COEFFICIENT: FR Heat Transfer Coefficient
+        BOOK: FR Book
+        CALORIE - INTERNATIONAL TABLE (IT): FR Calorie - International Table (IT)
+        CALORIE _ INTERNATIONAL TABLE (IT): FR Calorie - International Table (IT)
+        POUND PER SQUARE INCH _ GAUGE: FR Pound per square inch - Gauge
+        POUND PER SQUARE INCH _ ABSOLUTE: FR Pound per square inch - Absolute
+        DAYS: FR Days
+        DEGREE (UNIT OF ANGEL): FR Degree (Unit of Angel)
+        DECIGRAM: FR Decigram
+        DECILITRE: FR Decilitre
+        SQUARE DECIMETRE: FR Square decimetre
+        CUBIC DECIMETRE: FR Cubic decimetre
+        DECIMETRE: FR Decimetre
+        DRAM (US): FR Dram (US)
+        DRAM (UK): FR Dram (UK)
+        DOZEN: FR Dozen
+        MILLIAMPERE HOUR: FR Milliampere hour
+        KILOCALORIE (INTERNATIONAL TABLE): FR Kilocalorie (international table)
+        DOSE: FR Dose
+        LITRE PER HOUR: FR Litre Per Hour
+        GIGABYTE: FR Gigabyte
+        TERABYTE: FR Terabyte
+        PIXEL: FR Pixel
+        DOTS PER INCH: FR Dots per inch
+        GROSS KILOGRAM: FR Gross kilogram
+        USE: FR Use
+        EACH: FR Each
+        ELISA UNITS: FR ELISA Units
+        GRAM PER HOUR: FR Gram Per Hour
+        DEGREE FAHRENHEIT: FR Degree Fahrenheit
+        MICROMOLE: FR Micromole
+        SIZING FACTOR: FR Sizing Factor
+        FOOT: FR Foot
+        POUND PER SQUARE FOOT: FR Pound per square foot
+        FOOT PER MINUTE: FR Foot Per Minute
+        FOOT PER SECOND: FR Foot Per Second
+        SQUARE FOOT: FR Square foot
+        CUBIC FOOT: FR Cubic foot
+        US GALLON PER MINUTE: FR US Gallon Per Minute
+        CUP (US): FR Cup (US)
+        PECK: FR Peck
+        TABLESPOON: FR Tablespoon
+        TEASPOON: FR Teaspoon
+        STERE: FR Stere
+        GIGABECQUEREL: FR Gigabecquerel
+        GRAM OF FISSILE ISOTOPE: FR Gram of Fissile Isotope
+        GRAM PER LITRE: FR Gram Per Litre
+        GALLON (UK): FR Gallon (UK)
+        GALLON (US): FR Gallon (US)
+        GRAM PER SQUARE METRE: FR Gram per square metre
+        GRAM: FR Gram
+        GRAIN: FR Grain
+        GROSS: FR Gross
+        GIGAWATT HOUR: FR Gigawatt hour
+        CENTIMETRE PER HOUR: FR Centimetre Per Hour
+        MILLIMETRE PER HOUR: FR Millimetre Per Hour
+        FRENCH GAUGE: FR French gauge
+        MILLIMETRE PER MINUTE: FR Millimetre Per Minute
+        PIECE: FR Piece
+        HUNDRED COUNT: FR Hundred count
+        HALF DOZEN: FR Half dozen
+        HISTAMINE EQUIVALENT PRICK: FR Histamine Equivalent Prick
+        HECTOGRAM: FR Hectogram
+        HECTOLITRE: FR Hectolitre
+        MILE PER HOUR (STATUTE MILE): FR Mile Per Hour (statute mile)
+        HERTZ: FR Hertz
+        HOUR: FR Hour
+        INCHES: FR Inches
+        SQUARE INCH: FR Square inch
+        CUBIC INCH: FR Cubic inch
+        INCH PER SECOND: FR Inch Per Second
+        JOULE: FR Joule
+        FOOT PER HOUR: FR Foot Per Hour
+        GALLON (US LIQUID) PER SECOND: FR Gallon (US liquid) Per Second
+        HORSEPOWER: FR Horsepower
+        KILOLITRE: FR Kilolitre
+        KILOGRAM DRAINED NET WEIGHT: FR Kilogram drained net weight
+        KELVIN: FR Kelvin
+        KILOGRAM: FR Kilogram
+        KILOGRAM OF HYDROGEN PEROXIDE: FR Kilogram of hydrogen peroxide
+        KILOHERTZ: FR Kilohertz
+        KALLIKREIN INACTIVATOR UNIT.: FR Kallikrein inactivator unit.
+        KILOJOULE: FR Kilojoule
+        KILOGRAM OF METHYLAMINE: FR Kilogram of methylamine
+        KILOMETRE PER HOUR: FR Kilometre Per Hour
+        KILOMETRE: FR Kilometre
+        KILOGRAM OF NITROGEN: FR Kilogram of nitrogen
+        KILONEWTON PER SQUARE METRE: FR Kilonewton Per Square Metre
+        KNOT: FR Knot
+        THE MILLIEQUIVALENCE CAUSTIC POTASH PER GRAM OF PRODUCT: FR The milliequivalence caustic potash per gram of product
+        KILOPASCAL: FR Kilopascal
+        KILOGRAM OF POTASSIUM HYDROXIDE (CAUSTIC POTASH): FR Kilogram of potassium hydroxide (caustic potash)
+        KILOGRAM OF POTASSIUM OXIDE: FR Kilogram of potassium oxide
+        KILOGRAM OF PHOSPHORUS PENTOXIDE (PHOSPHORIC ANHYDRIDE): FR Kilogram of phosphorus pentoxide (phosphoric anhydride)
+        KILOGRAM OF SUBSTANCE 90% DRY: FR Kilogram of substance 90% dry
+        KILOGRAM OF SODIUM HYDROXIDE (CAUSTIC SODA): FR Kilogram of sodium hydroxide (caustic soda)
+        KIT: FR Kit
+        KILOGRAM OF URANIUM: FR Kilogram of Uranium
+        KILOWATT HOUR: FR Kilowatt hour
+        KILOWATT: FR Kilowatt
+        POUND: FR Pound
+        LITRE / DAY: FR Litre / Day
+        LINEAR FOOT: FR Linear foot
+        LINK: FR Link
+        LINEAR METRE: FR Linear metre
+        LITRE OF PURE ALCOHOL: FR Litre of pure alcohol
+        LAYER: FR Layer
+        TON (UK) OR LONG TON (US): FR Ton (UK) or long ton (US)
+        LITRE: FR Litre
+        LUMEN: FR Lumen
+        LUX: FR Lux
+        MILE PER MINUTE: FR Mile Per Minute
+        MILE PER SECOND: FR Mile Per Second
+        METRE PER HOUR: FR Metre Per Hour
+        KILOMETRE PER SECOND: FR Kilometre Per Second
+        INCH PER MINUTE: FR Inch Per Minute
+        YARD PER SECOND: FR Yard Per Second
+        YARD PER MINUTE: FR Yard Per Minute
+        YARD PER HOUR: FR Yard Per Hour
+        MEGAWATT: FR Megawatt
+        MILLIBAR: FR Millibar
+        MICROGRAM: FR Microgram
+        MILLIEQUIVALENTS: FR Milliequivalents
+        MILLIGRAM: FR Milligram
+        MEGAHERTZ: FR Megahertz
+        SQUARE MILE: FR Square mile
+        MINUTE (UNIT OF TIME): FR Minute (unit of time)
+        MILLION INTERNATIONAL UNIT (NIE): FR Million International Unit (NIE)
+        MILLILITRE: FR Millilitre
+        SQUARE MILLIMETRE: FR Square millimetre
+        CUBIC MILLIMETRE: FR Cubic millimetre
+        MILLIMETRE: FR Millimetre
+        MONTH: FR Month
+        MOST PROBABLE NUMBER: FR Most Probable Number
+        CUBIC METRE PER HOUR: FR Cubic Metre Per Hour
+        SQUARE METRE: FR Square metre
+        CUBIC METRE: FR Cubic metre
+        METRE: FR Metre
+        METRE PER SECOND: FR Metre Per Second
+        MEGAWATT HOUR (1000 KW.H): FR Megawatt hour (1000 kW.h)
+        MILLIGRAM PER KILOGRAM (MG/KG): FR Milligram per Kilogram (mg/kg)
+        NUMBER OF CELLS: FR Number of cells
+        NEWTON: FR Newton
+        NUMBER OF INTERNATIONAL UNITS: FR Number of International Units
+        NUMBER OF PAIRS: FR Number of pairs
+        NEWTON METRE: FR Newton Metre
+        OHM: FR Ohm
+        OUNCES PER SQUARE YARD: FR Ounces per square yard
+        OUNCE: FR Ounce
+        OSCILLATIONS PER MINUTE: FR Oscillations Per Minute
+        FLUID OUNCE (US): FR Fluid ounce (US)
+        FLUID OUNCE (UK): FR Fluid ounce (UK)
+        PERCENT: FR Percent
+        PASCAL: FR Pascal
+        PAD: FR Pad
+        PLAQUE FORMING UNIT(S): FR Plaque Forming unit(s)
+        POINT: FR Point
+        PAIR: FR Pair
+        POTENTIAL RENAL SOLUTE LOAD: FR Potential Renal Solute Load
+        POUND-FORCE PER SQUARE INCH: FR Pound-force per square inch
+        DRY PINT (US): FR Dry Pint (US)
+        PINT (UK): FR Pint (UK)
+        LIQUID PINT (US): FR Liquid pint (US)
+        PORTION: FR Portion
+        PH (POTENTIAL OF HYDROGEN): FR pH (potential of Hydrogen)
+        FEMTOLITRE: FR Femtolitre
+        PICOLITRE: FR  Picolitre
+        NANOLITRE: FR Nanolitre
+        PAGE - HARDCOPY: FR Page - hardcopy
+        QUART (US DRY): FR Quart (US dry)
+        LIQUID QUART (US): FR Liquid quart (US)
+        THOUSAND CUBIC METRE: FR Thousand cubic metre
+        REVOLUTIONS PER MINUTE: FR Revolutions Per Minute
+        SQUARE METRE / SECOND: FR Square Metre / Second
+        SECOND (UNIT OF TIME): FR Second (unit of time)
+        SET: FR Set
+        MILE (STATUTE MILE): FR Mile (statute mile)
+        SQ-E: FR SQ-E
+        TON (US) OR SHORT TON (UK): FR Ton (US) or short ton (UK)
+        SHIPMENT: FR Shipment
+        THOUSAND PIECE: FR Thousand piece
+        TONNE: FR Tonne
+        TEETH PER INCH: FR Teeth Per Inch
+        TABLET: FR Tablet
+        TORR: FR Torr
+        VOLT: FR Volt
+        WEEK: FR Week
+        WATT HOUR: FR Watt hour
+        WATT: FR Watt
+        COLD CRAMP AMP: FR Cold Cramp Amp
+        COLONY FORMING UNITS PER GRAM (CFU/G): FR Colony Forming Units per gram (CFU/g)\n
+        COLONY FORMING UNITS PER POUND (CFU/LB): FR Colony Forming Units per Pound (CFU/lb)
+        CENTISIMAL HAHNEMANNIAN DILUTION (CH): FR Centisimal Hahnemannian Dilution (CH)
+        DECIBAR: FR Decibar
+        PENNY WEIGHT: FR Penny Weight
+        INTERNATIONAL UNITS PER KILOGRAM (IU/KG): FR International Units per Kilogram (IU/kg)
+        KORSAKOVIAN (K): FR Korsakovian (K)
+        MILLESIMAI (LM): FR Millesimai (LM)
+        MILES PER GALLON: FR Miles Per Gallon
+        MOTHER TINCTURE (DRY MATERIAL): FR Mother tincture (Dry material)
+        NANOGRAM: FR Nanogram
+        PIXEL PER CENTIMETRE: FR Pixel per centimetre
+        PIXEL PER INCH: FR Pixel per inch
+        RETINOL ACTIVITY EQUIVALENTS: FR Retinol Activity Equivalents
+        THIRTY SECONDS OF AN INCH: FR Thirty Seconds of an Inch
+        SAMPLE PER SECOND: FR Sample per second
+        TEN THOUSANDTHS OF AN INCH: FR Ten Thousandths of an Inch
+        RETINOL EQUIVALENT (RE): FR Retinol Equivalent (RE)
+        ROLL: FR Roll
+        SHEET: FR Sheet
+        SQUARE YARD: FR Square Yard
+        YARD: FR Yard
+
+pcmt_simple_job:
+    form:
+        job_instance:
+            button:
+                job.switcher: FR Simple launch
+                job.launch: FR Launch now

@@ -1,0 +1,536 @@
+jobs:
+    #Akeneo_minimal
+    update_product_value:
+        connector: Akeneo Mass Edit Connector
+        alias:     update_product_value
+        label:     Mass update products
+        type:      mass_edit
+    add_product_value:
+        connector: Akeneo Mass Edit Connector
+        alias:     add_product_value
+        label:     Mass add products values
+        type:      mass_edit
+    remove_product_value:
+        connector: Akeneo Mass Edit Connector
+        alias:     remove_product_value
+        label:     Mass remove products values
+        type:      mass_edit
+    move_to_category:
+        connector: Akeneo Mass Edit Connector
+        alias:     move_to_category
+        label:     Mass move to categories
+        type:      mass_edit
+    add_association:
+        connector: Akeneo Mass Edit Connector
+        alias:     add_association
+        label:     Mass associate
+        type:      mass_edit
+    add_to_category:
+        connector: Akeneo Mass Edit Connector
+        alias:     add_to_category
+        label:     Mass add to categories
+        type:      mass_edit
+    remove_from_category:
+        connector: Akeneo Mass Edit Connector
+        alias:     remove_from_category
+        label:     Mass remove from categories
+        type:      mass_edit
+    edit_common_attributes:
+        connector: Akeneo Mass Edit Connector
+        alias:     edit_common_attributes
+        label:     Mass edit product attributes
+        type:      mass_edit
+    add_attribute_value:
+        connector: Akeneo Mass Edit Connector
+        alias:     add_attribute_value
+        label:     Mass add attribute value
+        type:      mass_edit
+    add_to_group:
+        connector: Akeneo Mass Edit Connector
+        alias:     add_to_group
+        label:     Mass add product to group
+        type:      mass_edit
+    add_to_existing_product_model:
+        connector: Akeneo Mass Edit Connector
+        alias:     add_to_existing_product_model
+        label:     Add to existing product model
+        type:      mass_edit
+    set_attribute_requirements:
+        connector: Akeneo Mass Edit Connector
+        alias:     set_attribute_requirements
+        label:     Set family attribute requirements
+        type:      mass_edit
+    change_parent_product:
+        connector: Akeneo Mass Edit Connector
+        alias:     change_parent_product
+        label:     Change parent product model
+        type:      mass_edit
+    delete_products_and_product_models:
+        connector: Akeneo Mass Edit Connector
+        alias:     delete_products_and_product_models
+        label:     Mass delete products
+        type:      mass_delete
+    csv_product_quick_export:
+        connector: Akeneo CSV Connector
+        alias: csv_product_quick_export
+        label: CSV product quick export
+        type: quick_export
+        configuration:
+            delimiter:  ;
+            enclosure:  '"'
+            withHeader: true
+            filePathProduct:      /tmp/1_products_export_%locale%_%scope%_%datetime%.csv
+            filePathProductModel: /tmp/2_product_models_export_%locale%_%scope%_%datetime%.csv
+            with_media: true
+    csv_product_grid_context_quick_export:
+        connector: Akeneo CSV Connector
+        alias: csv_product_grid_context_quick_export
+        label: CSV product quick export grid context
+        type: quick_export
+        configuration:
+            delimiter:  ;
+            enclosure:  '"'
+            withHeader: true
+            filePathProduct:      /tmp/1_products_export_grid_context_%locale%_%scope%_%datetime%.csv
+            filePathProductModel: /tmp/2_product_models_export_grid_context_%locale%_%scope%_%datetime%.csv
+            with_media: true
+    xlsx_product_quick_export:
+        connector: Akeneo XLSX Connector
+        alias: xlsx_product_quick_export
+        label: XLSX product quick export
+        type: quick_export
+        configuration:
+            withHeader: true
+            linesPerFile: 10000
+            filePathProduct:      /tmp/1_products_export_%locale%_%scope%_%datetime%.xlsx
+            filePathProductModel: /tmp/2_product_models_export_%locale%_%scope%_%datetime%.xlsx
+            with_media: true
+    xlsx_product_grid_context_quick_export:
+        connector: Akeneo XLSX Connector
+        alias: xlsx_product_grid_context_quick_export
+        label: XLSX product quick export grid context
+        type: quick_export
+        configuration:
+            withHeader:   true
+            filePathProduct:      /tmp/1_products_export_grid_context_%locale%_%scope%_%datetime%.xlsx
+            filePathProductModel: /tmp/2_product_models_export_grid_context_%locale%_%scope%_%datetime%.xlsx
+            linesPerFile: 10000
+            with_media:   true
+    compute_product_models_descendants:
+        connector: internal
+        alias:     compute_product_models_descendants
+        label:     Compute product models descendants
+        type:      compute_product_models_descendants
+    compute_completeness_of_products_family:
+        connector: internal
+        alias:     compute_completeness_of_products_family
+        label:     compute completeness of products family
+        type:      compute_completeness_of_products_family
+    compute_family_variant_structure_changes:
+        connector: internal
+        alias:     compute_family_variant_structure_changes
+        label:     Compute variant structure changes
+        type:      compute_family_variant_structure_changes
+    #PCMT
+    #xlsx_imports
+    #1
+    xlsx_category_import:
+        connector: Akeneo XLSX Connector
+        alias:     xlsx_category_import
+        label:     XLSX 1_categories import
+        type:      import
+        configuration:
+            filePath:            /tmp/category.xlsx
+            uploadAllowed:       true
+    #2
+    xlsx_attribute_group_import:
+        connector: Akeneo XLSX Connector
+        alias:     xlsx_attribute_group_import
+        label:     XLSX 2_attribute_groups import
+        type:      import
+        configuration:
+            uploadAllowed: true
+    #3
+    xlsx_attribute_import:
+        connector: Akeneo XLSX Connector
+        alias:     xlsx_attribute_import
+        label:     XLSX 3_attributes import
+        type:      import
+        configuration:
+            filePath:      /tmp/attribute.xlsx
+            uploadAllowed: true
+    #4
+    xlsx_attribute_option_import:
+        connector: Akeneo XLSX Connector
+        alias:     xlsx_attribute_option_import
+        label:     XLSX 4_attribute_options import
+        type:      import
+        configuration:
+            filePath:      /tmp/option.xlsx
+            uploadAllowed: true
+    #5
+    xlsx_family_import:
+        connector: Akeneo XLSX Connector
+        alias:     xlsx_family_import
+        label:     XLSX 5_families import
+        type:      import
+        configuration:
+            filePath:      /tmp/family.xlsx
+            uploadAllowed: true
+    #6
+    xlsx_family_variant_import:
+        connector: Akeneo XLSX Connector
+        alias:     xlsx_family_variant_import
+        label:     XLSX 6_family_variants import
+        type:      import
+        configuration:
+            filePath:      /tmp/family_variant.xlsx
+            uploadAllowed: true
+    #7
+    xlsx_product_model_import:
+        connector: Akeneo XLSX Connector
+        alias: xlsx_product_model_import
+        label: XLSX 7_product_models import
+        type: import
+        configuration:
+            filePath: /tmp/product_model.xlsx
+            uploadAllowed: true
+            enabled: true
+            categoriesColumn: categories
+            familyVariantColumn: family_variant
+            realTimeVersioning: true
+            decimalSeparator: .
+            dateFormat: yyyy-MM-dd
+    #8
+    xlsx_product_import:
+        connector: Akeneo XLSX Connector
+        alias:     xlsx_product_import
+        label:     XLSX 8_products import
+        type:      import
+        configuration:
+            filePath:           /tmp/product.xlsx
+            uploadAllowed:      true
+            enabled:            true
+            categoriesColumn:   categories
+            familyColumn:       family
+            groupsColumn:       groups
+            realTimeVersioning: true
+            decimalSeparator: .
+            dateFormat: yyyy-MM-dd
+    #8 PCMT
+    pcmt_xlsx_product_import:
+        connector: Pcmt Connector
+        alias:     pcmt_xlsx_product_import
+        label:     PCMT XLSX 8_products import
+        type:      import_hidden
+        configuration:
+            filePath:           /tmp/product.xlsx
+            uploadAllowed:      true
+            enabled:            true
+            categoriesColumn:   categories
+            familyColumn:       family
+            groupsColumn:       groups
+            realTimeVersioning: true
+            decimalSeparator: .
+            dateFormat: yyyy-MM-dd
+    #9
+    import_map_suppliers:
+        connector: Akeneo XLSX Connector
+        alias:     xlsx_product_import
+        label:     XLSX 9_master_data_elements
+        type:      import
+        configuration:
+            uploadAllowed:      true
+            enabled:            true
+            categoriesColumn:   categories
+            familyColumn:       family
+            groupsColumn:       groups
+            realTimeVersioning: true
+            decimalSeparator: .
+            dateFormat: yyyy-MM-dd
+    #11
+    pcmt_xlsx_datagrid_view_import:
+        connector: PCMT XLSX Connector
+        alias:     pcmt_xlsx_datagrid_view_import
+        label:     XLSX 11_datagrid_view import
+        type:      import
+        configuration:
+            filePath:      /tmp/datagrid_view.xlsx
+            uploadAllowed: true
+
+    #xlsx_imports duplicated in purpose for the draft feature
+    #7
+    xlsx_product_model_first_import:
+        connector: Akeneo XLSX Connector
+        alias: xlsx_product_model_first_import
+        label: XLSX 7_product_models import
+        type: import_hidden
+        configuration:
+            filePath: /tmp/product_model.xlsx
+            uploadAllowed: true
+            enabled: true
+            categoriesColumn: categories
+            familyVariantColumn: family_variant
+            realTimeVersioning: true
+            decimalSeparator: .
+            dateFormat: yyyy-MM-dd
+    #8
+    xlsx_product_first_import:
+        connector: Akeneo XLSX Connector
+        alias:     xlsx_product_first_import
+        label:     XLSX 8_products import
+        type:      import_hidden
+        configuration:
+            filePath:           /tmp/product.xlsx
+            uploadAllowed:      true
+            enabled:            true
+            categoriesColumn:   categories
+            familyColumn:       family
+            groupsColumn:       groups
+            realTimeVersioning: true
+            decimalSeparator: .
+            dateFormat: yyyy-MM-dd
+    #8 PCMT
+    pcmt_xlsx_product_first_import:
+        connector: Pcmt Connector
+        alias:     pcmt_xlsx_product_import
+        label:     PCMT XLSX 8_products import
+        type:      import_hidden
+        configuration:
+            filePath:           /tmp/product.xlsx
+            uploadAllowed:      true
+            enabled:            true
+            categoriesColumn:   categories
+            familyColumn:       family
+            groupsColumn:       groups
+            realTimeVersioning: true
+            decimalSeparator: .
+            dateFormat: yyyy-MM-dd
+    #9
+    import_map_suppliers_first:
+        connector: Akeneo XLSX Connector
+        alias:     xlsx_product_first_import
+        label:     XLSX 9_master_data_elements
+        type:      import_hidden
+        configuration:
+            uploadAllowed:      true
+            enabled:            true
+            categoriesColumn:   categories
+            familyColumn:       family
+            groupsColumn:       groups
+            realTimeVersioning: true
+            decimalSeparator: .
+            dateFormat: yyyy-MM-dd
+
+    #xlsx_exports
+    #1
+    xlsx_category_export:
+        connector: Akeneo XLSX Connector
+        alias:     xlsx_category_export
+        label:     XLSX 1_categories export
+        type:      export
+        configuration:
+            withHeader: true
+            linesPerFile: 10000
+            filePath:   /tmp/1_categories.xlsx
+    #2
+    xlsx_attribute_group_export:
+        connector: Akeneo XLSX Connector
+        alias:     xlsx_attribute_group_export
+        label:     XLSX 2_attribute_groups export
+        type:      export
+        configuration:
+            withHeader: true
+            linesPerFile: 10000
+            filePath:   /tmp/2_attribute_groups.xlsx
+    #3
+    xlsx_attribute_export:
+        connector: Akeneo XLSX Connector
+        alias:     xlsx_attribute_export
+        label:     XLSX 3_attributes export
+        type:      export
+        configuration:
+            withHeader: true
+            linesPerFile: 10000
+            filePath:   /tmp/3_attributes.xlsx
+    #4
+    xlsx_attribute_option_export:
+        connector: Akeneo XLSX Connector
+        alias:     xlsx_attribute_option_export
+        label:     XLSX 4_attribute_options export
+        type:      export
+        configuration:
+            withHeader: true
+            linesPerFile: 10000
+            filePath:   /tmp/4_attribute_options.xlsx
+    #5
+    xlsx_family_export:
+        connector: Akeneo XLSX Connector
+        alias:     xlsx_family_export
+        label:     XLSX 5_families export
+        type:      export
+        configuration:
+            withHeader: true
+            linesPerFile: 10000
+            filePath:   /tmp/5_families.xlsx
+    #6
+    xlsx_family_variant_export:
+        connector: Akeneo XLSX Connector
+        alias:     xlsx_family_variant_export
+        label:     XLSX 6_family_variants export
+        type:      export
+        configuration:
+            withHeader: true
+            linesPerFile: 10000
+            filePath:   /tmp/6_family_variants.xlsx
+    #7
+    xlsx_product_model_export:
+        connector: Akeneo XLSX Connector
+        alias:     xlsx_product_model_export
+        label:     XLSX 7_product_models export
+        type:      export
+        configuration:
+            withHeader: true
+            with_media: true
+            filePath:   /tmp/7_product_models.xlsx
+            filters:
+                data:
+                    -   field: categories
+                        operator: 'IN CHILDREN'
+                        value: ['master']
+                structure:
+                    scope: PRODUCT_CATALOG
+                    locales:
+                        - en_US
+    #8-1
+    xlsx_product_export:
+        connector: Akeneo XLSX Connector
+        alias:     xlsx_product_export
+        label:     XLSX 8_products RH export
+        type:      export
+        configuration:
+            withHeader: true
+            linesPerFile: 10000
+            filePath:   /tmp/8_products.xlsx
+            with_media: true
+            filters:
+                data:
+                    -   field: enabled
+                        operator: '='
+                        value: true
+                    -   field: categories
+                        operator: 'IN'
+                        value: ['PRODUCTS_TO_TRADE_ITEMS']
+                    -   field: family
+                        operator: 'IN'
+                        value: ['RH_PRODUCTS_TRADEITEMS_VARIANTS']
+                    -   field: completeness
+                        operator: 'ALL'
+                        value: 100
+                        context:
+                            locales: ['en_US']
+                structure:
+                    scope: PRODUCT_CATALOG
+                    locales:
+                        - en_US
+    #8-2
+    GS1_GDSN_TRADEITEMS:
+        connector: Akeneo XLSX Connector
+        alias:     xlsx_product_export
+        label:     XLSX 8_products GS1_GDSN
+        type:      export
+        configuration:
+            withHeader: true
+            linesPerFile: 10000
+            filePath:   /tmp/8_products_gs1.xlsx
+            with_media: true
+            filters:
+                data:
+                    -   field: enabled
+                        operator: '='
+                        value: true
+                    -   field: completeness
+                        operator: 'ALL'
+                        value: 100
+                        context:
+                            locales: ['en_US']
+                    -   field: categories
+                        operator: 'IN'
+                        value: ['GDSN']
+                    -   field: family
+                        operator: 'IN'
+                        value: ['GS1_GDSN']
+                structure:
+                    scope: GS1_GDSN
+                    locales:
+                        - en_US
+
+    #9
+    export_masterdata_products:
+        connector: Akeneo XLSX Connector
+        alias:     xlsx_product_export
+        label:     XLSX 9_masterdata_entries
+        type:      export
+        configuration:
+            withHeader: true
+            linesPerFile: 10000
+            filePath:   /tmp/9_masterdata_entries.xlsx
+            with_media: true
+            filters:
+                data:
+                    -   field: enabled
+                        operator: '='
+                        value: true
+                    -   field: completeness
+                        operator: 'GREATER OR EQUALS THAN ON AT LEAST ONE LOCALE'
+                        value: 100
+                        context:
+                            locales: ['en_US']
+                    -   field: categories
+                        operator: 'IN'
+                        value: ['MASTER_DATA']
+                structure:
+                    scope: PRODUCT_CATALOG
+                    locales:
+                        - en_US
+
+    #11
+    pcmt_xlsx_datagrid_view_export:
+        connector: PCMT XLSX Connector
+        alias:     pcmt_xlsx_datagrid_view_export
+        label:     XLSX 11_datagrid_view export
+        type:      export
+        configuration:
+            withHeader: true
+            linesPerFile: 10000
+            filePath:   /tmp/11_datagrid_view.xlsx
+
+    #12
+    compute_concatenated_attributes_values:
+        connector: compute_concatenated_attributes_values
+        alias: compute_concatenated_attributes_values
+        label: compute_concatenated_attributes_values
+        type: compute_concatenated_attributes_values
+
+    #13
+    pcmt_e2open_import:
+        connector: Pcmt Connector
+        alias: pcmt_e2open_import
+        label: pcmt_e2open_import
+        type: import_hidden
+        configuration:
+            xmlFilePath: ''
+            xmlDirPath: ''
+    #14
+    reference_data_download_xmls:
+        connector: Pcmt Connector
+        alias: reference_data_download_xmls
+        label: Reference data xmls download
+        type: import
+
+    #15
+    reference_data_import_xml:
+        connector: Pcmt Connector
+        alias: reference_data_import_xml
+        label: Reference data xml import
+        type: import

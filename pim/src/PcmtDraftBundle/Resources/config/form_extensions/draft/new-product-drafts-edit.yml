@@ -1,0 +1,36 @@
+######################################################################
+# Copyright (c) 2019, VillageReach
+# Licensed under the Non-Profit Open Software License version 3.0.
+# SPDX-License-Identifier: NPOSL-3.0
+######################################################################
+
+extensions:
+    pcmt-product-create-modal:
+        module: pcmt/draft/common/modal
+        config:
+            labels:
+                title: pcmt_core.drafts_editing.new_product_draft.title
+                subTitle: pim_enrich.entity.product.plural_label
+            picture: illustrations/Product.svg
+            successMessage: pcmt.entity.draft.flash.update.success
+            editRoute: pcmt_core_drafts_index
+            postUrl: pcmt_core_draft_update_api
+
+    pcmt-product-create-sku:
+        module: pim/product-edit-form/creation/identifier
+        parent: pcmt-product-create-modal
+        targetZone: fields
+        position: 10
+        config:
+            identifier: identifier
+            create_button: on
+
+    pcmt-product-create-family:
+        module: pim/form/common/fields/simple-select-async
+        parent: pcmt-product-create-modal
+        targetZone: fields
+        position: 20
+        config:
+            fieldName: family
+            label: pim_enrich.entity.family.uppercase_label
+            choiceRoute: pim_enrich_family_rest_index

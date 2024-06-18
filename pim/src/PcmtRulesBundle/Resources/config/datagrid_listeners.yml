@@ -1,0 +1,31 @@
+services:
+  pcmt_rules.event_listener.inject_job_type:
+    class: '%pim_datagrid.event_listener.add_parameters_to_grid.class%'
+    arguments:
+      - [jobType]
+      - '@oro_datagrid.datagrid.request_params'
+    tags:
+      - { name: kernel.event_listener, event: oro_datagrid.datgrid.build.after.rules-profile-grid, method: onBuildAfter }
+      - { name: kernel.event_listener, event: oro_datagrid.datgrid.build.after.rules-execution-grid, method: onBuildAfter }
+      - { name: kernel.event_listener, event: oro_datagrid.datgrid.build.after.last-rules-executions-grid, method: onBuildAfter }
+
+  pcmt_rules.event_listener.add_job_code_to_grid_listener:
+    class: '%pim_datagrid.event_listener.add_job_code_to_grid_listener.class%'
+    arguments:
+      - '@oro_datagrid.datagrid.request_params'
+    tags:
+      - { name: kernel.event_listener, event: oro_datagrid.datgrid.build.after.last-rules-executions-grid, method: onBuildAfter }
+
+  pcmt_rules.event_listener.add_username_to_grid_listener:
+    class: '%pim_datagrid.event_listener.add_username_to_grid_listener.class%'
+    arguments:
+      - '@security.token_storage'
+    tags:
+      - { name: kernel.event_listener, event: oro_datagrid.datgrid.build.after.last-rules-executions-grid, method: onBuildAfter }
+
+  pcmt_rules.event_listener.black_list_job_codes_from_grid_listener:
+    class: 'Oro\Bundle\PimDataGridBundle\EventListener\BlackListJobsFromGridListener'
+    arguments:
+      - '@pim_import_export.registry.not_visible_jobs'
+    tags:
+      - { name: kernel.event_listener, event: oro_datagrid.datgrid.build.after.last-rules-executions-grid, method: onBuildAfter }

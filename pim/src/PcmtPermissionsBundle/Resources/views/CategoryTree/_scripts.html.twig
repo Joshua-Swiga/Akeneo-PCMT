@@ -1,0 +1,28 @@
+<script type="text/javascript">
+    require(
+        ['jquery', 'pim/tree/manage'],
+        function($, TreeManage){
+            'use strict';
+            $(function() {
+                var buttons = [];
+                {% if resource_granted(acl ~ '_category_create') %}
+                    buttons.push($('<a>', {
+                        'class': 'no-hash',
+                        'data-toggle': 'tooltip',
+                        'data-placement': 'right',
+                        'data-original-title': '{{ "pim_enrich.create.tree"|trans|capitalize }}'
+                    }).html(
+                        $('<i>', { 'class': 'icon-plus-sign' })
+                    ).on('click', function () {
+                        Backbone.history.navigate('#{{ path(route ~ '_categorytree_create') }}', { trigger: true });
+                    }).tooltip());
+                {% endif %}
+                new TreeManage('#tree', '{{ route }}');
+
+                $('#pim_category_viewAccess').select2();
+                $('#pim_category_editAccess').select2();
+                $('#pim_category_ownAccess').select2();
+            });
+        }
+    );
+</script>

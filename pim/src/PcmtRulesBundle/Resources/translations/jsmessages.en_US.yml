@@ -1,0 +1,166 @@
+pim_title:
+    pcmt_rules_index: Family to family mapping rules
+    pcmt_rules_edit: Family to family mapping rules
+    pcmt_rules_profile_index: Rules profiles management
+    pcmt_rules_profile_show: Rules profile {{ job.label }} | Show
+    pcmt_rules_profile_edit: Rules profile {{ job.label }} | Edit
+    pcmt_rules_execution_show: Rules execution | Details
+    pcmt_rules_execution_index: Rules executions history
+
+pim_menu:
+    tab:
+        rules: Rules
+    item:
+        rules: Family to family mapping rules
+        rules_profile: Rules profile
+
+pim_enrich:
+    entity:
+        rule:
+            module:
+                delete:
+                    confirm: Are you sure you want to delete this rule?
+            flash:
+                delete:
+                    success: Rule successfully deleted
+        rules_profile:
+            module:
+                delete:
+                    confirm: Are you sure you want to delete this rule?
+            flash:
+                delete:
+                    success: Rule successfully deleted
+
+pim_import_export:
+    entity:
+        rules_profile:
+            uppercase_label: Rules profile
+            flash:
+                create:
+                    success: Rules profile successfully created
+    widget:
+        last_operations:
+            job_type:
+                rules: Rules
+
+pcmt:
+    rules:
+        attribute_mapping:
+            source: Source
+            destination: Destination
+        copy_products_job:
+            properties:
+                source_family:
+                    title: Source family
+                    help: Source family
+                destination_family:
+                    title: Destination family
+                    help: Destination family
+            tab:
+                attribute_mapping: Attribute mapping
+        family_to_family_job:
+            properties:
+                source_family:
+                    title: Source family
+                    help: Source family
+                destination_family:
+                    title: Destination family
+                    help: Destination family
+                key_attribute:
+                    title: Key attribute
+                    help: Key attribute
+                    placeholder:
+                        source: Source key attribute
+                        destination: Destination key attribute
+                    label:
+                        source: Source
+                        destination: Destination
+            tab:
+                attribute_mapping: Attribute mapping
+        select_options_job:
+            properties:
+                destination_attribute:
+                    title: Destination attribute
+                    help: Destination attribute
+                source_family:
+                    title: Source family
+                    help: Source family
+                attribute_code:
+                    title: Attribute for CODE
+                    help: Attribute for CODE
+                attribute_value:
+                    title: Attribute for VALUE
+                    help: Attribute for VALUE
+        pull_images_job:
+            properties:
+                family:
+                    title: Family
+                    help: Family
+                destination_attribute:
+                    title: Destination attribute
+                    help: Destination attribute
+                source_attribute:
+                    title: Source attribute
+                    help: Source attribute
+
+    rules.action.run.label: Run a rule
+    entity:
+        rules:
+            label: Rule
+            module:
+                create:
+                    button: Create Rule
+                edit:
+                    common: General Parameters
+            flash:
+                create:
+                    success: Rule successfully created
+                update:
+                    success: Rule successfully updated
+                    fail: Rule could not be updated
+                    fields_not_ready: "Rule cannot be saved right now. The following fields are not ready: {{ fields }}"
+            page_title:
+                index: "]-Inf, 1]{{ count }} rule|]1, Inf[{{ count }} rules"
+            property.family.choose: Choose the family
+            property.attribute.choose: Choose the attribute
+        rules_profile:
+            page_title:
+                index: "]-Inf, 1] {{ count }} rules profile|]1, Inf [{{ count }} rules profiles"
+            module:
+                create:
+                    button: Create rule profile
+
+pcmt.rules.flash:
+    running_started: The rule processing has been started.
+    running_start_error: The rule processing has not been started, there was an error.
+
+batch_jobs:
+    default_steps:
+        copy_products_rule_step: Copy products step
+        family_to_family_step: Family to family step
+        select_options_rule_step: Select options step
+        pull_images_rule_step: Pull images step
+
+    pcmt_copy_products_rule:
+        validation.label: Validation
+        label: Family Copy by Association
+
+    pcmt_family_to_family_rule:
+        validation.label: Validation
+        label: Family Copy by Attribute
+
+    pcmt_select_options_rule:
+        validation.label: Validation
+        label: Set Select Attribute from Family
+
+    pcmt_pull_images_rule:
+        validation.label: Validation
+        label: Set image from URL
+
+pcmt_simple_job:
+    form:
+        job_instance:
+            button:
+                job.switcher: Simple launch
+                job.launch: Launch now
+

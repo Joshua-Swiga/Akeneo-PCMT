@@ -1,0 +1,42 @@
+######################################################################
+# Copyright (c) 2019, VillageReach
+# Licensed under the Non-Profit Open Software License version 3.0.
+# SPDX-License-Identifier: NPOSL-3.0
+######################################################################
+
+services:
+
+    pcmt.saver.draft:
+        class: PcmtDraftBundle\Saver\DraftSaver
+        arguments:
+            - '@doctrine.orm.entity_manager'
+            - '@event_dispatcher'
+            - '@pcmt.service.draft.existence_checker'
+            - '@pim_catalog.validator.product'
+            - '@pim_catalog.validator.product_model'
+            - '@pcmt.service.general_object_from_draft_creator'
+            - '@pcmt.service.draft.changes_checker'
+
+    # This service is used in PCMT Core Bundle
+    pcmt.saver.product_through_draft:
+        class: PcmtDraftBundle\Saver\EntityThroughDraftUpsertSaver
+        arguments:
+            - '@pim_catalog.saver.product'
+            - '@pcmt_core.normalizer.standard.product'
+            - '@pcmt.saver.draft'
+            - '@pcmt.service.draft.base_entity_creator.product'
+            - '@pcmt.service.creator.product'
+            - '@pcmt_catalog.repository.draft'
+            - '@pim_enrich.converter.standard_to_enrich.product_value'
+
+    # This service is used in PCMT Core Bundle
+    pcmt.saver.product_model_through_draft:
+        class: PcmtDraftBundle\Saver\EntityThroughDraftUpsertSaver
+        arguments:
+            - '@pim_catalog.saver.product_model'
+            - '@pcmt_core.normalizer.standard.product_model'
+            - '@pcmt.saver.draft'
+            - '@pcmt.service.draft.base_entity_creator.product_model'
+            - '@pcmt.service.creator.product_model'
+            - '@pcmt_catalog.repository.draft'
+            - '@pim_enrich.converter.standard_to_enrich.product_value'

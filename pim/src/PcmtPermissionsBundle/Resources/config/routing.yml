@@ -1,0 +1,6 @@
+pim_enrich_product_rest_remove:
+    path: /enrich/product/rest/{id}
+    defaults: { _controller: pcmt_permissions.controller.internal_api.product:removeAction, _format: json }
+    requirements:
+        id: '[0-9a-f]+'
+    methods: [DELETE]

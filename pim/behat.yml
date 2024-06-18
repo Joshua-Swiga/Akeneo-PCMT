@@ -1,0 +1,63 @@
+default:
+  suites:
+    api:
+      paths:
+        - %paths.base%/features/api
+      contexts:
+        - BaseApiContext:
+            parameters:
+                username: 'APIuser'
+                password: 'Admin123'
+                client_id_secret: 'MV9hcGlfY29ubmVjdGlvbl8xOmFwaV9zZWNyZXQ='
+            fixture: '@pcmt_permissions.data_fixtures.category_user_group_fixture'
+            entityManager: '@doctrine.orm.entity_manager'
+        - behatch:context:json
+
+    selenium-drafts:
+      paths:
+        - %paths.base%/src/PcmtDraftBundle/FunctionalTests/features/selenium/
+      contexts:
+        - PcmtDraftBundle\FunctionalTests\WebContext: ~
+
+    selenium-core:
+      paths:
+        - %paths.base%/src/PcmtCoreBundle/FunctionalTests/features/selenium/
+      contexts:
+        - PcmtCoreBundle\FunctionalTests\WebContext: ~
+
+    selenium-permissions:
+      paths:
+        - %paths.base%/src/PcmtPermissionsBundle/FunctionalTests/features/selenium/
+      contexts:
+        - PcmtPermissionsBundle\FunctionalTests\WebContext: ~
+
+    selenium-rules:
+      paths:
+        - %paths.base%/src/PcmtRulesBundle/FunctionalTests/features/selenium/
+      contexts:
+        -   PcmtRulesBundle\FunctionalTests\WebContext: ~
+
+  extensions:
+    Behat\Symfony2Extension:
+      kernel:
+        bootstrap: features/bootstrap/bootstrap.php
+        env: test
+    Behatch\Extension: ~
+    Behat\MinkExtension:
+      default_session: symfony2
+      javascript_session: selenium2
+      browser_name: chrome
+      sessions:
+        symfony2:
+          symfony2: ~
+        selenium2:
+          selenium2:
+            wd_host: 'http://selenium:4444/wd/hub'
+            capabilities: { "browserName": "chrome", "browser": "chrome", "version": "*", 'chrome': {'switches':['--no-sandbox', '--test-type', '--disable-dev-shm-usage']}}
+      base_url: 'http://httpd/'
+
+test:
+  extensions:
+    Behat\MinkExtension:
+      base_url: 'https://test.pcmt.villagereach.org/'
+

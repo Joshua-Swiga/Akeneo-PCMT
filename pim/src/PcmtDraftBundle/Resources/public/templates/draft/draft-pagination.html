@@ -1,0 +1,12 @@
+<% _.each(handles, function (handle) { %>
+<!--
+  ~ Copyright (c) 2019, VillageReach
+  ~ Licensed under the Non-Profit Open Software License version 3.0.
+  ~ SPDX-License-Identifier: NPOSL-3.0
+  -->
+
+<a class="AknActionButton AknGridToolbar-actionButton <% if(handle.className) { %> <%- handle.className %> <% } %>"
+   href="javascript:void(0);" data-page="<%- handle.pageNo %>">
+    <span class="js-page-change"><%- handle.pageText %></span>
+</a>
+<% });%>

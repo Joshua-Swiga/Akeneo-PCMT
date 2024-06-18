@@ -1,0 +1,29 @@
+PcmtCISBundle\Entity\Subscription:
+    constraints:
+        - PcmtCISBundle\Constraint\RequiredFieldConstraint: ~
+        - PcmtCISBundle\Constraint\UniqueValuesConstraint: ~
+
+    properties:
+        dataRecipientsGLN:
+            - NotBlank: ~
+            - GreaterThanOrEqual: 0
+            - Type:
+                  type: numeric
+                  message: pcmt.cis.create.error.not_valid_integer
+        dataSourcesGLN:
+            - NotBlank: ~
+            - GreaterThanOrEqual: 0
+            - Type:
+                  type: numeric
+                  message: pcmt.cis.create.error.not_valid_integer
+        GTIN:
+            - GreaterThanOrEqual: 0
+            - Type:
+                  type: numeric
+                  message: pcmt.cis.create.error.not_valid_integer
+        GPCCategoryCode:
+            - GreaterThanOrEqual: 0
+            - Type:
+                  type: numeric
+                  message: pcmt.cis.create.error.not_valid_integer
+

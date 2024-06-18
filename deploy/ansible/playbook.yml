@@ -1,0 +1,46 @@
+######################################################################
+# Copyright (c) 2019, VillageReach
+# Licensed under the Non-Profit Open Software License version 3.0.
+# SPDX-License-Identifier: NPOSL-3.0
+######################################################################
+---
+- hosts: all
+  gather_facts: false
+  become: yes
+  
+  vars:
+    pip_install_packages:
+      - name: docker
+      - name: pyrsistent
+        version: ">0.15,<0.16"
+      - name: docker-compose
+
+    pcmt_asset_url: "{{ lookup('env', 'PCMT_ASSET_URL') }}"
+    pcmt_profile: "{{ lookup('env', 'PCMT_PROFILE') }}"
+    pcmt_ver: "{{ lookup('env', 'PCMT_VER') }}"
+    pcmt_secret_conf: "{{ lookup('env', 'PCMT_SECRET_CONF') }}"
+    pcmt_traefik_conf: "{{ lookup('env', 'PCMT_TRAEFIK_CONF') }}"
+  
+  environment:
+    PCMT_PROFILE: "{{ pcmt_profile }}"
+    PCMT_VER: "{{ pcmt_ver }}"
+    PCMT_SECRET_CONF: "{{ pcmt_secret_conf }}"
+    PCMT_TRAEFIK_CONF: "{{ pcmt_traefik_conf }}"
+    PCMT_HOSTNAME: "{{ pcmt_hostname }}"
+    PCMT_S3_BUCKET: "s3://{{ pcmt_hostname }}"
+    COMPOSE_HTTP_TIMEOUT: "120"
+    DOCKER_CLIENT_TIMEOUT: "120"
+  
+  pre_tasks:
+    - include_tasks: tasks/python2-ubuntu.yml
+    - setup:
+  
+  roles:
+    - role: geerlingguy.pip
+    - role: geerlingguy.docker
+  
+  tasks:
+    - include_tasks: tasks/swapfile.yml
+    - include_tasks: tasks/pim.yml
+    - include_tasks: tasks/ssh-mysql-ro.yml
+    

@@ -1,0 +1,29 @@
+<!--
+  ~ Copyright (c) 2019, VillageReach
+  ~ Licensed under the Non-Profit Open Software License version 3.0.
+  ~ SPDX-License-Identifier: NPOSL-3.0
+  -->
+
+<div class="AknFilterBox-filterContainer">
+    <div class="AknFilterBox-filter">
+        <% if (!_.isEmpty(params)) { %>
+        <div class="AknFilterChoice-title"></div>
+        <div class="AknDropdown operator">
+            <div class="AknActionButton AknActionButton--withoutBorder" data-toggle="dropdown">
+                <%- __('pcmt_core.drafts_list.status') %>: <span class="AknActionButton-highlight"><%- chosenStatus.name %></span>
+                <span class="AknActionButton-caret"></span>
+            </div>
+            <div class="AknDropdown-menu">
+                <div class="AknDropdown-menuTitle"><%- __('pcmt_core.drafts_list.status') %></div>
+                <% _.each(params.statuses, function (status) { %>
+                <div class="AknDropdown-menuLink draft-status-choice"
+                     id="draft_status_choice_<%- status.id %>"
+                     data-value="<%- status.id %>">
+                    <span class="label"><%- status.name %></span>
+                </div>
+                <% }) %>
+            </div>
+        </div>
+        <% } %>
+    </div>
+</div>

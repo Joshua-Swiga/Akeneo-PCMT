@@ -1,0 +1,25 @@
+######################################################################
+# Copyright (c) 2019, VillageReach
+# Licensed under the Non-Profit Open Software License version 3.0.
+# SPDX-License-Identifier: NPOSL-3.0
+######################################################################
+
+pcmt_permission_drafts_list:
+    type: action
+    label: pcmt.permission.drafts.label.list
+    group_name: pcmt.permission.drafts
+
+pcmt_permission_drafts_approve:
+    type: action
+    label: pcmt.permission.drafts.label.approve
+    group_name: pcmt.permission.drafts
+
+pcmt_permission_drafts_reject:
+    type: action
+    label: pcmt.permission.drafts.label.reject
+    group_name: pcmt.permission.drafts
+
+pcmt_permission_drafts_edit:
+    type: action
+    label: pcmt.permission.drafts.label.edit
+    group_name: pcmt.permission.drafts

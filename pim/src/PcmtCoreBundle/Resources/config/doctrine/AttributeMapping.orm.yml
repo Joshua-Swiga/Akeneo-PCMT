@@ -1,0 +1,24 @@
+PcmtCoreBundle\Entity\AttributeMapping:
+  type: entity
+  table: pcmt_catalog_attribute_mapping
+  changeTrackingPolicy: DEFERRED_EXPLICIT
+  repositoryClass: PcmtCoreBundle\Repository\AttributeMappingRepository
+  id:
+    id:
+      type: integer
+      generator:
+        strategy: AUTO
+  fields:
+    mappingType:
+      type: string
+  oneToOne:
+    externalAttribute:
+      targetEntity: PcmtCoreBundle\Entity\Attribute
+      joinColumn:
+        name: external_attribute_id
+        referencedColumnName: id
+    pcmtAttribute:
+      targetEntity: PcmtCoreBundle\Entity\Attribute
+      joinColumn:
+        name: pcmt_attribute_id
+        referencedColumnName: id

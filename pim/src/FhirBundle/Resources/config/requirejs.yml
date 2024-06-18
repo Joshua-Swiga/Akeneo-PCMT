@@ -1,0 +1,4 @@
+config:
+  paths:
+    fhir/attributes/tab/additional: fhir/js/attributes/form/tab/additional
+    fhir/template/attribute/tab/additional: fhir/templates/attributes/tab/additional.html

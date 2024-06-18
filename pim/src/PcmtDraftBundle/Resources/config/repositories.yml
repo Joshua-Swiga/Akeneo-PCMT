@@ -1,0 +1,13 @@
+parameters:
+    pcmt_catalog.repository.draft.class: PcmtDraftBundle\Repository\DraftRepository
+    pcmt_catalog.entity.abstract_draft.class: PcmtDraftBundle\Entity\AbstractDraft
+
+services:
+    pcmt_catalog.repository.draft:
+        class: '%pcmt_catalog.repository.draft.class%'
+        factory: 'doctrine.orm.entity_manager:getRepository'
+        arguments: ['%pcmt_catalog.entity.abstract_draft.class%']
+        tags:
+            - { name: 'pcmt_repository' }
+        calls:
+            - [setCategoryWithPermissionsRepository, ['@pcmt.service.category_with_permissions_repository']]

@@ -1,0 +1,31 @@
+pim_notification:
+    types:
+        mass_delete: Mass delete
+pim_enrich:
+    #Category
+    category:
+        tab:
+            allowed_to:
+                view.label: Alowed to view products
+                own.label: Alowed to own products
+                edit.label: Alowed to edit products
+            apply.to.children: Apply to children
+
+    #Attribute group
+    attribute_group:
+        tab:
+            label: Permissions
+            allowed_to:
+                view.label: Alowed to view products
+                own.label: Alowed to own products
+                edit.label: Alowed to edit products
+
+batch_jobs:
+    default_steps:
+        check_user_access_to_the_category: Check user access to the entity's categories
+        delete_products_and_product_models: Bulk delete of products and product models
+
+pcmt_permissions:
+    product_datagrid:
+        delete:
+            error: User does not have permissions to delete this product

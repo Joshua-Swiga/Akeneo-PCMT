@@ -1,0 +1,16 @@
+######################################################################
+# Copyright (c) 2019, VillageReach
+# Licensed under the Non-Profit Open Software License version 3.0.
+# SPDX-License-Identifier: NPOSL-3.0
+######################################################################
+
+extensions:
+    pcmt-product-drafts-list-sub-element:     # The unique key of your extension
+        module: pim/menu/item                          # The module provided by akeneo for sub elements
+        parent: pim-menu-activity-navigation-block     # The parent is the tab we just created
+        position: 120                                  # [optional] The position in the tree where you want to add the item
+        aclResourceId: pcmt_permission_drafts_list
+        config:
+            title: pcmt_core.drafts_list.title
+            to: pcmt_core_drafts_index
+

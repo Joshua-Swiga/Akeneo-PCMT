@@ -1,0 +1,11 @@
+--- a/src/Oro/Bundle/PimDataGridBundle/Resources/public/js/datafilter/filters-column.ts
++++ b/src/Oro/Bundle/PimDataGridBundle/Resources/public/js/datafilter/filters-column.ts
+@@ -210,7 +210,7 @@ class FiltersColumn extends BaseView {
+     for (let groupName in groupedFilters) {
+       const group: GridFilter[] = groupedFilters[groupName];
+       const groupElement = this.renderFilterGroup(group, groupName);
+-      list.appendChild($(groupElement).get(0));
++      list.appendChild($(groupElement).get(0) as any);
+     }
+ 
+     filterColumn.append(list);

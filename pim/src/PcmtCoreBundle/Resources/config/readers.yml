@@ -1,0 +1,20 @@
+######################################################################
+# Copyright (c) 2019, VillageReach
+# Licensed under the Non-Profit Open Software License version 3.0.
+# SPDX-License-Identifier: NPOSL-3.0
+######################################################################
+
+services:
+    pcmt_connector.reader.xml.reference_data_gs1:
+        class: PcmtCoreBundle\Connector\Job\Reader\File\ReferenceDataXmlReader
+        autowire: true
+
+    pcmt_connector.reader.database.mst_supplier_export:
+        class: 'PcmtCoreBundle\Connector\Job\Reader\MstSupplierExportReader'
+        arguments:
+            - '@pim_catalog.query.product_query_builder_factory'
+            - '@pim_catalog.repository.channel'
+            - '@pim_catalog.converter.metric'
+        calls:
+            - [setCategoryWithPermissionsRepository, ['@pcmt.service.category_with_permissions_repository']]
+            - [setUserRepository, ['@pim_user.repository.user']]

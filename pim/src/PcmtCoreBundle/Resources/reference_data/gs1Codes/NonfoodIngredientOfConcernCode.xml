@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<codeList xsi:noNamespaceSchemaLocation="http://apps.gs1.org/GDD/Documents/GDDCodeListSchema.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <urn>urn:gs1:gdd:cl:NonfoodIngredientOfConcernCode</urn>
+  <name></name>
+  <version>1</version>
+  <domain>gdsn</domain>
+  <code><value>BFR_HFR</value><name>Halogenated Organic Flame Retardants</name><description>Halogenated organic flame retardants are intended to inhibit ignition and the spread of flames. Halogenated chemicals are chemicals that contain bromine, chlorine, fluorine or iodine bonded to a carbon atom. </description></code>
+  <code><value>BPA</value><name>Bisphenol</name><description>Bisphenol is an organic compound with the chemical formula (CH3)2C(C6H4OH)2. It is a colourless solid that is soluble in organic solvents, but poorly soluble in water. BPA is controversial because it exerts weak, but detectable, hormone-like properties, raising concerns about its presence in consumer products and foods contained in such products</description></code>
+  <code><value>DEHP</value><name>DEHP</name><description>Di-(2-ethylhexyl) phthalate (DEHP) is a member of the phthalate family used as a softening agent for many PVC applications.  DEHP is sometimes called dioctyl phthalate (DOP) or Bis(2-ethylhexyl)phthalate (BEHP).  In the EU package markings require a mark to show "PHT".</description></code>
+  <code><value>HG</value><name>Mercury</name><description>Mercury is a naturally occurring element that is found in air, water and soil. It exists in several forms: elemental or metallic mercury, inorganic mercury compounds, and organic mercury compounds.</description></code>
+  <code><value>PAPER_WOOD</value><name>Paper or Wood</name><description>If any portion of this item, including reusable packaging, is made from wood or paper, then answer “Yes”. Reusable packaging is intended to stay in use with the product. Ex: Wooden box in which a lawn game, such as a croquet set, is stored after use. </description></code>
+  <code><value>PS</value><name>Polystyrene (CAS 9003-53-6)</name><description>Polystyrene (CAS 9003-53-6) is a plastic polymer from the monomer styrene. It comes in many forms: sheet, expanded or extruded foam, or as oriented polystyrene. What is commonly known as Styrofoam™ refers only to the extruded form of polystyrene.</description></code>
+  <code><value>PVC</value><name>Polyvinyl chloride (PVC) </name><description>Polyvinyl chloride (PVC) is a plastic polymer used in a wide array of products. It is the third most widely produced plastic.</description></code>
+</codeList>

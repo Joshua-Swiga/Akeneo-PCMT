@@ -1,0 +1,65 @@
+######################################################################
+# Copyright (c) 2020, VillageReach
+# Licensed under the Non-Profit Open Software License version 3.0.
+# SPDX-License-Identifier: NPOSL-3.0
+######################################################################
+
+parameters:
+    pcmt_connector.job.rules_type: rules
+
+services:
+
+    pcmt.rules.job.copy_products:
+        class: '%pim_connector.job.simple_job.class%'
+        arguments:
+            - 'pcmt_copy_products_rule'
+            - '@event_dispatcher'
+            - '@akeneo_batch.job_repository'
+            -
+                - '@pcmt.connector.job.step.copy_products_rule'
+        tags:
+            - { name: akeneo_batch.job, connector: 'Pcmt Connector', type: '%pcmt_connector.job.rules_type%' }
+
+    pcmt.rules.job.family_to_family:
+        class: '%pim_connector.job.simple_job.class%'
+        arguments:
+            - 'pcmt_family_to_family_rule'
+            - '@event_dispatcher'
+            - '@akeneo_batch.job_repository'
+            -
+                - '@pcmt.connector.job.step.family_to_family'
+        tags:
+            - { name: akeneo_batch.job, connector: 'Pcmt Connector', type: '%pcmt_connector.job.rules_type%' }
+
+    pcmt.rules.job.select_options_rule:
+        class: '%pim_connector.job.simple_job.class%'
+        arguments:
+            - 'pcmt_select_options_rule'
+            - '@event_dispatcher'
+            - '@akeneo_batch.job_repository'
+            -
+                - '@pcmt.connector.job.step.select_options_rule'
+        tags:
+            - { name: akeneo_batch.job, connector: 'Pcmt Connector', type: '%pcmt_connector.job.rules_type%' }
+
+    pcmt.rules.job.pull_images_rule:
+        class: '%pim_connector.job.simple_job.class%'
+        arguments:
+            - 'pcmt_pull_images_rule'
+            - '@event_dispatcher'
+            - '@akeneo_batch.job_repository'
+            -
+                - '@pcmt.connector.job.step.pull_images_rule'
+        tags:
+            - { name: akeneo_batch.job, connector: 'Pcmt Connector', type: '%pcmt_connector.job.rules_type%' }
+
+    pcmt.rules.provider.form.job_instance:
+        class: 'Akeneo\Platform\Bundle\ImportExportBundle\Provider\Form\JobInstanceFormProvider'
+        arguments:
+            -
+                pcmt_copy_products_rule: pcmt-rules-copy-products-job
+                pcmt_select_options_rule: pcmt-rules-select-options-job
+                pcmt_pull_images_rule: pcmt-rules-pull-images-job
+                pcmt_family_to_family_rule: pcmt-rules-family-to-family-job
+        tags:
+            - { name: pim_enrich.provider.form, priority: 110 }

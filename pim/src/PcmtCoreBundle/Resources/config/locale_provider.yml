@@ -1,0 +1,3 @@
+parameters:
+    pim_localization.provider.ui_locale.min_percentage: 0.1
+    pim_localization.provider.ui_locale.locale_codes:   ['en_US', 'fr_FR']

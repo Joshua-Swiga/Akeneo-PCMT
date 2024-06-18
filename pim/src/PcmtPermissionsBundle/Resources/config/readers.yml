@@ -1,0 +1,21 @@
+services:
+    pim_connector.reader.database.product:
+        class: 'PcmtPermissionsBundle\Connector\Job\Reader\ProductReader'
+        arguments:
+            - '@pim_catalog.query.product_query_builder_factory'
+            - '@pim_catalog.repository.channel'
+            - '@pim_catalog.converter.metric'
+        calls:
+            - [setCategoryWithPermissionsRepository, ['@pcmt.service.category_with_permissions_repository']]
+            - [setUserRepository, ['@pim_user.repository.user']]
+
+    pim_connector.reader.database.product_model:
+        class: 'PcmtPermissionsBundle\Connector\Job\Reader\ProductReader'
+        arguments:
+            - '@pim_catalog.query.product_model_query_builder_factory'
+            - '@pim_catalog.repository.channel'
+            - '@pim_catalog.converter.metric'
+        calls:
+            - [setCategoryWithPermissionsRepository, ['@pcmt.service.category_with_permissions_repository']]
+            - [setUserRepository, ['@pim_user.repository.user']]
+

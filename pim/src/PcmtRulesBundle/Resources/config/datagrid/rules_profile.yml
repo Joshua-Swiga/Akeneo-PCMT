@@ -1,0 +1,74 @@
+datagrid:
+  rules-profile-grid:
+    options:
+      manageFilters: false
+      entityHint: rules profile
+    source:
+      type: pim_datasource_job_instance
+      user_config_alias: rules-profile-grid
+      acl_resource: pcmt_permission_rules_view
+    columns:
+      label:
+        label: Label
+        frontend_type: label
+      job_name:
+        label:     Job
+        type:      job_name
+    properties:
+      code: ~
+      edit_link:
+        route: pcmt_rules_profile_edit
+        type: url
+        params:
+          - code
+      delete_link:
+        route: pcmt_rules_job_instance_rest_rules_delete
+        type: url
+        params:
+          - code
+      show_link:
+        route: pcmt_rules_profile_show
+        type: url
+        params:
+          - code
+    sorters:
+      columns:
+        label:
+          data_name: j.label
+      default:
+        label: '%oro_datagrid.extension.orm_sorter.class%::DIRECTION_ASC'
+    actions:
+      view:
+        acl_resource: pcmt_permission_rules_view
+        launcherOptions:
+          className: AknIconButton AknIconButton--small AknIconButton--view
+        type:      navigate
+        label:     pim_datagrid.action.show.title
+        link:      show_link
+        rowAction: true
+      edit:
+        acl_resource:  pcmt_permission_rules_edit
+        launcherOptions:
+          className: AknIconButton AknIconButton--small AknIconButton--edit
+        type:  navigate
+        label: pim_common.edit
+        link:  edit_link
+      delete:
+        acl_resource:  pcmt_permission_rules_delete
+        launcherOptions:
+          className: AknIconButton AknIconButton--small AknIconButton--trash
+        type:  delete
+        label: pim_common.delete
+        link:  delete_link
+    filters:
+      columns:
+        label:
+          type:      search
+          data_name: j.label
+        job_name:
+          type:      choice
+          data_name: j.jobName
+          options:
+            field_options:
+              choices: '@pcmt_rules.datagrid.provider.job->getRulesJobChoices'
+              multiple: true

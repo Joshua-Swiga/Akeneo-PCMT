@@ -1,0 +1,95 @@
+######################################################################
+# Copyright (c) 2019, VillageReach
+# Licensed under the Non-Profit Open Software License version 3.0.
+# SPDX-License-Identifier: NPOSL-3.0
+######################################################################
+
+services:
+
+    pcmt_connector.job.job_parameters.default_values_provider.pcmt_xlsx_product_import:
+        class: 'Akeneo\Pim\Enrichment\Component\Product\Connector\Job\JobParameters\DefaultValueProvider\ProductCsvImport'
+        arguments:
+            - '@akeneo_pim_enrichment.job.job_parameters.default_values_provider.simple_xlsx_import'
+            -
+                - 'pcmt_xlsx_product_import'
+        tags:
+            - { name: akeneo_batch.job.job_parameters.default_values_provider }
+
+    pcmt_connector.job.job_parameters.constraint_collection_provider.pcmt_xlsx_product_import:
+        class: 'Akeneo\Pim\Enrichment\Component\Product\Connector\Job\JobParameters\ConstraintCollectionProvider\ProductCsvImport'
+        arguments:
+            - '@akeneo_pim_enrichment.job.job_parameters.constraint_collection_provider.simple_xlsx_import'
+            -
+                - 'pcmt_xlsx_product_import'
+        tags:
+            - { name: akeneo_batch.job.job_parameters.constraint_collection_provider }
+
+    pcmt_connector.job.job_parameters.default_values_provider.pcmt_simple_xlsx_export:
+        class: 'Akeneo\Tool\Component\Connector\Job\JobParameters\DefaultValuesProvider\SimpleXlsxExport'
+        arguments:
+            -
+                - 'pcmt_xlsx_datagrid_view_export'
+        tags:
+            - { name: akeneo_batch.job.job_parameters.default_values_provider }
+
+
+    pcmt_connector.job.job_parameters.constraint_collection_provider.pcmt_simple_xlsx_export:
+        class: 'Akeneo\Tool\Component\Connector\Job\JobParameters\ConstraintCollectionProvider\SimpleXlsxExport'
+        arguments:
+            -
+                - 'pcmt_xlsx_datagrid_view_export'
+        tags:
+            - { name: akeneo_batch.job.job_parameters.constraint_collection_provider }
+
+
+    pcmt_connector.job.job_parameters.default_values_provider.pcmt_simple_xlsx_import:
+        class: 'Akeneo\Tool\Component\Connector\Job\JobParameters\DefaultValuesProvider\SimpleXlsxImport'
+        arguments:
+            -
+                - 'pcmt_xlsx_datagrid_view_import'
+        tags:
+            - { name: akeneo_batch.job.job_parameters.default_values_provider }
+
+    pcmt_connector.job.job_parameters.constraint_collection_provider.pcmt_simple_xlsx_import:
+        class: 'Akeneo\Tool\Component\Connector\Job\JobParameters\ConstraintCollectionProvider\SimpleXlsxImport'
+        arguments:
+            -
+                - 'pcmt_xlsx_datagrid_view_import'
+        tags:
+            - { name: akeneo_batch.job.job_parameters.constraint_collection_provider }
+
+    pcmt_connector.job.job_parameters.default_values_provider.product_xlsx_first_import:
+        class: 'Akeneo\Pim\Enrichment\Component\Product\Connector\Job\JobParameters\DefaultValueProvider\ProductCsvImport'
+        arguments:
+            - '@akeneo_pim_enrichment.job.job_parameters.default_values_provider.simple_xlsx_import'
+            -
+                - 'xlsx_product_first_import'
+        tags:
+            - { name: akeneo_batch.job.job_parameters.default_values_provider }
+
+    pcmt_connector.job.job_parameters.constraint_collection_provider.product_xlsx_first_import:
+        class: 'Akeneo\Pim\Enrichment\Component\Product\Connector\Job\JobParameters\ConstraintCollectionProvider\ProductCsvImport'
+        arguments:
+            - '@akeneo_pim_enrichment.job.job_parameters.constraint_collection_provider.simple_xlsx_import'
+            -
+                - 'xlsx_product_first_import'
+        tags:
+            - { name: akeneo_batch.job.job_parameters.constraint_collection_provider }
+
+    pcmt_connector.job.job_parameters.default_values_provider.product_model_xlsx_first_import:
+        class: 'Akeneo\Pim\Enrichment\Component\Product\Connector\Job\JobParameters\DefaultValueProvider\ProductModelCsvImport'
+        arguments:
+            - '@akeneo_pim_enrichment.job.job_parameters.default_values_provider.simple_xlsx_import'
+            -
+                - 'xlsx_product_model_first_import'
+        tags:
+            - { name: akeneo_batch.job.job_parameters.default_values_provider }
+
+    pcmt_connector.job.job_parameters.constraint_collection_provider.product_model_xlsx_first_import:
+        class: 'Akeneo\Pim\Enrichment\Component\Product\Connector\Job\JobParameters\ConstraintCollectionProvider\ProductModelCsvImport'
+        arguments:
+            - '@akeneo_pim_enrichment.job.job_parameters.constraint_collection_provider.simple_xlsx_import'
+            -
+                - 'xlsx_product_model_first_import'
+        tags:
+            - { name: akeneo_batch.job.job_parameters.constraint_collection_provider }

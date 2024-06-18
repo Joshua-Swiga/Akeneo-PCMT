@@ -1,0 +1,5 @@
+services:
+
+  pcmt_permissions.data_fixtures.category_user_group_fixture:
+    class: PcmtPermissionsBundle\DataFixtures\CategoryUserGroupFixture
+    autowire: true

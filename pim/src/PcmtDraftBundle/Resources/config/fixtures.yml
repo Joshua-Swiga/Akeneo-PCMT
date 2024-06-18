@@ -1,0 +1,5 @@
+services:
+
+  pcmt_draft.fixture.new_draft_fixture:
+    class: PcmtDraftBundle\DataFixtures\NewDraftFixture
+    autowire: true

@@ -1,0 +1,74 @@
+---
+- name: Clear app directory
+  file:
+    path: /app/
+    state: absent
+- name: Create app directory
+  file:
+    path: /app/
+    state: directory
+    mode: 0744 
+- name: Get PCMT asset archive
+  get_url:
+    url: "{{ pcmt_asset_url }}"
+    dest: /app/pcmt.tar.gz
+- name: Unarchive pcmt
+  unarchive:
+    src: /app/pcmt.tar.gz
+    dest: /app/
+    remote_src: yes
+    extra_opts:
+      - --strip-components=1
+- name: Copy secrets in
+  copy:
+    src: /tmp/secrets/
+    dest: /app/conf
+    mode: '0400'
+- name: Stop to prune pim volume
+  docker_service:
+    project_src: /app
+    files:
+      - "docker-compose.yml"
+      - "docker-compose.tls.yml"
+      - "docker-compose.prod.yml"
+    build: no
+    pull: no
+    remove_orphans: yes
+    state: absent
+- name: Prune pim volume for dev
+  shell: docker volume rm -f app_pim
+- name: Pull and Start PCMT images
+  docker_service:
+    project_src: /app
+    files:
+      - "docker-compose.yml"
+      - "docker-compose.tls.yml"
+      - "docker-compose.prod.yml"
+    build: no
+    pull: yes
+    remove_orphans: yes
+    state: present
+- name: Restart fpm to wipe
+  docker_service:
+    project_src: /app
+    files:
+      - "docker-compose.yml"
+      - "docker-compose.tls.yml"
+      - "docker-compose.prod.yml"
+    services:
+      - "fpm"
+    restarted: yes
+  when: pcmt_profile == 'dev'
+- name: Restart httpd and reverse-proxy for good measure
+  docker_service:
+    project_src: /app
+    files:
+      - "docker-compose.yml"
+      - "docker-compose.tls.yml"
+      - "docker-compose.prod.yml"
+    services:
+      - "httpd"
+      - "reverse-proxy"
+    restarted: yes
+- name: Prune docker system
+  shell: docker system prune -af

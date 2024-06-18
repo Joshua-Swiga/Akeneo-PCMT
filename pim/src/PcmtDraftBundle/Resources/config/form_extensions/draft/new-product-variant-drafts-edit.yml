@@ -1,0 +1,37 @@
+######################################################################
+# Copyright (c) 2019, VillageReach
+# Licensed under the Non-Profit Open Software License version 3.0.
+# SPDX-License-Identifier: NPOSL-3.0
+######################################################################
+
+extensions:
+    pcmt-product-model-add-child-form:
+        module: pcmt/product-model/form/add-child/add-child
+        config:
+            labels:
+                title: pcmt_core.drafts_editing.new_product_draft.title
+                subTitle: pim_enrich.entity.product.plural_label
+            picture: illustrations/Product.svg
+            successMessage: pcmt.entity.draft.flash.update.success
+            editRoute: pcmt_core_drafts_index
+            postUrl: pcmt_core_draft_update_api
+
+    pcmt-product-model-add-child-form-header:
+        module: pim/product-model-edit-form/add-child-form-header
+        parent: pcmt-product-model-add-child-form
+        targetZone: header
+
+    pcmt-product-model-add-child-form-fields-container:
+        module: pim/product-model-edit-form/add-child-form-fields-container
+        parent: pcmt-product-model-add-child-form
+        targetZone: fields-container
+        config:
+            successMessage: pcmt.entity.draft.flash.update.success
+            fieldModules:
+                akeneo-simple-select-field: pim-product-model-add-child-field-simple-select
+                akeneo-metric-field: pim-product-model-add-child-field-metric
+                akeneo-switch-field: pim-product-model-add-child-field-switch
+                akeneo-simple-select-reference-data-field: pim-product-model-add-child-field-simple-select-reference-data
+                akeneo-text-field: pim-product-model-add-child-field-text
+                akeneo-reference-entity-field: pim-product-model-add-child-field-simple-select-reference-entity
+            codeFieldModule: pim-product-model-add-child-field-code

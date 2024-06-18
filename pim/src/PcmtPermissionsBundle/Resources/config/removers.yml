@@ -1,0 +1,18 @@
+services:
+    pim_catalog.remover.product:
+        class: 'PcmtPermissionsBundle\Remover\CategoryAwareRemover'
+        arguments:
+            - '@pim_catalog.object_manager.product'
+            - '@event_dispatcher'
+            - '%pim_catalog.model.product.interface%'
+        calls:
+            - [ setPermissionsChecker, ['@pcmt.service.category_permissions_checker']]
+
+    pim_catalog.remover.product_model:
+        class: 'PcmtPermissionsBundle\Remover\CategoryAwareRemover'
+        arguments:
+            - '@pim_catalog.object_manager.product'
+            - '@event_dispatcher'
+            - '%pim_catalog.model.product_model.interface%'
+        calls:
+            - [ setPermissionsChecker, ['@pcmt.service.category_permissions_checker']]

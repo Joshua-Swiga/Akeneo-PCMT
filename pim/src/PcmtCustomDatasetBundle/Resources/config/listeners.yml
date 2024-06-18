@@ -1,0 +1,14 @@
+services:
+    pcmt.event_listener.api_connection_creator:
+        class: PcmtCustomDatasetBundle\EventListener\APIConnectionCreator
+        arguments:
+            - '@database_connection'
+        tags:
+            - { name: kernel.event_subscriber }
+
+    pcmt.event_listener.table_attribute_fixing:
+        class: PcmtCustomDatasetBundle\EventListener\TableAttributeFixing
+        arguments:
+            - '@database_connection'
+        tags:
+            - { name: kernel.event_subscriber }

@@ -1,0 +1,24 @@
+services:
+    pcmt_connector.job.writer.database.draft.product:
+        class: 'PcmtDraftBundle\Connector\Job\Writer\Database\DraftWriter'
+        arguments:
+            - '@pim_versioning.manager.version'
+            - '@pim_catalog.saver.product'
+            - '@pcmt_core.normalizer.standard.product'
+            - '@pcmt.saver.draft'
+            - '@pcmt.service.draft.base_entity_creator.product'
+            - '@pcmt.service.creator.product'
+            - '@pcmt.service.category_permissions_checker'
+            - '@pim_enrich.converter.standard_to_enrich.product_value'
+
+    pcmt_connector.job.writer.database.draft.product_model:
+        class: 'PcmtDraftBundle\Connector\Job\Writer\Database\DraftWriter'
+        arguments:
+            - '@pim_versioning.manager.version'
+            - '@pim_catalog.saver.product_model'
+            - '@pcmt_core.normalizer.standard.product_model'
+            - '@pcmt.saver.draft'
+            - '@pcmt.service.draft.base_entity_creator.product_model'
+            - '@pcmt.service.creator.product_model'
+            - '@pcmt.service.category_permissions_checker'
+            - '@pim_enrich.converter.standard_to_enrich.product_value'

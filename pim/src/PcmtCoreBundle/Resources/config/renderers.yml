@@ -1,0 +1,25 @@
+######################################################################
+# Copyright (c) 2019, VillageReach
+# Licensed under the Non-Profit Open Software License version 3.0.
+# SPDX-License-Identifier: NPOSL-3.0
+######################################################################
+
+services:
+  pim_pdf_generator.renderer.product_pdf:
+    class: '%pim_pdf_generator.renderer.product_pdf.class%'
+    arguments:
+      - '@templating'
+      - '@pim_pdf_generator.builder.dompdf'
+      - '@liip_imagine.data.manager'
+      - '@liip_imagine.cache.manager'
+      - '@liip_imagine.filter.manager'
+      - '@pim_catalog.repository.cached_attribute'
+      - 'PcmtCoreBundle:Product:renderPdf.html.twig'
+      - '%upload_dir%'
+      - '%pim_pdf_generator_font%'
+      - '@pim_catalog.repository.cached_attribute_option'
+    tags:
+      - { name: pim_pdf_generator.renderer, priority: 90 }
+
+  pim_pdf_generator.renderer.registry:
+    class: '%pim_pdf_generator.renderer.registry.class%'

@@ -1,0 +1,7 @@
+pim_fhir_fhir_create:
+  path: /create
+  defaults: { _controller: pcmt_fhir.controller.rest.fhir_mapping:createAction, _format: json }
+  methods: [POST]
+pim_fhir_get_mapping:
+  path: /mapping
+  defaults: { _controller: pcmt_fhir.controller.rest.fhir_mapping:currentMappingAction, _format: json }

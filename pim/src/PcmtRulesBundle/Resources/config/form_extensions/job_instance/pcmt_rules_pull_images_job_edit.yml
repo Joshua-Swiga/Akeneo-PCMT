@@ -1,0 +1,178 @@
+extensions:
+    pcmt-rules-pull-images-job-edit:
+        module: pim/form/common/edit-form
+
+    pcmt-rules-pull-images-job-edit-main-image:
+        module: pim/form/common/main-image
+        parent: pcmt-rules-pull-images-job-edit
+        targetZone: main-image
+        config:
+            path: bundles/pimui/images/illustrations/ImportXLSX.svg
+
+    pcmt-rules-pull-images-job-edit-user-navigation:
+        module: pim/menu/user-navigation
+        parent: pcmt-rules-pull-images-job-edit
+        targetZone: user-menu
+        config:
+            userAccount: pim_menu.user.user_account
+            logout: pim_menu.user.logout
+
+    pcmt-rules-pull-images-job-edit-breadcrumbs:
+        module: pim/common/breadcrumbs
+        parent: pcmt-rules-pull-images-job-edit
+        targetZone: breadcrumbs
+        config:
+            tab: pim-menu-rules
+
+    pcmt-rules-pull-images-job-edit-cache-invalidator:
+        module: pim/cache-invalidator
+        parent: pcmt-rules-pull-images-job-edit
+        position: 1000
+
+    pcmt-rules-pull-images-job-edit-tabs:
+        module: pim/form/common/form-tabs
+        parent: pcmt-rules-pull-images-job-edit
+        targetZone: content
+        position: 100
+
+    pcmt-rules-pull-images-job-edit-properties:
+        module: pim/job/common/edit/properties
+        parent: pcmt-rules-pull-images-job-edit-tabs
+        aclResourceId: pcmt_permission_rules_edit
+        targetZone: container
+        position: 100
+        config:
+            tabTitle: pim_common.properties
+            tabCode: pim-job-instance-properties
+
+    pcmt-rules-pull-images-job-edit-history:
+        module: pim/common/tab/history
+        parent: pcmt-rules-pull-images-job-edit-tabs
+        targetZone: container
+        aclResourceId: pcmt_permission_rules_view
+        position: 130
+        config:
+            class: Akeneo\Tool\Component\Batch\Model\JobInstance
+            title: pim_common.history
+            tabCode: pim-job-instance-history
+
+    pcmt-rules-pull-images-job-edit-properties-code:
+        module: pim/job/common/edit/field/text
+        parent: pcmt-rules-pull-images-job-edit-properties
+        position: 100
+        targetZone: properties
+        config:
+            fieldCode: code
+            label: pim_common.code
+            readOnly: true
+
+    pcmt-rules-pull-images-job-edit-properties-label:
+        module: pim/job/common/edit/field/text
+        parent: pcmt-rules-pull-images-job-edit-properties
+        position: 110
+        targetZone: properties
+        config:
+            fieldCode: label
+            label: pim_common.label
+            readOnly: false
+
+    pcmt-rules-pull-images-job-edit-properties-family:
+        module: pcmt/rules/job/field/select
+        parent: pcmt-rules-pull-images-job-edit-properties
+        position: 145
+        targetZone: properties
+        config:
+            fetcher: 'family'
+            fieldCode: configuration.family
+            readOnly: false
+            label: pcmt.rules.pull_images_job.properties.family.title
+            tooltip: pcmt.rules.pull_images_job.properties.family.help
+
+    pcmt-rules-pull-images-job-edit-properties-source-attribute:
+        module: pcmt/rules/job/field/attribute-select
+        parent: pcmt-rules-pull-images-job-edit-properties
+        position: 150
+        targetZone: properties
+        config:
+            fetcher: attributes-for-rules-job
+            sourceFamily: 'configuration.family'
+            types:
+                - 'pim_catalog_text'
+            validationRule: 'url'
+            fieldCode: configuration.sourceAttribute
+            readOnly: false
+            label: pcmt.rules.pull_images_job.properties.source_attribute.title
+            tooltip: pcmt.rules.pull_images_job.properties.source_attribute.help
+
+    pcmt-rules-pull-images-job-edit-properties-destination-attribute:
+        module: pcmt/rules/job/field/attribute-select
+        parent: pcmt-rules-pull-images-job-edit-properties
+        position: 155
+        targetZone: properties
+        config:
+            fetcher: attributes-for-rules-job
+            sourceFamily: 'configuration.family'
+            types:
+                - 'pim_catalog_image'
+            fieldCode: configuration.destinationAttribute
+            readOnly: false
+            label: pcmt.rules.pull_images_job.properties.destination_attribute.title
+            tooltip: pcmt.rules.pull_images_job.properties.destination_attribute.help
+
+    pcmt-rules-pull-images-job-edit-label:
+        module: pim/job/common/edit/label
+        parent: pcmt-rules-pull-images-job-edit
+        targetZone: title
+        position: 100
+
+    pcmt-rules-pull-images-job-edit-meta:
+        module: pim/job/common/edit/meta
+        parent: pcmt-rules-pull-images-job-edit
+        targetZone: meta
+        position: 100
+
+    pcmt-rules-pull-images-job-edit-secondary-actions:
+        module: pim/form/common/secondary-actions
+        parent: pcmt-rules-pull-images-job-edit
+        targetZone: buttons
+        position: 50
+
+    pcmt-rules-pull-images-job-edit-delete:
+        module: pim/job/import/edit/delete
+        parent: pcmt-rules-pull-images-job-edit-secondary-actions
+        targetZone: secondary-actions
+        aclResourceId: pcmt_permission_rules_delete
+        position: 100
+        config:
+            trans:
+                title: confirmation.remove.import_profile
+                content: pim_common.confirm_deletion
+                success: pim_import_export.entity.job_instance.flash.delete.success
+                failed: error.removing.job_instance
+            redirect: pcmt_rules_profile_index
+
+    pcmt-rules-pull-images-job-edit-save-buttons:
+        module: pim/form/common/save-buttons
+        parent: pcmt-rules-pull-images-job-edit
+        targetZone: buttons
+        position: 120
+
+    pcmt-rules-pull-images-job-edit-save:
+        module: pcmt/rules/job/rules/edit/save
+        parent: pcmt-rules-pull-images-job-edit
+        targetZone: buttons
+        position: 0
+        config:
+            redirectPath: pcmt_rules_profile_show
+
+    pcmt-rules-pull-images-job-edit-state:
+        module: pim/form/common/state
+        parent: pcmt-rules-pull-images-job-edit
+        targetZone: state
+        position: 900
+        config:
+            entity: pim_import_export.entity.job_instance.label
+
+    pcmt-rules-pull-images-job-edit-validation:
+        module: pim/job/common/edit/validation
+        parent: pcmt-rules-pull-images-job-edit

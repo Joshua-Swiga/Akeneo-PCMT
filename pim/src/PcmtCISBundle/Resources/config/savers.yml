@@ -1,0 +1,6 @@
+services:
+    pcmt.cis.saver.subscription:
+        class: 'PcmtCISBundle\Saver\SubscriptionSaver'
+        arguments:
+            - '@doctrine.orm.entity_manager'
+            - '@event_dispatcher'

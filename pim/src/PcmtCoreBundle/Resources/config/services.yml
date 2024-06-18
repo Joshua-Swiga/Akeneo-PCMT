@@ -1,0 +1,111 @@
+######################################################################
+# Copyright (c) 2019, VillageReach
+# Licensed under the Non-Profit Open Software License version 3.0.
+# SPDX-License-Identifier: NPOSL-3.0
+######################################################################
+
+services:
+
+    #util command for the one below (PcmtCreateAllAttributesCommand)
+    PcmtCoreBundle\Command\PcmtCreateAttributeForRefDataCommand:
+        autowire: true
+        tags:
+            - { name: 'console.command', command: 'pcmt:generate-ref-data-attr' }
+
+    #util command - generate default reference data simple select attributes
+    PcmtCoreBundle\Command\PcmtCreateAllAttributesCommand:
+        autowire: true
+        tags:
+            - { name: 'console.command', command: 'pcmt:generate-ref-data-attr-all' }
+
+    PcmtCoreBundle\Command\Creator\PcmtJobCreator:
+        autowire: true
+        tags:
+            - { name: 'console.command', command: 'pcmt:job-creator' }
+
+    pcmt_e2Open_mapping:
+        class: PcmtCoreBundle\Connector\Mapping\E2OpenMapping
+        autowire: true
+
+    pcmt_e2Open_mapping_handler:
+        class: PcmtCoreBundle\Service\E2Open\E2OpenMappingHandler
+        arguments:
+            - '@doctrine.orm.entity_manager'
+            - '@pim_catalog.repository.family'
+            - '@pcmt_catalog.repository.e2open_attribute_mapping'
+            -
+    pcmt_e2Open_attributes_service:
+        class: PcmtCoreBundle\Service\E2Open\E2OpenAttributesService
+        arguments:
+            - '@pim_catalog.repository.attribute'
+            - '@pim_catalog.repository.family'
+            - '%akeneo_measure.measures_config%'
+
+    PcmtCoreBundle\Command\ProcessE2OpenImport:
+        arguments:
+            - '%e2Open_import_files_directory%'
+            - '@monolog.logger'
+        tags:
+            - { name: 'console.command', command: 'pim:pcmt:e2Open:import_from_files' }
+
+    pcmt_core.service.esquery.product:
+        class: PcmtCoreBundle\Service\Query\ESQuery
+        arguments:
+            - '@akeneo_elasticsearch.client.product'
+            - 'pim_catalog_product'
+
+    pcmt_core.service.e2Open.trade_item_xml_processor:
+        class: PcmtCoreBundle\Service\E2Open\TradeItemXmlProcessor
+        arguments:
+            - '@monolog.logger'
+            - '@pcmt_e2Open_attributes_service'
+            - '@pim_catalog.updater.product'
+
+    pcmt_core.service.e2Open.trade_item_product_updater:
+        class: PcmtCoreBundle\Service\E2Open\TradeItemProductUpdater
+        arguments:
+            - '@pcmt_e2Open_attributes_service'
+            - '@pim_catalog.updater.product'
+            - '@logger'
+
+    pcmt_core.service.e2Open.trade_item_dynamic_mapping:
+        class: PcmtCoreBundle\Service\E2Open\TradeItemDynamicMapping
+
+    pcmt_core.service.e2Open.packaging_hierarchy_processor:
+        class: PcmtCoreBundle\Service\E2Open\PackagingHierarchyProcessor
+        arguments:
+            - '@pim_catalog.updater.product'
+            - '@monolog.logger'
+
+    pcmt_catalog.product.updater.concatenated_attributes_for_product_and_model:
+        class: PcmtCoreBundle\Service\ConcatenatedAttribute\ObjectUpdater
+        arguments:
+            - '@pim_catalog.updater.entity_with_values'
+            - '@pim_storage_serializer'
+            - '@pim_catalog.repository.channel'
+            - '@pim_catalog.repository.locale'
+
+    pcmt_core.service.builder.path_builder:
+        class: PcmtCoreBundle\Service\Builder\PathBuilder
+
+    pcmt_core.validator.directory.directory_path_validator:
+        class: PcmtCoreBundle\Validator\Directory\DirectoryPathValidator
+
+    pcmt_core.pcmt_version_provider:
+        class: 'PcmtCoreBundle\Provider\PcmtVersionProvider'
+        arguments:
+            - '%pcmt_version%'
+
+    pcmt_core.twig.pcmt_version_extension:
+        class: 'PcmtCoreBundle\Twig\PcmtVersionExtension'
+        arguments:
+            - '@pcmt_core.pcmt_version_provider'
+        tags:
+            - { name: twig.extension }
+
+    pcmt_core.data_collector.pcmt_version:
+        class: 'PcmtCoreBundle\DataCollector\PcmtVersionDataCollector'
+        arguments:
+            - '@pcmt_core.pcmt_version_provider'
+        tags:
+            - { name: pim_analytics.data_collector, type: system_info_report }

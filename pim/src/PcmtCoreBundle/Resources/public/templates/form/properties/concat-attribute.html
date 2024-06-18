@@ -1,0 +1,78 @@
+<!--
+  ~ Copyright (c) 2020, VillageReach
+  ~ Licensed under the Non-Profit Open Software License version 3.0.
+  ~ SPDX-License-Identifier: NPOSL-3.0
+  -->
+<% for (let index = 1; index <= attributeCount; index++) { %>
+
+    <% let member = 'attribute' + index; %>
+    <!-- attribute select -->
+    <div class="AknFieldContainer">
+
+        <select required
+                id="pcmt_enrich_form_<%- member %>" class="select2 member-attribute"
+                name="<%- member %>" data-placeholder="<%- labels.defaultChooseAttribute %>"
+                <% if (multiple) { %>multiple<% } %>\
+                <% if (readOnly) { %>readonly disabled<% } %>
+        >
+            <option value=""<% if (!value) { %> selected<% } %>></option>
+            <% if (Object.keys(choices).length > 0 && Object.values(choices)[0] instanceof Object) { %>
+                <% _.each(choices, function (optGroupOptions, optGroupLabel) { %>
+                    <optgroup label="<%- optGroupLabel %>">
+                        <% _.each(optGroupOptions, function (choiceLabel, choiceValue) { %>
+                            <option value="<%- choiceLabel %>" <% if (!multiple && choiceLabel === value) { %> selected<% } %>
+                            <%- choiceLabel %>
+                            </option>
+                        <% }); %>
+                    </optgroup>
+
+                <% }); %>
+
+                <% } else { %>
+                <% _.each(choices, function (choiceLabel, choiceValue) { %>
+
+                <% let attributeValue = null; if(typeof model.concatenated === 'object') { attributeValue = model.concatenated[member]; } %>
+                    <option value="<%- choiceLabel %>"
+                        <% if (attributeValue != null && attributeValue == choiceLabel) { %> selected<% } %>
+                        >
+                        <%- choiceLabel %>
+                    </option>
+
+            <% }); %>
+            <% } %>
+
+            </select>
+    </div>
+
+    <!-- separators -->
+
+    <%  let separator = 'separator' + index;
+        if (index < attributeCount) {
+    %>
+
+    <div class="AknFieldContainer">
+
+        <div class="AknFieldContainer-inputContainer field-input">
+            <input required
+                    id="<%- separator %>"
+                    name="<%- separator %>"
+                    class="AknTextField separator-field"
+                    type="text"
+                    placeholder="<%- labels.defaultChooseSeparator %>"
+            <% let separatorValue = "";
+            if(typeof model.concatenated === 'object' && model.concatenated[separator] !== null) {
+                separatorValue = model.concatenated[separator];
+            } %>
+            value="<%- separatorValue %>"  <%- isReadOnly ? 'readonly disabled' : '' %>
+            />
+        </div>
+
+    </div>
+
+    <% } %>
+
+<% } %>
+
+<div style="height: 100px;">
+
+</div>

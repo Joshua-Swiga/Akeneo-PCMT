@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<codeList xsi:noNamespaceSchemaLocation="http://apps.gs1.org/GDD/Documents/GDDCodeListSchema.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <urn>urn:gs1:gdd:cl:ShippingContainerTypeCode</urn>
+  <name></name>
+  <version>1</version>
+  <domain>gdsn</domain>
+  <code><value>20G0</value><name>General Purpose Container</name><description>20′ long container, 8′ tall container, and General - Openings at one or both ends</description></code>
+  <code><value>20G1</value><name>General Purpose Container - Passive Vents</name><description>20′ long container, 8′ tall container, and General - Passive vents at upper part of cargo space</description></code>
+  <code><value>20H0</value><name>Thermal containers, refrigerated and/or heated with removable equipment 8 Feet Tall.</name><description>20′ long container, 8′ tall container, and refrigerated or heated with removable equipment located externally; heat transfer coefficient K=0.4W/M2.K</description></code>
+  <code><value>22G0</value><name>General Purpose Container - Openings at one or both ends</name><description>20′ long container, 8′6″ tall container, and General - Openings at one or both ends</description></code>
+  <code><value>22G1</value><name>General Purpose Container - Passive Vents at Upper Part of cargo space.</name><description>20′ long container, 8′6″ tall container, and General - Passive vents at upper part of cargo space</description></code>
+  <code><value>22H0</value><name>Thermal containers, refrigerated and/or heated with removable equipment 8.6 Feet Tall.</name><description>20′ long container, 8′6″ tall container, and Refrigerated or heated with removable equipment located externally; heat transfer coefficient K=0.4W/M2.K</description></code>
+  <code><value>22P1</value><name>20 Foot Flat Platform Container</name><description>20′ long container, 8′6″ tall container - Fixed, two complete and fixed ends</description></code>
+  <code><value>22P3</value><name>20 Foot Flat Collapsible Platform Container</name><description>20′ long container, 8′6″ tall container - Folding (collapsible), folding complete end structure</description></code>
+  <code><value>22R1</value><name>20 Foot Reefer Container Mechanically Heated Cooled</name><description>20′ long container, 8′6″ tall container, and Integral Reefer - Mechanically refrigerated and heated</description></code>
+  <code><value>22R7</value><name>20 Foot Reefer Container Gen F</name><description>Build-in Gen f. Power Supply of Reef: 20′ long container, 8′6″ tall container</description></code>
+  <code><value>22U1</value><name>20 Foot Open Top Container</name><description>20′ long container, 8′6″ tall container - 20 Foot Open Top Container</description></code>
+  <code><value>22U6</value><name>20 Foot Hard Top Container</name><description>20′ long container, 8′6″ tall hardtop container</description></code>
+  <code><value>22V0</value><name>General Purpose Container with Non-mechanical Ventilation.</name><description>20′ long container, 8′6″ tall container, and Fantainer - Non-mechanical, vents at lower and upper parts of cargo space</description></code>
+  <code><value>22V2</value><name>General Purpose Container with Mechanical Ventilation</name><description>20′ long container, 8′6″ tall container, and Fantainer - Mechanical ventilation system located internally</description></code>
+  <code><value>22V3</value><name>General purpose Container with Ventilation</name><description>20′ long container, 8′6″ tall container</description></code>
+  <code><value>25G0</value><name>20 Foot Unventilated General Purpose Container</name><description>General Purpose container: 20′ long, 9′6″ tall - Openings at one or both ends</description></code>
+  <code><value>26G0</value><name>Unventilated General Purpose Container Overheight</name><description>20′ long container, &gt; 9′6″ tall container, and General - Openings at one or both ends</description></code>
+  <code><value>26H0</value><name>20 Foot High Cube Insulated Container</name><description>20′ long container, &gt; 9′6″ tall container, and Refrigerated or heated with removable equipment located externally; heat transfer coefficient K=0.4W/M2.K</description></code>
+  <code><value>2CG1</value><name>20 Foot Dry General Purpose Container</name><description>20′ long container, 8′6″ tall container - Vents in upper part of cargo space</description></code>
+  <code><value>2EG0</value><name>High Cube Container Width 2.5 Metre.</name><description>20′ long container, 9′6″ tall container, and General - Openings at one or both ends</description></code>
+  <code><value>42G0</value><name>40 Foot Dry General Purpose Container Open Both Ends</name><description>General Purpose Container: 40′ long container, 8′6″ tall container and general. Openings at one or both ends.</description></code>
+  <code><value>42G1</value><name>Unventilated General Purpose Container</name><description>40′ long container, 8′6″ tall container and general. Openings at one or both ends</description></code>
+  <code><value>42H0</value><name>40 Foot Insulated Container</name><description>40′ long container, 8′6″ tall container, and Refrigerated or heated with removable equipment located externally; heat transfer coefficient K=0.4W/M2.K</description></code>
+  <code><value>42P1</value><name>40 Foot Flat Platform Container</name><description>40′ long container, 8′6″ tall container - Fixed, two complete and fixed ends</description></code>
+  <code><value>42P3</value><name>40 Foot Flat Collapsible Platform Container</name><description>40′ long container, 8′6″ tall container - Folding (collapsible), folding complete end structure</description></code>
+  <code><value>42R1</value><name>40 Foot Reefer Container Mechanically Refrigerated and Heated </name><description>40′ long container, 8′6″ tall container, and Integral Reefer - Mechanically refrigerated and heated</description></code>
+  <code><value>42R3</value><name>40 Foot Reefer Container Self-powered Mechanically </name><description>40′ long container, 8′6″ tall container, and Integral Reefer - Self-powered mechanically refrigerated and heated</description></code>
+  <code><value>42U1</value><name>40 Foot Open Top Container</name><description>40′ long container, 8′6″ tall container - 20 Foot Open Top Container</description></code>
+  <code><value>42U6</value><name>40 Foot Hard Top Container</name><description>40′ long container, 8′6″ tall container</description></code>
+  <code><value>45G0</value><name>40 Foot High Cube Dry Container</name><description>40′ long container, 9′6″ tall container, and General - Openings at one or both ends</description></code>
+  <code><value>45G1</value><name>40 Foot High Cube Dry Container Vents in Upper Part of Cargo Space</name><description>40′ long container, 9′6″ tall container, and General - Passive vents at upper part of cargo space</description></code>
+  <code><value>45R1</value><name>40 Foot High Cube Reefer Container</name><description>40′ long container, 9′6″ tall container, and Integral Reefer - Mechanically refrigerated and heated</description></code>
+  <code><value>45U6</value><name>40 Foot High Cube Hard Top Container</name><description>40′ long container, 9′6″ tall container</description></code>
+  <code><value>46H0</value><name>40 Foot High Cube Insulated Container</name><description>40′ long container, &gt; 9′6″ tall container, and Refrigerated or heated with removable equipment located externally; heat transfer coefficient K=0.4W/M2.K</description></code>
+  <code><value>4CG0</value><name>General Purpose Container Width 2.5 Metre</name><description>General Purpose Container- 40′ long container, 8′6″ tall container, and General - Openings at one or both ends</description></code>
+  <code><value>4CG1</value><name>40 Foot Dry General Purpose Container</name><description>40′ long container, 8′6″ tall container - Vents in upper part of cargo space</description></code>
+  <code><value>4EG1</value><name>40 Foot High Cube Dry General Purpose Container</name><description>40′ long container, 9′6″ tall container - Vents in upper part of cargo space</description></code>
+  <code><value>L0G1</value><name>45 Foot Dry High Cube Container</name><description>45′ long container, 8′ tall container, and General - Passive vents at upper part of cargo space</description></code>
+  <code><value>L2G1</value><name>45 Foot Dry High Cube Container 8.6 Feet Tall</name><description>45′ long container, 8′6″ tall container, and General - Passive vents at upper part of cargo space</description></code>
+  <code><value>L5G1</value><name>45 Foot Dry High Cube Container 9.6 Feet Tall</name><description>45′ long container, 9′6″ tall container, and General - Passive vents at upper part of cargo space</description></code>
+</codeList>

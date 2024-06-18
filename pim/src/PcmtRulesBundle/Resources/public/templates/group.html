@@ -1,0 +1,23 @@
+<select
+    id="pim_enrich_form_<%- fieldId %>"
+    class="select2"
+    name="<%- fieldName %>"
+    data-placeholder="<%- labels.defaultLabel %>"
+    <% if (readOnly) { %>readonly disabled<% } %>
+>
+    <option value=""<% if (!value) { %> selected<% } %>></option>
+    <% _.each(groups, function (group) { %>
+        <option
+            value="<%- group.code %>"
+            <% if (group.code === value) { %> selected<% } %>
+        >
+            <%- i18n.getLabel(group.labels, locale, group.code) %>
+        </option>
+    <% }); %>
+</select>
+
+<% if (undefined !== tooltip) { %>
+<div class="icons-container">
+    <i class="AknIconButton icon-info-sign" data-toggle="tooltip" data-placement="right" data-original-title="<%- __(tooltip) %>"></i>
+</div>
+<% } %>

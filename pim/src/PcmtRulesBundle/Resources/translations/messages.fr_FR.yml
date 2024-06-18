@@ -1,0 +1,57 @@
+pcmt.permission:
+    rules: FR Rules
+    rules.label:
+        view: FR View rules
+        create: FR Create rules
+        delete: FR Delete rules
+        edit: FR Edit rules
+        run: FR Run rules
+
+pcmt:
+    rules:
+        datagrid:
+            label: FR Label
+            source_family: FR Source Family
+            destination_family: FR Destination Family
+            key_attribute: FR Key Attribute
+
+pcmt.rules.flash:
+    running_started: FR The rule processing has been started.
+    running_start_error: FR The rule processing has not been started, there was an error.
+
+job_execution.summary:
+    rule_id: FR Rule ID
+    attributes_found: FR Attributes found
+    source_products_found: FR Source products found
+    source_product_models_found: FR Source product models found
+    source_products_processed: FR Source products processed
+    source_product_models_processed: FR Source product models processed
+    destination_products_found_and_saved: FR Destination products found and saved
+    destination_product_models_found_and_saved: FR Destination product models found and saved
+    destination_products_created: FR Destination products created
+    options_found_and_removed: FR Options found and removed
+    options_added: FR Options added
+    parameters: FR Parameters
+    entities_found: FR Entities found
+    entities_processed: FR Entities processed
+    source_urls_found: FR Source URLs found
+    files_downloaded: FR Files downloaded
+    entities_updated: FR Entities updated
+    associated_product_models_found: FR Associated product models found
+    associated_product_models_found_in_correct_family: FR Associated product models in correct family
+    axis_attribute_not_exists_in_source_product: FR Axis attribute not found in source product
+    sub_entities_found: FR Sub entities found
+    sub_product_models_created: FR Sub product models created
+    sub_products_created: FR Sub products created
+
+pim_datagrid:
+    cells:
+        type:
+            rules: FR Rules
+
+pim_import_export:
+    notification:
+        rules:
+            error: FR Rule job <strong>%label%</strong> failed
+            warning: FR Rule job <strong>%label%</strong> finished with some warnings
+            success: FR Rule job <strong>%label%</strong> finished

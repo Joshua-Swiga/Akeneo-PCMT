@@ -1,0 +1,20 @@
+pcmt_core:
+  fhir:
+    tab:
+      lable: FHIR
+    select:
+      lable: Mapping
+    title:
+      lable: FHIR Mapping
+    placeholder:
+      lable: Choose the FHIR mapping
+    saved:
+      lable: Mapping saved!
+    failed:
+      lable: Mapping saving failed!
+fhir:
+  options:
+    description: Description
+    identifier: Identifier
+    marketingAuthorization: Marketing authorization (Item Only)
+    other: Other

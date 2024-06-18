@@ -1,0 +1,20 @@
+######################################################################
+# Copyright (c) 2019, VillageReach
+# Licensed under the Non-Profit Open Software License version 3.0.
+# SPDX-License-Identifier: NPOSL-3.0
+######################################################################
+
+PcmtCoreBundle\Entity\Attribute:
+    type: entity
+    table: pim_catalog_attribute
+    changeTrackingPolicy: DEFERRED_EXPLICIT
+    indexes:
+        searchcode_idx:
+            columns:
+                - code
+    repositoryClass: Akeneo\Pim\Structure\Bundle\Doctrine\ORM\Repository\AttributeRepository
+    uniqueConstraints:
+        searchunique_idx:
+            columns:
+                - code
+                - entity_type

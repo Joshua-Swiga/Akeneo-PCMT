@@ -1,0 +1,16 @@
+######################################################################
+# Copyright (c) 2019, VillageReach
+# Licensed under the Non-Profit Open Software License version 3.0.
+# SPDX-License-Identifier: NPOSL-3.0
+######################################################################
+
+services:
+
+  pcmt_connector.array_converter.standard_to_flat.datagrid_view:
+    class:  'PcmtCustomDatasetBundle\ArrayConverter\StandardToFlat\DatagridView'
+
+
+  pcmt_connector.array_converter.flat_to_standard.datagrid_view:
+    class:  'PcmtCustomDatasetBundle\ArrayConverter\FlatToStandard\DatagridView'
+    arguments:
+        - '@pim_connector.array_convertor.checker.fields_requirement'

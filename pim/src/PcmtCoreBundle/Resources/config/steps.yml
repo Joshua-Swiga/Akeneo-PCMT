@@ -1,0 +1,60 @@
+######################################################################
+# Copyright (c) 2019, VillageReach
+# Licensed under the Non-Profit Open Software License version 3.0.
+# SPDX-License-Identifier: NPOSL-3.0
+######################################################################
+
+services:
+
+    pcmt_connector.step.pcmt_e2open.export:
+        class: '%pim_connector.step.item_step.class%'
+        arguments:
+            - 'export'
+            - '@event_dispatcher'
+            - '@akeneo_batch.job_repository'
+            - '@pim_connector.reader.database.product'
+            - '@pim_connector.processor.normalization.product'
+            - '@pcmt_connector.writer.file.e2open'
+            - '%pim_job_product_batch_size%'
+            -
+    pcmt_connector.step.pcmt_e2open.import:
+        class: '%pim_connector.step.tasklet.class%'
+        arguments:
+            - 'pcmt_e2open_import'
+            - '@event_dispatcher'
+            - '@akeneo_batch.job_repository'
+            - '@pcmt_connector.tasklet.pcmt_e2open_import'
+
+    pcmt_connector.step.pcmt_mst_supplier.export:
+        class: 'PcmtCoreBundle\Connector\Job\Step\MstSupplierExportStep'
+        arguments:
+            - 'export'
+            - '@event_dispatcher'
+            - '@akeneo_batch.job_repository'
+            - '@pcmt_connector.reader.database.mst_supplier_export'
+            - '@pim_connector.processor.normalization.product'
+            - '@pcmt_connector.writer.file.e2open'
+            - '1'
+
+    pcmt_xml_connector.step.reference_data_xml_download:
+        class: PcmtCoreBundle\Connector\Job\Step\ReferenceDataXmlDownloadStep
+        arguments:
+            - 'reference_data_xml_download'
+            - '@event_dispatcher'
+            - '@akeneo_batch.job_repository'
+            - '@pcmt_core.validator.directory.directory_path_validator'
+            - '@pcmt_core.service.builder.path_builder'
+        calls:
+            - [setLogger, ['@logger']]
+
+    pcmt_xml_connector.step.xml_reference_data_import:
+        class: PcmtCoreBundle\Connector\Job\Step\ReferenceDataXmlImportStep
+        arguments:
+            - 'process'
+            - '@event_dispatcher'
+            - '@akeneo_batch.job_repository'
+            - '@pcmt_connector.reader.xml.reference_data_gs1'
+            - '@pcmt_connector.processor.reference_data'
+            - '@pcmt_connector.write.reference_data'
+        calls:
+            - [setPathBuilder, ['@pcmt_core.service.builder.path_builder']]

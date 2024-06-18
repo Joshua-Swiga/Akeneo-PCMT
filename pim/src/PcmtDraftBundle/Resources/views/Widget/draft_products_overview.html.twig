@@ -1,0 +1,22 @@
+{% extends 'PimDashboardBundle:Widget:base.html.twig' %}
+
+{% set widgetTitle = 'pim_dashboard.widget.drafts_overview.title'|trans %}
+
+{% set widgetContent %}
+    <table id="draft-products-overview-widget" class="AknGrid AknGrid--unclickable"></table>
+
+    <script type="text/javascript">
+        require(
+            ['jquery', 'pim/dashboard/widget-container', 'pcmt/product/widget/draft-products-widget'],
+            function ($, widgetContainer, DraftsWidget) {
+                'use strict';
+                $(function () {
+                    let options = {el: '#draft-products-overview-widget', alias: 'draft_products_overview'};
+                    let widget = widgetContainer.getWidget(options, DraftsWidget);
+                    widget.render().delayedLoad();
+                });
+            }
+        );
+    </script>
+{% endset %}
+

@@ -1,0 +1,107 @@
+######################################################################
+# Copyright (c) 2020, VillageReach
+# Licensed under the Non-Profit Open Software License version 3.0.
+# SPDX-License-Identifier: NPOSL-3.0
+######################################################################
+parameters:
+    pim_enrich.view_element.category.tab.property.template: 'PcmtPermissionsBundle:CategoryTree:Tab/property.html.twig'
+
+services:
+    pcmt_permissions.saver.category_access:
+        class: PcmtPermissionsBundle\Saver\CategoryAccessSaver
+        arguments:
+            - '@doctrine.orm.entity_manager'
+
+    pcmt_permissions.form.category:
+        class: 'PcmtPermissionsBundle\Form\CategoryType'
+        arguments:
+            - 'PcmtPermissionsBundle\Entity\CategoryWithAccess'
+            - '%pim_catalog.entity.category_translation.class%'
+        tags:
+            - { name: form.type, alias: pim_category }
+
+    pcmt_permissions.updater.category_children_permissions:
+        class: PcmtPermissionsBundle\Updater\CategoryChildrenPermissionsUpdater
+        arguments:
+            - '@pim_catalog.saver.category'
+
+    pcmt.service.category_permissions_default_provider:
+        class: PcmtPermissionsBundle\Service\CategoryPermissionsDefaultProvider
+        arguments:
+            - '@pim_user.repository.group'
+
+    pcmt.service.category_permissions_checker:
+        class: PcmtPermissionsBundle\Service\CategoryPermissionsChecker
+        autowire: true
+
+    pcmt.service.category_with_permissions_repository:
+        class: PcmtPermissionsBundle\Service\CategoryWithPermissionsRepository
+        autowire: true
+
+    PcmtPermissionsBundle\Validator\Constraints\UniqueEntityValidator:
+        class: PcmtPermissionsBundle\Validator\Constraints\UniqueEntityValidator
+        autowire: true
+        tags:
+            - { name: validator.constraint_validator, alias: pcmt_permissions_unique_entity_validator }
+
+    pim_datagrid.datasource.product_and_product_model:
+        class: PcmtPermissionsBundle\Service\ProductAndProductModelDatasource
+        arguments:
+            - '@pim_catalog.object_manager.product'
+            - '@akeneo.pim.enrichment.query.product_and_product_model_query_builder_from_size_factory.with_product_identifier_cursor'
+            - '@pim_datagrid_serializer'
+            - '@validator'
+            - '@akeneo.pim.enrichment.product.grid.query.fetch_product_and_product_model_rows'
+        calls:
+            - [ setMassActionRepository, ['@pim_catalog.repository.product_mass_action'] ]
+            - [ setCategoryWithPermissionsRepository, ['@pcmt.service.category_with_permissions_repository'] ]
+        tags:
+            - { name: oro_datagrid.datasource, type: pim_datasource_product }
+
+# It's commented in release purpose. Uncomment it after Release 2.0.0
+#
+#    pim_catalog.updater.attribute_group:
+#        class: 'PcmtPermissionsBundle\Updater\AttributeGroupUpdater'
+#        arguments:
+#            - '@pim_catalog.repository.attribute'
+#            - '@pim_catalog.repository.attribute_group'
+#            - '@pim_structure.updater.translatable'
+#        calls:
+#            - [ setUserGroupRepository, ['@pim_user.repository.group']]
+
+    akeneo.pim.enrichment.product.connector.get_product_from_identifiers.original:
+        class: 'Akeneo\Pim\Enrichment\Bundle\Storage\Sql\Connector\SqlGetConnectorProducts'
+        arguments:
+            $getValuesAndPropertiesFromProductIdentifiers: '@akeneo.pim.enrichment.product.query.get_values_and_properties_from_product_identifiers'
+            $getProductModelAssociationsByProductIdentifiers: '@akeneo.pim.enrichment.product.query.get_product_model_associations_by_product_identifiers'
+            $getGroupAssociationsByProductIdentifiers: '@akeneo.pim.enrichment.product.query.get_group_associations_by_product_identifiers'
+            $getProductAssociationsByProductIdentifiers: '@akeneo.pim.enrichment.product.query.get_product_associations_by_product_identifiers'
+            $getCategoryCodesByProductIdentifiers: '@akeneo.pim.enrichment.product.query.category_codes_by_product_identifiers'
+            $valueCollectionFactory: '@akeneo.pim.enrichment.factory.read.value_collection'
+            $attributeRepository: '@pim_catalog.repository.attribute'
+
+    akeneo.pim.enrichment.product.connector.get_product_from_identifiers:
+        class: 'PcmtPermissionsBundle\Connector\SqlGetConnectorProducts'
+        arguments:
+            - '@akeneo.pim.enrichment.product.connector.get_product_from_identifiers.original'
+            - '@pcmt.service.category_permissions_checker'
+            - '@pim_catalog.repository.product'
+            - '@pcmt.service.category_with_permissions_repository'
+
+    akeneo.pim.enrichment.product.connector.get_product_models_from_codes.original:
+        class: 'Akeneo\Pim\Enrichment\Bundle\Storage\Sql\Connector\SqlGetConnectorProductModels'
+        arguments:
+            - '@akeneo.pim.enrichment.product_model.query.get_values_and_properties_from_product_model_codes'
+            - '@akeneo.pim.enrichment.category.query.category_codes_by_product_model_codes'
+            - '@akeneo.pim.enrichment.product_model.query.get_product_associations_by_product_model_codes'
+            - '@akeneo.pim.enrichment.product_model.query.get_models_associations_by_product_model_codes'
+            - '@akeneo.pim.enrichment.product_model.query.get_group_associations_by_product_model_codes'
+            - '@akeneo.pim.enrichment.factory.read.value_collection'
+
+    akeneo.pim.enrichment.product.connector.get_product_models_from_codes:
+        class: 'PcmtPermissionsBundle\Connector\SqlGetConnectorProductModels'
+        arguments:
+            - '@akeneo.pim.enrichment.product.connector.get_product_models_from_codes.original'
+            - '@pcmt.service.category_permissions_checker'
+            - '@pim_catalog.repository.product_model'
+            - '@pcmt.service.category_with_permissions_repository'

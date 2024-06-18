@@ -1,0 +1,44 @@
+######################################################################
+# Copyright (c) 2019, VillageReach
+# Licensed under the Non-Profit Open Software License version 3.0.
+# SPDX-License-Identifier: NPOSL-3.0
+######################################################################
+
+version: "3.5"
+services:
+  fpm:
+    volumes:
+      - './pim/src:/srv/pim/src:rw'
+      - './pim/app:/tmp/pcmt/app:ro'
+      - './pim/web:/tmp/pcmt/web:ro'
+      - './pim/composer.json:/srv/pim/composer.json'
+      - './pim/features:/srv/pim/features:rw'
+      - './pim/behat.yml:/srv/pim/behat.yml'
+      - './pim/composer.lock:/srv/pim/composer.lock'
+      - './pim/crontab:/srv/pim/crontab'
+      - './pim/ecs.yml:/srv/pim/ecs.yml'
+      - './pim/phpunit.xml.dist:/srv/pim/phpunit.xml.dist:ro'
+      - './pim/infection.json.dist:/srv/pim/infection.json.dist'
+    environment:
+      - PHP_XDEBUG_ENABLED=1
+      - PHP_XDEBUG_REMOTE_PORT=9000
+
+  elasticsearch:
+    ports:
+      - '9200:9200'
+
+  node:
+    image: 'node:10-slim'
+    user: 'node'
+    volumes:
+      - 'pim:/srv/pim'
+      - './pim/src:/srv/pim/src:ro'
+      - './pim/yarn.lock:/srv/pim/yarn.lock'
+      - './pim/package.json:/srv/pim/package.json'
+    working_dir: '/srv/pim'
+    depends_on:
+     - fpm
+
+  mysql:
+    ports:
+      - '3306:3306'

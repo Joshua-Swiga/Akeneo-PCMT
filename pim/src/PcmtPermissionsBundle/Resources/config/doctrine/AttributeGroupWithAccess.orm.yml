@@ -1,0 +1,13 @@
+PcmtPermissionsBundle\Entity\AttributeGroupWithAccess:
+    type: entity
+    table: pim_catalog_attribute_group
+    changeTrackingPolicy: DEFERRED_EXPLICIT
+    repositoryClass: Akeneo\Pim\Structure\Bundle\Doctrine\ORM\Repository\AttributeGroupRepository
+    oneToMany:
+        accesses:
+            targetEntity: PcmtPermissionsBundle\Entity\AttributeGroupAccess
+            mappedBy: attributeGroup
+            orphanRemoval: true
+            cascade:
+                - persist
+                - detach

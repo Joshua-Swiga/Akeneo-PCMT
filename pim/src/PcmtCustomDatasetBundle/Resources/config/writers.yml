@@ -1,0 +1,20 @@
+######################################################################
+# Copyright (c) 2019, VillageReach
+# Licensed under the Non-Profit Open Software License version 3.0.
+# SPDX-License-Identifier: NPOSL-3.0
+######################################################################
+
+services:
+
+  pcmt_connector.writer.file.xlsx_datagrid_view:
+    class: '%pim_connector.writer.file.xlsx.class%'
+    arguments:
+      - '@pcmt_connector.array_converter.standard_to_flat.datagrid_view'
+      - '@pim_connector.factory.flat_item_buffer'
+      - '@pim_connector.writer.file.flat_item_buffer_flusher'
+
+  pcmt_connector.writer.database.datagrid_view:
+    class: '%pim_connector.writer.database.class%'
+    arguments:
+      - '@pim_datagrid.saver.datagrid_view'
+      - '@akeneo_storage_utils.doctrine.object_detacher'

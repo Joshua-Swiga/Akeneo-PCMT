@@ -1,0 +1,80 @@
+######################################################################
+# Copyright (c) 2019, VillageReach
+# Licensed under the Non-Profit Open Software License version 3.0.
+# SPDX-License-Identifier: NPOSL-3.0
+######################################################################
+
+config:
+    paths:
+        dnd/product-edit-form/attributes/description: pcmtcore/js/product/form/attributes/description
+
+        dnd/attribute-edit-form/descriptions/translation: pcmtcore/js/attribute/form/descriptions/translation
+        dnd/template/form/properties/translation: pcmtcore/templates/form/properties/translation.html
+        dnd/controller/attribute/create: pcmtcore/js/controller/attribute/create
+
+        pim/attribute-form-properties/concat-attribute-create: pcmtcore/js/attribute/form/properties/concat-attribute
+        pim/template/form/properties/concat-attribute: pcmtcore/templates/form/properties/concat-attribute.html
+
+        pim/product-edit-form/creation/identifier: pcmtcore/js/product/form/creation/identifier
+        pim/form/common/creation/field: pcmtcore/js/form/creation/field-with-uuid-button
+        pim/template/form/creation/field: pcmtcore/templates/form/creation/field.html
+
+        pcmt/reference-data/common/fetcher/country-code-fetcher: pcmtcore/js/common/fetcher/country-code-fetcher
+
+        #concat attribute select dropdown - module
+        pcmt/attribute-edit-form-properties/concat-attribute-select: pcmtcore/js/attribute/form/properties/concat-attribute-select-attribute
+
+        #concat attribute display value field
+        pcmt/concatenated: pcmtcore/js/attribute/field/concat-attribute-text-field
+
+        pcmt_connector_button: pcmtcore/js/common/button
+
+        # identifier field overwritten (for creating unique id button)
+        pim/text-field: pcmtcore/js/product/field/text-field-with-uuid-button
+
+        pcmt/form/common/fields/values/text-with-uuid-button: pcmtcore/js/form/common/fields/values/text-with-uuid-button
+
+        pcmt/form/common/fields/text-with-uuid-button: pcmtcore/js/form/common/fields/text-with-uuid-button
+
+        pcmt/template/form/button/create-unique-id: pcmtcore/templates/form/button/create-unique-id.html
+
+        pcmt/template/form/common/fields/field-with-uuid-button: pcmtcore/templates/form/common/fields/field-with-uuid-button.html
+
+    config:
+        pim/controller-registry:
+            controllers:
+                pim_enrich_attribute_create:
+                    module: dnd/controller/attribute/create
+            defaultController:
+                module: pim/controller/template
+
+        pim/fetcher-registry:
+            fetchers:
+                default: pim/base-fetcher
+                concat-attribute:
+                    module: pim/attribute-fetcher
+                    options:
+                        identifier_type: pim_catalog_identifier
+                        urls:
+                            list: pim_enrich_attribute_rest_index
+                            get: pim_enrich_attribute_rest_get
+                country-code:
+                    module: pcmt/reference-data/common/fetcher/country-code-fetcher
+                    options:
+                        identifier_type: id
+                        urls:
+                            list: pcmt_reference_data_get_country_codes
+
+        pcmt/template/form/poperties/concat-attribute:
+            fieldName: concatenated
+
+        pim/form/common/attributes/create-button:
+            attribute_icons:
+                pcmt_catalog_concatenated: file
+
+        pim/attribute-edit-form/type-specific-form-registry:  #configuration for concatenated attribute type create/edit form
+            formNames:
+                pcmt_catalog_concatenated:
+                    create: pcmt-attribute-form-concatenated
+                    edit: pcmt-attribute-form-concatenated
+

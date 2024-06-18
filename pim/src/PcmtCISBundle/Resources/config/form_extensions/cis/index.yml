@@ -1,0 +1,71 @@
+extensions:
+  pcmt-cis-index:
+    module: pim/common/simple-view
+    targetZone: self
+    config:
+      template: pim/template/common/default-template
+
+  pcmt-cis-index-grid-container:
+    module: pim/common/simple-view
+    parent: pcmt-cis-index
+    targetZone: content
+    config:
+      template: pim/template/form/index/index
+
+  pcmt-cis-index-user-navigation:
+    module: pim/menu/user-navigation
+    parent: pcmt-cis-index
+    targetZone: user-menu
+    config:
+      userAccount: pim_menu.user.user_account
+      logout: pim_menu.user.logout
+
+  pcmt-cis-index-grid-title:
+    module: pim/common/grid-title
+    parent: pcmt-cis-index
+    targetZone: title
+    config:
+      title: pcmt.entity.subscription.page_title.index
+
+  pcmt-cis-index-breadcrumbs:
+    module: pim/common/breadcrumbs
+    parent: pcmt-cis-index
+    targetZone: breadcrumbs
+    config:
+      tab: pim-menu-system
+      item: pim-menu-system-cis
+
+  pcmt-cis-index-create-button:
+    module: pim/form/common/index/create-button
+    parent: pcmt-cis-index
+    targetZone: buttons
+    position: 100
+    aclResourceId: pcmt_permission_cis
+    config:
+      iconName:  plus
+      title:     pcmt.entity.subscription.module.create.button
+      modalForm: pcmt-cis-create-modal
+
+  pcmt-cis-index-grid-filters-list:
+    module: oro/datafilter/filters-list
+    parent: pcmt-cis-index-grid-container
+    targetZone: filters
+
+  pcmt-cis-index-grid-filters-manage:
+    module: oro/datafilter/filters-button
+    parent: pcmt-cis-index-grid-container
+    targetZone: filters
+
+  pcmt-cis-index-pagination:
+    module: oro/datagrid/pagination-input
+    parent: pcmt-cis-index-grid-container
+    targetZone: toolbar
+    config:
+        gridName: subscription-grid
+
+  pcmt-cis-index-grid:
+    module: pim/form/common/index/grid
+    parent: pcmt-cis-index-grid-container
+    position: 1000
+    config:
+      alias: subscription-grid

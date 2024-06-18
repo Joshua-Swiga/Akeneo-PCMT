@@ -1,0 +1,74 @@
+<!-- allowed to own products -->
+<div class="AknFieldContainer-header">
+    <label class="AknFieldContainer-label control-label required" for="pim_enrich_category_edit_allowed_to_own">
+        <%- label_allowed_to_own %> <em><%- requiredLabel %></em>
+    </label>
+</div>
+<div class="AknFieldContainer-inputContainer">
+    <select class="select2" multiple id="pim_enrich_category_edit_allowed_to_own">
+        <% _.each(userGroups, function (group) { %>
+        <option value="<%- group.meta.id %>" %><%- group.name %></option>
+        <% }); %>
+    </select>
+</div>
+<div class="AknFieldContainer-footer">
+    <div class="AknFieldContainer-validationErrors validation-errors">
+        <!-- loop through each error -->
+        <div class="AknFieldContainer-validationError">
+        </div>
+    </div>
+</div>
+
+<!-- allowed to edit products -->
+
+<div class="AknFieldContainer-header">
+    <label class="AknFieldContainer-label control-label required" for="pim_enrich_category_edit_allowed_to_edit">
+        <%- label_allowed_to_edit %> <em><%- requiredLabel %></em>
+    </label>
+</div>
+<div class="AknFieldContainer-inputContainer">
+    <select class="select2" multiple id="pim_enrich_category_edit_allowed_to_edit">
+        <% _.each(userGroups, function (group) { %>
+        <option value="<%- group.meta.id %>" %><%- group.name %></option>
+        <% }); %>
+    </select>
+</div>
+<div class="AknFieldContainer-footer">
+    <div class="AknFieldContainer-validationErrors validation-errors">
+        <!-- loop through each error -->
+        <div class="AknFieldContainer-validationError">
+        </div>
+    </div>
+</div>
+
+<!-- allowed to view products -->
+<div class="AknFieldContainer-header">
+    <label class="AknFieldContainer-label control-label required" for="pim_enrich_category_edit_allowed_to_view">
+        <%- label_allowed_to_view %> <em><%- requiredLabel %></em>
+    </label>
+</div>
+<div class="AknFieldContainer-inputContainer">
+    <select class="select2" multiple id="pim_enrich_category_edit_allowed_to_view">
+        <% _.each(userGroups, function (group) { %>
+        <option value="<%- group.meta.id %>" %><%- group.name %></option>
+        <% }); %>
+    </select>
+</div>
+<div class="AknFieldContainer-footer">
+    <div class="AknFieldContainer-validationErrors validation-errors">
+        <!-- loop through each error -->
+        <div class="AknFieldContainer-validationError">
+            Attention! The changes introduced cause no effect. This is a draft version of functionality
+        </div>
+    </div>
+</div>
+
+<!-- apply to all children checkbox -->
+<div class="AknFieldContainer-header">
+    <label class="AknFieldContainer-label" for="pim_enrich_category_edit_apply_to_all_children">
+        <%- label_apply_to_children %>
+    </label>
+</div>
+<div class="AknFieldContainer-inputContainer">
+    <input type="checkbox" id="pim_enrich_category_edit_apply_to_all_children"/>
+</div>

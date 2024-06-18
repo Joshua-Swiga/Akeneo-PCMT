@@ -1,0 +1,13 @@
+services:
+
+    pcmt.cis.controller.rest.subscription:
+        class: 'PcmtCISBundle\Controller\SubscriptionController'
+        arguments:
+            - '@pim_internal_api_serializer'
+            - '@pcmt.cis.updater.subscription'
+            - '@validator'
+            - '@pcmt.cis.saver.subscription'
+            - '@pim_enrich.normalizer.violation'
+            - '@pcmt.cis.remover.subscription'
+            - '@pcmt.cis.file.service'
+

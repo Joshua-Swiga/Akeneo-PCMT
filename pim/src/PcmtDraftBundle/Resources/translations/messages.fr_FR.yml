@@ -1,0 +1,34 @@
+pcmt.permission:
+    drafts: FR Product drafts
+    drafts.label:
+        list: FR View Product Draft list
+        approve: FR Approve Product Draft
+        reject: FR Reject Product Draft
+        edit: FR Edit Product Draft
+
+job_execution.summary:
+    failed: FR failed
+    approved: FR approved
+    rejected: FR rejected
+
+pim_dashboard:
+    widget:
+        drafts_overview:
+            title: FR Draft products overview
+pcmt_core:
+    draft:
+        status_new: FR New
+        status_approved: FR Approved
+        status_rejected: FR Rejected
+
+pim_datagrid:
+    cells:
+        type:
+            mass_action: FR Mass Action
+
+pim_mass_edit:
+    notification:
+        mass_action:
+            error: FR Mass action <strong>%label%</strong> failed
+            warning: FR Mass action <strong>%label%</strong> finished with some warnings
+            success: FR Mass action <strong>%label%</strong> finished

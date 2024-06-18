@@ -1,0 +1,119 @@
+######################################################################
+# Copyright (c) 2019, VillageReach
+# Licensed under the Non-Profit Open Software License version 3.0.
+# SPDX-License-Identifier: NPOSL-3.0
+######################################################################
+
+extensions:
+    pim-product-edit-form-save:
+        module: pcmt/product/edit/form/save
+        parent: pim-product-edit-form
+        targetZone: buttons
+        aclResourceId: pcmt_permission_drafts_edit
+        position: 0
+        config:
+            redirect: pcmt_core_drafts_edit
+
+    pcmt-product-edit-form-save:
+        module: pcmt/product/edit/form/save
+        parent: pcmt-product-edit-form-no-draft
+        targetZone: draft
+        aclResourceId: pcmt_permission_drafts_edit
+        position: 0
+        config:
+            redirect: pcmt_core_drafts_edit
+
+    pcmt-product-edit-form-save-buttons:
+        module: pim/form/common/save-buttons
+        parent: pcmt-product-edit-form-no-draft
+        targetZone: draft
+        position: 120
+
+    pim-product-edit-form-attribute-description:
+        module: dnd/product-edit-form/attributes/description
+        parent: pim-product-edit-form-attributes
+        targetZone: self
+        position: 100
+
+    pim-product-edit-form-attribute-read-only-all-attributes:
+        module: pcmt/product/form/attributes/read-only-all-attributes
+        parent: pim-product-edit-form-attributes
+        targetZone: self
+        position: 100
+
+    pim-product-edit-form-categories:
+        module: pcmt/product/form/categories
+        parent: pim-product-edit-form-column-tabs
+        targetZone: container
+        aclResourceId: pim_enrich_product_categories_view
+        position: 120
+        config:
+            itemCategoryListRoute: pim_enrich_product_listcategories
+            itemCategoryTreeRoute: pim_enrich_product_category_rest_list
+
+    pim-product-edit-form-family:
+        module: pcmt/product-edit-form/meta/family
+        parent: pim-product-edit-form-meta
+        targetZone: meta
+        position: 70
+
+    pim-product-edit-form-change-family:
+        module: pcmt/product/form/meta/change-family-disabled
+        parent: pim-product-edit-form-family
+        targetZone: buttons
+        aclResourceId: pim_enrich_product_change_family
+        position: 100
+
+    pcmt-product-edit-form-no-draft:
+        module: pcmt/product/form/no-draft
+        parent: pim-product-edit-form-column-tabs
+        targetZone: container
+        position: 140
+        config:
+            label: pcmt_core.products_editing.current_draft
+            noDraft:
+                title: pcmt_core.products_editing.noDraft.title
+                description: pcmt_core.products_editing.noDraft.description
+
+    pim-product-edit-form-column-tabs-navigation:
+        module: pcmt/product/form/common/column-tabs-navigation
+        parent: pim-product-edit-form-left-column
+        targetZone: navigation
+        position: 10
+        config:
+            productNavigationTitle: pim_menu.navigation.product
+            productDraftNavigationTitle: pim_menu.navigation.product_draft
+            redirect: pcmt_core_drafts_edit
+            noDraftTab: 'pcmt-product-edit-form-no-draft'
+
+    pim-product-edit-form-column-tabs:
+        module: pcmt/product/form/common/column-tabs
+        parent: pim-product-edit-form
+        targetZone: content
+        position: 100
+
+    pim-product-edit-form-associations:
+        module: pcmt/product/form/associations
+        parent: pim-product-edit-form-column-tabs
+        targetZone: container
+        aclResourceId: pim_enrich_associations_view
+        position: 130
+        config:
+            aclAddAssociations: pim_enrich_associations_edit
+            datagridName: 'association-product-grid'
+
+    pim-product-edit-form-status-switcher:
+        module: pcmt/product/form/meta/status-switcher-disabled
+        parent: pim-product-edit-form-meta
+        targetZone: meta
+        aclResourceId: pim_enrich_product_change_state
+        position: 80
+
+    pcmt-product-edit-form-label:
+        module: pcmt/product/form/label
+        parent: pim-product-edit-form
+        targetZone: state
+        position: 10
+        config:
+            labels:
+                existingDraft: pcmt_core.products_editing.labels.existing_draft

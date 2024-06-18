@@ -1,0 +1,61 @@
+
+<table>
+
+    <tr>
+        <td>
+            <p>
+                <%- sourceLabel %>
+            </p>
+            <select
+                class="select2 sourceKeyAttribute"
+                id="jobInstance_<%- config.fieldCode.replace('.', '_') %>"
+                title="<%- __(config.label) %>"
+                name="sourceKeyAttribute"
+                data-placeholder="<%- sourcePlaceholder %>"
+                <%- true === config.readOnly ? 'readonly disabled' : '' %>
+            >
+
+                <option value=""<% if (!sourceKeyAttribute) { %> selected<% } %>></option>
+                <% _.each(sourceOptions, function (option) { %>
+                    <option
+                        value="<%- option.code %>"
+                        <% if (option.code === sourceKeyAttribute) { %> selected<% } %>
+                    >
+                        <%- i18n.getLabel(option.labels, locale, option.code) %>
+                    </option>
+                <% }); %>
+            </select>
+        </td>
+
+        <td>
+            =>
+        </td>
+
+        <td>
+            <p>
+                <%- destinationLabel %>
+            </p>
+
+            <select
+                    class="select2 destinationKeyAttribute"
+                    id="jobInstance_<%- config.fieldCode.replace('.', '_') %>"
+                    title="<%- __(config.label) %>"
+                    name="destinationKeyAttribute"
+                    data-placeholder="<%- destinationPlaceholder %>"
+            <%- true === config.readOnly ? 'readonly disabled' : '' %>
+            >
+
+                <option value=""<% if (!destinationKeyAttribute) { %> selected<% } %>></option>
+                <% _.each(destinationOptions, function (option) { %>
+                    <option
+                            value="<%- option.code %>"
+                    <% if (option.code === destinationKeyAttribute) { %> selected<% } %>
+                    >
+                        <%- i18n.getLabel(option.labels, locale, option.code) %>
+                    </option>
+                <% }); %>
+            </select>
+        </td>
+
+    </tr>
+</table>

@@ -1,0 +1,106 @@
+######################################################################
+# Copyright (c) 2019, VillageReach
+# Licensed under the Non-Profit Open Software License version 3.0.
+# SPDX-License-Identifier: NPOSL-3.0
+######################################################################
+
+extensions:
+    pim-product-model-edit-form-save:
+        module: pcmt/product-model/edit/form/save
+        parent: pim-product-model-edit-form
+        targetZone: buttons
+        aclResourceId: pcmt_permission_drafts_edit
+        position: 0
+        config:
+            redirect: pcmt_core_drafts_edit
+
+    pcmt-product-model-edit-form-save:
+        module: pcmt/product-model/edit/form/save
+        parent: pcmt-product-model-edit-form-no-draft
+        targetZone: draft
+        aclResourceId: pcmt_permission_drafts_edit
+        position: 0
+        config:
+            redirect: pcmt_core_drafts_edit
+
+    pcmt-product-model-edit-form-save-buttons:
+        module: pim/form/common/save-buttons
+        parent: pcmt-product-model-edit-form-no-draft
+        targetZone: draft
+        position: 120
+
+    pim-product-model-edit-form-attribute-description:
+        module: dnd/product-edit-form/attributes/description
+        parent: pim-product-model-edit-form-attributes
+        targetZone: self
+        position: 100
+
+    pim-product-model-edit-form-attribute-read-only-all-attributes:
+        module: pcmt/product/form/attributes/read-only-all-attributes
+        parent: pim-product-model-edit-form-attributes
+        targetZone: self
+        position: 100
+
+    pcmt-product-model-edit-form-no-draft:
+        module: pcmt/product/form/no-draft
+        parent: pim-product-model-edit-form-column-tabs
+        targetZone: container
+        position: 140
+        config:
+            label: pcmt_core.products_editing.current_draft
+            noDraft:
+                title: pcmt_core.products_editing.noDraft.title
+                description: pcmt_core.products_editing.noDraft.description
+
+    pim-product-model-edit-form-column-tabs-navigation:
+        module: pcmt/product/form/common/column-tabs-navigation
+        parent: pim-product-model-edit-form-left-column
+        targetZone: navigation
+        position: 10
+        config:
+            productNavigationTitle: pim_menu.navigation.product
+            productDraftNavigationTitle: pim_menu.navigation.product_draft
+            redirect: pcmt_core_drafts_edit
+            noDraftTab: 'pcmt-product-model-edit-form-no-draft'
+
+    pim-product-model-edit-form-column-tabs:
+        module: pcmt/product/form/common/column-tabs
+        parent: pim-product-model-edit-form
+        targetZone: content
+        position: 100
+
+    pim-product-model-edit-form-categories:
+        module: pcmt/product/form/categories
+        parent: pim-product-model-edit-form-column-tabs
+        targetZone: container
+        aclResourceId: pim_enrich_product_model_categories_view
+        position: 100
+        config:
+            tabCode: pim-product-edit-form-categories
+            itemCategoryListRoute: pim_enrich_product_model_listcategories
+            itemCategoryTreeRoute: pim_enrich_product_model_category_rest_list
+
+    pim-product-model-edit-form-associations:
+        module: pcmt/product/form/associations
+        parent: pim-product-model-edit-form-column-tabs
+        targetZone: container
+        aclResourceId: pim_enrich_associations_view
+        position: 110
+        config:
+            tabCode: pim-product-edit-form-associations
+            aclAddAssociations: pim_enrich_associations_edit
+            datagridName: 'association-product-model-grid'
+
+    pcmt-product-model-edit-form-label:
+        module: pcmt/product/form/label
+        parent: pim-product-model-edit-form
+        targetZone: state
+        position: 10
+        config:
+            labels:
+                existingDraft: pcmt_core.product_models_editing.labels.existing_draft
+
+    pim-product-model-edit-form-variant-navigation:
+        module: pcmt/product/form/variant-navigation
+        parent: pim-product-model-edit-form
+        targetZone: navigation

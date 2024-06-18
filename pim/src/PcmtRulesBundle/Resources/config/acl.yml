@@ -1,0 +1,30 @@
+######################################################################
+# Copyright (c) 2019, VillageReach
+# Licensed under the Non-Profit Open Software License version 3.0.
+# SPDX-License-Identifier: NPOSL-3.0
+######################################################################
+
+pcmt_permission_rules_view:
+    type: action
+    label: pcmt.permission.rules.label.view
+    group_name: pcmt.permission.rules
+
+pcmt_permission_rules_create:
+    type: action
+    label: pcmt.permission.rules.label.create
+    group_name: pcmt.permission.rules
+
+pcmt_permission_rules_edit:
+    type: action
+    label: pcmt.permission.rules.label.edit
+    group_name: pcmt.permission.rules
+
+pcmt_permission_rules_delete:
+    type: action
+    label: pcmt.permission.rules.label.delete
+    group_name: pcmt.permission.rules
+
+pcmt_permission_rules_run:
+    type: action
+    label: pcmt.permission.rules.label.run
+    group_name: pcmt.permission.rules

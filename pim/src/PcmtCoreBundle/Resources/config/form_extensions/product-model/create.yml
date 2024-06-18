@@ -1,0 +1,11 @@
+extensions:
+
+    pim-product-model-create-sku:
+        module: pim/form/common/creation/field
+        parent: pim-product-model-create-modal
+        targetZone: fields
+        position: 10
+        config:
+            identifier: code
+            label: pim_common.code
+            create_button: on

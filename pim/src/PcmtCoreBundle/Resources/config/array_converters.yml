@@ -1,0 +1,94 @@
+######################################################################
+# Copyright (c) 2019, VillageReach
+# Licensed under the Non-Profit Open Software License version 3.0.
+# SPDX-License-Identifier: NPOSL-3.0
+######################################################################
+
+parameters:
+    pim_connector.array_converter.standard_to_flat.attribute.class: 'PcmtCoreBundle\ArrayConverter\StandardToFlat\AttributeConverter'
+    pim_connector.array_converter.flat_to_standard.attribute.class: 'PcmtCoreBundle\ArrayConverter\FlatToStandard\AttributeConverter'
+
+services:
+    pim_connector.array_converter.standard_to_flat.attribute:
+        class: '%pim_connector.array_converter.standard_to_flat.attribute.class%'
+        arguments:
+            - '@pim_connector.array_converter.standard_to_flat.attribute_base'
+
+    pim_connector.array_converter.standard_to_flat.attribute_base:
+        class: 'Akeneo\Pim\Structure\Component\ArrayConverter\StandardToFlat\Attribute'
+        arguments:
+            -
+                - 'localizable'
+                - 'useable_as_grid_filter'
+                - 'unique'
+                - 'required'
+                - 'scopable'
+                - 'wysiwyg_enabled'
+                - 'decimals_allowed'
+                - 'negative_allowed'
+                - 'auto_option_sorting'
+                - 'is_read_only'
+
+    pim_connector.array_converter.flat_to_standard.attribute:
+        class: 'PcmtCoreBundle\ArrayConverter\FlatToStandard\AttributeConverter'
+        arguments:
+            - '@pim_connector.array_convertor.checker.fields_requirement'
+            - '@pim_connector.array_converter.flat_to_standard.attribute_base'
+
+    pim_connector.array_converter.flat_to_standard.attribute_base:
+        class: 'Akeneo\Pim\Structure\Component\ArrayConverter\FlatToStandard\Attribute'
+        arguments:
+            - '@pim_connector.array_convertor.checker.fields_requirement'
+            -
+                - 'localizable'
+                - 'useable_as_grid_filter'
+                - 'unique'
+                - 'required'
+                - 'scopable'
+                - 'wysiwyg_enabled'
+                - 'decimals_allowed'
+                - 'negative_allowed'
+                - 'auto_option_sorting'
+                - 'is_read_only'
+
+    pim_connector.array_converter.standard_to_flat.concatenated_attribute:
+        class: 'PcmtCoreBundle\ArrayConverter\StandardToFlat\Product\ConcatenatedAttributesConverter'
+        arguments:
+            - '@pim_connector.array_converter.flat_to_standard.product.attribute_columns_resolver'
+            - ['pcmt_catalog_concatenated']
+        tags:
+            - { name: 'pim_connector.array_converter.standard_to_flat.product.value_converter' }
+
+
+    pim_connector.array_converter.flat_to_standard.concatenated_attribute:
+        class: 'PcmtCoreBundle\ArrayConverter\FlatToStandard\Product\ConcatenatedAttributesConverter'
+        parent: pim_connector.array_converter.flat_to_standard.product.value_converter.abstract
+        arguments:
+            - ['pcmt_catalog_concatenated']
+        tags:
+            - { name: 'pim_connector.array_converter.flat_to_standard.product.value_converter' }
+
+    pim_connector.array_converter.flat_to_standard.product.value_converter.metric:
+        class: 'PcmtCoreBundle\ArrayConverter\FlatToStandard\Product\MetricConverter'
+        parent: pim_connector.array_converter.flat_to_standard.product.value_converter.abstract
+        arguments:
+            - ['pim_catalog_metric']
+        tags:
+            - { name: 'pim_connector.array_converter.flat_to_standard.product.value_converter' }
+
+    pim_connector.array_converter.flat_to_standard.product_association:
+        class: 'Akeneo\Pim\Enrichment\Component\Product\Connector\ArrayConverter\FlatToStandard\ProductAssociation'
+        arguments:
+            - '@pcmt_connector.array_converter.flat_to_standard.product'
+
+    pim_connector.array_converter.flat_to_standard.product_delocalized:
+        class: 'Akeneo\Pim\Enrichment\Component\Product\Connector\ArrayConverter\FlatToStandard\EntityWithValuesDelocalized'
+        arguments:
+            - '@pcmt_connector.array_converter.flat_to_standard.product'
+            - '@pim_catalog.localization.localizer.converter'
+
+    pcmt_connector.array_converter.flat_to_standard.product:
+        class: 'PcmtCoreBundle\ArrayConverter\FlatToStandard\Product'
+        arguments:
+            - '@pim_connector.array_converter.flat_to_standard.product'
+            - '@pim_catalog.repository.attribute'

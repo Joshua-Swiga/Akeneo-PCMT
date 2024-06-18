@@ -1,0 +1,16 @@
+pcmt.permission:
+    gdsn: FR GDSN
+    cis: FR Catalog Item Subscriptions
+
+pcmt:
+    cis:
+        datagrid:
+            data_recipients_gln: FR Data Recipient's GLN
+            data_sources_gln: FR Data Source's GLN
+            gtin: FR GTIN
+            gpc_category_code: FR GPC Category Code
+            target_market_country_code: FR Target Market Country Code
+            created: FR Created at
+            button_resubmit: FR Re-submit
+
+

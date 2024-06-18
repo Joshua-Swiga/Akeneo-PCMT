@@ -1,0 +1,17 @@
+######################################################################
+# Copyright (c) 2022, VillageReach
+# Licensed under the Non-Profit Open Software License version 3.0.
+# SPDX-License-Identifier: NPOSL-3.0
+######################################################################
+
+fhir_api_product:
+  resource: '@FhirBundle/Resources/config/routing/product.yml'
+  prefix: /api/fhir
+
+fhir_api_product_model:
+  resource: '@FhirBundle/Resources/config/routing/product_model.yml'
+  prefix: /api/fhir
+
+fhir_mapping:
+  resource: '@FhirBundle/Resources/config/routing/fhir_mapping.yml'
+  prefix: /fhir

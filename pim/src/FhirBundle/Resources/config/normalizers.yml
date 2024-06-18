@@ -1,0 +1,26 @@
+services:
+  fhir_repository:
+    class: Doctrine\ORM\EntityRepository
+    factory: ["@doctrine.orm.entity_manager", getRepository]
+    arguments:
+      - FhirBundle\Entity\FhirMapping
+  fhir_api.normalizer.connector_products:
+    class: 'FhirBundle\Normalizer\ExternalApi\ConnectorProductNormalizer'
+    arguments:
+      - '@pim_api.normalizer.values'
+      - '@fhir_repository'
+      - '@router'
+      - 'identifier'
+      - 'description'
+      - 'marketingAuthorization'
+      - 'other'
+      - '@pim_catalog.repository.category'
+  fhir_api.normalizer.connector_product_models:
+    class: 'FhirBundle\Normalizer\ExternalApi\ConnectorProductModelNormalizer'
+    arguments:
+      - '@pim_api.normalizer.values'
+      - '@fhir_repository'
+      - '@router'
+      - 'identifier'
+      - 'description'
+      - '@pim_catalog.repository.category'

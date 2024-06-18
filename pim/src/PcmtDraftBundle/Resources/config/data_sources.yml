@@ -1,0 +1,48 @@
+parameters:
+    pcmt.datagrid.datasource.associated_product_model.class: PcmtDraftBundle\Datasource\AssociatedProductModelDatasource
+    pcmt.datagrid.datasource.associated_product.class: PcmtDraftBundle\Datasource\AssociatedProductDatasource
+    pim_datagrid.datasource.associated_product_model.class: PcmtDraftBundle\Datasource\OriginalAssociatedProductModelDatasource
+    pim_datagrid.datasource.associated_product.class: PcmtDraftBundle\Datasource\OriginalAssociatedProductDatasource
+
+services:
+
+    pcmt.datagrid.datasource.associated_product:
+        class: '%pcmt.datagrid.datasource.associated_product.class%'
+        arguments:
+            - '@pim_catalog.object_manager.product'
+            - '@pim_enrich.query.product_and_product_model_query_builder_from_size_factory'
+            - '@pim_datagrid_serializer'
+            - '@pim_datagrid.event_subscriber.filter_entity_with_values_subscriber'
+        calls:
+            - [setCreator, ['@pcmt.service.general_object_from_draft_creator']]
+            - [setDraftRepository, ['@pcmt_catalog.repository.draft']]
+        tags:
+            - { name: oro_datagrid.datasource, type: pcmt_datasource_associated_product }
+
+    pcmt.datagrid.datasource.associated_product_model:
+        class: '%pcmt.datagrid.datasource.associated_product_model.class%'
+        arguments:
+            - '@pim_catalog.object_manager.product'
+            - '@pim_enrich.query.product_and_product_model_query_builder_from_size_factory'
+            - '@pim_datagrid_serializer'
+            - '@pim_datagrid.event_subscriber.filter_entity_with_values_subscriber'
+        calls:
+            - [setCreator, ['@pcmt.service.general_object_from_draft_creator']]
+            - [setDraftRepository, ['@pcmt_catalog.repository.draft']]
+        tags:
+            - { name: oro_datagrid.datasource, type: pcmt_datasource_associated_product_model }
+
+    pim_datagrid.datasource.adapter_resolver:
+        class: '%pim_datagrid.datasource.adapter_resolver.class%'
+        arguments:
+            - '%pim_filter.datasource.orm_adapter.class%'
+            - '%pim_filter.datasource.product_orm_adapter.class%'
+        calls:
+            - [addProductDatasource, ['pim_datasource_product']]
+            - [addProductDatasource, ['pim_datasource_associated_product']]
+            - [addProductDatasource, ['pim_datasource_associated_product_model']]
+            - [addProductDatasource, ['pcmt_datasource_associated_product']]
+            - [addProductDatasource, ['pcmt_datasource_associated_product_model']]
+            - [addProductDatasource, ['pim_datasource_group_product']]
+            - [addProductDatasource, ['pimee_datasource_published_product']]
+            - [addProductDatasource, ['pimee_datasource_proposal_product']]

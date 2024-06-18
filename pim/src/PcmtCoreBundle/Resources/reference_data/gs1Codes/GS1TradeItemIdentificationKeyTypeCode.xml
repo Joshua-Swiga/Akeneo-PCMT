@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<codeList xsi:noNamespaceSchemaLocation="http://apps.gs1.org/GDD/Documents/GDDCodeListSchema.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <urn>urn:gs1:gdd:cl:GS1TradeItemIdentificationKeyTypeCode</urn>
+  <name></name>
+  <version>1</version>
+  <domain>gdsn</domain>
+  <code><value>GTIN_12</value><name>GTIN 12</name><description>The 12-digit GS1 Identification Key composed of a U.P.C. Company Prefix, Item Reference, and Check Digit used to identify trade items.</description></code>
+  <code><value>GTIN_13</value><name>GTIN 13</name><description>The 13-digit GS1 Identification Key composed of a GS1 Company Prefix, Item Reference, and Check Digit used to identify trade items.</description></code>
+  <code><value>GTIN_14</value><name>GTIN 14</name><description>The 14-digit GS1 Identification Key composed of an Indicator digit (1-9), GS1 Company Prefix, Item Reference, and Check Digit used to identify trade items.</description></code>
+  <code><value>GTIN_8</value><name>GTIN 8</name><description>The 8-digit GS1 Identification Key composed of a GS1-8 Prefix, Item Reference, and Check Digit used to identify trade items.</description></code>
+</codeList>

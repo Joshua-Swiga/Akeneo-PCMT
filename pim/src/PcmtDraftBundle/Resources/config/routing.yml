@@ -1,0 +1,68 @@
+######################################################################
+# Copyright (c) 2019, VillageReach
+# Licensed under the Non-Profit Open Software License version 3.0.
+# SPDX-License-Identifier: NPOSL-3.0
+######################################################################
+
+pcmt_core_drafts_index:
+    path: /drafts/
+pcmt_core_drafts_edit:
+    path: /drafts/edit/{id}/
+pcmt_core_drafts_api:
+    path: /rest/drafts/
+    defaults: { _controller: pcmt_core.controller.rest.draft:getList }
+    methods: [GET]
+pcmt_core_draft_api:
+    path: /rest/drafts/{id}/
+    defaults: { _controller: pcmt_core.controller.rest.draft:getDraft }
+    requirements:
+        id: \d+
+    methods: [GET]
+pcmt_core_draft_update_api:
+    path: /rest/drafts/{id}/
+    defaults: { _controller: pcmt_core.controller.rest.draft:updateDraft }
+    requirements:
+        id: \d+
+    methods: [POST]
+pcmt_core_drafts_params:
+    path: /rest/drafts/params/
+    defaults: { _controller: pcmt_core.controller.rest.draft:getListParams }
+    methods: [GET]
+pcmt_core_drafts_delete:
+    path: /rest/draft/{id}/
+    defaults: { _controller: pcmt_core.controller.rest.draft:rejectDraft }
+    requirements:
+        id: \d+
+    methods: [DELETE]
+pcmt_core_drafts_actions_bulk:
+    path: /rest/draft/approval/bulk/
+    defaults: { _controller: pcmt_core.controller.rest.draft:actionsBulkDraft }
+    methods: [PUT]
+pcmt_core_drafts_approve:
+    path: /rest/draft/approval/{id}/
+    defaults: { _controller: pcmt_core.controller.rest.draft:approveDraft }
+    requirements:
+        id: \d+
+    methods: [PUT]
+
+pim_enrich_product_toggle_status:
+    path: /{id}/toggle-status
+    defaults: { _controller: pcmt_core.controller.product:toggleStatusAction }
+    requirements:
+        id: '[0-9a-f]+'
+    methods: [POST]
+
+pcmt_draft_product_category_rest_list:
+    path: /rest/draft/product/{id}/categories
+    defaults: { _controller: pcmt.draft.controller.product_category:listAction }
+    requirements:
+        id: '[0-9a-f]+'
+    methods: [GET]
+
+pcmt_draft_product_model_category_rest_list:
+    path: /rest/draft/product_model/{id}/categories
+    defaults: { _controller: pcmt.draft.controller.product_model_category:listAction }
+    requirements:
+        id: '[0-9a-f]+'
+    methods: [GET]
+

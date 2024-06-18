@@ -1,0 +1,84 @@
+config:
+  paths:
+    pim/controller/job-instance: pcmtrules/js/controller/job-instance
+    pim/saver/job-instance-rules: pcmtrules/js/saver/job-instance-rules-saver
+
+    pcmt/rules/fetcher/key-attribute-for-rules: pcmtrules/js/fetcher/key-attribute-for-rules-fetcher
+    pcmt/rules/fetcher/attributes-for-rules-job: pcmtrules/js/fetcher/attributes-for-rules-job-fetcher
+    pcmt/rules/fetcher/attributes-for-f2f-mapping: pcmtrules/js/fetcher/attributes-for-f2f-mapping
+
+    pcmt/rules/job/field/select: pcmtrules/js/job/field/select
+    pcmt/rules/job/field/attribute-select: pcmtrules/js/job/field/attribute-select
+    pcmt/rules/job/field/key-attribute-select: pcmtrules/js/job/field/key-attribute-select
+    pcmt/rules/job/field/destination-attribute-select: pcmtrules/js/job/field/destination-attribute-select
+    pcmt/rules/job/rules/edit/attribute-mapping: pcmtrules/js/job/rules/edit/attribute-mapping
+    pcmt/rules/job/rules/edit/mapping-tab: pcmtrules/js/job/rules/edit/mapping-tab
+
+    pcmt/rules/job/rules/edit/save: pcmtrules/js/job/rules/edit/save
+
+    # Templates
+    pcmt/rules/template/group: pcmtrules/templates/group.html
+
+    pcmt/rules/template/job/field/select: pcmtrules/templates/job/field/select.html
+    pcmt/rules/template/job/field/multiple-select: pcmtrules/templates/job/field/multiple-select.html
+    pcmt/rules/template/job/rules/edit/mapping-tab: pcmtrules/templates/job/rules/edit/mapping-tab.html
+    pcmt/rules/template/job/rules/edit/attribute-mapping: pcmtrules/templates/job/rules/edit/attribute-mapping.html
+    pcmt/rules/template/job/rules/edit/attribute-mapping-row: pcmtrules/templates/job/rules/edit/attribute-mapping-row.html
+    pcmt/rules/template/job/rules/family-copy-by-association-description: pcmtrules/templates/job/rules/family-copy-by-association-description.html
+    pcmt/rules/template/job/rules/family-copy-by-attribute-description: pcmtrules/templates/job/rules/family-copy-by-attribute-description.html
+
+  config:
+    pim/saver/job-instance-rules:
+      url: pcmt_rules_job_instance_rest_rules_put
+    pim/controller-registry:
+      controllers:
+        pcmt_rules_index:
+          module: pcmt/rules/index
+        pcmt_rules_edit:
+          module: pcmt/rules/edit
+        pcmt_rules_profile_index:
+          module: pim/controller/common/index
+          aclResourceId: pcmt_permission_rules_view
+          config:
+            entity: rules-profile
+        pcmt_rules_profile_edit:
+          module: pim/controller/job-instance
+          aclResourceId: pcmt_permission_rules_edit
+        pcmt_rules_profile_show:
+          module: pim/controller/job-instance
+          aclResourceId: pcmt_permission_rules_view
+        pcmt_rules_execution_index:
+          module: pim/controller/common/index
+          aclResourceId: pcmt_permission_rules_view
+          config:
+            entity: import-execution
+        pcmt_rules_execution_show:
+          module: pim/controller/job-execution
+          aclResourceId: pcmt_permission_rules_view
+    pim/fetcher-registry:
+      fetchers:
+        default: pim/base-fetcher
+        key-attribute-for-rule:
+          module: pcmt/rules/fetcher/key-attribute-for-rules
+          options:
+            identifier_type: pim_catalog_identifier
+            urls:
+              list: pcmt_rules_attributes_for_families
+              get: pim_enrich_attribute_rest_get
+        attributes-for-rules-job:
+          module: pcmt/rules/fetcher/attributes-for-rules-job
+          options:
+            identifier_type: pim_catalog_identifier
+            urls:
+              list: pcmt_rules_attributes_for_options
+              get: pim_enrich_attribute_rest_get
+        attributes-for-f2f-mapping:
+          module: pcmt/rules/fetcher/attributes-for-f2f-mapping
+          options:
+            urls:
+              list: pcmt_rules_attributes_for_f2f_mapping
+        job-instance-rules:
+          module: pim/base-fetcher
+          options:
+            urls:
+              get: pcmt_rules_job_instance_rest_rules_get

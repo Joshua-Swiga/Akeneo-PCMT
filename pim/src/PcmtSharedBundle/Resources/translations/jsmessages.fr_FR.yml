@@ -1,0 +1,4 @@
+pcmt.exception.permission.denied:
+    own: 'FR No own access to product basing on category.'
+    edit: 'FR No edit access to product basing on category.'
+    view: 'FR No view access to product basing on category.'

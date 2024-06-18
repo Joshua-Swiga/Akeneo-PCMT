@@ -1,0 +1,6 @@
+services:
+
+    pcmt.cis.updater.subscription:
+        class: 'PcmtCISBundle\Updater\SubscriptionUpdater'
+        arguments:
+            - '@doctrine.orm.entity_manager'

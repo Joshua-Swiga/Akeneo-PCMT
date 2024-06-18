@@ -1,0 +1,172 @@
+######################################################################
+# Copyright (c) 2019, VillageReach
+# Licensed under the Non-Profit Open Software License version 3.0.
+# SPDX-License-Identifier: NPOSL-3.0
+######################################################################
+
+services:
+
+    pcmt.service.builder.response_builder:
+        class: PcmtDraftBundle\Service\Builder\ResponseBuilder
+        arguments:
+            - '@pim_internal_api_serializer'
+
+    pcmt.service.draft_facade:
+        class: PcmtDraftBundle\Service\Draft\DraftFacade
+        arguments:
+            - '@pcmt.service.product_draft_approver'
+            - '@pcmt.service.product_model_draft_approver'
+            - '@pcmt.saver.draft'
+            - '@pcmt.service.draft_rejecter'
+            - '@pcmt.service.associations.bi_directional_association_updater'
+
+    pcmt.service.draft_rejecter:
+        class: PcmtDraftBundle\Service\Draft\DraftRejecter
+        arguments:
+            - '@doctrine.orm.entity_manager'
+            - '@security.token_storage'
+            - '@pcmt.service.category_permissions_checker'
+
+    pcmt.service.product_draft_approver:
+        class: PcmtDraftBundle\Service\Draft\DraftApprover
+        arguments:
+            - '@doctrine.orm.entity_manager'
+            - '@security.token_storage'
+            - '@pim_catalog.validator.product'
+            - '@pim_catalog.saver.product'
+            - '@pcmt.service.general_object_from_draft_creator'
+            - '@pcmt.service.category_permissions_checker'
+
+    pcmt.service.product_model_draft_approver:
+        class: PcmtDraftBundle\Service\Draft\DraftApprover
+        arguments:
+            - '@doctrine.orm.entity_manager'
+            - '@security.token_storage'
+            - '@pim_catalog.validator.product'
+            - '@pim_catalog.saver.product_model'
+            - '@pcmt.service.general_object_from_draft_creator'
+            - '@pcmt.service.category_permissions_checker'
+
+    pcmt.service.draft_values_with_missing_attribute_filter:
+        class: PcmtDraftBundle\Service\Draft\DraftValuesWithMissingAttributeFilter
+        arguments:
+            - '@pim_catalog.repository.attribute'
+
+    pcmt.service.product_from_draft_creator:
+        class: PcmtDraftBundle\Service\Draft\ProductFromDraftCreator
+        arguments:
+            - '@pim_catalog.builder.product'
+            - '@pim_enrich.converter.enrich_to_standard.product_value'
+            - '@pim_catalog.localization.localizer.converter'
+            - '@pim_user.context.user'
+            - '@pim_catalog.comparator.filter.product'
+            - '@pim_catalog.updater.product'
+            - '@pim_enrich.filter.product_attribute_filter'
+            - '@pcmt.service.draft_values_with_missing_attribute_filter'
+
+    pcmt.service.product_model_from_draft_creator:
+        class: PcmtDraftBundle\Service\Draft\ProductModelFromDraftCreator
+        arguments:
+            - '@pim_catalog.factory.product_model'
+            - '@pim_enrich.converter.enrich_to_standard.product_value'
+            - '@pim_catalog.localization.localizer.converter'
+            - '@pim_user.context.user'
+            - '@pim_catalog.comparator.filter.product_model'
+            - '@pim_catalog.updater.product_model'
+            - '@pim_enrich.filter.product_model_attribute_filter'
+            - '@pcmt.service.draft_values_with_missing_attribute_filter'
+
+    pcmt.service.general_object_from_draft_creator:
+        class: PcmtDraftBundle\Service\Draft\GeneralObjectFromDraftCreator
+        arguments:
+            - '@pcmt.service.product_from_draft_creator'
+            - '@pcmt.service.product_model_from_draft_creator'
+            - '@logger'
+
+    pcmt.service.attribute_change:
+        class: PcmtDraftBundle\Service\AttributeChange\AttributeChangeService
+        arguments:
+            - '@pim_versioning.serializer'
+            - '@pim_catalog.repository.attribute'
+
+    pcmt.factory.mass_action_notification:
+        class: 'Akeneo\Platform\Bundle\ImportExportBundle\Factory\MassEditNotificationFactory'
+        arguments:
+            - ['mass_action']
+            - '%pim_notification.entity.notification.class%'
+        tags:
+            - { name: pim_notification.factory.notification }
+
+    pcmt.service.draft.existence_checker:
+        class: 'PcmtDraftBundle\Service\Draft\DraftExistenceChecker'
+        arguments:
+            - '@pcmt_catalog.repository.draft'
+
+    pcmt.service.helper.unexpected_attributes_filter:
+        class: 'PcmtDraftBundle\Service\Helper\UnexpectedAttributesFilter'
+        arguments:
+            - '@pim_catalog.family_variant.provider.entity_with_family_variant_attributes'
+
+    pcmt.service.draft.base_entity_creator.product_model:
+        class: 'PcmtDraftBundle\Service\Draft\BaseProductModelCreatorForDraft'
+        arguments:
+            - '@pim_catalog.updater.product_model'
+            - '@pim_standard_format_serializer'
+
+    pcmt.service.draft.base_entity_creator.product:
+        class: 'PcmtDraftBundle\Service\Draft\BaseProductCreatorForDraft'
+        arguments:
+            - '@pim_catalog.updater.product'
+            - '@pim_standard_format_serializer'
+            - '@pim_catalog.builder.product'
+
+    pcmt.service.creator.product_model:
+        class: 'PcmtDraftBundle\Service\Draft\ProductModelDraftCreator'
+
+    pcmt.service.creator.product:
+        class: 'PcmtDraftBundle\Service\Draft\ProductDraftCreator'
+
+    pcmt.service.draft.provider:
+        class: 'PcmtDraftBundle\Connector\Job\Provider\DraftProvider'
+        arguments:
+            - '@pcmt_catalog.repository.draft'
+
+    pcmt.service.helper.special_category_updater.product:
+        class: 'PcmtDraftBundle\Service\Helper\SpecialCategoryUpdater'
+        arguments:
+            - '@pim_catalog.updater.product'
+
+    pcmt.service.helper.special_category_updater.product_model:
+        class: 'PcmtDraftBundle\Service\Helper\SpecialCategoryUpdater'
+        arguments:
+            - '@pim_catalog.updater.product_model'
+
+    pcmt.service.associations.bi_directional_association_updater:
+        class: 'PcmtDraftBundle\Service\Associations\BiDirectionalAssociationUpdater'
+        arguments:
+            - '@pcmt.service.general_object_from_draft_creator'
+            - '@pcmt.service.associations.association_through_draft_adding'
+            - '@pcmt.service.associations.association_through_draft_removing'
+
+    pcmt.service.associations.association_through_draft_adding:
+        class: 'PcmtDraftBundle\Service\Associations\AssociationThroughDraftAdding'
+        arguments:
+            - '@pcmt.saver.product_through_draft'
+            - '@pcmt.saver.product_model_through_draft'
+            - '@pcmt.service.general_object_from_draft_creator'
+            - '@pcmt_catalog.repository.draft'
+            -
+    pcmt.service.associations.association_through_draft_removing:
+        class: 'PcmtDraftBundle\Service\Associations\AssociationThroughDraftRemoving'
+        arguments:
+            - '@pcmt.saver.product_through_draft'
+            - '@pcmt.saver.product_model_through_draft'
+            - '@pcmt.service.general_object_from_draft_creator'
+            - '@pcmt_catalog.repository.draft'
+
+    pcmt.service.draft.changes_checker:
+        class: 'PcmtDraftBundle\Service\Draft\ChangesChecker'
+        arguments:
+            - '@doctrine.orm.entity_manager'
+            - '@pcmt.service.general_object_from_draft_creator'
+            - '@pcmt.service.attribute_change'

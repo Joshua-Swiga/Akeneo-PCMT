@@ -1,0 +1,10 @@
+.idea
+build/
+pim/.cache
+pim/vendor
+web/
+pim/src/PcmtCoreBundle/Command/PcmtHelperCommand
+pim/phpunit.xml
+conf/ftp-get-creds.env
+conf/rhsc-sftp-openssh
+conf/grafana-creds.json

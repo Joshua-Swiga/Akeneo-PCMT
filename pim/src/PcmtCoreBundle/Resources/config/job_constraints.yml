@@ -1,0 +1,40 @@
+######################################################################
+# Copyright (c) 2019, VillageReach
+# Licensed under the Non-Profit Open Software License version 3.0.
+# SPDX-License-Identifier: NPOSL-3.0
+######################################################################
+
+parameters:
+    pcmt_catalog.job.job_parameters.constraint_collection_provider.compute_family_products_concatenated_attributes_values.class: PcmtCoreBundle\Connector\Job\JobParameters\ConstraintCollectionProvider\ComputeConcatenatedAttributeValuesOfProducts
+
+services:
+    pcmt_catalog.job.job_parameters.constraint_collection_provider.compute_family_products_concatenated_attributes_values:
+        class: '%pcmt_catalog.job.job_parameters.constraint_collection_provider.compute_family_products_concatenated_attributes_values.class%'
+        arguments:
+            - ['compute_concatenated_attributes_values']
+        tags:
+            - { name: akeneo_batch.job.job_parameters.constraint_collection_provider }
+
+    pcmt_connector.job.job_parameters.constraint_collection_provider.reference_data_download_xmls:
+        class: PcmtCoreBundle\Connector\Job\JobParameters\ConstraintCollectionProvider\ReferenceDataXmlDownloadProvider
+        arguments:
+            -
+                - 'reference_data_download_xmls'
+        tags:
+            - { name: akeneo_batch.job.job_parameters.constraint_collection_provider }
+
+    pcmt_connector.job.job_parameters.constraint_collection_provider.reference_data_import_xmls:
+        class: PcmtCoreBundle\Connector\Job\JobParameters\ConstraintCollectionProvider\ReferenceDataXmlImportProvider
+        arguments:
+            -
+                - 'reference_data_import_xml'
+        tags:
+            - { name: akeneo_batch.job.job_parameters.constraint_collection_provider }
+
+    pcmt_connector.job.job_parameters.constraint_collection_provider.pcmt_e2open_import:
+        class: PcmtCoreBundle\Connector\Job\JobParameters\ConstraintCollectionProvider\E2OpenImport
+        arguments:
+            -
+                - 'pcmt_e2open_import'
+        tags:
+            - { name: akeneo_batch.job.job_parameters.constraint_collection_provider }

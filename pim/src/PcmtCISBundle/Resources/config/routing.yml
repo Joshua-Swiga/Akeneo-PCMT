@@ -1,0 +1,7 @@
+pcmt_cis_index:
+    path: /cis
+
+
+pcmt_cis_internal_api_subscription:
+    resource: '@PcmtCISBundle/Resources/config/routing/subscription.yml'
+    prefix: /rest/cis

@@ -1,0 +1,4 @@
+extensions:
+  pim-categorytree-edit-permissions-form:
+    module: pcmt/permissions/permissions
+    parent: pim_enrich_categorytree_edit

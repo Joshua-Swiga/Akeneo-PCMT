@@ -1,0 +1,53 @@
+######################################################################
+# Copyright (c) 2019, VillageReach
+# Licensed under the Non-Profit Open Software License version 3.0.
+# SPDX-License-Identifier: NPOSL-3.0
+######################################################################
+
+extensions:
+    pcmt-product-model-create-modal:
+        module: pcmt/draft/common/modal
+        config:
+            labels:
+                title: pcmt_core.drafts_editing.new_product_model_draft.title
+                subTitle: pim_enrich.entity.product.plural_label
+                content: pim_enrich.entity.product_model.module.create.content
+            picture: illustrations/Product-model.svg
+            successMessage: pcmt.entity.draft.flash.update.success
+            editRoute: pcmt_core_drafts_index
+            postUrl: pcmt_core_draft_update_api
+            excludedProperties: [ family ]
+
+    pcmt-product-model-create-sku:
+        module: pim/form/common/creation/field
+        parent: pcmt-product-model-create-modal
+        targetZone: fields
+        position: 10
+        config:
+            identifier: code
+            label: pim_common.code
+            create_button: on
+
+    pcmt-product-model-create-family:
+        module: pim/form/common/fields/simple-select-async
+        parent: pcmt-product-model-create-modal
+        targetZone: fields
+        position: 20
+        config:
+            fieldName: family
+            required: true
+            label: pim_enrich.entity.family.uppercase_label
+            choiceRoute: pim_enrich_family_index_get_variants
+            placeholder: pim_enrich.entity.product.module.create.choose_family
+
+    pcmt-product-model-create-variant:
+        module: pcmt/draft/form/creation/variant
+        parent: pcmt-product-model-create-modal
+        targetZone: fields
+        position: 30
+        config:
+            fieldName: family_variant
+            label: pim_enrich.entity.product_model.property.family_variant
+            required: true
+            loadUrl: pim_enrich_family_variant_rest_index
+            placeholder: pim_enrich.entity.product.module.create.choose_family_variant

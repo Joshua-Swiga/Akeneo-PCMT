@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<phpunit
+        bootstrap = "vendor/autoload.php"
+        backupGlobals               = "false"
+        backupStaticAttributes      = "false"
+        colors                      = "true"
+        convertErrorsToExceptions   = "true"
+        convertNoticesToExceptions  = "true"
+        convertWarningsToExceptions = "true"
+        processIsolation            = "false"
+        stopOnFailure               = "false">
+    <testsuites>
+        <testsuite name="Unit tests">
+            <directory>./src/*/Tests</directory>
+        </testsuite>
+    </testsuites>
+
+    <filter>
+        <whitelist>
+            <directory suffix=".php">./src/</directory>
+            <exclude>
+                <directory>./src/*/Resources</directory>
+                <directory>./src/*/Tests</directory>
+                <directory>./src/*/Entity</directory>
+                <directory>./src/*/DependencyInjection</directory>
+                <directory>./src/*/upgrades</directory>
+                <directory>./src/*/Exception</directory>
+                <directory>./src/*/Repository</directory>
+                <directory>./src/*/FunctionalTests</directory>
+                <directory>./src/*/Controller</directory>
+                <directory>./src/PcmtRulesBundle/Constraints</directory>
+                <directory>./src/PcmtRulesBundle/Malawi</directory>
+                <directory>./src/*/Command</directory>
+                <directory>./src/*/Constraint</directory>
+                <directory>./src/PcmtRulesBundle/Connector/Job/DefaultValueProvider</directory>
+                <directory>./src/PcmtRulesBundle/Connector/Job/ConstraintCollectionProvider</directory>
+                <directory>./src/PcmtRulesBundle/Event</directory>
+                <directory>./src/PcmtRulesBundle/Provider</directory>
+                <file>./src/PcmtDraftBundle/Controller/DraftController.php</file>
+            </exclude>
+        </whitelist>
+    </filter>
+</phpunit>

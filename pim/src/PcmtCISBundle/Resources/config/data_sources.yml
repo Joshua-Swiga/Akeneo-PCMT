@@ -1,0 +1,8 @@
+services:
+    pcmt.cis.datasource.subscription:
+        class: '%pim_datagrid.datasource.repository.class%'
+        arguments:
+            - '@pcmt.cis.repository.subscription'
+            - '@pim_datagrid.datasource.result_record.hydrator.default'
+        tags:
+            - { name: oro_datagrid.datasource, type: pcmt_cis_datasource_subscription }

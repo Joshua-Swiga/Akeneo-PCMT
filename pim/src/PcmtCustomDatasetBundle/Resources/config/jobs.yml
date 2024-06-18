@@ -1,0 +1,71 @@
+######################################################################
+# Copyright (c) 2019, VillageReach
+# Licensed under the Non-Profit Open Software License version 3.0.
+# SPDX-License-Identifier: NPOSL-3.0
+######################################################################
+
+services:
+
+    pcmt_connector.job.pcmt_xlsx_product_import:
+        class: '%pim_connector.job.simple_job.class%'
+        arguments:
+            - 'pcmt_xlsx_product_import'
+            - '@event_dispatcher'
+            - '@akeneo_batch.job_repository'
+            -
+                - '@pim_connector.step.charset_validator'
+                - '@pcmt_connector.step.pcmt_xlsx_product.import'
+                - '@pim_connector.step.xlsx_product.import_associations'
+        tags:
+            - { name: akeneo_batch.job, connector: 'Pcmt Connector', type: 'import_hidden' }
+
+    pcmt_connector.job.pcmt_xlsx_datagrid_view_export:
+        class: '%pim_connector.job.simple_job.class%'
+        arguments:
+            - 'pcmt_xlsx_datagrid_view_export'
+            - '@event_dispatcher'
+            - '@akeneo_batch.job_repository'
+            -
+                - '@pcmt_connector.step.pcmt_xlsx_datagrid.export'
+        tags:
+            - { name: akeneo_batch.job, connector: 'Pcmt Connector', type: '%pim_connector.job.export_type%' }
+
+    pim_connector.job.pcmt_xlsx_datagrid_view_import:
+        class: '%pim_connector.job.simple_job.class%'
+        arguments:
+            - 'pcmt_xlsx_datagrid_view_import'
+            - '@event_dispatcher'
+            - '@akeneo_batch.job_repository'
+            -
+                - '@pim_connector.step.charset_validator'
+                - '@pim_connector.step.pcmt_xlsx_datagrid_view.import'
+        tags:
+            - { name: akeneo_batch.job, connector: 'Pcmt Connector', type: '%pim_connector.job.import_type%' }
+
+    pcmt_connector.job.xlsx_product_first_import:
+        class: '%pim_connector.job.simple_job.class%'
+        arguments:
+            - 'xlsx_product_first_import'
+            - '@event_dispatcher'
+            - '@akeneo_batch.job_repository'
+            -
+                - '@pim_connector.step.charset_validator'
+                - '@pim_connector.step.xlsx_product.import'
+                - '@pim_connector.step.xlsx_product.import_associations'
+        tags:
+            - { name: akeneo_batch.job, connector: 'Pcmt Connector', type: 'import_hidden' }
+
+    pcmt_connector.job.xlsx_product_model_first_import:
+        class: '%pim_connector.job.simple_job.class%'
+        arguments:
+            - 'xlsx_product_model_first_import'
+            - '@event_dispatcher'
+            - '@akeneo_batch.job_repository'
+            -
+                - '@pim_connector.step.charset_validator'
+                - '@pim_connector.step.xlsx_root_product_model.import'
+                - '@pim_connector.step.xlsx_sub_product_model.import'
+                - '@pim_connector.step.xlsx_compute_product_models_descendants.import'
+                - '@pim_connector.step.xlsx_product_model.import_associations'
+        tags:
+            - { name: akeneo_batch.job, connector: 'Pcmt Connector', type: 'import_hidden' }

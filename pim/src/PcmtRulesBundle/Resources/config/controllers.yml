@@ -1,0 +1,15 @@
+services:
+
+    pcmt.controller.rest.attributes:
+        class: 'PcmtRulesBundle\Controller\AttributeController'
+        arguments:
+            - '@pim_catalog.repository.family'
+            - '@pim_enrich.normalizer.attribute'
+            - '@pim_user.context.user'
+            - '@pcmt.service.rule_attribute_provider'
+        public: true
+
+    pcmt.controller.rest.rules_profile_job_instance:
+        class: 'PcmtRulesBundle\Controller\PcmtJobInstanceController'
+        parent: pim_enrich.controller.rest.job_instance
+        public: true

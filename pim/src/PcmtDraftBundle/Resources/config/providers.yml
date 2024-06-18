@@ -1,0 +1,30 @@
+######################################################################
+# Copyright (c) 2019, VillageReach
+# Licensed under the Non-Profit Open Software License version 3.0.
+# SPDX-License-Identifier: NPOSL-3.0
+######################################################################
+
+services:
+    pcmt.provider.form.draft:
+        class: 'PcmtDraftBundle\Provider\Form\DraftFormProvider'
+
+    pcmt.provider.form.product-model-draft:
+        class: 'PcmtDraftBundle\Provider\Form\ProductModelDraftFormProvider'
+
+    pim_enrich.connector.job.job_parameters.constraint_collection_provider.drafts_bulk_actions:
+        class: 'PcmtDraftBundle\Connector\Job\JobParameters\ConstraintCollectionProvider\DraftsBulkActions'
+        arguments:
+            -
+                - 'job_drafts_bulk_approve'
+                - 'job_drafts_bulk_reject'
+        tags:
+            - { name: akeneo_batch.job.job_parameters.constraint_collection_provider }
+
+    pim_enrich.connector.job.job_parameters.default_values_provider.drafts_bulk_actions:
+        class: 'PcmtDraftBundle\Connector\Job\JobParameters\DefaultValueProvider\DraftsBulkActions'
+        arguments:
+            -
+                - 'job_drafts_bulk_approve'
+                - 'job_drafts_bulk_reject'
+        tags:
+            - { name: akeneo_batch.job.job_parameters.default_values_provider }

@@ -1,0 +1,740 @@
+######################################################################
+# Copyright (c) 2019, VillageReach
+# Licensed under the Non-Profit Open Software License version 3.0.
+# SPDX-License-Identifier: NPOSL-3.0
+######################################################################
+
+stages:
+  - build
+  - deploy
+
+variables:
+  DOCKER_HOST: tcp://docker:2375
+  DOCKER_DRIVER: overlay2
+
+default:
+  image:
+    name: docker/compose:1.25.3
+    entrypoint: ["/bin/sh", "-c"]
+  services:
+    - docker:dind
+  before_script:
+    - docker info
+    - docker login -u $DOCKER_HUB_USER -p $DOCKER_HUB_PASS
+    - apk add bash make git curl libxml2-utils bc
+    - bash --version
+
+include:
+  - local: '.gitlab-ci.env-demo.yml'
+
+
+############### PCMT VERSIONS (for deploy) ###############
+
+
+.pcmt_v_2_4_3:
+  variables:
+    PCMT_VER: '2.4.3'
+    PCMT_ASSET_URL: 'https://gitlab.com/pcmt/pcmt/-/archive/v2.4.3/pcmt-v2.4.3.tar.gz'
+.pcmt_v_2_3_2:
+  variables:
+    PCMT_VER: '2.3.2'
+    PCMT_ASSET_URL: 'https://gitlab.com/pcmt/pcmt/-/archive/v2.3.2/pcmt-v2.3.2.tar.gz'
+.pcmt_v_2_2_2:
+  variables:
+    PCMT_VER: '2.2.2'
+    PCMT_ASSET_URL: 'https://gitlab.com/pcmt/pcmt/-/archive/v2.2.2/pcmt-v2.2.2.tar.gz'
+.pcmt_v_2_2_1:
+  variables:
+    PCMT_VER: '2.2.1'
+    PCMT_ASSET_URL: 'https://gitlab.com/pcmt/pcmt/-/archive/v2.2.1/pcmt-v2.2.1.tar.gz'
+.pcmt_v_2_2_0:
+  variables:
+    PCMT_VER: '2.2.0'
+    PCMT_ASSET_URL: 'https://gitlab.com/pcmt/pcmt/-/archive/v2.2.0/pcmt-v2.2.0.tar.gz'
+.pcmt_v_1_1_4:
+  variables:
+    PCMT_VER: '1.1.4'
+    PCMT_ASSET_URL: 'https://gitlab.com/pcmt/pcmt/-/archive/v1.1.4/pcmt-v1.1.4.tar.gz'
+
+############### PIM ###############
+
+.pim_only_changes:
+  only:
+    changes:
+      - '.gitlab-ci.yml'
+      - 'pim/**/*'
+      - '.env'
+      - 'conf/**/*'
+      - 'docker-compose.yml'
+      - 'docker-compose.tls.yml'
+      - 'docker-compose.prod.yml'
+
+.pim_docker_build:
+  stage: build
+  script:
+    - bin/ci-build.sh
+    - bin/ci-parse-coverage.sh $CODE_COVERAGE_THRESHOLD
+    - bin/ci-push.sh
+  except:
+    variables:
+      - $CI_SELENIUM == "true"
+  artifacts:
+    reports:
+      junit: build/unit-results.xml
+
+.pim_erd_base:
+  stage: deploy
+  allow_failure: true
+  script:
+    - bin/ci-erd.sh "http://docker"
+  artifacts:
+    paths:
+      - build/erd/
+    expire_in: "7 days"
+
+
+pim docker build (on git push):
+  extends:
+    - .pim_docker_build
+    - .pim_only_changes
+
+pim docker build (manual retry):
+  extends: .pim_docker_build
+  when: manual
+
+pim_erd:
+  extends:
+    - .pim_only_changes
+    - .pim_erd_base
+  except:
+    variables:
+      - $CI_SELENIUM == "true"
+  only:
+    refs:
+      - master@pcmt/pcmt
+
+pim_erd (manual):
+  extends:
+    - .pim_erd_base
+  when: manual
+
+pim_behat_api (manual):
+  stage: build
+  script:
+    - bin/ci-behat.sh
+  except:
+    variables:
+      - $CI_SELENIUM == "true"
+  when: manual
+
+pim_behat_api (scheduled):
+  stage: build
+  only:
+    refs:
+      - master
+      - schedules
+    variables:
+      - $CI_SELENIUM == "true"
+  script:
+    - bin/ci-behat.sh
+
+############### IoC ###############
+
+ansible docker build:
+  stage: build
+  only:
+    refs:
+      - master@pcmt/pcmt
+    changes:
+      - deploy/ansible/**/*
+  except:
+    variables:
+    - $CI_SELENIUM == "true"
+  script:
+    - make ansible
+    - docker push pcmt/ansible:latest
+
+terraform docker build:
+  stage: build
+  only:
+    refs:
+      - master@pcmt/pcmt
+    changes:
+      - deploy/terraform/**/*
+  except:
+    variables:
+      - $CI_SELENIUM == "true"
+  script:
+    - make terraform
+    - docker push pcmt/terraform:latest
+
+cron docker build:
+  stage: build
+  only:
+    refs:
+      - master@pcmt/pcmt
+    changes:
+      - deploy/cron/**/*
+  except:
+    changes:
+      - deploy/mysql-backup/**/*
+  script:
+    - make cron
+    - docker push pcmt/cron:latest
+
+mysql-backup docker build:
+  stage: build
+  only:
+    refs:
+      - master@pcmt/pcmt
+    changes:
+      - deploy/mysql-backup/**/*
+      - deploy/cron/**/*
+  except:
+    variables:
+      - $CI_SELENIUM == "true"
+  script:
+    - make mysql-backup
+    - docker push pcmt/cron:latest
+    - docker push pcmt/mysql-backup:latest
+
+asset-backup docker build:
+  stage: build
+  only:
+    refs:
+      - master@pcmt/pcmt
+    changes:
+      - deploy/asset-backup/**/*
+      - deploy/cron/**/*
+  except:
+    variables:
+      - $CI_SELENIUM == "true"
+  script:
+    - make asset-backup
+    - docker push pcmt/cron:latest
+    - docker push pcmt/asset-backup:latest
+
+s3 docker build:
+  stage: build
+  only:
+    refs:
+      - master@pcmt/pcmt
+    changes:
+      - deploy/s3/**/*
+      - deploy/cron/**/*
+  except:
+    variables:
+      - $CI_SELENIUM == "true"
+  script:
+    - make s3
+    - docker push pcmt/cron:latest
+    - docker push pcmt/s3:latest
+
+ftp-get docker build:
+  stage: build
+  only:
+    refs:
+      - master@pcmt/pcmt
+    changes:
+      - deploy/ftp-get/**/*
+      - deploy/cron/**/*
+  except:
+    variables:
+      - $CI_SELENIUM == "true"
+  script:
+    - make ftp-get
+    - docker push pcmt/cron:latest
+    - docker push pcmt/ftp-get:latest
+
+ftp-put docker build:
+  stage: build
+  only:
+    refs:
+      - master@pcmt/pcmt
+    changes:
+      - deploy/ftp-put/**/*
+      - deploy/cron/**/*
+  except:
+    variables:
+      - $CI_SELENIUM == "true"
+  script:
+    - make ftp-put
+    - docker push pcmt/cron:latest
+    - docker push pcmt/ftp-put:latest
+
+scp-put docker build:
+  stage: build
+  only:
+    refs:
+      - master@pcmt/pcmt
+    changes:
+      - deploy/scp-put/**/*
+  except:
+    variables:
+      - $CI_SELENIUM == "true"
+  script:
+    - make scp-put
+    - docker push pcmt/scp-put:latest
+
+############### Showcase Environment ###############
+
+.env-showcase:
+  extends:
+    - .pim_only_changes
+  stage: deploy
+  only:
+    - master@pcmt/pcmt
+  when: manual
+  environment:
+    name: showcase
+    url: http://showcase.pcmt.villagereach.org
+    on_stop: env-showcase-destroy
+
+.env-showcase_script-deploy:
+  script:
+    - ./bin/ci-deploy.sh showcase
+    
+.env-showcase_script-destroy:
+  script: 
+    - ./deploy/terraform/run-docker.sh showcase destroy -auto-approve
+
+env-showcase (WIPE DB):
+  extends:
+    - .env-showcase
+    - .env-showcase_script-deploy
+  variables:
+    PCMT_PROFILE: dev
+
+env-showcase (KEEP DB):
+  extends:
+    - .env-showcase
+    - .env-showcase_script-deploy
+  variables:
+    PCMT_PROFILE: production
+
+env-showcase-destroy:
+  extends:
+    - .env-showcase
+    - .env-showcase_script-destroy
+  environment:
+    name: showcase
+    action: stop
+
+############### Test Environment ###############
+
+.env-test:
+  extends:
+    - .pim_only_changes
+  stage: deploy
+  variables:
+    PCMT_PROFILE: dev
+  except:
+    variables:
+      - $CI_SELENIUM == "true"
+  environment:
+    name: test
+    url: http://test.pcmt.villagereach.org
+    on_stop: env-test-destroy
+
+.env-test_script-deploy:
+  script:
+    - ./bin/ci-deploy.sh test
+    
+.env-test_script-destroy:
+  script:
+    - ./deploy/terraform/run-docker.sh test destroy -auto-approve
+
+env-test:
+  extends:
+    - .env-test
+    - .env-test_script-deploy
+  only:
+    refs:
+      - master@pcmt/pcmt
+
+env-test (manual):
+  extends:
+    - .env-test
+    - .env-test_script-deploy
+  only:
+    changes:
+      - '**/*'
+  when: manual
+
+env-test-destroy:
+  extends:
+    - .env-test
+    - .env-test_script-destroy
+  when: manual
+  environment:
+    name: test 
+    action: stop
+
+############### Test.productcatalog.io Environment ###############
+
+.env-test-pc-io:
+  extends:
+    - .pcmt_v_2_4_3
+  stage: deploy
+  when: manual
+  needs: []
+  variables:
+    PCMT_PROFILE: dev
+  environment:
+    name: test-pc-io
+    url: http://test.productcatalog.io
+    on_stop: env-test-pc-io-destroy
+
+.env-test-pc-io_script-deploy:
+  script:
+    - ./bin/ci-deploy.sh test-pc-io
+    
+.env-test-pc-io_script-destroy:
+  script:
+    - ./deploy/terraform/run-docker.sh test-pc-io destroy -auto-approve
+
+env-test-pc-io:
+  extends:
+    - .env-test-pc-io
+    - .env-test-pc-io_script-deploy
+
+env-test-pc-io-destroy:
+  extends:
+    - .env-test-pc-io
+    - .env-test-pc-io_script-destroy
+  when: manual
+  environment:
+    name: test-pc-io
+    action: stop
+
+############### GFPVAN Prod Environment ###############
+
+.env-gfpvan:
+  extends:
+    - .pcmt_v_2_2_2
+  stage: deploy
+  only:
+    - master@pcmt/pcmt
+  when: manual
+  needs: []
+  environment:
+    name: gfpvan
+    url: http://gfpvan-prod.productcatalog.io
+    on_stop: env-gfpvan-destroy
+
+.env-gfpvan_script-deploy:
+  script:
+    - source .ci-gfpvan.env
+    - ./bin/ci-deploy.sh gfpvan
+    
+env-gfpvan (WIPE DB):
+  extends:
+    - .env-gfpvan
+    - .env-gfpvan_script-deploy
+  variables:
+    PCMT_PROFILE: dev
+
+env-gfpvan (KEEP DB):
+  extends:
+    - .env-gfpvan
+    - .env-gfpvan_script-deploy
+  variables:
+    PCMT_PROFILE: production
+
+env-gfpvan-destroy:
+  extends:
+    - .env-gfpvan
+  script: 
+    - ./deploy/terraform/run-docker.sh gfpvan destroy -auto-approve
+  environment:
+    name: gfpvan
+    action: stop
+
+############### GFPVAN UAT Environment ###############
+
+.env-gfpvan-uat:
+  extends:
+    - .pcmt_v_2_2_1
+  stage: deploy
+  only:
+    - master@pcmt/pcmt
+  when: manual
+  needs: []
+  environment:
+    name: gfpvan-uat
+    url: http://gfpvan-uat.pcmt.villagereach.org
+    on_stop: env-gfpvan-uat-destroy
+
+.env-gfpvan-uat_script-deploy:
+  script:
+    - source .ci-gfpvan-uat.env
+    - ./bin/ci-deploy.sh gfpvan-uat
+    
+env-gfpvan-uat (WIPE DB):
+  extends:
+    - .env-gfpvan-uat
+    - .env-gfpvan-uat_script-deploy
+  variables:
+    PCMT_PROFILE: dev
+
+env-gfpvan-uat (KEEP DB):
+  extends:
+    - .env-gfpvan-uat
+    - .env-gfpvan-uat_script-deploy
+  variables:
+    PCMT_PROFILE: production
+
+env-gfpvan-uat-destroy:
+  extends:
+    - .env-gfpvan-uat
+  script: 
+    - ./deploy/terraform/run-docker.sh gfpvan-uat destroy -auto-approve
+  environment:
+    name: gfpvan-uat
+    action: stop
+
+
+############### CHAI COVID REF Environment ###############
+
+.env-covid-ref:
+  extends:
+    - .pcmt_v_1_1_4
+  stage: deploy
+  when: manual
+  needs: []
+  environment:
+    name: covid-ref
+    url: http://covid-ref.productcatalog.io
+    on_stop: env-covid-ref-destroy
+
+.env-covid-ref_script-deploy:
+  script:
+    - source .ci-chai.env
+    - ./bin/ci-deploy.sh covid-ref
+    
+env-covid-ref (WIPE DB):
+  extends:
+    - .env-covid-ref
+    - .env-covid-ref_script-deploy
+  variables:
+    PCMT_PROFILE: dev
+
+env-covid-ref (KEEP DB):
+  extends:
+    - .env-covid-ref
+    - .env-covid-ref_script-deploy
+  variables:
+    PCMT_PROFILE: production
+
+env-covid-ref-destroy:
+  extends:
+    - .env-covid-ref
+  script: 
+    - ./deploy/terraform/run-docker.sh covid-ref destroy -auto-approve
+  environment:
+    name: covid-ref
+    action: stop
+
+
+############### CHAI Cameroon COVID Environment ###############
+
+.env-cameroon-covid:
+  extends:
+    - .pcmt_v_1_1_4
+  stage: deploy
+  when: manual
+  needs: []
+  environment:
+    name: cameroon-covid
+    url: http://cameroon-covid.productcatalog.io
+    on_stop: env-cameroon-covid-destroy
+
+.env-cameroon-covid_script-deploy:
+  script:
+    - source .ci-chai.env
+    - ./bin/ci-deploy.sh cameroon-covid
+    
+env-cameroon-covid (WIPE DB):
+  extends:
+    - .env-cameroon-covid
+    - .env-cameroon-covid_script-deploy
+  variables:
+    PCMT_PROFILE: dev
+
+env-cameroon-covid (KEEP DB):
+  extends:
+    - .env-cameroon-covid
+    - .env-cameroon-covid_script-deploy
+  variables:
+    PCMT_PROFILE: production
+
+env-cameroon-covid-destroy:
+  extends:
+    - .env-cameroon-covid
+  script: 
+    - ./deploy/terraform/run-docker.sh cameroon-covid destroy -auto-approve
+  environment:
+    name: cameroon-covid
+    action: stop
+
+
+############### CHAI Zimbabwe COVID Environment ###############
+
+.env-zimbabwe-covid:
+  extends:
+    - .pcmt_v_1_1_4
+  stage: deploy
+  when: manual
+  needs: []
+  environment:
+    name: zimbabwe-covid
+    url: http://zimbabwe-covid.productcatalog.io
+    on_stop: env-zimbabwe-covid-destroy
+
+.env-zimbabwe-covid_script-deploy:
+  script:
+    - source .ci-chai.env
+    - ./bin/ci-deploy.sh zimbabwe-covid
+    
+env-zimbabwe-covid (WIPE DB):
+  extends:
+    - .env-zimbabwe-covid
+    - .env-zimbabwe-covid_script-deploy
+  variables:
+    PCMT_PROFILE: dev
+
+env-zimbabwe-covid (KEEP DB):
+  extends:
+    - .env-zimbabwe-covid
+    - .env-zimbabwe-covid_script-deploy
+  variables:
+    PCMT_PROFILE: production
+
+env-zimbabwe-covid-destroy:
+  extends:
+    - .env-zimbabwe-covid
+  script: 
+    - ./deploy/terraform/run-docker.sh zimbabwe-covid destroy -auto-approve
+  environment:
+    name: zimbabwe-covid
+    action: stop
+
+############### Malawi Environment ###############
+
+.env-malawi:
+  extends:
+    - .pcmt_v_2_4_3
+  stage: deploy
+  when: manual
+  needs: []
+  environment:
+    name: malawi
+    url: http://malawi.productcatalog.io
+    on_stop: env-malawi-destroy
+
+.env-malawi_script-deploy:
+  script:
+    - ./bin/ci-deploy.sh malawi
+    
+env-malawi (WIPE DB):
+  extends:
+    - .env-malawi
+    - .env-malawi_script-deploy
+  variables:
+    PCMT_PROFILE: dev
+
+env-malawi (KEEP DB):
+  extends:
+    - .env-malawi
+    - .env-malawi_script-deploy
+  variables:
+    PCMT_PROFILE: production
+
+env-malawi-destroy:
+  extends:
+    - .env-malawi
+  script: 
+    - ./deploy/terraform/run-docker.sh malawi destroy -auto-approve
+  environment:
+    name: malawi
+    action: stop
+
+############### Malawi UAT Environment ###############
+
+.env-malawi-uat:
+  extends:
+    - .pcmt_v_2_4_3
+  stage: deploy
+  when: manual
+  needs: []
+  environment:
+    name: malawi-uat
+    url: http://malawi-uat.productcatalog.io
+    on_stop: env-malawi-uat-destroy
+
+.env-malawi-uat_script-deploy:
+  script:
+    - ./bin/ci-deploy.sh malawi-uat
+    
+env-malawi-uat (WIPE DB):
+  extends:
+    - .env-malawi-uat
+    - .env-malawi-uat_script-deploy
+  variables:
+    PCMT_PROFILE: dev
+
+env-malawi-uat (KEEP DB):
+  extends:
+    - .env-malawi-uat
+    - .env-malawi-uat_script-deploy
+  variables:
+    PCMT_PROFILE: production
+
+env-malawi-uat-destroy:
+  extends:
+    - .env-malawi-uat
+  script: 
+    - ./deploy/terraform/run-docker.sh malawi-uat destroy -auto-approve
+  environment:
+    name: malawi-uat
+    action: stop
+
+############### DDCC Environment ###############
+
+.env-ddcc:
+  extends:
+    - .pcmt_v_2_3_2
+  stage: deploy
+  when: manual
+  needs: []
+  environment:
+    name: ddcc
+    url: http://ddcc.productcatalog.io
+    on_stop: env-ddcc-destroy
+
+.env-ddcc_script-deploy:
+  script:
+    - ./bin/ci-deploy.sh ddcc
+    
+env-ddcc (WIPE DB):
+  extends:
+    - .env-ddcc
+    - .env-ddcc_script-deploy
+  variables:
+    PCMT_PROFILE: dev
+
+env-ddcc (KEEP DB):
+  extends:
+    - .env-ddcc
+    - .env-ddcc_script-deploy
+  variables:
+    PCMT_PROFILE: production
+
+env-ddcc-destroy:
+  extends:
+    - .env-ddcc
+  script: 
+    - ./deploy/terraform/run-docker.sh ddcc destroy -auto-approve
+  environment:
+    name: ddcc
+    action: stop

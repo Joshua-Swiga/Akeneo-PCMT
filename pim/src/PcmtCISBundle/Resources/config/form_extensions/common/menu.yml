@@ -1,0 +1,9 @@
+extensions:
+  pim-menu-system-cis:
+    module: pim/menu/item
+    parent: pim-menu-system-navigation-block
+    aclResourceId: pcmt_permission_cis
+    position: 130
+    config:
+      title: pim_menu.item.cis
+      to: pcmt_cis_index

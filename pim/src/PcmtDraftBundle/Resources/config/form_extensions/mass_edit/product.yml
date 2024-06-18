@@ -1,0 +1,8 @@
+extensions:
+
+  pim-mass-product-edit-configure-change-family:
+    module: pcmt/mass-edit-form/product/change-family-disabled
+    position: -1
+    parent:
+
+

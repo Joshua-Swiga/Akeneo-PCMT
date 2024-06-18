@@ -1,0 +1,28 @@
+PcmtPermissionsBundle\Entity\CategoryAccess:
+    type: entity
+    table: pcmt_catalog_category_access
+    changeTrackingPolicy: DEFERRED_EXPLICIT
+    repositoryClass: PcmtPermissionsBundle\Repository\CategoryAccessRepository
+    fields:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+        level:
+            type: string
+    manyToOne:
+        category:
+            targetEntity: Akeneo\Pim\Enrichment\Component\Category\Model\CategoryInterface
+            joinColumn:
+                name: category_id
+                referencedColumnName: id
+                onDelete: CASCADE
+        userGroup:
+            targetEntity: Akeneo\UserManagement\Component\Model\Group
+            joinColumn:
+                name: user_group_id
+                referencedColumnName: id
+                onDelete: CASCADE
+
+

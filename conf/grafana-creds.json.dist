@@ -1,0 +1,7 @@
+{
+  "loki_url": "",
+  "loki_username": "",
+  "prometheus_url": "",
+  "prometheus_username": "",
+  "token": ""
+}

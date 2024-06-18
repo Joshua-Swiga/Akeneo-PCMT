@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<codeList xsi:noNamespaceSchemaLocation="http://apps.gs1.org/GDD/Documents/GDDCodeListSchema.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<urn>urn:gs1:gdd:cl:TemperatureQualifierCode</urn>
+	<name></name>
+	<version>2</version>
+	<domain>gdsn</domain>
+	<code><value>DELIVERY_TO_DISTRIBUTION_CENTRE</value><name>Delivery To Distribution Centre</name><description>Trade Item is in transport to the distribution center.</description></code>
+	<code><value>DELIVERY_TO_MARKET</value><name>Delivery To Market</name><description>Trade Item is in transport to market.</description></code>
+	<code><value>INLET_TEMPERATURE</value><name>Inlet Temperature</name><description>Indicates the maximum inlet temperature of a gas or fluid into an electrical or mechanical device for e.g. an electric pressure washer. Outside this maximum inlet temperature the device may fail.</description></code>
+	<code><value>OPERATING_TEMPERATURE</value><name>Operating Temperature</name><description>Indicates the maximum operating temperature. An operating temperature is the temperature at which an electrical or mechanical device operates effectively. The device will operate effectively within a specified temperature range which varies based on the device function and application context, and ranges from the minimum operating temperature to the maximum operating temperature (or peak operating temperature). Outside this range of safe operating temperatures the device may fail.</description></code>
+	<code><value>STORAGE_AFTER_OPENING</value><name>Storage After Opening </name><description>Specifies the temperature the product is to be maintained at after its seal has been broken and the product has been exposed to the elements.</description></code>
+	<code><value>STORAGE_AFTER_OVERWRAP</value><name>Storage After Removing Overwrap</name><description>Specifies the temperature the product is to be maintained at  after  removing a product’s protective overwrap or moisture barrier.</description></code>
+	<code><value>STORAGE_AFTER_RECONSTITUTION</value><name>Storage After Reconstitution</name><description>Specifies the temperature the product is to be maintained at after adding liquid to mix or dilute the product.</description></code>
+	<code><value>STORAGE_HANDLING</value><name>Storage and Handling</name><description>Trade Item is being stored or handled.</description></code>
+	<code><value>TRANSPORTATION</value><name>Transportation</name><description>Trade item is in process of being transported in the supply chain.</description></code>
+	<code><value>WORKING_TEMPERATURE</value><name>Working Temperature</name><description>Indicates the maximal working temperature or outside temperature where an electrical or mechanical device will operate effectively.</description></code>
+</codeList>

@@ -1,0 +1,584 @@
+######################################################################
+# Copyright (c) 2019, VillageReach
+# Licensed under the Non-Profit Open Software License version 3.0.
+# SPDX-License-Identifier: NPOSL-3.0
+######################################################################
+
+measures_config:
+    GDSN_Unit_Of_Measure:
+        standard:
+        units:
+            KILOGRAM FORCE:
+                symbol: B37
+            KILONEWTON:
+                symbol: B47
+            MILLIMETRE PER SECOND:
+                symbol: C16
+            HUNDREDTHS OF AN INCH:
+                symbol: X_HIN
+            COUNT:
+                symbol: 1N
+            GRAMS PER CUBIC CENTIMETRE:
+                symbol: 23
+            KILOGRAM PER SQUARE METRE:
+                symbol: 28
+            CUBIC FOOT PER MINUTE:
+                symbol: 2L
+            CENTIMETRE PER SECOND:
+                symbol: 2M
+            DECIBEL:
+                symbol: 2N
+            KILOBYTE:
+                symbol: 2P
+            KILO BECQUEREL:
+                symbol: 2Q
+            METRE PER MINUTE:
+                symbol: 2X
+            MICROLITRE:
+                symbol: 4G
+            MICROMETRE:
+                symbol: 4H
+            MEGABYTE:
+                symbol: 4L
+            MEGABECQUEREL:
+                symbol: 4N
+            NET KILOGRAM:
+                symbol: 58
+            PART PER MILLION:
+                symbol: 59
+            BATCH:
+                symbol: 5B
+            POUND PER SQUARE INCH - GAUGE:
+                symbol: 64
+            POUND PER SQUARE INCH - ABSOLUTE:
+                symbol: 80
+            ANGSTROM:
+                symbol: A11
+            CANDELA PER SQUARE METRE:
+                symbol: A24
+            DEADWEIGHT TONNAGE:
+                symbol: A43
+            FEMTOMETRE:
+                symbol: A71
+            GIGAHERTZ:
+                symbol: A86
+            BYTE:
+                symbol: AD
+            AMPERE HOUR:
+                symbol: AMH
+            AMPERE:
+                symbol: AMP
+            YEAR:
+                symbol: ANN
+            TROY OUNCE OR APOTHECARY OUNCE:
+                symbol: APZ
+            ASSORTMENT:
+                symbol: AS
+            STANDARD ATMOSPHERE:
+                symbol: ATM
+            TECHNICAL ATMOSPHERE:
+                symbol: ATT
+            GAUGE:
+                symbol: AWG
+            ANTI XA UNIT:
+                symbol: AXU
+            BIT PER SECOND:
+                symbol: B10
+            LUMENS PER SQUARE METER:
+                symbol: B60
+            LUMENS PER WATT:
+                symbol: B61
+            LUMEN SECONDS:
+                symbol: B62
+            LUX SECONDS:
+                symbol: B64
+            BAR (UNIT OF PRESSURE):
+                symbol: BAR
+            BASE BOX:
+                symbol: BB
+            BOARD FOOT:
+                symbol: BFT
+            BARREL US:
+                symbol: BLL
+            HUNDRED BOARD FOOT:
+                symbol: BP
+            BEATS PER MINUTE:
+                symbol: BPM
+            BECQUEREL:
+                symbol: BQL
+            BRITISH THERMAL UNIT:
+                symbol: BTU
+            BUSHEL (US):
+                symbol: BUA
+            BUSHEL (UK):
+                symbol: BUI
+            MILLIMOLE:
+                symbol: C18
+            MILLISECOND:
+                symbol: C26
+            MOLE:
+                symbol: C34
+            NANOMETRE:
+                symbol: C45
+            PICOMETRE:
+                symbol: C52
+            PICOWATT:
+                symbol: C75
+            DEGREE CELSIUS:
+                symbol: CEL
+            COLONY FORMING UNITS:
+                symbol: CFU
+            CARD:
+                symbol: CG
+            CENTIGRAM:
+                symbol: CGM
+            CENTILITRE:
+                symbol: CLT
+            SQUARE CENTIMETRE:
+                symbol: CMK
+            CUBIC CENTIMETRE:
+                symbol: CMQ
+            CENTIMETRE:
+                symbol: CMT
+            METRIC CARAT:
+                symbol: CTM
+            HUNDRED POUND (CWT) / HUNDRED WEIGHT (US):
+                symbol: CWA
+            HUNDRED WEIGHT (UK):
+                symbol: CWI
+            KILOWATT / HOUR:
+                symbol: D03
+            SQUARE METRE KELVIN PER WATT:
+                symbol: D19
+            TERAHERTZ:
+                symbol: D29
+            TERAJOULE:
+                symbol: D30
+            TERAWATT HOUR:
+                symbol: D32
+            THOUSAND LITRE:
+                symbol: D40
+            ATOMIC MASS UNITS (AMU):
+                symbol: D43
+            KILOGRAM PER SQUARE CENTIMETRE:
+                symbol: D5
+            HEAT TRANSFER COEFFICIENT:
+                symbol: D55
+            BOOK:
+                symbol: D63
+            CALORIE - INTERNATIONAL TABLE (IT):
+                symbol: D70
+            DAYS:
+                symbol: DAY
+            DEGREE (UNIT OF ANGEL):
+                symbol: DD
+            DECIGRAM:
+                symbol: DG
+            DECILITRE:
+                symbol: DLT
+            SQUARE DECIMETRE:
+                symbol: DMK
+            CUBIC DECIMETRE:
+                symbol: DMQ
+            DECIMETRE:
+                symbol: DMT
+            DRAM (US):
+                symbol: DRA
+            DRAM (UK):
+                symbol: DRI
+            DOZEN:
+                symbol: DZN
+            MILLIAMPERE HOUR:
+                symbol: E09
+            KILOCALORIE (INTERNATIONAL TABLE):
+                symbol: E14
+            DOSE:
+                symbol: E27
+            LITRE PER HOUR:
+                symbol: E32
+            GIGABYTE:
+                symbol: E34
+            TERABYTE:
+                symbol: E35
+            PIXEL:
+                symbol: E37
+            DOTS PER INCH:
+                symbol: E39
+            GROSS KILOGRAM:
+                symbol: E4
+            USE:
+                symbol: E55
+            EACH:
+                symbol: EA
+            ELISA UNITS:
+                symbol: ELU
+            GRAM PER HOUR:
+                symbol: F27
+            DEGREE FAHRENHEIT:
+                symbol: FAH
+            MICROMOLE:
+                symbol: FH
+            SIZING FACTOR:
+                symbol: FJ
+            FOOT:
+                symbol: FOT
+            POUND PER SQUARE FOOT:
+                symbol: FP
+            FOOT PER MINUTE:
+                symbol: FR
+            FOOT PER SECOND:
+                symbol: FS
+            SQUARE FOOT:
+                symbol: FTK
+            CUBIC FOOT:
+                symbol: FTQ
+            US GALLON PER MINUTE:
+                symbol: G2
+            CUP (US):
+                symbol: G21
+            PECK:
+                symbol: G23
+            TABLESPOON:
+                symbol: G24
+            TEASPOON:
+                symbol: G25
+            STERE:
+                symbol: G26
+            GIGABECQUEREL:
+                symbol: GBQ
+            GRAM OF FISSILE ISOTOPE:
+                symbol: GFI
+            GRAM PER LITRE:
+                symbol: GL
+            GALLON (UK):
+                symbol: GLI
+            GALLON (US):
+                symbol: GLL
+            GRAM PER SQUARE METRE:
+                symbol: GM
+            GRAM:
+                symbol: GRM
+            GRAIN:
+                symbol: GRN
+            GROSS:
+                symbol: GRO
+            GIGAWATT HOUR:
+                symbol: GWH
+            CENTIMETRE PER HOUR:
+                symbol: H49
+            MILLIMETRE PER HOUR:
+                symbol: H67
+            FRENCH GAUGE:
+                symbol: H79
+            MILLIMETRE PER MINUTE:
+                symbol: H81
+            PIECE:
+                symbol: H87
+            HUNDRED COUNT:
+                symbol: HC
+            HALF DOZEN:
+                symbol: HD
+            HISTAMINE EQUIVALENT PRICK:
+                symbol: HEP
+            HECTOGRAM:
+                symbol: HGM
+            HECTOLITRE:
+                symbol: HLT
+            MILE PER HOUR (STATUTE MILE):
+                symbol: HM
+            HERTZ:
+                symbol: HTZ
+            HOUR:
+                symbol: HUR
+            INCHES:
+                symbol: INH
+            SQUARE INCH:
+                symbol: INK
+            CUBIC INCH:
+                symbol: INQ
+            INCH PER SECOND:
+                symbol: IU
+            JOULE:
+                symbol: JOU
+            FOOT PER HOUR:
+                symbol: K14
+            GALLON (US LIQUID) PER SECOND:
+                symbol: K30
+            HORSEPOWER:
+                symbol: K43
+            KILOLITRE:
+                symbol: K6
+            KILOGRAM DRAINED NET WEIGHT:
+                symbol: KDW
+            KELVIN:
+                symbol: KEL
+            KILOGRAM:
+                symbol: KGM
+            KILOGRAM OF HYDROGEN PEROXIDE:
+                symbol: KHY
+            KILOHERTZ:
+                symbol: KHZ
+            KALLIKREIN INACTIVATOR UNIT.:
+                symbol: KIU
+            KILOJOULE:
+                symbol: KJO
+            KILOGRAM OF METHYLAMINE:
+                symbol: KMA
+            KILOMETRE PER HOUR:
+                symbol: KMH
+            KILOMETRE:
+                symbol: KMT
+            KILOGRAM OF NITROGEN:
+                symbol: KNI
+            KILONEWTON PER SQUARE METRE:
+                symbol: KNM
+            KNOT:
+                symbol: KNT
+            THE MILLIEQUIVALENCE CAUSTIC POTASH PER GRAM OF PRODUCT:
+                symbol: KO
+            KILOPASCAL:
+                symbol: KPA
+            KILOGRAM OF POTASSIUM HYDROXIDE (CAUSTIC POTASH):
+                symbol: KPH
+            KILOGRAM OF POTASSIUM OXIDE:
+                symbol: KPO
+            KILOGRAM OF PHOSPHORUS PENTOXIDE (PHOSPHORIC ANHYDRIDE):
+                symbol: KPP
+            KILOGRAM OF SUBSTANCE 90% DRY:
+                symbol: KSD
+            KILOGRAM OF SODIUM HYDROXIDE (CAUSTIC SODA):
+                symbol: KSH
+            KIT:
+                symbol: KT
+            KILOGRAM OF URANIUM:
+                symbol: KUR
+            KILOWATT HOUR:
+                symbol: KWH
+            KILOWATT:
+                symbol: KWT
+            POUND:
+                symbol: LBR
+            LITRE / DAY:
+                symbol: LD
+            LINEAR FOOT:
+                symbol: LF
+            LINK:
+                symbol: LK
+            LINEAR METRE:
+                symbol: LM
+            LITRE OF PURE ALCOHOL:
+                symbol: LPA
+            LAYER:
+                symbol: LR
+            TON (UK) OR LONG TON (US):
+                symbol: LTN
+            LITRE:
+                symbol: LTR
+            LUMEN:
+                symbol: LUM
+            LUX:
+                symbol: LUX
+            MILE PER MINUTE:
+                symbol: M57
+            MILE PER SECOND:
+                symbol: M58
+            METRE PER HOUR:
+                symbol: M60
+            KILOMETRE PER SECOND:
+                symbol: M62
+            INCH PER MINUTE:
+                symbol: M63
+            YARD PER SECOND:
+                symbol: M64
+            YARD PER MINUTE:
+                symbol: M65
+            YARD PER HOUR:
+                symbol: M66
+            MEGAWATT:
+                symbol: MAW
+            MILLIBAR:
+                symbol: MBR
+            MICROGRAM:
+                symbol: MC
+            MILLIEQUIVALENTS:
+                symbol: MEQ
+            MILLIGRAM:
+                symbol: MGM
+            MEGAHERTZ:
+                symbol: MHZ
+            SQUARE MILE:
+                symbol: MIK
+            MINUTE (UNIT OF TIME):
+                symbol: MIN
+            MILLION INTERNATIONAL UNIT (NIE):
+                symbol: MIU
+            MILLILITRE:
+                symbol: MLT
+            SQUARE MILLIMETRE:
+                symbol: MMK
+            CUBIC MILLIMETRE:
+                symbol: MMQ
+            MILLIMETRE:
+                symbol: MMT
+            MONTH:
+                symbol: MON
+            MOST PROBABLE NUMBER:
+                symbol: MPN
+            CUBIC METRE PER HOUR:
+                symbol: MQH
+            SQUARE METRE:
+                symbol: MTK
+            CUBIC METRE:
+                symbol: MTQ
+            METRE:
+                symbol: MTR
+            METRE PER SECOND:
+                symbol: MTS
+            MEGAWATT HOUR (1000 KW.H):
+                symbol: MWH
+            MILLIGRAM PER KILOGRAM (MG/KG):
+                symbol: NA
+            NUMBER OF CELLS:
+                symbol: NCL
+            NEWTON:
+                symbol: NEW
+            NUMBER OF INTERNATIONAL UNITS:
+                symbol: NIU
+            NUMBER OF PAIRS:
+                symbol: NPR
+            NEWTON METRE:
+                symbol: NU
+            OHM:
+                symbol: OHM
+            OUNCES PER SQUARE YARD:
+                symbol: ON
+            OUNCE:
+                symbol: ONZ
+            OSCILLATIONS PER MINUTE:
+                symbol: OPM
+            FLUID OUNCE (US):
+                symbol: OZA
+            FLUID OUNCE (UK):
+                symbol: OZI
+            PERCENT:
+                symbol: P1
+            PASCAL:
+                symbol: PAL
+            PAD:
+                symbol: PD
+            PLAQUE FORMING UNIT(S):
+                symbol: PFU
+            POINT:
+                symbol: PNT
+            PAIR:
+                symbol: PR
+            POTENTIAL RENAL SOLUTE LOAD:
+                symbol: PRS
+            POUND-FORCE PER SQUARE INCH:
+                symbol: PS
+            DRY PINT (US):
+                symbol: PTD
+            PINT (UK):
+                symbol: PTI
+            LIQUID PINT (US):
+                symbol: PTL
+            PORTION:
+                symbol: PTN
+            PH (POTENTIAL OF HYDROGEN):
+                symbol: Q30
+            FEMTOLITRE:
+                symbol: Q32
+            PICOLITRE:
+                symbol: Q33
+            NANOLITRE:
+                symbol: Q34
+            PAGE - HARDCOPY:
+                symbol: QB
+            QUART (US DRY):
+                symbol: QTD
+            LIQUID QUART (US):
+                symbol: QTL
+            THOUSAND CUBIC METRE:
+                symbol: R9
+            REVOLUTIONS PER MINUTE:
+                symbol: RPM
+            SQUARE METRE / SECOND:
+                symbol: S4
+            SECOND (UNIT OF TIME):
+                symbol: SEC
+            SET:
+                symbol: SET
+            MILE (STATUTE MILE):
+                symbol: SMI
+            SQ-E:
+                symbol: SQE
+            TON (US) OR SHORT TON (UK):
+                symbol: STN
+            SHIPMENT:
+                symbol: SX
+            THOUSAND PIECE:
+                symbol: T3
+            TONNE:
+                symbol: TNE
+            TEETH PER INCH:
+                symbol: TPI
+            TABLET:
+                symbol: U2
+            TORR:
+                symbol: UA
+            VOLT:
+                symbol: VLT
+            WEEK:
+                symbol: WEE
+            WATT HOUR:
+                symbol: WHR
+            WATT:
+                symbol: WTT
+            COLD CRAMP AMP:
+                symbol: X_CCA
+            COLONY FORMING UNITS PER GRAM (CFU/G):
+                symbol: X_CFG
+            COLONY FORMING UNITS PER POUND (CFU/LB):
+                symbol: X_CFP
+            CENTISIMAL HAHNEMANNIAN DILUTION (CH):
+                symbol: X_CHD
+            DECIBAR:
+                symbol: X_DBA
+            PENNY WEIGHT:
+                symbol: X_DWT
+            INTERNATIONAL UNITS PER KILOGRAM (IU/KG):
+                symbol: X_IUK
+            KORSAKOVIAN (K):
+                symbol: X_KVN
+            MILLESIMAI (LM):
+                symbol: X_MLM
+            MILES PER GALLON:
+                symbol: X_MPG
+            MOTHER TINCTURE (DRY MATERIAL):
+                symbol: X_MTC
+            NANOGRAM:
+                symbol: X_NGM
+            PIXEL PER CENTIMETRE:
+                symbol: X_PPC
+            PIXEL PER INCH:
+                symbol: X_PPI
+            RETINOL ACTIVITY EQUIVALENTS:
+                symbol: X_RAE
+            THIRTY SECONDS OF AN INCH:
+                symbol: X_SIN
+            SAMPLE PER SECOND:
+                symbol: X_SPS
+            TEN THOUSANDTHS OF AN INCH:
+                symbol: X_UIN
+            RETINOL EQUIVALENT (RE):
+                symbol: XRE
+            ROLL:
+                symbol: XRO
+            SHEET:
+                symbol: XST
+            SQUARE YARD:
+                symbol: YDK
+            YARD:
+                symbol: YRD
+
+

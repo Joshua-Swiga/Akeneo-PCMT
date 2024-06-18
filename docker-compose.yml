@@ -1,0 +1,110 @@
+######################################################################
+# Copyright (c) 2019, VillageReach
+# Licensed under the Non-Profit Open Software License version 3.0.
+# SPDX-License-Identifier: NPOSL-3.0
+######################################################################
+
+version: '3.5'
+services:
+  fpm:
+    image: '${PCMT_REG}/pcmt:${PCMT_VER:-latest}'
+    restart: unless-stopped
+    env_file: settings.env
+    environment:
+      - PCMT_PROFILE
+      - PCMT_VER
+    volumes:
+      - type: volume
+        source: pim
+        target: '/srv/pim'
+      - type: volume
+        source: file_storage
+        target: '/srv/pim/app/file_storage'
+      - type: volume
+        source: uploads
+        target: '/srv/pim/app/uploads'
+    user: 'docker'
+    working_dir: '/srv/pim'
+    secrets:
+      - akeneo_parameters
+
+  httpd:
+    image: '${PCMT_REG}/httpd:${PCMT_VER:-latest}'
+    restart: unless-stopped
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.http.rule=PathPrefix(`/`)"
+    volumes:
+      - type: volume
+        source: pim
+        target: '/srv/pim'
+        read_only: true
+    depends_on:
+      - fpm
+
+  mysql:
+    image: 'mysql:${MYSQL_VER}'
+    restart: unless-stopped
+    environment:
+      MYSQL_ROOT_PASSWORD_FILE: '/run/secrets/mysql-root-password'
+      MYSQL_USER_FILE: '/run/secrets/mysql-username'
+      MYSQL_PASSWORD_FILE: '/run/secrets/mysql-password'
+      MYSQL_DATABASE: 'akeneo_pim'
+    volumes:
+      - type: bind
+        source: '${PCMT_MYSQL_INIT_CONF:-./conf/mysql-init.sql.dist}'
+        target: '/docker-entrypoint-initdb.d/mysql-init.sql'
+        read_only: true
+      - type: volume
+        source: mysqldata
+        target: '/var/lib/mysql'
+    secrets:
+      - mysql-root-password
+      - mysql-username
+      - mysql-password
+
+  elasticsearch:
+    image: 'docker.elastic.co/elasticsearch/elasticsearch-oss:${ES_VER}'
+    restart: unless-stopped
+    environment:
+      ES_JAVA_OPTS: "${ES_JAVA_OPTS:--Xms512m -Xmx512m}"
+      discovery.type: 'single-node'
+    volumes:
+      - 'esdata:/usr/share/elasticsearch/data'
+
+  reverse-proxy:
+    image: traefik:v2.0
+    restart: unless-stopped
+    ports:
+      - "${DOCKER_PORT_HTTP:-80}:80"
+    volumes:
+      - type: bind
+        source: /var/run/docker.sock
+        target: /var/run/docker.sock
+        read_only: true
+      - type: bind
+        source: ${PCMT_TRAEFIK_CONF:-./conf/traefik.toml.dist}
+        target: /etc/traefik/traefik.toml
+        read_only: true
+
+volumes:
+  mysqldata:
+    driver: local
+  esdata:
+    driver: local
+  pim:
+    driver: local
+  file_storage:
+    driver: local
+  uploads:
+    driver: local
+
+secrets:
+  akeneo_parameters:
+    file: '${PCMT_SECRET_CONF:-conf/parameters.yml.dist}'
+  mysql-root-password:
+      file: "${PCMT_MYSQL_ROOT_PASSWORD_CONF:-./conf/mysql-root-password.dist}"
+  mysql-username:
+      file: "${PCMT_MYSQL_USERNAME_CONF:-./conf/mysql-username.dist}"
+  mysql-password:
+      file: "${PCMT_MYSQL_PASSWORD_CONF:-./conf/mysql-password.dist}"

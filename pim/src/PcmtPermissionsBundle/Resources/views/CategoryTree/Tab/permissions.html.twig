@@ -1,0 +1,14 @@
+<div class="tab-pane tab-property {{ viewElement.loop.first ? 'active' : '' }}" id="{{ viewElement.alias|replace({' ': '-', '.': '-'})|lower }}">
+
+    {% set permissions %}
+        {{ form_row(form.viewAccess) }}
+        {{ form_row(form.editAccess) }}
+        {{ form_row(form.ownAccess) }}
+        {{ form_row(form.applyOnChildren) }}
+    {% endset %}
+
+    {{ elements.tabSections({
+        'pane.accordion.permissions': elements.form_container(permissions),
+    }) }}
+
+</div>

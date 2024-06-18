@@ -1,0 +1,19 @@
+services:
+
+    pcmt.malawi.rule_product_processor:
+        class: PcmtRulesBundle\Malawi\RuleProductProcessor
+        arguments:
+            - '@pcmt.service.rule_attribute_provider'
+            - '@pim_catalog.saver.product'
+            - '@pim_catalog.saver.product_model'
+            - '@pim_catalog.builder.product'
+            - '@pim_catalog.updater.product_model'
+            - '@pcmt.service.rule_processor_copier'
+
+    pcmt.malawi.rule_process_step:
+        class: PcmtRulesBundle\Malawi\RuleProcessStep
+        calls:
+            - [ setFamilyRepository, [ '@pim_catalog.repository.family' ] ]
+            - [ setAttributeProvider, [ '@pcmt.service.rule_attribute_provider' ] ]
+            - [ setRuleProductProcessor, [ '@pcmt.malawi.rule_product_processor' ] ]
+            - [ setPqbFactory, [ '@pim_enrich.query.product_and_product_model_query_builder_from_size_factory' ] ]

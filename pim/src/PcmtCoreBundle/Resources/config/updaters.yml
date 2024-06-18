@@ -1,0 +1,40 @@
+######################################################################
+# Copyright (c) 2019, VillageReach
+# Licensed under the Non-Profit Open Software License version 3.0.
+# SPDX-License-Identifier: NPOSL-3.0
+######################################################################
+
+services:
+
+    pim_structure.updater.translatable:
+        class: 'PcmtCoreBundle\Updater\TranslatableUpdater'
+
+    pim_catalog.updater.attribute.base:
+        class: 'Akeneo\Pim\Structure\Component\Updater\AttributeUpdater'
+        arguments:
+            - '@pim_catalog.repository.attribute_group'
+            - '@pim_catalog.repository.locale'
+            - '@pim_catalog.registry.attribute_type'
+            - '@pim_structure.updater.translatable'
+            - ['auto_option_sorting', 'is_read_only']
+
+    pim_catalog.updater.attribute:
+        class: 'PcmtCoreBundle\Updater\AttributeUpdater'
+        arguments:
+            - '@pim_catalog.updater.attribute.base'
+            - '@pim_structure.updater.translatable'
+            - '@pcmt.updater.concatenated_attribute'
+
+    pcmt.updater.concatenated_attribute:
+        class: PcmtCoreBundle\Updater\ConcatenatedAttributeUpdater
+        arguments:
+            - '@logger'
+
+    ## field setters
+    pcmt_catalog.updater.setter.concatenated_value:
+        class: '%pim_catalog.updater.setter.value.class%'
+        parent: pim_catalog.updater.setter.abstract
+        arguments:
+            - ['pcmt_catalog_concatenated']
+        tags:
+            - { name: 'pim_catalog.updater.setter' }

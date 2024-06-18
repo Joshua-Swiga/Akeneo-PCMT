@@ -1,0 +1,15 @@
+######################################################################
+# Copyright (c) 2019, VillageReach
+# Licensed under the Non-Profit Open Software License version 3.0.
+# SPDX-License-Identifier: NPOSL-3.0
+######################################################################
+
+parameters:
+    pcmt_catalog.attribute_type.concatenated.class: PcmtCoreBundle\Extension\ConcatenatedAttribute\Structure\Component\AttributeType\ConcatenatedAttributeType
+
+services:
+    pcmt_catalog.attributetype.concatenated:
+        class: '%pcmt_catalog.attribute_type.concatenated.class%'
+        tags:
+          - { name: pim_catalog.attribute_type, alias: pcmt_catalog_concatenated, entity: '%pim_catalog.entity.product.class%' }
+

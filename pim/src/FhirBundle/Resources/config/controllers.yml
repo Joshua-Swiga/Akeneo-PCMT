@@ -1,0 +1,72 @@
+######################################################################
+# Copyright (c) 2022, VillageReach
+# Licensed under the Non-Profit Open Software License version 3.0.
+# SPDX-License-Identifier: NPOSL-3.0
+######################################################################
+
+services:
+  fhir_repository:
+    class: Doctrine\ORM\EntityRepository
+    factory: ["@doctrine.orm.entity_manager", getRepository]
+    arguments:
+      - FhirBundle\Entity\FhirMapping
+  pim_fhir_api.controller.product:
+    class: 'FhirBundle\Controller\ExternalApi\FhirProductController'
+    arguments:
+      - '@pim_external_api_serializer'
+      - '@pim_api.repository.channel'
+      - '@pim_api.repository.attribute'
+      - '@pim_api.repository.product'
+      - '@pim_api.pagination.offset_hal_paginator'
+      - '@pim_api.pagination.search_after_hal_paginator'
+      - '@pim_catalog.validator.product'
+      - '@pim_catalog.builder.product'
+      - '@pim_catalog.remover.product'
+      - '@pim_catalog.updater.product'
+      - '@pim_catalog.saver.product'
+      - '@router'
+      - '@pim_catalog.comparator.filter.product'
+      - '@pim_api.stream.product_partial_update_stream'
+      - '@pim_api.security.primary_key_encrypter'
+      - '@pim_catalog.query.product_query_builder_from_size_factory'
+      - '@pim_catalog.builder.product'
+      - '@pim_api.filter.product_attribute_filter'
+      - '@pim_catalog.entity_with_family_variant.add_parent_to_product'
+      - '@pim_enrich.connector.use_cases.validator.list_products'
+      - '%pim_api.configuration%'
+      - '@pim_enrich.connector.use_cases.handler.list_products'
+      - '@fhir_api.normalizer.connector_products'
+      - '@security.token_storage'
+      - '@akeneo.pim.enrichment.product.connector.get_product_from_identifiers'
+      - '@pim_api.checker.duplicate_value'
+      - '@fhir_repository'
+  pim_fhir_api.controller.product_model:
+    class: 'FhirBundle\Controller\ExternalApi\FhirProductModelController'
+    arguments:
+      - '@pim_catalog.query.product_model_query_builder_factory'
+      - '@pim_catalog.query.product_model_query_builder_search_after_size_factory'
+      - '@pim_external_api_serializer'
+      - '@pim_api.repository.channel'
+      - '@pim_api.pagination.offset_hal_paginator'
+      - '@pim_api.pagination.search_after_hal_paginator'
+      - '@pim_api.security.primary_key_encrypter'
+      - '@pim_api.updater.product_model'
+      - '@pim_catalog.factory.product_model'
+      - '@pim_catalog.saver.product_model'
+      - '@router'
+      - '@pim_catalog.validator.product_model'
+      - '@pim_api.filter.product_model_attribute_filter'
+      - '@pim_catalog.repository.product_model'
+      - '@pim_api.stream.product_model_partial_update_stream'
+      - '@pim_enrich.connector.use_cases.validator.list_product_models'
+      - '@pim_enrich.connector.use_cases.handler.list_product_models'
+      - '@fhir_api.normalizer.connector_product_models'
+      - '@akeneo.pim.enrichment.product.connector.get_product_models_from_codes'
+      - '@security.token_storage'
+      - '%pim_api.configuration%'
+      - '@fhir_repository'
+  pcmt_fhir.controller.rest.fhir_mapping:
+    class: 'FhirBundle\Controller\FhirController'
+    arguments:
+      - '@Doctrine\ORM\EntityManagerInterface'
+

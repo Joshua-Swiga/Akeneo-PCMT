@@ -1,0 +1,60 @@
+datagrid:
+    subscription-grid:
+        options:
+            entityHint: subscription
+            manageFilters: false
+        source:
+            type:              pcmt_cis_datasource_subscription
+            entity:            '%pcmt.cis.entity.subscription.class%'
+            user_config_alias: subscription-grid
+            acl_resource:      pcmt_permission_cis
+        columns:
+            data_recipients_gln:
+                label: pcmt.cis.datagrid.data_recipients_gln
+                type: field
+            data_sources_gln:
+                label: pcmt.cis.datagrid.data_sources_gln
+                type: field
+            gtin:
+                label: pcmt.cis.datagrid.gtin
+                type: field
+            gpc_category_code:
+                label: pcmt.cis.datagrid.gpc_category_code
+                type: field
+            target_market_country_code:
+                label: pcmt.cis.datagrid.target_market_country_code
+                type: field
+            created:
+                label: pcmt.cis.datagrid.created
+                type: datetime
+                frontend_type: datetime
+        properties:
+            id: ~
+            delete_link:
+                type: url
+                route: pcmt_cis_subscription_rest_delete
+                params:
+                    - id
+            resubmit_link:
+                type: url
+                route: pcmt_cis_subscription_rest_resubmit
+                params:
+                    - id
+
+        actions:
+            resubmit:
+                launcherOptions:
+                    className: AknIconButton AknIconButton--small AknIconButton--play
+                type: ajax
+                label: pcmt.cis.datagrid.button_resubmit
+                link: resubmit_link
+                acl_resource: pcmt_permission_cis
+            delete:
+                launcherOptions:
+                    className: AknIconButton AknIconButton--small AknIconButton--trash
+                type: delete
+                label: pim_common.delete
+                link: delete_link
+                acl_resource: pcmt_permission_cis
+
+

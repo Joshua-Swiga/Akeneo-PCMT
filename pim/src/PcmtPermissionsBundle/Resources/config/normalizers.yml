@@ -1,0 +1,27 @@
+######################################################################
+# Copyright (c) 2019, VillageReach
+# Licensed under the Non-Profit Open Software License version 3.0.
+# SPDX-License-Identifier: NPOSL-3.0
+######################################################################
+
+services:
+
+# It's commented in release purpose. Uncomment it after Release 2.0.0
+#
+#    pcmt_permissions.normalizer.internal.attribute_groups:
+#        class: 'PcmtPermissionsBundle\Normalizer\AttributeGroupNormalizer'
+#        arguments:
+#            - '@pim_enrich.normalizer.attribute_group'
+#        tags:
+#            - { name: pim_internal_api_serializer.normalizer, priority: 200 }
+
+    pim_datagrid.normalizer.product_and_product_model_rows:
+        class: 'PcmtPermissionsBundle\Normalizer\ProductAndProductModelRowNormalizer'
+        arguments:
+            - '@pim_enrich.normalizer.image'
+        calls:
+            - [setCategoryPermissionsChecker, ['@pcmt.service.category_permissions_checker']]
+            - [setProductRepository, ['@pim_catalog.repository.product']]
+            - [setProductModelRepository, ['@pim_catalog.repository.product_model']]
+        tags:
+            - { name: pim_datagrid_serializer.normalizer }

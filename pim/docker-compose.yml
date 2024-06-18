@@ -1,0 +1,28 @@
+######################################################################
+# Copyright (c) 2019, VillageReach
+# Licensed under the Non-Profit Open Software License version 3.0.
+# SPDX-License-Identifier: NPOSL-3.0
+######################################################################
+
+version: '3.4'
+services:
+  pim-build:
+    image: pcmt/pim-build:latest
+    build:
+      context: .
+      target: pim-build
+  node:
+    image: pcmt/node:${PCMT_VER:-latest}
+    build:
+      context: .
+      target: node
+  httpd:
+    image: pcmt/httpd:${PCMT_VER:-latest}
+    build:
+      context: .
+      target: httpd
+  pim:
+    image: pcmt/pcmt:${PCMT_VER:-latest}
+    build:
+      context: .
+      target: pim

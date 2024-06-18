@@ -1,0 +1,53 @@
+pim_title:
+  pcmt_cis_index: FR Subscriptions
+
+pim_menu:
+  item:
+    cis: FR Subscriptions
+
+pcmt:
+  entity:
+    subscription:
+      module:
+        create:
+          button: FR Create
+      property:
+        target_market_country_code:
+          choose: FR Choose the country code
+      flash:
+        create:
+          success: FR A new subscription successfully created
+          fail: FR A new subscription has not been created.
+          file_is_waiting_for_upload: FR There is an existing subscription file which is waiting for upload. Try again after a few minutes.
+        resubmit:
+          success: FR Subscription file has been re-submitted.
+          fail: FR Subscription file re-submitting failed.
+          file_is_waiting_for_upload: FR There is an existing subscription file which is waiting for upload
+        delete:
+          success: FR The subscription has been successfully deleted.
+          fail: FR The subscription has not been deleted.
+          file_is_waiting_for_upload: FR There is an existing subscription file which is waiting for upload. Try again after a few minutes.
+      page_title:
+        index: "]-Inf, 1]{{ count }} FR subscription|]1, Inf[{{ count }} FR subscriptions"
+  cis:
+    create:
+      gpc_category_code: FR GPC Category Code
+      gtin: FR GTIN
+      data_sources_gln: FR Data Source's GLN
+      data_recipients_gln: FR Data Recipient's GLN
+      target_market_country_code: FR Target Market Country Code
+      error:
+        required_field: "FR At least one of the fields: GTIN, GPC Category Code or Target Market Country Code should be filled."
+        unique_values: "FR Subscription already exists."
+
+pim_enrich:
+  entity:
+    subscription:
+      module:
+        delete:
+          confirm: FR Are you sure you want to delete this subscription?
+      flash:
+        delete:
+          success: FR Subscription successfully deleted
+
+error.removing.subscription: FR The subscription could not be removed

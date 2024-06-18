@@ -1,0 +1,33 @@
+services:
+
+    pcmt.rules.job.constraint_collection_provider.copy_products:
+        class: PcmtRulesBundle\Connector\Job\ConstraintCollectionProvider\CopyProductsConstraintCollectionProvider
+        arguments:
+            -
+                - 'pcmt_copy_products_rule'
+        tags:
+            - { name: akeneo_batch.job.job_parameters.constraint_collection_provider }
+
+    pcmt.rules.job.constraint_collection_provider.family_to_family:
+        class: PcmtRulesBundle\Connector\Job\ConstraintCollectionProvider\FamilyToFamilyConstraintCollectionProvider
+        arguments:
+            -
+                - 'pcmt_family_to_family_rule'
+        tags:
+            - { name: akeneo_batch.job.job_parameters.constraint_collection_provider }
+
+    pcmt.rules.job.constraint_collection_provider.select_options:
+        class: PcmtRulesBundle\Connector\Job\ConstraintCollectionProvider\SelectOptionsConstraintCollectionProvider
+        arguments:
+            -
+                - 'pcmt_select_options_rule'
+        tags:
+            - { name: akeneo_batch.job.job_parameters.constraint_collection_provider }
+
+    pcmt.rules.job.constraint_collection_provider.pull_images:
+        class: PcmtRulesBundle\Connector\Job\ConstraintCollectionProvider\PullImagesConstraintCollectionProvider
+        arguments:
+            -
+                - 'pcmt_pull_images_rule'
+        tags:
+            - { name: akeneo_batch.job.job_parameters.constraint_collection_provider }

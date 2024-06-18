@@ -1,0 +1,51 @@
+<% if (!_.isEmpty(data)) { %>
+
+    <!--
+  ~ Copyright (c) 2019, VillageReach
+  ~ Licensed under the Non-Profit Open Software License version 3.0.
+  ~ SPDX-License-Identifier: NPOSL-3.0
+  -->
+
+<thead>
+    <tr>
+        <th class="AknGrid-headerCell">
+            <%- __('pcmt_core.widget.drafts_overview.product') %>
+        </th>
+        <th class="AknGrid-headerCell">
+            <%- __('pcmt_core.widget.drafts_overview.author') %>
+        </th>
+        <th class="AknGrid-headerCell">
+            <%- __('pcmt_core.widget.drafts_overview.date') %>
+        </th>
+        <th class="AknGrid-headerCell">
+            <%- __('pcmt_core.widget.drafts_overview.status') %>
+        </th>
+    </tr>
+    </thead>
+
+    <tbody>
+        <% _.each(data, function (draft) { %>
+            <tr class="AknGrid-bodyRow">
+                <td class="AknGrid-bodyCell">
+                    <%- draft.type %><br>
+                    <%- draft.label %>
+                </td>
+                <td class="AknGrid-bodyCell"><%- draft.author %></td>
+                <td class="AknGrid-bodyCell"><%- draft.createdAt %></td>
+                <td class="AknGrid-bodyCell">
+                    <div class="AknBadge <%- draft.status.class %>">
+                        <%- draft.status.name %>
+                    </div>
+                </td>
+            </tr>
+        <% }); %>
+    </tbody>
+<% } else {%>
+    <tr>
+        <td class="AknGrid-bodyCell AknGrid-bodyCell--full">
+            <div class="AknMessageBox AknMessageBox--centered">
+                <%- __('pcmt_core.widget.drafts_overview.empty') %>
+            </div>
+        </td>
+    </tr>
+<% } %>

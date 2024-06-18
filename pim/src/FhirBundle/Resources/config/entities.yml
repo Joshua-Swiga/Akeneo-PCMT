@@ -1,0 +1,2 @@
+parameters:
+  pcmt_fhir.entity.fhir.class: FhirBundle\Entity\FhirMapping

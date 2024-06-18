@@ -1,0 +1,1267 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ Copyright (c) 2020, VillageReach
+  ~ Licensed under the Non-Profit Open Software License version 3.0.
+  ~ SPDX-License-Identifier: NPOSL-3.0
+  ~
+  ~ The country codes and names were used from:
+  ~ https://github.com/lukes/ISO-3166-Countries-with-Regional-Codes
+  -->
+
+<codeList xsi:noNamespaceSchemaLocation="http://apps.gs1.org/GDD/Documents/GDDCodeListSchema.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <urn>urn:gs1:gdd:cl:CountryCode</urn>
+  <name></name>
+  <version>4</version>
+  <domain>shared</domain>
+  <code><value>001</value><name>Global Market</name><description>Global Market is a way to represent information globally relevant. Examples of business Travel Retail, Duty Free Shopping. etc.</description></code>
+  <code><value>097</value><name>European Union</name><description>European Union</description></code>
+  <code><value>D_A</value><name>Development Assistance</name><description>Development assistance agencies such as  USAID, UNFPA, and Global Fund which provide foreign assistance to countries in the form of commodities and services to support development programs, including but not limited to global health, infrastructure, and food aid. Note, this code value can only be used for the attribute targetMarketCountryCode.
+</description></code>
+  <code><value>NON_EU</value><name>Non EU</name><description>Country that is not in the European Union. GDSN only.</description></code>
+  <code>
+    <value>004</value>
+    <name>Afghanistan</name>
+    <description>Afghanistan</description>
+  </code>
+  <code>
+    <value>248</value>
+    <name>Åland Islands</name>
+    <description>Åland Islands</description>
+  </code>
+  <code>
+    <value>008</value>
+    <name>Albania</name>
+    <description>Albania</description>
+  </code>
+  <code>
+    <value>012</value>
+    <name>Algeria</name>
+    <description>Algeria</description>
+  </code>
+  <code>
+    <value>016</value>
+    <name>American Samoa</name>
+    <description>American Samoa</description>
+  </code>
+  <code>
+    <value>020</value>
+    <name>Andorra</name>
+    <description>Andorra</description>
+  </code>
+  <code>
+    <value>024</value>
+    <name>Angola</name>
+    <description>Angola</description>
+  </code>
+  <code>
+    <value>660</value>
+    <name>Anguilla</name>
+    <description>Anguilla</description>
+  </code>
+  <code>
+    <value>010</value>
+    <name>Antarctica</name>
+    <description>Antarctica</description>
+  </code>
+  <code>
+    <value>028</value>
+    <name>Antigua and Barbuda</name>
+    <description>Antigua and Barbuda</description>
+  </code>
+  <code>
+    <value>032</value>
+    <name>Argentina</name>
+    <description>Argentina</description>
+  </code>
+  <code>
+    <value>051</value>
+    <name>Armenia</name>
+    <description>Armenia</description>
+  </code>
+  <code>
+    <value>533</value>
+    <name>Aruba</name>
+    <description>Aruba</description>
+  </code>
+  <code>
+    <value>036</value>
+    <name>Australia</name>
+    <description>Australia</description>
+  </code>
+  <code>
+    <value>040</value>
+    <name>Austria</name>
+    <description>Austria</description>
+  </code>
+  <code>
+    <value>031</value>
+    <name>Azerbaijan</name>
+    <description>Azerbaijan</description>
+  </code>
+  <code>
+    <value>044</value>
+    <name>Bahamas</name>
+    <description>Bahamas</description>
+  </code>
+  <code>
+    <value>048</value>
+    <name>Bahrain</name>
+    <description>Bahrain</description>
+  </code>
+  <code>
+    <value>050</value>
+    <name>Bangladesh</name>
+    <description>Bangladesh</description>
+  </code>
+  <code>
+    <value>052</value>
+    <name>Barbados</name>
+    <description>Barbados</description>
+  </code>
+  <code>
+    <value>112</value>
+    <name>Belarus</name>
+    <description>Belarus</description>
+  </code>
+  <code>
+    <value>056</value>
+    <name>Belgium</name>
+    <description>Belgium</description>
+  </code>
+  <code>
+    <value>084</value>
+    <name>Belize</name>
+    <description>Belize</description>
+  </code>
+  <code>
+    <value>204</value>
+    <name>Benin</name>
+    <description>Benin</description>
+  </code>
+  <code>
+    <value>060</value>
+    <name>Bermuda</name>
+    <description>Bermuda</description>
+  </code>
+  <code>
+    <value>064</value>
+    <name>Bhutan</name>
+    <description>Bhutan</description>
+  </code>
+  <code>
+    <value>068</value>
+    <name>Bolivia (Plurinational State of)</name>
+    <description>Bolivia (Plurinational State of)</description>
+  </code>
+  <code>
+    <value>535</value>
+    <name>Bonaire, Sint Eustatius and Saba</name>
+    <description>Bonaire, Sint Eustatius and Saba</description>
+  </code>
+  <code>
+    <value>070</value>
+    <name>Bosnia and Herzegovina</name>
+    <description>Bosnia and Herzegovina</description>
+  </code>
+  <code>
+    <value>072</value>
+    <name>Botswana</name>
+    <description>Botswana</description>
+  </code>
+  <code>
+    <value>074</value>
+    <name>Bouvet Island</name>
+    <description>Bouvet Island</description>
+  </code>
+  <code>
+    <value>076</value>
+    <name>Brazil</name>
+    <description>Brazil</description>
+  </code>
+  <code>
+    <value>086</value>
+    <name>British Indian Ocean Territory</name>
+    <description>British Indian Ocean Territory</description>
+  </code>
+  <code>
+    <value>096</value>
+    <name>Brunei Darussalam</name>
+    <description>Brunei Darussalam</description>
+  </code>
+  <code>
+    <value>100</value>
+    <name>Bulgaria</name>
+    <description>Bulgaria</description>
+  </code>
+  <code>
+    <value>854</value>
+    <name>Burkina Faso</name>
+    <description>Burkina Faso</description>
+  </code>
+  <code>
+    <value>108</value>
+    <name>Burundi</name>
+    <description>Burundi</description>
+  </code>
+  <code>
+    <value>132</value>
+    <name>Cabo Verde</name>
+    <description>Cabo Verde</description>
+  </code>
+  <code>
+    <value>116</value>
+    <name>Cambodia</name>
+    <description>Cambodia</description>
+  </code>
+  <code>
+    <value>120</value>
+    <name>Cameroon</name>
+    <description>Cameroon</description>
+  </code>
+  <code>
+    <value>124</value>
+    <name>Canada</name>
+    <description>Canada</description>
+  </code>
+  <code>
+    <value>136</value>
+    <name>Cayman Islands</name>
+    <description>Cayman Islands</description>
+  </code>
+  <code>
+    <value>140</value>
+    <name>Central African Republic</name>
+    <description>Central African Republic</description>
+  </code>
+  <code>
+    <value>148</value>
+    <name>Chad</name>
+    <description>Chad</description>
+  </code>
+  <code>
+    <value>152</value>
+    <name>Chile</name>
+    <description>Chile</description>
+  </code>
+  <code>
+    <value>156</value>
+    <name>China</name>
+    <description>China</description>
+  </code>
+  <code>
+    <value>162</value>
+    <name>Christmas Island</name>
+    <description>Christmas Island</description>
+  </code>
+  <code>
+    <value>166</value>
+    <name>Cocos (Keeling) Islands</name>
+    <description>Cocos (Keeling) Islands</description>
+  </code>
+  <code>
+    <value>170</value>
+    <name>Colombia</name>
+    <description>Colombia</description>
+  </code>
+  <code>
+    <value>174</value>
+    <name>Comoros</name>
+    <description>Comoros</description>
+  </code>
+  <code>
+    <value>178</value>
+    <name>Congo</name>
+    <description>Congo</description>
+  </code>
+  <code>
+    <value>180</value>
+    <name>Congo, Democratic Republic of the</name>
+    <description>Congo, Democratic Republic of the</description>
+  </code>
+  <code>
+    <value>184</value>
+    <name>Cook Islands</name>
+    <description>Cook Islands</description>
+  </code>
+  <code>
+    <value>188</value>
+    <name>Costa Rica</name>
+    <description>Costa Rica</description>
+  </code>
+  <code>
+    <value>384</value>
+    <name>Côte d&apos;Ivoire</name>
+    <description>Côte d&apos;Ivoire</description>
+  </code>
+  <code>
+    <value>191</value>
+    <name>Croatia</name>
+    <description>Croatia</description>
+  </code>
+  <code>
+    <value>192</value>
+    <name>Cuba</name>
+    <description>Cuba</description>
+  </code>
+  <code>
+    <value>531</value>
+    <name>Curaçao</name>
+    <description>Curaçao</description>
+  </code>
+  <code>
+    <value>196</value>
+    <name>Cyprus</name>
+    <description>Cyprus</description>
+  </code>
+  <code>
+    <value>203</value>
+    <name>Czechia</name>
+    <description>Czechia</description>
+  </code>
+  <code>
+    <value>208</value>
+    <name>Denmark</name>
+    <description>Denmark</description>
+  </code>
+  <code>
+    <value>262</value>
+    <name>Djibouti</name>
+    <description>Djibouti</description>
+  </code>
+  <code>
+    <value>212</value>
+    <name>Dominica</name>
+    <description>Dominica</description>
+  </code>
+  <code>
+    <value>214</value>
+    <name>Dominican Republic</name>
+    <description>Dominican Republic</description>
+  </code>
+  <code>
+    <value>218</value>
+    <name>Ecuador</name>
+    <description>Ecuador</description>
+  </code>
+  <code>
+    <value>818</value>
+    <name>Egypt</name>
+    <description>Egypt</description>
+  </code>
+  <code>
+    <value>222</value>
+    <name>El Salvador</name>
+    <description>El Salvador</description>
+  </code>
+  <code>
+    <value>226</value>
+    <name>Equatorial Guinea</name>
+    <description>Equatorial Guinea</description>
+  </code>
+  <code>
+    <value>232</value>
+    <name>Eritrea</name>
+    <description>Eritrea</description>
+  </code>
+  <code>
+    <value>233</value>
+    <name>Estonia</name>
+    <description>Estonia</description>
+  </code>
+  <code>
+    <value>748</value>
+    <name>Eswatini</name>
+    <description>Eswatini</description>
+  </code>
+  <code>
+    <value>231</value>
+    <name>Ethiopia</name>
+    <description>Ethiopia</description>
+  </code>
+  <code>
+    <value>238</value>
+    <name>Falkland Islands (Malvinas)</name>
+    <description>Falkland Islands (Malvinas)</description>
+  </code>
+  <code>
+    <value>234</value>
+    <name>Faroe Islands</name>
+    <description>Faroe Islands</description>
+  </code>
+  <code>
+    <value>242</value>
+    <name>Fiji</name>
+    <description>Fiji</description>
+  </code>
+  <code>
+    <value>246</value>
+    <name>Finland</name>
+    <description>Finland</description>
+  </code>
+  <code>
+    <value>250</value>
+    <name>France</name>
+    <description>France</description>
+  </code>
+  <code>
+    <value>254</value>
+    <name>French Guiana</name>
+    <description>French Guiana</description>
+  </code>
+  <code>
+    <value>258</value>
+    <name>French Polynesia</name>
+    <description>French Polynesia</description>
+  </code>
+  <code>
+    <value>260</value>
+    <name>French Southern Territories</name>
+    <description>French Southern Territories</description>
+  </code>
+  <code>
+    <value>266</value>
+    <name>Gabon</name>
+    <description>Gabon</description>
+  </code>
+  <code>
+    <value>270</value>
+    <name>Gambia</name>
+    <description>Gambia</description>
+  </code>
+  <code>
+    <value>268</value>
+    <name>Georgia</name>
+    <description>Georgia</description>
+  </code>
+  <code>
+    <value>276</value>
+    <name>Germany</name>
+    <description>Germany</description>
+  </code>
+  <code>
+    <value>288</value>
+    <name>Ghana</name>
+    <description>Ghana</description>
+  </code>
+  <code>
+    <value>292</value>
+    <name>Gibraltar</name>
+    <description>Gibraltar</description>
+  </code>
+  <code>
+    <value>300</value>
+    <name>Greece</name>
+    <description>Greece</description>
+  </code>
+  <code>
+    <value>304</value>
+    <name>Greenland</name>
+    <description>Greenland</description>
+  </code>
+  <code>
+    <value>308</value>
+    <name>Grenada</name>
+    <description>Grenada</description>
+  </code>
+  <code>
+    <value>312</value>
+    <name>Guadeloupe</name>
+    <description>Guadeloupe</description>
+  </code>
+  <code>
+    <value>316</value>
+    <name>Guam</name>
+    <description>Guam</description>
+  </code>
+  <code>
+    <value>320</value>
+    <name>Guatemala</name>
+    <description>Guatemala</description>
+  </code>
+  <code>
+    <value>831</value>
+    <name>Guernsey</name>
+    <description>Guernsey</description>
+  </code>
+  <code>
+    <value>324</value>
+    <name>Guinea</name>
+    <description>Guinea</description>
+  </code>
+  <code>
+    <value>624</value>
+    <name>Guinea-Bissau</name>
+    <description>Guinea-Bissau</description>
+  </code>
+  <code>
+    <value>328</value>
+    <name>Guyana</name>
+    <description>Guyana</description>
+  </code>
+  <code>
+    <value>332</value>
+    <name>Haiti</name>
+    <description>Haiti</description>
+  </code>
+  <code>
+    <value>334</value>
+    <name>Heard Island and McDonald Islands</name>
+    <description>Heard Island and McDonald Islands</description>
+  </code>
+  <code>
+    <value>336</value>
+    <name>Holy See</name>
+    <description>Holy See</description>
+  </code>
+  <code>
+    <value>340</value>
+    <name>Honduras</name>
+    <description>Honduras</description>
+  </code>
+  <code>
+    <value>344</value>
+    <name>Hong Kong</name>
+    <description>Hong Kong</description>
+  </code>
+  <code>
+    <value>348</value>
+    <name>Hungary</name>
+    <description>Hungary</description>
+  </code>
+  <code>
+    <value>352</value>
+    <name>Iceland</name>
+    <description>Iceland</description>
+  </code>
+  <code>
+    <value>356</value>
+    <name>India</name>
+    <description>India</description>
+  </code>
+  <code>
+    <value>360</value>
+    <name>Indonesia</name>
+    <description>Indonesia</description>
+  </code>
+  <code>
+    <value>364</value>
+    <name>Iran (Islamic Republic of)</name>
+    <description>Iran (Islamic Republic of)</description>
+  </code>
+  <code>
+    <value>368</value>
+    <name>Iraq</name>
+    <description>Iraq</description>
+  </code>
+  <code>
+    <value>372</value>
+    <name>Ireland</name>
+    <description>Ireland</description>
+  </code>
+  <code>
+    <value>833</value>
+    <name>Isle of Man</name>
+    <description>Isle of Man</description>
+  </code>
+  <code>
+    <value>376</value>
+    <name>Israel</name>
+    <description>Israel</description>
+  </code>
+  <code>
+    <value>380</value>
+    <name>Italy</name>
+    <description>Italy</description>
+  </code>
+  <code>
+    <value>388</value>
+    <name>Jamaica</name>
+    <description>Jamaica</description>
+  </code>
+  <code>
+    <value>392</value>
+    <name>Japan</name>
+    <description>Japan</description>
+  </code>
+  <code>
+    <value>832</value>
+    <name>Jersey</name>
+    <description>Jersey</description>
+  </code>
+  <code>
+    <value>400</value>
+    <name>Jordan</name>
+    <description>Jordan</description>
+  </code>
+  <code>
+    <value>398</value>
+    <name>Kazakhstan</name>
+    <description>Kazakhstan</description>
+  </code>
+  <code>
+    <value>404</value>
+    <name>Kenya</name>
+    <description>Kenya</description>
+  </code>
+  <code>
+    <value>296</value>
+    <name>Kiribati</name>
+    <description>Kiribati</description>
+  </code>
+  <code>
+    <value>408</value>
+    <name>Korea (Democratic People&apos;s Republic of)</name>
+    <description>Korea (Democratic People&apos;s Republic of)</description>
+  </code>
+  <code>
+    <value>410</value>
+    <name>Korea, Republic of</name>
+    <description>Korea, Republic of</description>
+  </code>
+  <code>
+    <value>414</value>
+    <name>Kuwait</name>
+    <description>Kuwait</description>
+  </code>
+  <code>
+    <value>417</value>
+    <name>Kyrgyzstan</name>
+    <description>Kyrgyzstan</description>
+  </code>
+  <code>
+    <value>418</value>
+    <name>Lao People&apos;s Democratic Republic</name>
+    <description>Lao People&apos;s Democratic Republic</description>
+  </code>
+  <code>
+    <value>428</value>
+    <name>Latvia</name>
+    <description>Latvia</description>
+  </code>
+  <code>
+    <value>422</value>
+    <name>Lebanon</name>
+    <description>Lebanon</description>
+  </code>
+  <code>
+    <value>426</value>
+    <name>Lesotho</name>
+    <description>Lesotho</description>
+  </code>
+  <code>
+    <value>430</value>
+    <name>Liberia</name>
+    <description>Liberia</description>
+  </code>
+  <code>
+    <value>434</value>
+    <name>Libya</name>
+    <description>Libya</description>
+  </code>
+  <code>
+    <value>438</value>
+    <name>Liechtenstein</name>
+    <description>Liechtenstein</description>
+  </code>
+  <code>
+    <value>440</value>
+    <name>Lithuania</name>
+    <description>Lithuania</description>
+  </code>
+  <code>
+    <value>442</value>
+    <name>Luxembourg</name>
+    <description>Luxembourg</description>
+  </code>
+  <code>
+    <value>446</value>
+    <name>Macao</name>
+    <description>Macao</description>
+  </code>
+  <code>
+    <value>450</value>
+    <name>Madagascar</name>
+    <description>Madagascar</description>
+  </code>
+  <code>
+    <value>454</value>
+    <name>Malawi</name>
+    <description>Malawi</description>
+  </code>
+  <code>
+    <value>458</value>
+    <name>Malaysia</name>
+    <description>Malaysia</description>
+  </code>
+  <code>
+    <value>462</value>
+    <name>Maldives</name>
+    <description>Maldives</description>
+  </code>
+  <code>
+    <value>466</value>
+    <name>Mali</name>
+    <description>Mali</description>
+  </code>
+  <code>
+    <value>470</value>
+    <name>Malta</name>
+    <description>Malta</description>
+  </code>
+  <code>
+    <value>584</value>
+    <name>Marshall Islands</name>
+    <description>Marshall Islands</description>
+  </code>
+  <code>
+    <value>474</value>
+    <name>Martinique</name>
+    <description>Martinique</description>
+  </code>
+  <code>
+    <value>478</value>
+    <name>Mauritania</name>
+    <description>Mauritania</description>
+  </code>
+  <code>
+    <value>480</value>
+    <name>Mauritius</name>
+    <description>Mauritius</description>
+  </code>
+  <code>
+    <value>175</value>
+    <name>Mayotte</name>
+    <description>Mayotte</description>
+  </code>
+  <code>
+    <value>484</value>
+    <name>Mexico</name>
+    <description>Mexico</description>
+  </code>
+  <code>
+    <value>583</value>
+    <name>Micronesia (Federated States of)</name>
+    <description>Micronesia (Federated States of)</description>
+  </code>
+  <code>
+    <value>498</value>
+    <name>Moldova, Republic of</name>
+    <description>Moldova, Republic of</description>
+  </code>
+  <code>
+    <value>492</value>
+    <name>Monaco</name>
+    <description>Monaco</description>
+  </code>
+  <code>
+    <value>496</value>
+    <name>Mongolia</name>
+    <description>Mongolia</description>
+  </code>
+  <code>
+    <value>499</value>
+    <name>Montenegro</name>
+    <description>Montenegro</description>
+  </code>
+  <code>
+    <value>500</value>
+    <name>Montserrat</name>
+    <description>Montserrat</description>
+  </code>
+  <code>
+    <value>504</value>
+    <name>Morocco</name>
+    <description>Morocco</description>
+  </code>
+  <code>
+    <value>508</value>
+    <name>Mozambique</name>
+    <description>Mozambique</description>
+  </code>
+  <code>
+    <value>104</value>
+    <name>Myanmar</name>
+    <description>Myanmar</description>
+  </code>
+  <code>
+    <value>516</value>
+    <name>Namibia</name>
+    <description>Namibia</description>
+  </code>
+  <code>
+    <value>520</value>
+    <name>Nauru</name>
+    <description>Nauru</description>
+  </code>
+  <code>
+    <value>524</value>
+    <name>Nepal</name>
+    <description>Nepal</description>
+  </code>
+  <code>
+    <value>528</value>
+    <name>Netherlands</name>
+    <description>Netherlands</description>
+  </code>
+  <code>
+    <value>540</value>
+    <name>New Caledonia</name>
+    <description>New Caledonia</description>
+  </code>
+  <code>
+    <value>554</value>
+    <name>New Zealand</name>
+    <description>New Zealand</description>
+  </code>
+  <code>
+    <value>558</value>
+    <name>Nicaragua</name>
+    <description>Nicaragua</description>
+  </code>
+  <code>
+    <value>562</value>
+    <name>Niger</name>
+    <description>Niger</description>
+  </code>
+  <code>
+    <value>566</value>
+    <name>Nigeria</name>
+    <description>Nigeria</description>
+  </code>
+  <code>
+    <value>570</value>
+    <name>Niue</name>
+    <description>Niue</description>
+  </code>
+  <code>
+    <value>574</value>
+    <name>Norfolk Island</name>
+    <description>Norfolk Island</description>
+  </code>
+  <code>
+    <value>807</value>
+    <name>North Macedonia</name>
+    <description>North Macedonia</description>
+  </code>
+  <code>
+    <value>580</value>
+    <name>Northern Mariana Islands</name>
+    <description>Northern Mariana Islands</description>
+  </code>
+  <code>
+    <value>578</value>
+    <name>Norway</name>
+    <description>Norway</description>
+  </code>
+  <code>
+    <value>512</value>
+    <name>Oman</name>
+    <description>Oman</description>
+  </code>
+  <code>
+    <value>586</value>
+    <name>Pakistan</name>
+    <description>Pakistan</description>
+  </code>
+  <code>
+    <value>585</value>
+    <name>Palau</name>
+    <description>Palau</description>
+  </code>
+  <code>
+    <value>275</value>
+    <name>Palestine, State of</name>
+    <description>Palestine, State of</description>
+  </code>
+  <code>
+    <value>591</value>
+    <name>Panama</name>
+    <description>Panama</description>
+  </code>
+  <code>
+    <value>598</value>
+    <name>Papua New Guinea</name>
+    <description>Papua New Guinea</description>
+  </code>
+  <code>
+    <value>600</value>
+    <name>Paraguay</name>
+    <description>Paraguay</description>
+  </code>
+  <code>
+    <value>604</value>
+    <name>Peru</name>
+    <description>Peru</description>
+  </code>
+  <code>
+    <value>608</value>
+    <name>Philippines</name>
+    <description>Philippines</description>
+  </code>
+  <code>
+    <value>612</value>
+    <name>Pitcairn</name>
+    <description>Pitcairn</description>
+  </code>
+  <code>
+    <value>616</value>
+    <name>Poland</name>
+    <description>Poland</description>
+  </code>
+  <code>
+    <value>620</value>
+    <name>Portugal</name>
+    <description>Portugal</description>
+  </code>
+  <code>
+    <value>630</value>
+    <name>Puerto Rico</name>
+    <description>Puerto Rico</description>
+  </code>
+  <code>
+    <value>634</value>
+    <name>Qatar</name>
+    <description>Qatar</description>
+  </code>
+  <code>
+    <value>638</value>
+    <name>Réunion</name>
+    <description>Réunion</description>
+  </code>
+  <code>
+    <value>642</value>
+    <name>Romania</name>
+    <description>Romania</description>
+  </code>
+  <code>
+    <value>643</value>
+    <name>Russian Federation</name>
+    <description>Russian Federation</description>
+  </code>
+  <code>
+    <value>646</value>
+    <name>Rwanda</name>
+    <description>Rwanda</description>
+  </code>
+  <code>
+    <value>652</value>
+    <name>Saint Barthélemy</name>
+    <description>Saint Barthélemy</description>
+  </code>
+  <code>
+    <value>654</value>
+    <name>Saint Helena, Ascension and Tristan da Cunha</name>
+    <description>Saint Helena, Ascension and Tristan da Cunha</description>
+  </code>
+  <code>
+    <value>659</value>
+    <name>Saint Kitts and Nevis</name>
+    <description>Saint Kitts and Nevis</description>
+  </code>
+  <code>
+    <value>662</value>
+    <name>Saint Lucia</name>
+    <description>Saint Lucia</description>
+  </code>
+  <code>
+    <value>663</value>
+    <name>Saint Martin (French part)</name>
+    <description>Saint Martin (French part)</description>
+  </code>
+  <code>
+    <value>666</value>
+    <name>Saint Pierre and Miquelon</name>
+    <description>Saint Pierre and Miquelon</description>
+  </code>
+  <code>
+    <value>670</value>
+    <name>Saint Vincent and the Grenadines</name>
+    <description>Saint Vincent and the Grenadines</description>
+  </code>
+  <code>
+    <value>882</value>
+    <name>Samoa</name>
+    <description>Samoa</description>
+  </code>
+  <code>
+    <value>674</value>
+    <name>San Marino</name>
+    <description>San Marino</description>
+  </code>
+  <code>
+    <value>678</value>
+    <name>Sao Tome and Principe</name>
+    <description>Sao Tome and Principe</description>
+  </code>
+  <code>
+    <value>682</value>
+    <name>Saudi Arabia</name>
+    <description>Saudi Arabia</description>
+  </code>
+  <code>
+    <value>686</value>
+    <name>Senegal</name>
+    <description>Senegal</description>
+  </code>
+  <code>
+    <value>688</value>
+    <name>Serbia</name>
+    <description>Serbia</description>
+  </code>
+  <code>
+    <value>690</value>
+    <name>Seychelles</name>
+    <description>Seychelles</description>
+  </code>
+  <code>
+    <value>694</value>
+    <name>Sierra Leone</name>
+    <description>Sierra Leone</description>
+  </code>
+  <code>
+    <value>702</value>
+    <name>Singapore</name>
+    <description>Singapore</description>
+  </code>
+  <code>
+    <value>534</value>
+    <name>Sint Maarten (Dutch part)</name>
+    <description>Sint Maarten (Dutch part)</description>
+  </code>
+  <code>
+    <value>703</value>
+    <name>Slovakia</name>
+    <description>Slovakia</description>
+  </code>
+  <code>
+    <value>705</value>
+    <name>Slovenia</name>
+    <description>Slovenia</description>
+  </code>
+  <code>
+    <value>090</value>
+    <name>Solomon Islands</name>
+    <description>Solomon Islands</description>
+  </code>
+  <code>
+    <value>706</value>
+    <name>Somalia</name>
+    <description>Somalia</description>
+  </code>
+  <code>
+    <value>710</value>
+    <name>South Africa</name>
+    <description>South Africa</description>
+  </code>
+  <code>
+    <value>239</value>
+    <name>South Georgia and the South Sandwich Islands</name>
+    <description>South Georgia and the South Sandwich Islands</description>
+  </code>
+  <code>
+    <value>728</value>
+    <name>South Sudan</name>
+    <description>South Sudan</description>
+  </code>
+  <code>
+    <value>724</value>
+    <name>Spain</name>
+    <description>Spain</description>
+  </code>
+  <code>
+    <value>144</value>
+    <name>Sri Lanka</name>
+    <description>Sri Lanka</description>
+  </code>
+  <code>
+    <value>729</value>
+    <name>Sudan</name>
+    <description>Sudan</description>
+  </code>
+  <code>
+    <value>740</value>
+    <name>Suriname</name>
+    <description>Suriname</description>
+  </code>
+  <code>
+    <value>744</value>
+    <name>Svalbard and Jan Mayen</name>
+    <description>Svalbard and Jan Mayen</description>
+  </code>
+  <code>
+    <value>752</value>
+    <name>Sweden</name>
+    <description>Sweden</description>
+  </code>
+  <code>
+    <value>756</value>
+    <name>Switzerland</name>
+    <description>Switzerland</description>
+  </code>
+  <code>
+    <value>760</value>
+    <name>Syrian Arab Republic</name>
+    <description>Syrian Arab Republic</description>
+  </code>
+  <code>
+    <value>158</value>
+    <name>Taiwan, Province of China</name>
+    <description>Taiwan, Province of China</description>
+  </code>
+  <code>
+    <value>762</value>
+    <name>Tajikistan</name>
+    <description>Tajikistan</description>
+  </code>
+  <code>
+    <value>834</value>
+    <name>Tanzania, United Republic of</name>
+    <description>Tanzania, United Republic of</description>
+  </code>
+  <code>
+    <value>764</value>
+    <name>Thailand</name>
+    <description>Thailand</description>
+  </code>
+  <code>
+    <value>626</value>
+    <name>Timor-Leste</name>
+    <description>Timor-Leste</description>
+  </code>
+  <code>
+    <value>768</value>
+    <name>Togo</name>
+    <description>Togo</description>
+  </code>
+  <code>
+    <value>772</value>
+    <name>Tokelau</name>
+    <description>Tokelau</description>
+  </code>
+  <code>
+    <value>776</value>
+    <name>Tonga</name>
+    <description>Tonga</description>
+  </code>
+  <code>
+    <value>780</value>
+    <name>Trinidad and Tobago</name>
+    <description>Trinidad and Tobago</description>
+  </code>
+  <code>
+    <value>788</value>
+    <name>Tunisia</name>
+    <description>Tunisia</description>
+  </code>
+  <code>
+    <value>792</value>
+    <name>Turkey</name>
+    <description>Turkey</description>
+  </code>
+  <code>
+    <value>795</value>
+    <name>Turkmenistan</name>
+    <description>Turkmenistan</description>
+  </code>
+  <code>
+    <value>796</value>
+    <name>Turks and Caicos Islands</name>
+    <description>Turks and Caicos Islands</description>
+  </code>
+  <code>
+    <value>798</value>
+    <name>Tuvalu</name>
+    <description>Tuvalu</description>
+  </code>
+  <code>
+    <value>800</value>
+    <name>Uganda</name>
+    <description>Uganda</description>
+  </code>
+  <code>
+    <value>804</value>
+    <name>Ukraine</name>
+    <description>Ukraine</description>
+  </code>
+  <code>
+    <value>784</value>
+    <name>United Arab Emirates</name>
+    <description>United Arab Emirates</description>
+  </code>
+  <code>
+    <value>826</value>
+    <name>United Kingdom of Great Britain and Northern Ireland</name>
+    <description>United Kingdom of Great Britain and Northern Ireland</description>
+  </code>
+  <code>
+    <value>840</value>
+    <name>United States of America</name>
+    <description>United States of America</description>
+  </code>
+  <code>
+    <value>581</value>
+    <name>United States Minor Outlying Islands</name>
+    <description>United States Minor Outlying Islands</description>
+  </code>
+  <code>
+    <value>858</value>
+    <name>Uruguay</name>
+    <description>Uruguay</description>
+  </code>
+  <code>
+    <value>860</value>
+    <name>Uzbekistan</name>
+    <description>Uzbekistan</description>
+  </code>
+  <code>
+    <value>548</value>
+    <name>Vanuatu</name>
+    <description>Vanuatu</description>
+  </code>
+  <code>
+    <value>862</value>
+    <name>Venezuela (Bolivarian Republic of)</name>
+    <description>Venezuela (Bolivarian Republic of)</description>
+  </code>
+  <code>
+    <value>704</value>
+    <name>Viet Nam</name>
+    <description>Viet Nam</description>
+  </code>
+  <code>
+    <value>092</value>
+    <name>Virgin Islands (British)</name>
+    <description>Virgin Islands (British)</description>
+  </code>
+  <code>
+    <value>850</value>
+    <name>Virgin Islands (U.S.)</name>
+    <description>Virgin Islands (U.S.)</description>
+  </code>
+  <code>
+    <value>876</value>
+    <name>Wallis and Futuna</name>
+    <description>Wallis and Futuna</description>
+  </code>
+  <code>
+    <value>732</value>
+    <name>Western Sahara</name>
+    <description>Western Sahara</description>
+  </code>
+  <code>
+    <value>887</value>
+    <name>Yemen</name>
+    <description>Yemen</description>
+  </code>
+  <code>
+    <value>894</value>
+    <name>Zambia</name>
+    <description>Zambia</description>
+  </code>
+  <code>
+    <value>716</value>
+    <name>Zimbabwe</name>
+    <description>Zimbabwe</description>
+  </code>
+
+</codeList>

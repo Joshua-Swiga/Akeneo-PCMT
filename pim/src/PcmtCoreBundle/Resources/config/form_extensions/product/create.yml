@@ -1,0 +1,10 @@
+extensions:
+    pim-product-create-sku:
+        module: pim/product-edit-form/creation/identifier
+        parent: pim-product-create-modal
+        targetZone: fields
+        position: 10
+        config:
+            identifier: identifier
+            create_button: on
+

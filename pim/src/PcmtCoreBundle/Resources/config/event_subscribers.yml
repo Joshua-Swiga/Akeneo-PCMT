@@ -1,0 +1,24 @@
+######################################################################
+# Copyright (c) 2019, VillageReach
+# Licensed under the Non-Profit Open Software License version 3.0.
+# SPDX-License-Identifier: NPOSL-3.0
+######################################################################
+
+services:
+
+    PcmtCoreBundle\EventSubscriber\UpdateConcatenatedAttributesOnProductSaveSubscriber:
+        arguments:
+            - '@pim_catalog.repository.attribute'
+            - '@pcmt_catalog.product.updater.concatenated_attributes_for_product_and_model'
+        tags:
+            - { name: kernel.event_subscriber }
+
+    PcmtCoreBundle\EventSubscriber\UpdateFamilyProductsConcatenatedAttributesValuesSubscriber:
+        arguments:
+            - '@security.token_storage'
+            - '@akeneo_batch.job.job_instance_repository'
+            - '@akeneo_batch_queue.launcher.queue_job_launcher'
+            - '%pcmt_catalog.compute_family_products_concatenated_attributes_values.job_name%'
+            - '@pim_catalog.doctrine.query.find_attributes_for_family'
+        tags:
+            - { name: kernel.event_subscriber, priority: 100 }

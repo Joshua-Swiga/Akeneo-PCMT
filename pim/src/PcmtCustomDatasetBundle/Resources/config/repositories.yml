@@ -1,0 +1,2 @@
+parameters:
+    pim_datagrid.repository.datagrid_view.class: PcmtCustomDatasetBundle\Repository\DatagridViewRepository

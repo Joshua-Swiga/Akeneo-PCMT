@@ -1,0 +1,82 @@
+######################################################################
+# Copyright (c) 2020, VillageReach
+# Licensed under the Non-Profit Open Software License version 3.0.
+# SPDX-License-Identifier: NPOSL-3.0
+######################################################################
+parameters:
+    pcmt.cis.entity.subscription.class:  PcmtCISBundle\Entity\Subscription
+
+services:
+    pcmt.cis.repository.subscription:
+        class: PcmtCISBundle\Repository\SubscriptionRepository
+        factory: 'doctrine.orm.entity_manager:getRepository'
+        arguments: ['%pcmt.cis.entity.subscription.class%']
+        tags:
+            - { name: 'pim_repository' }
+
+    pcmt.cis.subscription.normalizer:
+        class: PcmtCISBundle\Normalizer\SubscriptionNormalizer
+        autowire: true
+        tags:
+            - { name: pim_internal_api_serializer.normalizer, priority: 80 }
+
+    pcmt.cis.constraint.required_field_constraint_validator:
+        class: PcmtCISBundle\Validator\RequiredFieldConstraintValidator
+        tags:
+            - { name: validator.constraint_validator, alias: pcmt_cis_required_field_constraint_validator }
+
+    pcmt.cis.constraint.unique_values_constraint_validator:
+        class: PcmtCISBundle\Validator\UniqueValuesConstraintValidator
+        autowire: true
+        tags:
+            - { name: validator.constraint_validator, alias: pcmt_cis_unique_values_constraint_validator }
+
+    pcmt.cis.remover.subscription:
+        class: '%pim_catalog.remover.base.class%'
+        arguments:
+            - '@doctrine.orm.entity_manager'
+            - '@event_dispatcher'
+            - '%pcmt.cis.entity.subscription.class%'
+
+    pcmt.cis.file.service:
+        class: PcmtCISBundle\Service\FileService
+        arguments:
+            - '@pcmt.cis.service.file_command'
+
+    pcmt.cis.service.file_command:
+        class: PcmtCISBundle\Service\FileCommandService
+        arguments:
+            - '@filesystem'
+            - '@pcmt.cis.service.file_content'
+            - '@pcmt.cis.service.file_name'
+            - '@pcmt.cis.service.directory'
+            - '@pcmt.cis.service.file_search'
+
+    pcmt.cis.service.directory:
+        class: PcmtCISBundle\Service\DirectoryService
+        arguments:
+            - '@filesystem'
+            - '%cis_file_path%'
+
+    pcmt.cis.service.file_name:
+        class: PcmtCISBundle\Service\FileNameService
+        arguments:
+            - '@pcmt.cis.service.file_unique_identifier_generator'
+            - '%cis_file_source%'
+
+    pcmt.cis.service.file_unique_identifier_generator:
+        class: PcmtCISBundle\Service\FileUniqueIdentifierGenerator
+
+    pcmt.cis.service.file_content:
+        class: PcmtCISBundle\Service\FileContentService
+
+    pcmt.cis.service.finder:
+        class: Symfony\Component\Finder\Finder
+        public: false
+
+    pcmt.cis.service.file_search:
+        class: PcmtCISBundle\Service\FileSearchService
+        arguments:
+            - '@pcmt.cis.service.finder'
+            - '%cis_file_path%'
+

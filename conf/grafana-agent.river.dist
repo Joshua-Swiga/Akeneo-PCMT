@@ -1,0 +1,106 @@
+logging {
+    level = "warn"
+    format = "logfmt"
+}
+
+local.file "grafana_creds" {
+    filename = "/run/secrets/grafana-creds"
+    is_secret = false
+}
+
+discovery.docker "linux" {
+    host = "unix:///var/run/docker.sock"
+}
+
+discovery.relabel "docker_labels" {
+    targets = discovery.docker.linux.targets
+    rule {
+        source_labels = ["__meta_docker_container_name"]
+        regex = "/(.*)"
+        target_label = "container_name"
+    }
+
+    rule {
+        source_labels = ["__meta_docker_container_label_com_docker_compose_service"]
+        target_label = "compose_service"
+    }
+}
+
+loki.source.docker "default" {
+    host = "unix:///var/run/docker.sock"
+    targets = discovery.relabel.docker_labels.output
+    forward_to = [loki.relabel.add_static_label.receiver]
+}
+
+loki.relabel "add_static_label" {
+    forward_to = [loki.write.cloud.receiver]
+
+    rule {
+        target_label = "os"
+        replacement = constants.os
+    }
+
+    rule {
+        target_label = "app"
+        replacement = "pcmt"
+    }
+
+    rule {
+        target_label = "hostname"
+        replacement = env("PCMT_HOSTNAME")
+    }
+}
+
+loki.write "cloud" {
+    endpoint {
+        url = json_path(local.file.grafana_creds.content, ".loki_url")[0]
+        basic_auth {
+            username = json_path(local.file.grafana_creds.content, ".loki_username")[0]
+            password = json_path(local.file.grafana_creds.content, ".token")[0]
+        }
+    }
+}
+
+prometheus.exporter.unix "host" {
+    rootfs_path = "/host"
+    sysfs_path = "/host/sys"
+    procfs_path = "/host/proc"
+    udev_data_path = "/host/run/udev/data"
+
+    set_collectors = ["cpu","diskstats","filesystem","loadavg","meminfo","uname"]
+}
+
+prometheus.scrape "host" {
+    targets = prometheus.exporter.unix.host.targets
+    forward_to = [prometheus.relabel.add_static_label.receiver]
+}
+
+prometheus.relabel "add_static_label" {
+    forward_to = [prometheus.remote_write.cloud.receiver]
+
+    rule {
+        target_label = "os"
+        replacement = constants.os
+    }
+
+    rule {
+        target_label = "app"
+        replacement = "pcmt"
+    }
+
+    rule {
+        target_label = "hostname"
+        replacement = env("PCMT_HOSTNAME")
+    }
+}
+
+prometheus.remote_write "cloud" {
+    endpoint {
+        url = json_path(local.file.grafana_creds.content, ".prometheus_url")[0]
+        basic_auth {
+            username = json_path(local.file.grafana_creds.content, ".prometheus_username")[0]
+            password = json_path(local.file.grafana_creds.content, ".token")[0]
+        }
+    }
+
+}

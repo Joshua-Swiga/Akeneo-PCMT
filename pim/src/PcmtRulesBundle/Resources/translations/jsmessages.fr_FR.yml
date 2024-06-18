@@ -1,0 +1,165 @@
+pim_title:
+    pcmt_rules_index: FR Family to family mapping rules
+    pcmt_rules_edit: FR Family to family mapping rules
+    pcmt_rules_profile_index: FR Rules profiles management
+    pcmt_rules_profile_show: FR Rules profile {{ job.label }} | Show
+    pcmt_rules_profile_edit: FR Rules profile {{ job.label }} | Edit
+    pcmt_rules_execution_show: FR Rules execution | Details
+    pcmt_rules_execution_index: FR Rules executions history
+
+pim_menu:
+    tab:
+        rules: FR Rules
+    item:
+        rules: FR Family to family mapping rules
+        rules_profile: FR Rules profile
+
+pim_enrich:
+    entity:
+        rule:
+            module:
+                delete:
+                    confirm: FR Are you sure you want to delete this rule?
+            flash:
+                delete:
+                    success: FR Rule successfully deleted
+        rules_profile:
+            module:
+                delete:
+                    confirm: FR Are you sure you want to delete this rule?
+            flash:
+                delete:
+                    success: FR Rule successfully deleted
+
+pim_import_export:
+    entity:
+        rules_profile:
+            uppercase_label: FR Rules profile
+            flash:
+                create:
+                    success: FR Rules profile successfully created
+    widget:
+        last_operations:
+            job_type:
+                rules: FR Rules
+
+pcmt:
+    rules:
+        attribute_mapping:
+            source: FR Source
+            destination: FR Destination
+        copy_products_job:
+            properties:
+                source_family:
+                    title: FR Source family
+                    help: FR Source family
+                destination_family:
+                    title: FR Destination family
+                    help: FR Destination family
+            tab:
+                attribute_mapping: FR Attribute mapping
+        family_to_family_job:
+            properties:
+                source_family:
+                    title: FR Source family
+                    help: FR Source family
+                destination_family:
+                    title: FR Destination family
+                    help: FR Destination family
+                key_attribute:
+                    title: FR Key attribute
+                    help: FR Key attribute
+                    placeholder:
+                        source: FR Source key attribute
+                        destination: FR Destination key attribute
+                    label:
+                        source: FR Source
+                        destination: FR Destination
+            tab:
+                attribute_mapping: FR Attribute mapping
+        select_options_job:
+            properties:
+                destination_attribute:
+                    title: FR Destination attribute
+                    help: FR Destination attribute
+                source_family:
+                    title: FR Source family
+                    help: FR Source family
+                attribute_code:
+                    title: FR Attribute for CODE
+                    help: FR Attribute for CODE
+                attribute_value:
+                    title: FR Attribute for VALUE
+                    help: FR Attribute for VALUE
+        pull_images_job:
+            properties:
+                family:
+                    title: FR Family
+                    help: FR Family
+                destination_attribute:
+                    title: FR Destination attribute
+                    help: FR Destination attribute
+                source_attribute:
+                    title: FR Source attribute
+                    help: FR Source attribute
+
+    rules.action.run.label: FR Run a rule
+    entity:
+        rules:
+            label: FR Rule
+            module:
+                create:
+                    button: FR Create Rule
+                edit:
+                    common: FR General Parameters
+            flash:
+                create:
+                    success: FR Rule successfully created
+                update:
+                    success: FR Rule successfully updated
+                    fail: FR Rule could not be updated
+                    fields_not_ready: "FR Rule cannot be saved right now. The following fields are not ready: {{ fields }}"
+            page_title:
+                index: "]-Inf, 1]{{ count }} FR rule|]1, Inf[{{ count }} FR rules"
+            property.family.choose: FR Choose the family
+            property.attribute.choose: FR Choose the attribute
+        rules_profile:
+            page_title:
+                index: "]-Inf, 1] {{ count }} FR rules profile|]1, Inf [{{ count }} FR rules profiles"
+            module:
+                create:
+                    button: FR Create rule profile
+
+pcmt.rules.flash:
+    running_started: FR The rule processing has been started.
+    running_start_error: FR The rule processing has not been started, there was an error.
+
+batch_jobs:
+    default_steps:
+        copy_products_rule_step: FR Copy products step
+        rule_process_step: FR Rule process step
+        select_options_rule_step: FR Select options step
+        pull_images_rule_step: FR Pull images step
+
+    pcmt_copy_products_rule:
+        validation.label: FR Validation
+        label: FR Family Copy by Association
+
+    pcmt_family_to_family_rule:
+        validation.label: FR Validation
+        label: FR Family Copy by Attribute
+
+    pcmt_select_options_rule:
+        validation.label: FR Validation
+        label: FR Set Select Attribute from Family
+
+    pcmt_pull_images_rule:
+        validation.label: FR Validation
+        label: FR Set image from URL
+
+pcmt_simple_job:
+    form:
+        job_instance:
+            button:
+                job.switcher: FR Simple launch
+                job.launch: FR Launch now

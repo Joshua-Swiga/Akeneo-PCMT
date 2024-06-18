@@ -1,0 +1,28 @@
+PcmtPermissionsBundle\Entity\AttributeGroupAccess:
+    type: entity
+    table: pcmt_catalog_attribute_group_access
+    changeTrackingPolicy: DEFERRED_EXPLICIT
+    repositoryClass: PcmtPermissionsBundle\Repository\AttributeGroupAccessRepository
+    fields:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+        level:
+            type: string
+    manyToOne:
+        attributeGroup:
+            targetEntity: Akeneo\Pim\Structure\Component\Model\AttributeGroupInterface
+            joinColumn:
+                name: attribute_group_id
+                referencedColumnName: id
+                onDelete: CASCADE
+        userGroup:
+            targetEntity: Akeneo\UserManagement\Component\Model\Group
+            joinColumn:
+                name: user_group_id
+                referencedColumnName: id
+                onDelete: CASCADE
+
+

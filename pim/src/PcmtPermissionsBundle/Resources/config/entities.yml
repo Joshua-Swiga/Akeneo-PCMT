@@ -1,0 +1,3 @@
+parameters:
+    pim_catalog.entity.attribute_group.class: PcmtPermissionsBundle\Entity\AttributeGroupWithAccess
+    pim_catalog.entity.category.class: PcmtPermissionsBundle\Entity\CategoryWithAccess

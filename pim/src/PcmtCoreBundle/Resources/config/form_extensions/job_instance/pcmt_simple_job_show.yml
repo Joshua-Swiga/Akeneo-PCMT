@@ -1,0 +1,88 @@
+extensions:
+    pcmt-simple-job-show:
+        module: pim/form/common/edit-form
+
+    pcmt-simple-job-show-main-image:
+        module: pim/form/common/main-image
+        parent: pcmt-simple-job-show
+        targetZone: main-image
+        config:
+            path: bundles/pimui/images/illustrations/ImportXLSX.svg
+
+    pcmt-simple-job-show-user-navigation:
+        module: pim/menu/user-navigation
+        parent: pcmt-simple-job-show
+        targetZone: user-menu
+        config:
+            userAccount: pim_menu.user.user_account
+            logout: pim_menu.user.logout
+
+    pcmt-simple-job-show-breadcrumbs:
+        module: pim/common/breadcrumbs
+        parent: pcmt-simple-job-show
+        targetZone: breadcrumbs
+        config:
+            tab: pim-menu-imports
+
+    pcmt-simple-job-show-switcher:
+        module: pim/job-instance/import/switcher
+        parent: pcmt-simple-job-show
+        position: 0
+        targetZone: meta
+
+    pcmt-simple-job-show-launch-switcher-item:
+        module: pim/job-instance/import/switcher-item
+        parent: pcmt-simple-job-show
+        targetZone: content
+        aclResourceId: pim_importexport_import_profile_launch
+        position: 40
+        config:
+            label: pcmt_simple_job.form.job_instance.button.job.switcher
+            hideForCloudEdition: true
+
+    pcmt-simple-job-show-import-button:
+        module: pim/job/common/edit/launch
+        parent: pcmt-simple-job-show-launch-switcher-item
+        config:
+            label: pcmt_simple_job.form.job_instance.button.job.launch
+            route: pim_enrich_job_instance_rest_import_launch
+            identifier:
+                path: code
+                name: code
+
+    pcmt-simple-job-show-subsection:
+        module: pim/form/common/subsection
+        parent: pcmt-simple-job-show
+        targetZone: content
+        config:
+            title: pim_import_export.form.job_instance.subsection.last_executions
+
+    pcmt-simple-job-show-grid:
+        module: pim/job/common/grid
+        parent: pcmt-simple-job-show-subsection
+        position: 1000
+        targetZone: content
+        config:
+            alias: last-import-executions-grid
+            metadata:
+                jobType: import
+
+    pcmt-simple-job-show-label:
+        module: pim/job/common/edit/label
+        parent: pcmt-simple-job-show
+        targetZone: title
+        position: 100
+
+    pcmt-simple-job-show-edit:
+        module: pim/common/redirect
+        parent: pcmt-simple-job-show
+        targetZone: buttons
+        position: 100
+        aclResourceId: pim_importexport_import_profile_edit
+        config:
+            label: pim_common.edit
+            route: pim_importexport_import_profile_edit
+            buttonClass: AknButton AknButton--action
+            identifier:
+                path: code
+                name: code

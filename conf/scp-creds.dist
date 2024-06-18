@@ -1,0 +1,4 @@
+SCP_IDENTITY_PATH=/run/secrets/scp-identity
+SCP_REMOTE_PORT=22
+SCP_REMOTE_URI=someuser@somehost:~/backup
+SCP_LOCAL_PATH=/some/backups

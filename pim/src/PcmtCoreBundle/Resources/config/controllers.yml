@@ -1,0 +1,10 @@
+services:
+
+    pcmt_core.controller.rest.reference:
+        class: 'PcmtCoreBundle\Controller\ReferenceDataController'
+        arguments:
+            - '@doctrine.orm.entity_manager'
+            - '@pim_standard_format_serializer'
+            -
+    pcmt_core.controller.rest.unique_id_generator:
+        class: 'PcmtCoreBundle\Controller\UniqueIdGeneratorController'

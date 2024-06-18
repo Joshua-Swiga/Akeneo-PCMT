@@ -1,0 +1,59 @@
+pcmt.permission:
+    rules: Rules
+    rules.label:
+        view: View rules
+        create: Create rules
+        delete: Delete rules
+        edit: Edit rules
+        run: Run rules
+
+pcmt:
+    rules:
+        datagrid:
+            label: Label
+            source_family: Source Family
+            destination_family: Destination Family
+            key_attribute: Key Attribute
+
+pcmt.rules.flash:
+    running_started: The rule processing has been started.
+    running_start_error: The rule processing has not been started, there was an error.
+
+job_execution.summary:
+    rule_id: Rule ID
+    attributes_found: Attributes found
+    source_products_found: Source products found
+    source_product_models_found: Source product models found
+    source_products_processed: Source products processed
+    source_product_models_processed: Source product models processed
+    destination_products_found_and_saved: Destination products found and saved
+    destination_product_models_found_and_saved: Destination product models found and saved
+    destination_products_created: Destination products created
+    options_found_and_removed: Options found and removed
+    options_added: Options added
+    parameters: Parameters
+    entities_found: Entities found
+    entities_processed: Entities processed
+    source_urls_found: Source URLs found
+    files_downloaded: Files downloaded
+    entities_updated: Entities updated
+    associated_product_models_found: Associated product models found
+    associated_product_models_found_in_correct_family: Associated product models in correct family
+    axis_attribute_not_exists_in_source_product: Axis attribute not found in source product
+    sub_entities_found: Sub entities found
+    sub_product_models_created: Sub product models created
+    sub_products_created: Sub products created
+
+pim_datagrid:
+    cells:
+        type:
+            rules: Rules
+
+pim_import_export:
+    notification:
+        rules:
+            error: Rule job <strong>%label%</strong> failed
+            warning: Rule job <strong>%label%</strong> finished with some warnings
+            success: Rule job <strong>%label%</strong> finished
+
+

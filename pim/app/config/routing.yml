@@ -1,0 +1,94 @@
+################################################################################
+# Copyright (c) 2013, Akeneo SAS
+# Copyright (c) 2019, VillageReach
+# Licensed under the Open Software License version 3.0 AND Non-Profit Open
+# Software License version 3.0.
+# SPDX-License-Identifier: NPOSL-3.0 AND OSL-3.0
+################################################################################
+
+akeneo_channel:
+    resource: "@AkeneoChannelBundle/Resources/config/routing.yml"
+    prefix:   /
+
+akeneo_pim_structure:
+    resource: "@AkeneoPimStructureBundle/Resources/config/routing.yml"
+
+akeneo_pim_enrichment:
+    resource: "@AkeneoPimEnrichmentBundle/Resources/config/routing.yml"
+
+# PIM
+pim_analytics:
+    resource: "@PimAnalyticsBundle/Resources/config/routing.yml"
+
+pim_datagrid:
+    resource: "@PimDataGridBundle/Resources/config/routing.yml"
+
+pim_dashboard:
+    resource: "@PimDashboardBundle/Resources/config/routing.yml"
+
+pim_ui:
+    resource: "@PimUIBundle/Resources/config/routing.yml"
+
+pim_user:
+    resource: "@PimUserBundle/Resources/config/routing.yml"
+
+pim_importexport:
+    resource: "@PimImportExportBundle/Resources/config/routing.yml"
+
+pim_notification:
+    resource: "@PimNotificationBundle/Resources/config/routing.yml"
+
+pim_api:
+    resource: "@PimApiBundle/Resources/config/routing.yml"
+    prefix: /api
+
+pim_volume_monitoring:
+    resource: "@PimCatalogVolumeMonitoringBundle/Resources/config/routing.yml"
+
+# Oro platform
+
+oro_default:
+    path:  /
+    defaults:
+        template:    PimUIBundle::index.html.twig
+        _controller: FrameworkBundle:Template:template
+
+oro_config:
+    resource: "@OroConfigBundle/Resources/config/oro/routing.yml"
+
+oro_datagrid:
+    resource: "@OroDataGridBundle/Resources/config/oro/routing.yml"
+
+oro_translation:
+    resource: "@OroTranslationBundle/Resources/config/oro/routing.yml"
+
+# other third party
+fos_js_routing:
+    resource: "@FOSJsRoutingBundle/Resources/config/routing/routing.xml"
+
+_liip_imagine:
+    resource: "@LiipImagineBundle/Resources/config/routing.xml"
+
+pim_customentity:
+    prefix: /reference-data
+    resource: "@PimCustomEntityBundle/Resources/config/routing.yml"
+
+pcmt_core:
+    resource: "@PcmtCoreBundle/Resources/config/routing.yml"
+
+pcmt_draft:
+    resource: "@PcmtDraftBundle/Resources/config/routing.yml"
+
+pcmt_permissions:
+    resource: "@PcmtPermissionsBundle/Resources/config/routing.yml"
+
+pcmt_rules:
+    resource: "@PcmtRulesBundle/Resources/config/routing.yml"
+
+pcmt_cis:
+    resource: "@PcmtCISBundle/Resources/config/routing.yml"
+
+fhir:
+    resource: "@FhirBundle/Resources/config/routing.yml"
+
+

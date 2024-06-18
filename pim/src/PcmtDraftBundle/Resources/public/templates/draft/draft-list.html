@@ -1,0 +1,202 @@
+<% if (loading) { %>
+
+<!--
+  ~ Copyright (c) 2019, VillageReach
+  ~ Licensed under the Non-Profit Open Software License version 3.0.
+  ~ SPDX-License-Identifier: NPOSL-3.0
+  -->
+
+<div class="AknLoadingMask">
+    <div class="AknLoadingMask-wrapper">
+    </div>
+    <div id="loading-frame" class="AknLoadingMask-frame loading-frame">
+        <div class="AknLoadingMask-box">
+            <div class="AknLoadingMask-content"></div>
+        </div>
+    </div>
+</div>
+
+<% } else {%>
+
+<div class="AknGridContainer">
+
+    <table class="AknGrid AknGrid--unclickable">
+        <% if (!_.isEmpty(drafts)) { %>
+
+        <thead>
+        <tr>
+            <th class="AknGrid-headerCell">
+            </th>
+            <th class="AknGrid-headerCell">
+                <%- __('pcmt_core.drafts_list.product') %>
+            </th>
+            <th class="AknGrid-headerCell">
+                <%- __('pcmt_core.drafts_list.label') %>
+            </th>
+            <th class="AknGrid-headerCell">
+                <%- __('pcmt_core.drafts_list.author') %>
+            </th>
+            <th class="AknGrid-headerCell">
+                <%- __('pcmt_core.drafts_list.changes') %>
+            </th>
+            <th class="AknGrid-headerCell">
+                <%- __('pcmt_core.drafts_list.date') %>
+            </th>
+            <th class="AknGrid-headerCell">
+                <%- __('pcmt_core.drafts_list.status') %>
+            </th>
+            <th class="AknGrid-headerCell">
+                <%- __('pcmt_core.drafts_list.action') %>
+            </th>
+        </tr>
+        </thead>
+
+        <tbody>
+        <% _.each(drafts, function (draft) { %>
+        <tr class="AknGrid-bodyRow">
+            <td style="width: 65px;"
+                class="AknGrid-bodyCell AknGrid-bodyCell--actions input-cell draft-checkbox-bodyCell">
+                <% if (draft.status.id === 1 && draft.values != null) { %>
+                <label>
+                    <input class="draft-checkbox" tabindex="-1" type="checkbox" data-draft-id="<%- draft.id %>">
+                </label>
+                <% } %>
+            </td>
+            <td class="AknGrid-bodyCell">
+                <%- __(draft.typeName) %><br>
+                <%- draft.values.identifier %>
+            </td>
+            <td class="AknGrid-bodyCell"><%- draft.label %></td>
+            <td class="AknGrid-bodyCell"><%- draft.author %></td>
+            <td class="AknGrid-bodyCell">
+                <% if (draft.changes.length > 0) { %>
+                    <div id="draft-changes-shortcut-<%- draft.id %>"
+                         class="draft-changes-shortcut"
+                         data-draft-id="<%- draft.id %>"
+                         style="cursor:pointer">
+
+                        <div class="AknButtonList AknButtonList--right">
+                            <button class="AknActionButton">
+                                <%- __('pcmt_core.drafts_list.show_more') %>
+                                <span class="AknActionButton-caret AknCaret"></span>
+                            </button>
+                        </div>
+
+                        <% firstChange = _.first(draft.changes) %>
+                        <% if (firstChange) { %>
+                        <div style="margin-bottom:10px;">
+                            <b><%- firstChange.attribute %></b><br>
+                            <span class="AknDiff--remove">
+                            <%- __('pcmt_core.drafts_list.previous_value') %>:
+                        </span>
+                            <%- firstChange.previousValue %><br>
+                            <span class="AknDiff--add">
+                            <%- __('pcmt_core.drafts_list.new_value') %>:
+                        </span>
+                            <%- firstChange.newValue %>
+                        </div>
+                        <% } %>
+                    </div>
+                    <div id="draft-changes-full-<%- draft.id %>"
+                         class="draft-changes-full"
+                         data-draft-id="<%- draft.id %>"
+                         style="cursor:pointer; display:none">
+
+                        <div class="AknButtonList AknButtonList--right" style="float:right;">
+                            <button class="AknActionButton" data-toggle="dropdown">
+                                <%- __('pcmt_core.drafts_list.collapse') %>
+                                <span class="AknActionButton-caret AknCaret"></span>
+                            </button>
+                        </div>
+
+                        <% _.each(draft.changes, function (change) { %>
+                        <div style="margin-bottom:10px;">
+                            <b><%- change.attribute %></b><br>
+                            <span class="AknDiff--remove">
+                            <%- __('pcmt_core.drafts_list.previous_value') %>:
+                        </span>
+                            <%- change.previousValue %><br>
+                            <span class="AknDiff--add">
+                        <%- __('pcmt_core.drafts_list.new_value') %>:
+                        </span>
+                            <%- change.newValue %>
+                        </div>
+                        <% }); %>
+
+                    </div>
+                <% } else { %>
+                    <%- __('pcmt_core.drafts_list.no_changes') %>
+                <% } %>
+            </td>
+            <td class="AknGrid-bodyCell"><%- draft.createdAt %></td>
+            <td class="AknGrid-bodyCell">
+                <div class="AknBadge <%- draft.status.class %>">
+                    <%- draft.status.name %>
+                </div>
+            </td>
+            <td class="AknGrid-bodyCell AknGrid-bodyCell--actions action-cell">
+                <% if (draft.status.id === 1) { %>
+                <div class="AknButtonList AknButtonList--right AknButtonList--expanded">
+                    <% if (editPermission && draft.values && draft.categoryPermissions.edit) { %>
+                    <a href="javascript:void(0);"
+                       class="AknIconButton AknIconButton--small AknIconButton--edit AknButtonList-item draft-edit"
+                       title="<%- __('pcmt.entity.draft.actions.edit') %>" data-draft-id="<%- draft.id %>">
+                        <%- __('pcmt.entity.draft.actions.edit') %>
+                    </a>
+                    <% } else {  %>
+                    <a href="javascript:void(0);"
+                       class="AknIconButton AknIconButton--small AknIconButton--edit AknButtonList-item"
+                       style="cursor: not-allowed"
+                       title="<%- __('pcmt.entity.draft.actions-no-permission.edit') %>">
+                        <%- __('pcmt.entity.draft.actions-no-permission.edit') %>
+                    </a>
+                    <% } %>
+
+                    <% if (approvePermission && draft.categoryPermissions.own) { %>
+                    <a href="javascript:void(0);"
+                       class="AknIconButton AknIconButton--small AknIconButton--play AknButtonList-item draft-approve"
+                       title="<%- __('pcmt.entity.draft.actions.approve') %>" data-draft-id="<%- draft.id %>">
+                        <%- __('pcmt.entity.draft.actions.approve') %>
+                    </a>
+                    <% } else {  %>
+                    <a href="javascript:void(0);"
+                       class="AknIconButton AknIconButton--small AknIconButton--play AknButtonList-item"
+                       style="cursor: not-allowed"
+                       title="<%- __('pcmt.entity.draft.actions-no-permission.approve') %>">
+                        <%- __('pcmt.entity.draft.actions-no-permission.approve') %>
+                    </a>
+
+                    <% } %>
+                    <% if (rejectPermission && draft.categoryPermissions.own) { %>
+                    <a href="javascript:void(0);"
+                       class="AknIconButton AknIconButton--small AknIconButton--trash AknButtonList-item draft-reject"
+                       title="<%- __('pcmt.entity.draft.actions.reject') %>" data-draft-id="<%- draft.id %>">
+                        <%- __('pcmt.entity.draft.actions.reject') %>
+                    </a>
+                    <% } else {  %>
+                    <a href="javascript:void(0);"
+                       class="AknIconButton AknIconButton--small AknIconButton--trash AknButtonList-item"
+                       style="cursor: not-allowed"
+                       title="<%- __('pcmt.entity.draft.actions-no-permission.reject') %>">
+                        <%- __('pcmt.entity.draft.actions-no-permission.reject') %>
+                    </a>
+                    <% } %>
+                </div>
+                <% } %>
+            </td>
+        </tr>
+        <% }); %>
+        </tbody>
+        <% } else {%>
+        <tr>
+            <td class="AknGrid-bodyCell AknGrid-bodyCell--full">
+                <div class="AknMessageBox AknMessageBox--centered">
+                    <%- __('pcmt_core.drafts_list.empty') %>
+                </div>
+            </td>
+        </tr>
+        <% } %>
+
+    </table>
+</div>
+<% } %>

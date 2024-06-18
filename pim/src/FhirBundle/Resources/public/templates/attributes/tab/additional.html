@@ -1,0 +1,34 @@
+<!--
+  ~ Copyright (c) 2022, VillageReach
+  ~ Licensed under the Non-Profit Open Software License version 3.0.
+  ~ SPDX-License-Identifier: NPOSL-3.0
+  -->
+<div class="AknSubsection">
+    <header class="AknSubsection-title">
+        <%- title %>
+    </header>
+</div>
+<div class="AknFormContainer AknFormContainer--expanded">
+    <div class="AknFieldContainer">
+        <div class="AknFieldContainer-header">
+            <label class="AknFieldContainer-label"><%- label %></label>
+        </div>
+        <div class="AknFieldContainer-inputContainer">
+            <select class="select2" title="<%- title %>" name="fhir_mapping" data-placeholder="<%- placeholder %>" id="fhir_mapping">
+
+                <option value="" <% if (_.isEmpty(selected)) { %> selected<% } %>></option>
+                <% _.each(options, function (option) { %>
+                    <option value="<%- option.value %>"
+                        <% if (option.value === selected) { %> selected<% } %> >
+                        <%- option.label %>
+                    </option>
+                <% }); %>
+            </select>
+        </div>
+    </div>
+</div>
+
+
+
+
+

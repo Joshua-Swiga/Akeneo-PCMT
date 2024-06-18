@@ -1,0 +1,134 @@
+######################################################################
+# Copyright (c) 2019, VillageReach
+# Licensed under the Non-Profit Open Software License version 3.0.
+# SPDX-License-Identifier: NPOSL-3.0
+######################################################################
+
+config:
+    paths:
+        ### Dashboard widget
+        pcmt/product/widget/draft-products-widget: pcmtdraft/js/draft/draft-products-widget
+
+
+        ### form ###
+        pcmt/product/form/attributes/read-only-all-attributes: pcmtdraft/js/product/form/attributes/read-only-all-attributes
+        pcmt/product-model/form/add-child/add-child: pcmtdraft/js/product-model/form/add-child/add-child
+
+        ### Drafts ###
+        pcmt/draft/collection: pcmtdraft/js/draft/collection
+
+
+        pcmt/draft/mass-actions: pcmtdraft/js/draft/mass-actions
+        pcmt/draft/actions-panel: pcmtdraft/js/draft/actions-panel
+        pcmt/draft/list: pcmtdraft/js/draft/draft_list
+        pcmt/draft/draft-pagination: pcmtdraft/js/draft/draft-pagination
+        pcmt/draft/filters: pcmtdraft/js/draft/filters
+        pcmt/draft/form/save: pcmtdraft/js/draft/form/save
+        pcmt/draft/form/variant-navigation: pcmtdraft/js/draft/form/variant-navigation
+        pcmt/draft/form/cache-invalidator: pcmtdraft/js/draft/form/cache-invalidator
+        pcmt/draft/form/sequential-edit: pcmtdraft/js/draft/form/sequential-edit
+        pcmt/draft/form/product-label: pcmtdraft/js/draft/form/product-label
+        pcmt/draft/form/product-model-label: pcmtdraft/js/draft/form/product-model-label
+        pcmt/draft/form/product-completeness: pcmtdraft/js/draft/form/product-completeness
+        pcmt/draft/form/total-missing-required-attributes: pcmtdraft/js/draft/form/total-missing-required-attributes
+        pcmt/draft/form/comments: pcmtdraft/js/draft/form/comments
+        pcmt/draft/form/complete-variant-product: pcmtdraft/js/draft/form/complete-variant-product
+        pcmt/draft/form/associations: pcmtdraft/js/draft/form/associations
+        pcmt/draft/form/categories: pcmtdraft/js/draft/form/categories
+        pcmt/draft/form/completeness: pcmtdraft/js/draft/form/completeness
+        pcmt/draft/form/label: pcmtdraft/js/draft/form/label
+        pcmt/draft/form/attribute-filter-at-this-level: pcmtdraft/js/draft/form/attribute-filter-at-this-level
+        pcmt/draft/form/attribute-filter-missing-required: pcmtdraft/js/draft/form/attribute-filter-missing-required
+        pcmt/draft/form/attributes/completeness: pcmtdraft/js/draft/form/attributes/completeness
+        pcmt/draft/form/attributes/variant-axes: pcmtdraft/js/draft/form/attributes/variant-axes
+        pcmt/draft/form/attributes/read-only-parent-attributes: pcmtdraft/js/draft/form/attributes/read-only-parent-attributes
+        pcmt/draft/form/attributes/attribute-group-selector: pcmtdraft/js/draft/form/attributes/attribute-group-selector
+        pcmt/draft/form/attributes/validation: pcmtdraft/js/draft/form/attributes/validation
+        pcmt/draft/form/meta/updated: pcmtdraft/js/draft/form/meta/updated
+        pcmt/draft/form/meta/created: pcmtdraft/js/draft/form/meta/created
+        pcmt/draft/form/meta/family: pcmtdraft/js/draft/form/meta/family
+        pcmt/draft/form/meta/family-variant: pcmtdraft/js/draft/form/meta/family-variant
+        pcmt/draft/form/meta/change-family: pcmtdraft/js/draft/form/meta/change-family
+        pcmt/draft/form/meta/status-switcher: pcmtdraft/js/draft/form/meta/status-switcher
+        pcmt/draft/form/creation/variant: pcmtdraft/js/draft/form/creation/variant
+
+        pcmt/product/edit/form/save: pcmtdraft/js/product/form/save
+        pcmt/product/form/categories: pcmtdraft/js/product/form/categories
+        pcmt/product/form/common/column-tabs: pcmtdraft/js/product/form/common/column-tabs
+        pcmt/product/form/common/column-tabs-navigation: pcmtdraft/js/product/form/common/column-tabs-navigation
+        pcmt/product/form/no-draft: pcmtdraft/js/product/form/no-draft
+        pcmt/product/form/associations: pcmtdraft/js/product/form/associations
+        pcmt/product/form/meta/status-switcher-disabled: pcmtdraft/js/product/form/meta/status-switcher-disabled
+        pcmt/product/form/label: pcmtdraft/js/product/form/label
+        pcmt/product/form/variant-navigation: pcmtdraft/js/product/form/variant-navigation
+        pcmt/product/form/comments: pcmtdraft/js/product/form/comments
+
+        pcmt/product-model/edit/form/save: pcmtdraft/js/product-model/form/save
+
+        pim/product-edit-form/associated-product-row/original: pimui/js/product/form/associated-product-row
+        pim/product-edit-form/associated-product-row: pcmtdraft/js/product/form/associated-product-row
+        pim/product-edit-form/associated-product-row/draft: pcmtdraft/js/draft/form/associated-product-row
+        pcmt/product-edit-form/meta/family: pcmtdraft/js/product/form/meta/family
+        pcmt/product/form/meta/change-family-disabled: pcmtdraft/js/product/form/meta/change-family-disabled
+
+        pcmt/mass-edit-form/product/change-family-disabled: pcmtdraft/js/mass-edit/form/product/change-family-disabled
+
+        ### common ###
+        pcmt/draft/common/breadcrumbs: pcmtdraft/js/draft/common/breadcrumbs
+        pcmt/draft/common/title: pcmtdraft/js/draft/common/title
+        pcmt/draft/common/attributes: pcmtdraft/js/draft/common/attributes
+        pcmt/draft/common/main-image: pcmtdraft/js/draft/common/main-image
+        pcmt/draft/common/updated: pcmtdraft/js/draft/common/updated
+        pcmt/draft/common/created: pcmtdraft/js/draft/common/created
+        pcmt/draft/common/modal: pcmtdraft/js/draft/common/modal
+        pcmt/form/common/creation/modal: pcmtdraft/js/draft/form/common/creation/modal
+
+        ### templates ###
+        pcmt/common/template/form/label: pcmtdraft/templates/common/form/label.html
+        pcmt/product/template/widget/draft-products-widget: pcmtdraft/templates/draft/draft-products-widget.html
+        pcmt/product/template/widget/view-all-btn: pcmtdraft/templates/draft/view-all-btn.html
+        pcmt/product/template/meta/change-family-disabled: pcmtdraft/templates/product/meta/change-family-modal-disabled.html
+        pcmt/product/template/meta/family: pcmtdraft/templates/product/meta/family.html
+        pcmt/product/template/draft-list: pcmtdraft/templates/draft/draft-list.html
+        pcmt/product/template/draft-pagination: pcmtdraft/templates/draft/draft-pagination.html
+        pcmt/product/template/filters: pcmtdraft/templates/draft/filters.html
+        pcmt/product/template/form/no-draft: pcmtdraft/templates/product/form/no-draft.html
+        pcmt/product/template/form/column-tabs-navigation: pcmtdraft/templates/product/form/column-tabs-navigation.html
+        pcmt/product/template/product/form/status-switcher-disabled: pcmtdraft/templates/product/form/status-switcher-disabled.html
+        pcmt/draft/template/mass-actions: pcmtdraft/templates/draft/mass-actions.html
+        pcmt/draft/template/actions-panel: pcmtdraft/templates/draft/actions-panel.html
+        pcmt/draft/template/product/form/modal-associations-add: pcmtdraft/templates/product/form/modal-associations-add.html
+
+        ### controllers ###
+        pcmt/product/drafts/index: pcmtdraft/js/controller/drafts_index
+        pcmt/product/drafts/edit: pcmtdraft/js/controller/drafts_edit
+
+        ### fetchers ###
+        pcmt/draft-fetcher: pcmtdraft/js/draft/fetcher/draft_fetcher
+
+        ### savers ###
+        pcmt/product-draft-saver: pcmtdraft/js/draft/saver/product-draft-saver
+
+    config:
+        pim/controller-registry:
+            controllers:
+                pcmt_core_drafts_index:
+                    module: pcmt/product/drafts/index
+                pcmt_core_drafts_edit:
+                    module: pcmt/product/drafts/edit
+                    config:
+                        entity: draft
+            defaultController:
+                module: pim/controller/template
+
+        pim/fetcher-registry:
+            fetchers:
+                default: pim/base-fetcher
+                draft:
+                    module: pcmt/draft-fetcher
+                    options:
+                        urls:
+                            get: pcmt_core_drafts_api
+
+        pcmt/product-draft-saver:
+            url: pcmt_core_draft_update_api

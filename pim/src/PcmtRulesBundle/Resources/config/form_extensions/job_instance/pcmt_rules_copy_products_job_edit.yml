@@ -1,0 +1,184 @@
+extensions:
+  pcmt-rules-copy-products-job-edit:
+    module: pim/form/common/edit-form
+
+  pcmt-rules-copy-products-job-edit-main-image:
+    module: pim/form/common/main-image
+    parent: pcmt-rules-copy-products-job-edit
+    targetZone: main-image
+    config:
+      path: bundles/pimui/images/illustrations/ImportXLSX.svg
+
+  pcmt-rules-copy-products-job-edit-user-navigation:
+    module: pim/menu/user-navigation
+    parent: pcmt-rules-copy-products-job-edit
+    targetZone: user-menu
+    config:
+      userAccount: pim_menu.user.user_account
+      logout: pim_menu.user.logout
+
+  pcmt-rules-copy-products-job-edit-breadcrumbs:
+    module: pim/common/breadcrumbs
+    parent: pcmt-rules-copy-products-job-edit
+    targetZone: breadcrumbs
+    config:
+      tab: pim-menu-rules
+
+  pcmt-rules-copy-products-job-edit-cache-invalidator:
+    module: pim/cache-invalidator
+    parent: pcmt-rules-copy-products-job-edit
+    position: 1000
+
+  pcmt-rules-copy-products-job-edit-tabs:
+    module: pim/form/common/form-tabs
+    parent: pcmt-rules-copy-products-job-edit
+    targetZone: content
+    position: 100
+
+  pcmt-rules-copy-products-job-edit-properties:
+    module: pim/job/common/edit/properties
+    parent: pcmt-rules-copy-products-job-edit-tabs
+    aclResourceId: pcmt_permission_rules_edit
+    targetZone: container
+    position: 100
+    config:
+      tabTitle: pim_common.properties
+      tabCode: pim-job-instance-properties
+
+  pcmt-rules-copy-products-job-description:
+    module: pim/common/simple-view
+    parent: pcmt-rules-copy-products-job-edit-properties
+    position: 200
+    config:
+      template: pcmt/rules/template/job/rules/family-copy-by-association-description
+
+  pcmt-rules-copy-products-job-edit-mapping-tab:
+    module: pcmt/rules/job/rules/edit/mapping-tab
+    parent: pcmt-rules-copy-products-job-edit-tabs
+    aclResourceId: pcmt_permission_rules_edit
+    targetZone: container
+    position: 120
+    config:
+      tabTitle: pcmt.rules.copy_products_job.tab.attribute_mapping
+      tabCode: pcmt-rules-copy-products-job-edit-mapping
+
+  pcmt-rules-copy-products-job-edit-mapping:
+    module: pcmt/rules/job/rules/edit/attribute-mapping
+    parent: pcmt-rules-copy-products-job-edit-mapping-tab
+    targetZone: properties
+    position: 120
+    config:
+      fieldCode: configuration.attributeMapping
+
+  pcmt-rules-copy-products-job-edit-history:
+    module: pim/common/tab/history
+    parent: pcmt-rules-copy-products-job-edit-tabs
+    targetZone: container
+    aclResourceId: pcmt_permission_rules_view
+    position: 130
+    config:
+      class: Akeneo\Tool\Component\Batch\Model\JobInstance
+      title: pim_common.history
+      tabCode: pim-job-instance-history
+
+  pcmt-rules-copy-products-job-edit-properties-code:
+    module: pim/job/common/edit/field/text
+    parent: pcmt-rules-copy-products-job-edit-properties
+    position: 100
+    targetZone: properties
+    config:
+      fieldCode: code
+      label: pim_common.code
+      readOnly: true
+
+  pcmt-rules-copy-products-job-edit-properties-label:
+    module: pim/job/common/edit/field/text
+    parent: pcmt-rules-copy-products-job-edit-properties
+    position: 110
+    targetZone: properties
+    config:
+      fieldCode: label
+      label: pim_common.label
+      readOnly: false
+
+  pcmt-rules-copy-products-job-edit-properties-source-family:
+    module: pcmt/rules/job/field/select
+    parent: pcmt-rules-copy-products-job-edit-properties
+    position: 155
+    targetZone: properties
+    config:
+      fetcher: 'family'
+      fieldCode: configuration.sourceFamily
+      readOnly: false
+      label: pcmt.rules.copy_products_job.properties.source_family.title
+      tooltip: pcmt.rules.copy_products_job.properties.source_family.help
+
+  pcmt-rules-copy-products-job-edit-properties-destination-family:
+    module: pcmt/rules/job/field/select
+    parent: pcmt-rules-copy-products-job-edit-properties
+    position: 160
+    targetZone: properties
+    config:
+      fetcher: 'family'
+      fieldCode: configuration.destinationFamily
+      readOnly: false
+      label: pcmt.rules.copy_products_job.properties.destination_family.title
+      tooltip: pcmt.rules.copy_products_job.properties.destination_family.help
+
+  pcmt-rules-copy-products-job-edit-label:
+    module: pim/job/common/edit/label
+    parent: pcmt-rules-copy-products-job-edit
+    targetZone: title
+    position: 100
+
+  pcmt-rules-copy-products-job-edit-meta:
+    module: pim/job/common/edit/meta
+    parent: pcmt-rules-copy-products-job-edit
+    targetZone: meta
+    position: 100
+
+  pcmt-rules-copy-products-job-edit-secondary-actions:
+    module: pim/form/common/secondary-actions
+    parent: pcmt-rules-copy-products-job-edit
+    targetZone: buttons
+    position: 50
+
+  pcmt-rules-copy-products-job-edit-delete:
+    module: pim/job/import/edit/delete
+    parent: pcmt-rules-copy-products-job-edit-secondary-actions
+    targetZone: secondary-actions
+    aclResourceId: pcmt_permission_rules_delete
+    position: 100
+    config:
+      trans:
+        title: confirmation.remove.import_profile
+        content: pim_common.confirm_deletion
+        success: pim_import_export.entity.job_instance.flash.delete.success
+        failed: error.removing.job_instance
+      redirect: pcmt_rules_profile_index
+
+  pcmt-rules-copy-products-job-edit-save-buttons:
+    module: pim/form/common/save-buttons
+    parent: pcmt-rules-copy-products-job-edit
+    targetZone: buttons
+    position: 120
+
+  pcmt-rules-copy-products-job-edit-save:
+    module: pcmt/rules/job/rules/edit/save
+    parent: pcmt-rules-copy-products-job-edit
+    targetZone: buttons
+    position: 0
+    config:
+      redirectPath: pcmt_rules_profile_show
+
+  pcmt-rules-copy-products-job-edit-state:
+    module: pim/form/common/state
+    parent: pcmt-rules-copy-products-job-edit
+    targetZone: state
+    position: 900
+    config:
+      entity: pim_import_export.entity.job_instance.label
+
+  pcmt-rules-copy-products-job-edit-validation:
+    module: pim/job/common/edit/validation
+    parent: pcmt-rules-copy-products-job-edit

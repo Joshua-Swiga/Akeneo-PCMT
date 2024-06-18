@@ -1,0 +1,25 @@
+<div class="AknFieldContainer" data-code="<%- identifier %>">
+    <div class="AknFieldContainer-header">
+        <label title="<%- label %>" class="AknFieldContainer-label control-label required truncate" for="creation_<%- identifier %>">
+            <%- label %> <em><%- requiredLabel %></em>
+        </label>
+    </div>
+    <div class="AknFieldContainer-inputContainer field-input">
+        <input type="text" class="AknTextField" value="<%- value %>" id="creation_<%- identifier %>" name="<%- identifier %>"/>
+    </div>
+    <div class="AknFieldContainer-footer AknFieldContainer-validationErrors validation-errors">
+        <% _.each(errors, function (error) { %>
+        <span class="AknFieldContainer-validationError">
+                <span class="error-message"><%- error.message %></span>
+            </span>
+        <% }) %>
+    </div>
+    <% if (showCreateButton) { %>
+    <div>
+        <br>
+        <button  class="AknButton AknButton--micro AknButton--apply generate-unique-id">
+            <%- createButtonLabel %>
+        </button>
+    </div>
+    <% } %>
+</div>

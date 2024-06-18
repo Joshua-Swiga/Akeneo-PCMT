@@ -1,0 +1,19 @@
+######################################################################
+# Copyright (c) 2019, VillageReach
+# Licensed under the Non-Profit Open Software License version 3.0.
+# SPDX-License-Identifier: NPOSL-3.0
+######################################################################
+
+pim_dashboard_index:
+  path: /dashboard
+  defaults: { _controller: FrameworkBundle:Template:template, template: PcmtCoreBundle:Dashboard:index.html.twig }
+
+pcmt_reference_data_get_country_codes:
+  path: /rest/reference/country_codes
+  defaults: { _controller: pcmt_core.controller.rest.reference:getCountryCodes }
+  methods: [GET]
+
+pcmt_unique_id_generator:
+  path: /rest/unique_id
+  defaults: { _controller: pcmt_core.controller.rest.unique_id_generator:getNew }
+  methods: [ GET ]

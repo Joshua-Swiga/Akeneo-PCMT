@@ -1,0 +1,32 @@
+######################################################################
+# Copyright (c) 2019, VillageReach
+# Licensed under the Non-Profit Open Software License version 3.0.
+# SPDX-License-Identifier: NPOSL-3.0
+######################################################################
+
+extensions:
+    # overridden route - redirection to drafts
+    pim-product-create-modal:
+        module: pcmt/form/common/creation/modal
+        config:
+            labels:
+                title: pim_common.create
+                subTitle: pim_enrich.entity.product.plural_label
+            picture: illustrations/Product.svg
+            successMessage: pim_enrich.entity.product.flash.create.success
+            editRoute: pim_enrich_product_edit
+            postUrl: pim_enrich_product_rest_create
+
+    # overridden route - redirection to drafts
+    pim-product-model-create-modal:
+        module: pcmt/form/common/creation/modal
+        config:
+            labels:
+                title: pim_enrich.entity.product_model.module.create.title
+                subTitle: pim_enrich.entity.product.plural_label
+                content: pim_enrich.entity.product_model.module.create.content
+            picture: illustrations/Product-model.svg
+            successMessage: pim_enrich.entity.product_model.flash.create.success
+            editRoute: pim_enrich_product_model_edit
+            postUrl: pim_enrich_product_model_rest_create
+            excludedProperties: [ family ]

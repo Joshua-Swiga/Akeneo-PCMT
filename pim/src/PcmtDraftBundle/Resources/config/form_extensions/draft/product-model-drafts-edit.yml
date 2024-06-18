@@ -1,0 +1,279 @@
+######################################################################
+# Copyright (c) 2019, VillageReach
+# Licensed under the Non-Profit Open Software License version 3.0.
+# SPDX-License-Identifier: NPOSL-3.0
+######################################################################
+
+extensions:
+    pcmt-product-model-drafts-edit:
+        module: pim/form/common/edit-form
+
+    pcmt-product-model-drafts-edit-form-breadcrumbs:
+        module: pcmt/draft/common/breadcrumbs
+        parent: pcmt-product-model-drafts-edit
+        targetZone: breadcrumbs
+        config:
+            tab: pim-menu-products
+            itemPath: code
+
+    pcmt-product-model-drafts-edit-form-user-navigation:
+        module: pim/menu/user-navigation
+        parent: pcmt-product-model-drafts-edit
+        targetZone: user-menu
+        config:
+            userAccount: pim_menu.user.user_account
+            logout: pim_menu.user.logout
+
+    pcmt-product-model-drafts-edit-form-main-image:
+        module: pcmt/draft/common/main-image
+        parent: pcmt-product-model-drafts-edit
+        targetZone: main-image
+
+    pcmt-product-model-drafts-edit-form-variant-navigation:
+        module: pcmt/draft/form/variant-navigation
+        parent: pcmt-product-model-drafts-edit
+        targetZone: navigation
+
+    pcmt-product-model-drafts-edit-form-cache-invalidator:
+        module: pcmt/draft/form/cache-invalidator
+        parent: pcmt-product-model-drafts-edit
+        position: 1000
+
+    pcmt-product-model-drafts-edit-form-sequential-edit:
+        module: pcmt/draft/form/sequential-edit
+        parent: pcmt-product-model-drafts-edit
+        targetZone: bottom-panel
+        aclResourceId: pim_enrich_product_model_edit_attributes
+        position: 100
+
+    pcmt-product-model-drafts-edit-form-left-column:
+        module: pim/form/common/column
+        parent: pcmt-product-model-drafts-edit
+        position: 5
+        targetZone: column
+        config:
+            stateCode: product_edit_form
+            navigationTitle: pim_menu.navigation.product
+
+    pcmt-product-model-drafts-edit-form-column-tabs-navigation:
+        module: pim/form/common/column-tabs-navigation
+        parent: pcmt-product-model-drafts-edit-form-left-column
+        targetZone: navigation
+        position: 10
+        config:
+            title: pim_menu.navigation.product
+
+    pcmt-product-model-drafts-edit-form-meta:
+        module: pim/form/common/meta
+        parent: pcmt-product-model-drafts-edit-form-left-column
+        targetZone: bottom
+        position: 10
+        config:
+            label: pim_menu.navigation.product_infos
+
+    pcmt-product-model-drafts-edit-form-column-tabs:
+        module: pim/form/common/column-tabs
+        parent: pcmt-product-model-drafts-edit
+        targetZone: content
+        position: 100
+
+    pcmt-product-model-drafts-edit-form-model-label:
+        module: pcmt/draft/form/product-model-label
+        parent: pcmt-product-model-drafts-edit
+        targetZone: title
+        position: 100
+
+    pcmt-product-model-drafts-edit-form-save-buttons:
+        module: pim/form/common/save-buttons
+        parent: pcmt-product-model-drafts-edit
+        targetZone: buttons
+        position: 120
+
+    pcmt-product-model-drafts-edit-form-save:
+        module: pcmt/draft/form/save
+        parent: pcmt-product-model-drafts-edit
+        targetZone: buttons
+        aclResourceId: pim_enrich_product_model_edit_attributes
+        position: 0
+
+    pcmt-product-model-drafts-edit-form-state:
+        module: pim/form/common/state
+        parent: pcmt-product-model-drafts-edit
+        targetZone: state
+        position: 900
+        config:
+            entity: pim_enrich.entity.product.label
+
+    pcmt-product-model-drafts-edit-form-family:
+        module: pcmt/draft/form/meta/family
+        parent: pcmt-product-model-drafts-edit-form-meta
+        targetZone: meta
+        position: 70
+
+    pcmt-product-model-drafts-edit-form-family-variant:
+        module: pcmt/draft/form/meta/family-variant
+        parent: pcmt-product-model-drafts-edit-form-meta
+        targetZone: meta
+        position: 80
+
+    pcmt-product-model-drafts-edit-form-created:
+        module: pcmt/draft/form/meta/created
+        parent: pcmt-product-model-drafts-edit-form-meta
+        targetZone: meta
+        position: 90
+        config:
+            label: pim_common.created
+            labelBy: pim_common.by
+
+    pcmt-product-model-drafts-edit-form-updated:
+        module: pcmt/draft/form/meta/updated
+        parent: pcmt-product-model-drafts-edit-form-meta
+        targetZone: meta
+        position: 100
+        config:
+            label: pim_enrich.entity.product.module.meta.updated
+            labelBy: pim_common.by
+
+    pcmt-product-model-drafts-edit-form-attributes:
+        module: pcmt/draft/common/attributes
+        parent: pcmt-product-model-drafts-edit-form-column-tabs
+        targetZone: container
+        aclResourceId: pim_enrich_product_model_edit_attributes
+        position: 90
+        config:
+            removeAttributeRoute: pim_enrich_product_remove_attribute_rest
+            removeAttributeACL: pim_enrich_product_remove_attribute
+            tabTitle: pim_enrich.entity.attribute.plural_label
+            deletionFailed: pim_enrich.entity.attribute.flash.delete.fail
+
+    pcmt-product-model-drafts-edit-form-categories:
+        module: pcmt/draft/form/categories
+        parent: pcmt-product-model-drafts-edit-form-column-tabs
+        targetZone: container
+        aclResourceId: pim_enrich_product_model_categories_view
+        position: 100
+        config:
+            tabCode: pim-product-edit-form-categories
+            itemCategoryListRoute: pim_enrich_product_model_listcategories
+            itemCategoryTreeRoute: pcmt_draft_product_model_category_rest_list
+
+    pcmt-product-model-drafts-edit-form-associations:
+        module: pcmt/draft/form/associations
+        parent: pcmt-product-model-drafts-edit-form-column-tabs
+        targetZone: container
+        aclResourceId: pim_enrich_associations_view
+        position: 110
+        config:
+            tabCode: pim-product-edit-form-associations
+            aclAddAssociations: pim_enrich_associations_edit
+            datagridName: 'association-product-model-draft-grid'
+
+    pcmt-product-model-drafts-edit-form-attribute-group-selector:
+        module: pcmt/draft/form/attributes/attribute-group-selector
+        parent: pcmt-product-model-drafts-edit-form-attributes
+        targetZone: other-actions
+        position: 100
+
+    pcmt-product-model-drafts-edit-form-attribute-scope-switcher:
+        module: pim/product-edit-form/scope-switcher
+        parent: pcmt-product-model-drafts-edit
+        targetZone: context
+        position: 100
+        config:
+            context: base_product
+
+    pcmt-product-model-drafts-edit-form-attribute-locale-switcher:
+        module: pim/product-edit-form/locale-switcher
+        parent: pcmt-product-model-drafts-edit
+        targetZone: context
+        position: 110
+        config:
+            context: base_product
+
+    pcmt-product-model-drafts-edit-form-complete-variant-product:
+        module: pcmt/draft/form/complete-variant-product
+        parent: pcmt-product-model-drafts-edit
+        targetZone: meta
+        position: 120
+        config:
+            context: base_product
+
+    pcmt-product-model-drafts-edit-form-total-missing-required-attributes:
+        module: pcmt/draft/form/total-missing-required-attributes
+        parent: pcmt-product-model-drafts-edit
+        targetZone: meta
+        position: 140
+
+    pcmt-product-model-drafts-edit-form-validation:
+        module: pcmt/draft/form/attributes/validation
+        parent: pcmt-product-model-drafts-edit-form-attributes
+        targetZone: header
+        position: 100
+
+    pcmt-product-model-drafts-edit-form-read-only-parent-attributes:
+        module: pcmt/draft/form/attributes/read-only-parent-attributes
+        parent: pcmt-product-model-drafts-edit-form-attributes
+        targetZone: self
+        position: 100
+
+    pcmt-product-model-drafts-edit-form-read-only-variant-axes:
+        module: pcmt/draft/form/attributes/variant-axes
+        parent: pcmt-product-model-drafts-edit-form-attributes
+        targetZone: self
+        position: 110
+
+    pcmt-product-model-drafts-edit-form-locale-specific:
+        module: pim/product-edit-form/attributes/locale-specific
+        parent: pcmt-product-model-drafts-edit-form-attributes
+        targetZone: self
+        position: 100
+
+    pcmt-product-model-drafts-edit-form-localizable:
+        module: pim/product-edit-form/attributes/localizable
+        parent: pcmt-product-model-drafts-edit-form-attributes
+        targetZone: self
+        position: 90
+
+    pcmt-product-model-drafts-edit-form-completeness-filter:
+        module: pcmt/draft/form/attributes/completeness
+        parent: pcmt-product-model-drafts-edit-form-attributes
+        targetZone: self
+        position: 100
+
+    pcmt-product-model-drafts-edit-form-attribute-filter:
+        module: pim/product-edit-form/attribute-filter
+        parent: pcmt-product-model-drafts-edit-form-attributes
+        targetZone: other-actions
+        position: 110
+
+    pcmt-product-model-drafts-edit-form-attribute-filter-all:
+        module: pim/product-edit-form/attribute-filter-all
+        parent: pcmt-product-model-drafts-edit-form-attribute-filter
+        position: 100
+
+    pcmt-product-model-drafts-edit-form-attribute-filter-missing-required:
+        module: pcmt/draft/form/attribute-filter-missing-required
+        parent: pcmt-product-model-drafts-edit-form-attribute-filter
+        position: 110
+
+    pcmt-product-model-drafts-edit-form-attribute-filter-at-this-level-filter:
+        module: pcmt/draft/form/attribute-filter-at-this-level
+        parent: pcmt-product-model-drafts-edit-form-attribute-filter
+        targetZone: self
+        position: 120
+
+    pcmt-product-model-drafts-edit-form-label:
+        module: pcmt/draft/form/label
+        parent: pcmt-product-model-drafts-edit
+        targetZone: state
+        position: 10
+        config:
+            labels:
+                createdDraft: pcmt_core.drafts_editing.labels.created_product_model_draft
+                updatedDraft: pcmt_core.drafts_editing.labels.updated_draft
+
+    pcmt-product-model-drafts-edit-form-attribute-description:
+        module: dnd/product-edit-form/attributes/description
+        parent: pcmt-product-model-drafts-edit-form-attributes
+        targetZone: self
+        position: 100

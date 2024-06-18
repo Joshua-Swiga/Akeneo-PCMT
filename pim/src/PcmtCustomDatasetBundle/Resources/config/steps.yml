@@ -1,0 +1,40 @@
+######################################################################
+# Copyright (c) 2019, VillageReach
+# Licensed under the Non-Profit Open Software License version 3.0.
+# SPDX-License-Identifier: NPOSL-3.0
+######################################################################
+
+services:
+
+  pcmt_connector.step.pcmt_xlsx_product.import:
+    class: '%pim_connector.step.item_step.class%'
+    arguments:
+      - 'import'
+      - '@event_dispatcher'
+      - '@akeneo_batch.job_repository'
+      - '@pim_connector.reader.file.xlsx_product'
+      - '@pcmt_connector.processor.denormalization.product'
+      - '@pim_connector.writer.database.product'
+      - '%pim_job_product_batch_size%'
+
+  pcmt_connector.step.pcmt_xlsx_datagrid.export:
+    class: '%pim_connector.step.item_step.class%'
+    arguments:
+      - 'export'
+      - '@event_dispatcher'
+      - '@akeneo_batch.job_repository'
+      - '@pcmt_connector.reader.database.datagrid_view'
+      - '@pcmt_connector.processor.normalization.datagrid_view'
+      - '@pcmt_connector.writer.file.xlsx_datagrid_view'
+      - 10
+
+  pim_connector.step.pcmt_xlsx_datagrid_view.import:
+    class: '%pim_connector.step.item_step.class%'
+    arguments:
+      - 'import'
+      - '@event_dispatcher'
+      - '@akeneo_batch.job_repository'
+      - '@pcmt_connector.reader.file.datagrid_view'
+      - '@pcmt_connector.processor.denormalization.datagrid_view'
+      - '@pcmt_connector.writer.database.datagrid_view'
+      - 1
